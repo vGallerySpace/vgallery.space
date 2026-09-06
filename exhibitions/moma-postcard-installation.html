@@ -307,6 +307,53 @@
       border: 1px solid var(--line);
     }
 
+    .giftshop-section {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      text-align: right;
+    }
+
+    .giftshop-header-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .giftshop-img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .giftshop-subtitle {
+      font-size: 13px;
+      color: var(--soft);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .giftshop-link {
+      color: #000000 !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 0;
+    }
+
+    .giftshop-link:hover {
+      color: #666666 !important;
+      transform: translateX(-4px);
+    }
+
     /* Footer - clean and consistent */
     .footer-clean {
       background: var(--bg);
@@ -473,14 +520,19 @@
       <p><STRONG>INTERACTIVE NFT</STRONG></p>
       <p>CLICK ON THE POSTCARD ABOVE FOR MORE INFO ON THE PROJECT AND TO READ ABOUT THE INSTALLATION. FOR MORE INFORMATION ABOUT THE COLLECTION VISIT <a href="https://objkt.com/collections/moma-postcard" target="_blank" rel="noopener" class="footer-link">objkt</a> PAGE.</p>
 
-<h2>GIFT SHOP</h2>
-      <p>FEEL FREE TO BROWSE THE ONGOING RESEARCH AND ARCHIVE;</p>
-
-<p><a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=us%20local" target="_blank" rel="noopener" class="footer-link">US LOCAL STAMPS</a></p>
-      <p><a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=us%20stamp" target="_blank" rel="noopener" class="footer-link">19TH CENTURY US STAMPS</a></p>
-      <p><a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=us%20postal%20cards" target="_blank" rel="noopener" class="footer-link">EARLY AMERICAN POSTAL CARDS</a></p>
-      <p><a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=postcard" target="_blank" rel="noopener" class="footer-link">ARTIST POSTCARDS</a></p>
-      <p><a href="https://www.hipstamp.com/store/stamp-gallery/?sort=default&keywords=crypto%20stamps" target="_blank" rel="noopener" class="footer-link">CRYPTO STAMPS</a></p>
+    <div class="giftshop-section">
+      <div class="giftshop-header-wrap">
+        <img src="../assets/giftshop-black.png" alt="GIFT SHOP" class="giftshop-img" />
+      </div>
+      <p class="giftshop-subtitle">FEEL FREE TO BROWSE THE ONGOING RESEARCH AND ARCHIVE;</p>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=us%20local" target="_blank" rel="noopener" class="giftshop-link">US LOCAL STAMPS <i class="fas fa-arrow-right" style="font-size: 11px;"></i></a>
+        <a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=us%20stamp" target="_blank" rel="noopener" class="giftshop-link">19TH CENTURY US STAMPS <i class="fas fa-arrow-right" style="font-size: 11px;"></i></a>
+        <a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=us%20postal%20cards" target="_blank" rel="noopener" class="giftshop-link">EARLY AMERICAN POSTAL CARDS <i class="fas fa-arrow-right" style="font-size: 11px;"></i></a>
+        <a href="https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=vgalleryspace&store_name=vgalleryspace&_oac=1&_nkw=postcard" target="_blank" rel="noopener" class="giftshop-link">ARTIST POSTCARDS <i class="fas fa-arrow-right" style="font-size: 11px;"></i></a>
+        <a href="https://www.hipstamp.com/store/stamp-gallery/?sort=default&keywords=crypto%20stamps" target="_blank" rel="noopener" class="giftshop-link">CRYPTO STAMPS <i class="fas fa-arrow-right" style="font-size: 11px;"></i></a>
+      </div>
+    </div>
 
 
     </div>
