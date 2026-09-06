@@ -222,13 +222,24 @@
     }
 
     .hero-image {
+      display: block;
       width: 100%;
       height: auto;
       max-height: 520px;
       object-fit: contain;
-      margin-bottom: 28px;
-      background: var(--bg);
-      border: 1px solid var(--line);
+      margin-bottom: 20px;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
+    }
+
+    .hero-image-link {
+      display: block;
+      text-decoration: none;
+    }
+    .hero-image-link:hover .hero-image {
+      opacity: 0.92;
     }
 
     .exhibition-image {
@@ -450,8 +461,8 @@
     </header>
 
 <!-- Main hero image - clickable to Artsy -->
-    <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" aria-label="View on Artsy">
-      <img src="../assets/ad2021-adart-new.png" alt="AD Art Show 2021" class="exhibition-image" />
+    <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" aria-label="View on Artsy" class="hero-image-link">
+      <img src="../assets/ad2021-adart-new.png" alt="AD Art Show 2021" class="hero-image" />
     </a>
 
 <div class="content-body">
