@@ -226,7 +226,7 @@
       height: auto;
       max-height: 520px;
       object-fit: contain;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       background: var(--bg);
       border: 1px solid var(--line);
     }
@@ -294,6 +294,35 @@
     video, iframe {
       max-width: 100%;
       border: 1px solid var(--line);
+    }
+
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: #000000;
+      border: 1px solid #000000;
+      color: #ffffff !important;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: all .18s ease;
+    }
+
+    .external-link:hover {
+      background: #333333;
+      border-color: #333333;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .external-link i {
+      font-size: 14px;
     }
 
     /* Footer - clean and consistent */
@@ -452,21 +481,21 @@
       <p class="content-meta">FEBRUARY 2025</p>
     </header>
 
-<!-- Main hero image -->
-    <img src="../assets/vgebay.webp" alt="vGallerySpace : eBay" class="hero-image" />
+<!-- Main hero image - clickable to eBay store -->
+    <a href="https://www.ebay.com/str/vgalleryspace/FRAMOUS/_i.html?store_cat=44086862016" target="_blank" rel="noopener" aria-label="Enter eBay Store">
+      <img src="../assets/vgebay-new.jpg" alt="vGallerySpace : eBay" class="hero-image" />
+    </a>
 
-<div class="content-body">
+    <p style="text-align: center; margin: 0 0 24px;">
+      <a href="https://www.ebay.com/str/vgalleryspace/FRAMOUS/_i.html?store_cat=44086862016" target="_blank" rel="noopener" class="external-link">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        ENTER
+      </a>
+    </p>
+
+    <div class="content-body">
       <h2>FRAMOUS ARCHIVES</h2>
       <p>MANY OF THE ITEMS ARE FROM ARTISTS WHO HAVE INFLUENCED MY WORK AND OTHERS WHO INFLUENCE THE MARKETPLACE. ALWAYS MAKING REVISIONS AND UPDATING WITH MORE ACCURATE INFORMATION. IF YOU SEE ANYTHING THAT DOESN'T LOOK RIGHT, PLEASE LET ME KNOW. LEARNING AND STUDYING THE PAST TO CREATE A RELEVANT PRESENT WITH A BETTER PROJECTION OF THE FUTURE IS MY MAIN GOAL.</p>
-
-<p style="text-align: center; margin: 24px 0 16px;">
-        <a href="https://www.ebay.com/str/vgalleryspace/FRAMOUS/_i.html?store_cat=44086862016" target="_blank" rel="noopener" class="external-link">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          ENTER
-        </a>
-      </p>
-    </div></div>
-          </div>
     </div>
 
   </main>
