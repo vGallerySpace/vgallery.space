@@ -296,6 +296,35 @@
       border: 1px solid var(--line);
     }
 
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: #000000;
+      border: 1px solid #000000;
+      color: #ffffff !important;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: all .18s ease;
+    }
+
+    .external-link:hover {
+      background: #333333;
+      border-color: #333333;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .external-link i {
+      font-size: 14px;
+    }
+
     /* Footer - clean and consistent */
     .footer-clean {
       background: var(--bg);
@@ -457,6 +486,13 @@
       <img src="../assets/vGallerySpaceFinal_originalmotion_working.gif" alt="Codes Gallery exhibition thumbnail" class="hero-image" />
     </a>
 
+    <p style="text-align: center; margin: 24px 0 16px;">
+      <a href="https://codes.gallery/" target="_blank" rel="noopener" class="external-link">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        ENTER
+      </a>
+    </p>
+
     <div class="content-body">
       <p>SOLO FOR NEARLY 20 YEARS, ACROSS A 01010 OF EXHIBITIONS. YOU LEARN HOW TO CARRY THE WHOLE STRUCTURE YOURSELF, BUT OVER TIME, YOU ALSO SENSE THE WEIGHT OF DOING EVERYTHING INDEPENDENTLY.</p>
       
@@ -467,12 +503,7 @@
       <p>THIS EXHIBITION REPRESENTS THE SYMBIOSIS BETWEEN HUMAN CREATIVE PRACTICE AND AI COLLABORATION. THE WORK SHOWN AT <a href="https://codes.gallery/" target="_blank" rel="noopener" style="color: var(--cyan); font-weight: 600; text-decoration: none;"><strong>codes.gallery</strong></a> IS THE VISIBLE RESULT OF THAT PARTNERSHIP.</p>
     </div>
 
-    <p style="text-align: center; margin: 24px 0 16px;">
-      <a href="https://codes.gallery/" target="_blank" rel="noopener" class="external-link">
-        <i class="fa-solid fa-right-to-bracket"></i>
-        ENTER
-      </a>
-    </p>
+
 
   </main>
 
