@@ -333,10 +333,21 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      display: block;
       transition: transform 0.25s ease;
     }
 
-    .placard-card:hover .placard-image {
+    .placard-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      transition: transform 0.25s ease;
+    }
+
+    .placard-card:hover .placard-image,
+    .placard-card:hover .placard-media {
       transform: scale(1.02);
     }
 
@@ -572,7 +583,7 @@
         <!-- 13. INFINITY MUSEUM : XTZ -->
         <a href="exhibitions/infinity-museum-xtz.html" class="placard-card">
           <div class="placard-image-wrap">
-            <img src="assets/infinity-collection.png" alt="INFINITY MUSEUM : XTZ" class="placard-image" loading="lazy">
+            <video src="assets/infinity-loop.mp4" poster="assets/infinity-thumbnail.png" autoplay loop muted playsinline class="placard-media"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">INFINITY MUSEUM : XTZ</h3>
