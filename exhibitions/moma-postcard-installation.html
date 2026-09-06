@@ -222,13 +222,24 @@
     }
 
     .hero-image {
+      display: block;
       width: 100%;
       height: auto;
       max-height: 520px;
       object-fit: contain;
-      margin-bottom: 28px;
-      background: var(--bg);
-      border: 1px solid var(--line);
+      margin-bottom: 20px;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
+    }
+
+    .hero-image-link {
+      display: block;
+      text-decoration: none;
+    }
+    .hero-image-link:hover .hero-image {
+      opacity: 0.92;
     }
 
     .exhibition-image {
@@ -450,7 +461,7 @@
     </header>
 
 <!-- Main hero image - clickable to MoMA exhibition -->
-    <a href="https://www.moma.org/calendar/exhibitions/5618" target="_blank" rel="noopener" aria-label="View MoMA Postcard Installation exhibition">
+    <a href="https://www.moma.org/calendar/exhibitions/5618" target="_blank" rel="noopener" aria-label="View MoMA Postcard Installation exhibition" class="hero-image-link">
       <img src="../assets/moma.webp" alt="MOMA Postcard Installation" class="hero-image" />
     </a>
 
@@ -472,15 +483,6 @@
       <p><a href="https://www.hipstamp.com/store/stamp-gallery/?sort=default&keywords=crypto%20stamps" target="_blank" rel="noopener" class="footer-link">CRYPTO STAMPS</a></p>
 
 
-    </div>
-
-
-    
-  
-
-
-</div>
-          </div>
     </div>
 
   </main>
