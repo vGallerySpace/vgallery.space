@@ -232,22 +232,25 @@
     }
 
     .exhibition-image {
-      width: 100%;
+      display: block;
+      width: auto;
+      max-width: 100%;
       height: auto;
-      max-height: 600px;
-      object-fit: contain;
-      border: 1px solid var(--line);
-      margin-bottom: 16px;
-      background: var(--bg);
-      object-position: center;
+      max-height: 520px;
+      margin: 0 auto 14px auto;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
     }
 
     .artwork-meta {
       color: #000000;
-      font-size: 15px;
+      font-size: 14px;
       margin: 0 0 8px 0;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       font-weight: 700;
+      text-align: center;
     }
 
     .artwork-desc {
@@ -274,10 +277,10 @@
     }
 
     .artwork {
-      border: 1px solid var(--line);
-      padding: 16px;
-      background: #ffffff;
-      margin-bottom: 24px;
+      border: none;
+      padding: 0;
+      background: transparent;
+      margin-bottom: 40px;
     }
 
     .proto-link {
@@ -468,8 +471,6 @@
         <img src="../assets/osg-gallery.jpg" alt="OSG Gallery" class="exhibition-image" />
         <p class="artwork-meta">GALLERY</p>
       </article>
-    </div></div>
-          </div>
     </div>
 
   </main>
