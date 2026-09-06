@@ -232,14 +232,16 @@
     }
 
     .exhibition-image {
-      width: 100%;
+      display: block;
+      width: auto;
+      max-width: 100%;
       height: auto;
-      max-height: 600px;
-      object-fit: contain;
-      border: 1px solid var(--line);
-      margin-bottom: 16px;
-      background: var(--bg);
-      object-position: center;
+      max-height: 520px;
+      margin: 0 auto 16px auto;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
     }
 
     .artwork-meta {
@@ -274,10 +276,10 @@
     }
 
     .artwork {
-      border: 1px solid var(--line);
-      padding: 16px;
-      background: #ffffff;
-      margin-bottom: 24px;
+      border: none;
+      padding: 0;
+      background: transparent;
+      margin-bottom: 36px;
     }
 
     .proto-link {
@@ -506,8 +508,6 @@
 <article class="artwork">
         <img src="../assets/biz-zine-14.png" alt="Biz-Zine Page 14" class="exhibition-image" />
       </article>
-    </div></div>
-          </div>
     </div>
 
   </main>
