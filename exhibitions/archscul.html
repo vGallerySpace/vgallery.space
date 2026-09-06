@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ARCH>SCUL — vgallery.space</title>
+  <meta name="description" content="ARCH>SCUL exhibition at vgallery.space. Unfinished sculpture concept representing Gallery + Office/Studio mixed-use residential building." />
+  <link rel="canonical" href="https://vgallery.space/exhibitions/archscul.html" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:site_name" content="vgallery.space" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vgallery.space/exhibitions/archscul.html" />
+  <meta property="og:title" content="ARCH>SCUL — vgallery.space" />
+  <meta property="og:description" content="Unfinished idea of a sculpture representing Gallery + Office/Studio mixed-use residential and building concept. Transformable and movable architecture — a new American Dream of multi-dimensional space." />
+  <meta property="og:image" content="https://vgallery.space/assets/nads08_a.png" />
+  <style>
+    :root { --bg: #ffffff; --fg: #1a1c20; --soft: #4a4e56; --muted: #8f939a; --line: rgba(0,0,0,0.12); --line-soft: rgba(0,0,0,0.06); --cyan: #007acc; --cyan-hover: #005a9e; }
+    * { box-sizing: border-box; }
+    img, video { user-select: none; -webkit-user-drag: none; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif; }
+    .content-section { max-width: 700px; margin: 0 auto; padding: 40px 20px; position: relative; }
+    .nav-circle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.04); border: 1px solid var(--line); color: var(--fg); font-size: 18px; text-decoration: none; transition: all .2s ease; }
+    .nav-circle:hover { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.2); transform: scale(1.05); }
+    .back-circle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.04); border: 1px solid var(--line); color: var(--fg); font-size: 18px; text-decoration: none; transition: all .2s ease; margin-bottom: 24px; }
+    /* Removed bottom nav-circle styling for prev-circle and next-circle */
+    .content-header { text-align: left; margin-bottom: 16px; }
+    .content-title { font-size: clamp(28px, 5vw, 42px); margin: 0 0 4px 0; font-weight: 600; letter-spacing: .02em; color: var(--fg); }
+
+  .content-title:hover { color: var(--soft); text-decoration: none; }
+    .content-meta { color: var(--muted); font-size: 14px; margin: 0; text-transform: uppercase; letter-spacing: .1em; }
+    .content-body { color: var(--fg); line-height: 1.8; font-size: 15px; }
+    .content-body p { margin: 0 0 16px 0; }
+    .content-body h2 { color: var(--fg); margin: 32px 0 16px 0; font-size: 20px; text-transform: uppercase; letter-spacing: .02em; font-weight: 600; }
+    .hero-image { width: 100%; height: auto; max-height: 400px; object-fit: cover; margin-bottom: 32px; background: var(--bg); }
+    .exhibition-image { width: 100%; height: auto; max-height: 600px; object-fit: contain; border: 1px solid var(--line); margin-bottom: 12px; background: var(--bg); object-position: center; }
+    .artwork-meta { color: var(--fg); font-size: 16px; margin: 0 0 8px 0; letter-spacing: .08em; font-weight: 600; }
+    .artwork-desc { color: var(--soft); line-height: 1.7; font-size: 14px; margin: 0 0 16px 0; }
+    .meta-tags { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .gallery-grid { display: block; margin-top: 24px; }
+    .artwork { border: 1px solid var(--line); padding: 16px; background: rgba(0,0,0,0.02); margin-bottom: 24px; }
+    /* Top navigation - STICKY */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 24px;
+      padding-right: 24px;
+      width: 100%;
+      border-bottom: 1px solid var(--line-soft);
+      background: var(--bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      margin-bottom: 24px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      transition: color .18s ease, border-color .18s ease;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+      border-bottom-color: var(--cyan);
+    }
+
+    .cart-dropdown {
+      position: relative;
+    }
+
+    .cart-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .cart-toggle:hover {
+      background: rgba(0,0,0,0.08);
+      border-color: rgba(0,0,0,0.2);
+      transform: scale(1.05);
+    }
+
+    .cart-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      min-width: 220px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all .2s ease;
+      overflow: hidden;
+    }
+
+    .cart-dropdown:hover .cart-menu,
+    .cart-dropdown:focus-within .cart-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .cart-menu a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 14px;
+      transition: background .15s ease;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cart-menu a:last-child {
+      border-bottom: none
+    }
+
+    .cart-menu a:hover {
+      background: rgba(0,0,0,0.04);
+    }
+
+    .cart-menu i {
+      width: 20px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--cyan);
+    }
+
+    .footer-link { color: #000;
+      text-decoration: none;
+      transition: color .18s ease;
+    }
+
+    .footer-link:hover { color: #666;
+      text-decoration: none;
+    }
+
+    /* Social icons */
+    .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; font-size: 20px; text-decoration: none; transition: all .18s ease; }
+    .social-icon.fb { background: rgba(24,119,242,0.1); border: 1px solid #1877f2; color: #1877f2; }
+    .social-icon.fb:hover { background: #1877f2; color: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(24,119,242,0.4); }
+    .social-icon.x { background: rgba(0,0,0,0.1); border: 1px solid #000; color: #000; }
+    .social-icon.x:hover { background: #000; color: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(0,0,0,0.4); }
+    .social-icon.discord { background: rgba(88,101,242,0.1); border: 1px solid #5865f2; color: #5865f2; }
+    .social-icon.discord:hover { background: #5865f2; color: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(88,101,242,0.4); }
+
+    /* Guest list bell button */
+    .guest-bell { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--cyan); border: 1px solid var(--cyan); color: #fff; font-size: 18px; text-decoration: none; transition: all .2s ease; }
+    .guest-bell:hover { background: var(--cyan-hover); border-color: var(--cyan-hover); transform: scale(1.1); box-shadow: 0 0 20px rgba(0,122,204,0.4); }
+
+    /* Footer social row - logo left, social center, guest list right */
+    .footer-social-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+      gap: 16px;
+    }
+    .footer-social-row .logo-link { flex: 0 0 auto; }
+    .footer-social-row .social-center { flex: 1; display: flex; justify-content: center; gap: 16px; }
+    .footer-social-row .guest-list-link { flex: 0 0 auto; }
+
+    /* Responsive breakpoints */
+    @media (max-width: 1024px) {
+      .nav { padding-left: 16px; padding-right: 16px; }
+      .nav-links { gap: 24px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 12px 16px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; letter-spacing: .12em; }
+      .cart-toggle { width: 40px; height: 40px; font-size: 16px; }
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 10px 12px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 10px; letter-spacing: .08em; }
+      .cart-toggle { width: 36px; height: 36px; font-size: 14px; }
+      .cart-menu { min-width: 180px; right: -8px; }
+      .footer-social-row { flex-direction: column; gap: 20px; padding-top: 20px; }
+      .footer-social-row .social-center { order: -1; gap: 12px; }
+      .social-icon { width: 40px; height: 40px; font-size: 16px; }
+      .footer-link { font-size: 12px; }
+    }
+
+    
+@media (max-width: 600px) {
+      .nav { padding: 10px 12px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 10px; letter-spacing: .08em; }
+      .cart-toggle { width: 36px; height: 36px; font-size: 14px; }
+      .cart-menu { min-width: 180px; right: -8px; }
+      .footer-social-row { flex-direction: column; gap: 20px; padding-top: 20px; }
+      .footer-social-row .social-center { order: -1; gap: 12px; }
+      .social-icon { width: 40px; height: 40px; font-size: 16px; }
+      .footer-link { font-size: 12px; }
+    }
+
+@media (max-width: 420px) {
+      .nav { padding: 8px 10px; }
+      .nav-links { gap: 8px; }
+      .nav-links a { font-size: 9px; letter-spacing: .05em; }
+      .cart-toggle { width: 32px; height: 32px; font-size: 12px; }
+      .wrap { padding: 16px 0 40px; }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .cart-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        margin-top: 8px;
+      }
+      .cart-menu a {
+        border-bottom: 1px solid var(--line-soft);
+        padding: 12px 0;
+      }
+      .cart-menu a:last-child {
+        border-bottom: none;
+      }
+      .cart-toggle {
+        display: none;
+      }
+    }
+
+    /* Video and embed sizing */
+    .video-player-grid {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 24px;
+    }
+    .video-player-grid video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+      object-fit: contain;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    
+    iframe.spotify-embed {
+      width: 100%;
+      height: 352px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    
+    .video-player video {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+      object-fit: contain;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    
+    .vj-info {
+      color: var(--fg);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+    .vj-info p { margin: 0 0 16px 0; }
+    .vj-info strong { color: var(--fg); }
+    .vj-info a { color: var(--cyan); text-decoration: none; }
+    .vj-info a:hover { text-decoration: underline; }
+
+
+.footer-legal {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+  font-size: 12px;
+}
+.footer-legal .footer-link { color: #000;
+  text-decoration: none;
+  transition: color .18s ease;
+}
+.footer-legal .footer-link:hover { color: #666;
+}
+.footer-legal a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer-legal a:hover {
+  color: var(--cyan);
+}
+.footer-legal img {
+  vertical-align: middle;
+  margin-right: 8px;
+  height: 20px;
+  width: auto;
+}
+
+
+/* Content text links - BLACK, BOLD, NO UNDERLINE, dark gray hover */
+.content-body a,
+.artwork-desc a,
+.prose a {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.content-body a:hover,
+.artwork-desc a:hover,
+.prose a:hover {
+  color: var(--soft);
+  text-decoration: none;
+}
+
+/* Artsy logo link */
+.artsy-logo-link { display: inline-block; transition: opacity .2s ease; }
+.artsy-logo-link:hover { opacity: 0.7; transform: scale(1.02); }
+.artsy-logo-link img { height: 32px; width: auto; display: block; }
+
+/* OpenSea logo link */
+.opensea-logo-link { display: inline-block; transition: opacity .2s ease; }
+.opensea-logo-link:hover { opacity: 0.7; transform: scale(1.02); }
+.opensea-logo-link img { height: 32px; width: auto; display: block; }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Navigation: GALLERY STUDIO OFFICE (full-width like gallery page) -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-links">
+      <a href="../gallery.html">GALLERY</a>
+      <a href="../studio.html">STUDIO</a>
+      <a href="../office.html">OFFICE</a>
+    </div>
+    <div class="cart-dropdown">
+      <button class="cart-toggle" aria-label="Shopping cart" aria-expanded="false" aria-haspopup="true">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </button>
+      <div class="cart-menu" role="menu">
+        <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" role="menuitem">ARTSY</a>
+        <a href="https://www.ebay.com/str/vgalleryspace" target="_blank" rel="noopener" role="menuitem">eBay</a>
+        <a href="https://www.hipstamp.com/store/stamp-gallery" target="_blank" rel="noopener" role="menuitem">HipStamp</a>
+        <a href="https://codes.gallery" target="_blank" rel="noopener" role="menuitem">codes.gallery</a>
+        <a href="https://opensea.io/vGallerySpace" target="_blank" rel="noopener" role="menuitem">OpenSea</a>
+        <a href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank" rel="noopener" role="menuitem">Objkt</a>
+        <a href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W?activeTab=%22allItems%22" target="_blank" rel="noopener" role="menuitem">Magic Eden</a>
+        <a href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam?blockchain=wax-mainnet&order=desc&sort=transferred" target="_blank" rel="noopener" role="menuitem">AtomicHub</a>
+        <a href="https://www.candy.io/dc/users/3eb43246-2f36-490a-b385-f8cfb2cf645c" target="_blank" rel="noopener" role="menuitem">Candy</a>
+      </div>
+    </div>
+  </nav>
+  <main class="content-section">
+
+<header class="content-header">
+      <h1 class="content-title">arch>scul</h1>
+      <p class="content-meta">OCTOBER 2016</p>
+    </header>
+
+<div class="content-body">
+      <p>UNFINISHED IDEA OF A SCULPTURE I HAVE BEEN WORKING ON, THAT REPRESENTS A GALLERY + OFFICE/STUDIO MIXED-USE RESIDENTIAL AND BUILDING CONCEPT. IT IS A NEW AMERICAN DREAM OF TRANSFORMABLE AND MOVABLE ARCHITECTURE. A TRUE MULTI-DIMENSIONAL SPACE WITH WHAT SEEMS TO BE AN INFINITE NUMBER OF LIVABLE SITUATIONS AND POSSIBILITIES. THIS EXHIBITION IS AN ATTEMPT TO CONSTRUCT THE EVOLUTION OF EXPRESSION, THROUGH THE USE OF MANY DIFFERENT CONFIGURATIONS AND COLORS.</p>
+      <p>THE THOUGHT OF VIEWING ARCHITECTURE AS SCULPTURE OR SCULPTURE AS ARCHITECTURE IS SOMETHING I'VE IMAGINED FOR SOME TIME. I HOPE THAT YOU ENJOY THE SHOW. TO EXPLORE JUST CLICK ON THE TITLE OF YOUR FAVORITE IMAGE FOR MORE FEATURES AND VISUALS.</p>
+    </div>
+
+<div class="gallery-grid">
+      <article class="artwork">
+        <img src="../assets/nads01_a.png" alt="New American Dreams No.1" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.1</p>
+        <p class="artwork-desc">I WANTED TO KEEP THINGS AS SIMPLE AS POSSIBLE, FOR SUCH A COMPLEX SHAPE. IT IS A COLORFUL SHOWING. THE FIRST SET OF IMAGES 01-06 IS CREATED USING THE STANDARD RYB SCHEME WITH BOTH PRIMARY AND SECONDARY COLORS. THESE ARE MY FAVORITES, AS THEY ARE DARKER IN CONTRAST AND MORE SOLID-LOOKING TO FORM.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads02_a.png" alt="New American Dreams No.2" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.2</p>
+        <p class="artwork-desc">THE 3D SHAPES CAN BE POSITIONED, IN ANY NUMBER OF WAYS BY SIMPLY JUST ROTATING THE IMAGE, GIVING IT A WHOLE DIFFERENT PERSPECTIVE. ADDITIONAL SAMPLES ARE OFFERED UNDER, MORE VIEWS TO THE LEFT AND BELOW THE MAIN VISUAL.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads03_a.png" alt="New American Dreams No.3" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.3</p>
+        <p class="artwork-desc">I AM STILL LEARNING THE DIVERSE ASPECTS OF ITS MOVEMENT. TRYING TO FIND THE AUTHENTIC ANGLES AND THE EVOLUTION OF REFLECTION. IT WILL TAKE MORE TIME TO STUDY AND COMPREHEND ITS REPRESENTATION. IT IS ALSO DIFFICULT TO CONCENTRATE ON JUST ONE FIXED AREA.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads04_a.png" alt="New American Dreams No.4" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.4</p>
+        <p class="artwork-desc">THE MATHEMATICS OF ITS FORCES HAVE BOTH AN EQUAL AND OPPOSITE REACTION OR ACTION. ITS PARTS ARE WORKING IN CONJUNCTION WITH THE WHOLE, ALMOST MAKING A NEW KIND OF SHAPE ALTOGETHER. A MORE ADVANCED ARCHITECTURE.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads05_a.png" alt="New American Dreams No.5" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.5</p>
+        <p class="artwork-desc">THESE SHAPES, WHEN PUT TOGETHER HAVE AN INTERESTING CONNECTION BETWEEN THE EXTERNAL AND INTERNAL RELATIONSHIP OF DESIGN. ITS UNIQUENESS CREATES AN ENTIRELY UNCULTURED RANGE OF MOTION. SQUARE WINDS THAT FLOW IN A CIRCULAR PATTERN.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads06_a.png" alt="New American Dreams No.6" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.6</p>
+        <p class="artwork-desc">THE COUNTLESS, TYPES OF ZONES ARE RADICAL. CONFIGURATIONS OF THE BODIES SPIN TOGETHER, FORGING INDIVIDUAL STYLES. ITS LINES ARE STRAIGHT, AS THE CONTOUR FIGHTS FOR SYMMETRY WITHIN THE FIGURE AT EVERY TURN.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads07_a.png" alt="New American Dreams No.7" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.7</p>
+        <p class="artwork-desc">THE REMAINING IMAGES, NUMBERS 07-12 ARE MADE WITH INTERMEDIATE OR TERTIARY COLORS. THE IN-BETWEEN, MUTED, AND SOFTER SPECTRUM OF LIGHT. THEY ARE MORE ORGANIC AND EARTHLY. THE POSTER TAKES ON AN ENTIRELY ALTERED COMPARISON FROM THE OTHERS.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads08_a.png" alt="New American Dreams No.8" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.8</p>
+        <p class="artwork-desc">NOTICE THE ILLUSION OF SPACE WITH COLOR AS IT BENDS FROM ONE PHASE TO THE NEXT. THE ENDLESS VARIATIONS SOMEHOW FEEL SYNCHRONIZED WITH NATURE, AS IF THEY WERE MEANT TO MOVE. CONSTANTLY, BEING UPDATED AND SHIFTING TO MEET THE EVER-CHANGING DEMANDS OF SOCIETY.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads09_a.png" alt="New American Dreams No.9" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.9</p>
+        <p class="artwork-desc">AFTER EXPERIMENTING, I CAN ONLY WONDER ABOUT THE KINDS OF IDEAS THAT MIGHT BE THOUGHT, IN SUCH A SPACE. I DON'T BELIEVE THE CONCEPT IS TRULY ORIGINAL, MORE A COMPLETION OF THINKING BY ITS PREDECESSORS. IT HAS BEEN AND CONTINUES TO BE DONE, WITH DIFFERENT STRUCTURES. THE ORIGINALITY BECOMES THE SPACE ITSELF AND ITS ABILITY TO PROVIDE MANY VERSIONS FOR CREATION.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads10_a.png" alt="New American Dreams No.10" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.10</p>
+        <p class="artwork-desc">THE NUMBER OF STANCES AND LEVELS IS DIFFICULT TO COUNT. I FIND THE POINTS WHERE THE OBJECTS MEET TO BE THE MOST INTERESTING. THERE IS FLUIDITY IN ITS STRUCTURE. THE MORE CORNERS YOU FIND, THE MORE CAPTIVATING THINGS BECOME.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads11_a.png" alt="New American Dreams No.11" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.11</p>
+        <p class="artwork-desc">GETTING THE OBJECTS TO MOVE IN A BALANCED FASHION SEEMS TO BE THE BIGGEST OBSTACLE. CURRENTLY, THERE IS A FIXED-MODERNIST VIEWPOINT OF HOW ONE NEEDS TO LIVE. THIS CONCEPT GIVES A HOMEOWNER NOT ONLY ONE RESIDENCE BUT MANY IN ONE PLACE.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads12_a.png" alt="New American Dreams No.12" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.12</p>
+        <p class="artwork-desc">EXPERIMENTING IN A VIRTUAL HOUSING CONSTRUCTION ENVIRONMENT IS INNOVATIVE AND ENTERTAINING. GOING THROUGH THE MOTIONS AND LEARNING FROM A MODEL ONLY LEADS TO A BETTER OUTCOME. THERE IS A WHOLE NEW USE OF TERRITORY AND VISION OF PROPERTY, YET TO BE DISCOVERED.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/nads13_a.png" alt="New American Dreams No.13" class="exhibition-image" />
+        <p class="artwork-meta">NEW AMERICAN DREAMS No.13</p>
+        <p class="artwork-desc">THE 13TH IMAGE USES A WHITE BACKGROUND. IT LEAVES ME WITH A FEELING OF BEING MULTI-NURTURED IN SOME WAY. THE COMPLEXITY BRINGS ABOUT NEW FORMS OF DOMESTICATION IN LIVABLE SPACES AND HUMAN INTERACTIONS. THE NOURISHING PROCESS, OF CARING FOR AND ENCOURAGING THE GROWTH OR DEVELOPMENT OF SOMEONE OR SOMETHING FROM AN UNKNOWN SOURCE.</p>
+      </article>
+    </div>
+
+<div class="content-body">
+      <p style="text-align: center; margin: 24px 0 16px;">
+        <a href="https://opensea.io/collection/archscul" target="_blank" rel="noopener" class="opensea-logo-link" aria-label="View on OpenSea (opens in new tab)">
+          <img src="../assets/OpenSea-Full-Logo (dark).png" alt="OpenSea" />
+        </a>
+      </p>
+      <h2>CLOSING STATEMENT</h2>
+      <p>THE MOST IMPORTANT THOUGHT I HOPED TO GET ACROSS WITH THE EXHIBITION WAS THE IDEA OF VIEWING ARCHITECTURE AS SCULPTURE OR SCULPTURE AS ARCHITECTURE, RATHER THAN THINKING OF EACH AS A JOB DESCRIPTION. IT WAS A RELIEF TO DISCOVER THESE DISCIPLINES' SIMILARITIES AFTER EXPOSING THE DIFFERENCES BETWEEN THEM FOR SO MANY YEARS, A FULL-CIRCLE KIND OF PROCESS.</p>
+      <p>THE <strong><a href="http://www.archscul.com/" target="_blank" rel="noopener" class="footer-link">arch>scul</a></strong> LOGO IS AN EXPERIMENTATION IN ANIMATING A LOGO, AS WELL AS CREATING AN INTERDIMENSIONAL SPACE OR 4TH DIMENSION WITHIN AN IDENTITY. IT IS ALSO, A SHAPE THAT I HAVE USED MANY TIMES THROUGHOUT MY WORK AS THE ROOFTOPS OF 3-DIMENSIONAL BUILDINGS. PAIRING THE TWO WORDS TOGETHER AS IF EACH WERE FIGHTING FOR ITS, OWN GREATNESS JUST MADE SENSE. ALLOWING THEM, TO BOTH TAKE ON A WIN-WIN APPROACH WITH SPACE TO PRODUCE A GREATER RESULT AND OUTCOME MADE, EVEN MORE, SENSE.</p>
+      <p>CHOOSING THE MEDIUM OF POSTERS TO PRESENT THE SHAPE CAN BE TRACED BACK TO SOME OF MY EARLIEST CHILDHOOD MEMORIES, IT WAS THE FIRST KIND OF ARTWORK I BOUGHT AND HUNG ON THE WALL. THEY ARE ALSO INEXPENSIVE AND AFFORDABLE FOR THE CUSTOMER. I FIND IT INTERESTING THAT WITH THIS SHAPE, EACH PIECE CAN BE TURNED AND HUNG, TO MAKE ANOTHER VISUAL ENTIRELY. THIS DEVELOPMENT CONTINUES TO BE, A THEME, THAT IS ALSO CONVEYED THROUGHOUT MY WORK WITH SHAPES. IN THAT, THE ART IS ABLE, TO WORK ON A MULTI-PERSPECTIVE LEVEL FOR THE VIEWER. EACH PERSON FINDS THEIR OWN HIDDEN, OR UNDISCOVERED IMAGE THAT MOST DO NOT SEE RIGHT AWAY CREATING MORE VALUE.</p>
+      <p>AFTER STRUGGLING FOR MANY MONTHS, I STILL BELIEVE THAT THE IDEA IS NOT, TRULY, ORIGINAL. THE SHAPE IS FOR ME MORE A GATHERING OF THOUGHTS FROM ALL THE OTHERS I HAVE BEEN EXPOSED TO, UP UNTIL THIS TIME. THE OBSERVER IS ABLE, TO SEE MY INTERPRETATIONS AND EXPRESSIONS OF A NEW AMERICAN DREAM IF I WERE THE ONE TO BUILD IT. THE IDEA THAT ONE RESIDENCE CAN BECOME MANY IS THE SOLUTION TO THE PROBLEM OF MODERNITY OF ALWAYS WANTING MORE. I CAN NOW TRAVEL, WITHIN THE SPACE ITSELF AND REDEFINE THE TRENDS TO MEET MY NEEDS.</p>
+      <p>THE MUTATIONS OF THE ARTWORK, FROM THE ORIGINAL CONCEPT TO THE NEXT, THIS INTERCONNECTIVITY PRODUCES STRONGER THOUGHTS. TRYING TO COMPREHEND AND UNDERSTAND HOW TO EXPLAIN THE SPACE BECOMES THE EXISTENCE. A HYPERCUBE BOX, WITHIN AN OUTER BOX, WITHIN A LARGER BOX, WITHIN EVEN ANOTHER SHAPE, AND SO ON. TO THEN, HAVE THE ABILITY, TO RECONFIGURE, THE SPACES IN A COMPLETELY DIFFERENT, WAY THAT PRODUCE CREATIVE BOUNDARIES, ONE THAT IS MORE FLEXIBLE AND FLUID, FOR GROWTH. I AM IDENTIFYING IT AS A TRANSIENT SHAPE. A BENT SPACE WITH NURTURING CENTER POINTS OF REMINDERS. A PLACE WHERE BODIES MEET TO DISCUSS FINDING AN EQUAL, CENTER FOR THE POSSIBILITY TO IMAGINE AN INFINITE NUMBER OF EDGES. THE CLOSEST THING TO A VIRTUAL UTOPIA I CAN FIND. OVER TIME AND THROUGH EXPERIENCE WILL I ONLY BE ABLE TO UNDERSTAND THE INTRICACIES OF ITS DETAIL. IMAGINING ONE DAY AN OPPORTUNITY TO DEVELOP EVEN MORE WISDOM BY ACTUALLY LIVING IN IT COULD MAKE EXHIBITING, WORKING, CREATING, AND BEING DOMESTICATED A CONTINUOUSLY FUN AND ENTERTAINING REALITY.</p>
+      <p>FOR YOU TO PUT THE PIECES TOGETHER, I CONTINUE TO DEVELOP IDEAS AROUND THE CONCEPT, AND MORE OF THE PROGRESSION CAN BE SEEN BY CLICKING ON THE SPECIAL SECTION ABOVE.</p>
+    </div>
+</div>
+          </div>
+    </div>
+    
+  </main>
+</body>
+</html>

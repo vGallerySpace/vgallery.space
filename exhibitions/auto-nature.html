@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AUTO NATURE — vgallery.space</title>
+  <meta name="description" content="AUTO NATURE exhibition at vgallery.space. Landscape photographs from Missouri parks exploring the relationship between natural and artificial spaces." />
+  <link rel="canonical" href="https://vgallery.space/exhibitions/auto-nature.html" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:site_name" content="vgallery.space" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vgallery.space/exhibitions/auto-nature.html" />
+  <meta property="og:title" content="AUTO NATURE — vgallery.space" />
+  <meta property="og:description" content="A collection of landscape photographs taken while hiking through Missouri parks. Shown in black-and-white and color, exploring the relationship between natural and artificial spaces." />
+  <meta property="og:image" content="https://vgallery.space/assets/twoskies_1-2.png" />
+  <style>
+    :root { --bg: #ffffff; --fg: #1a1c20; --soft: #4a4e56; --muted: #8f939a; --line: rgba(0,0,0,0.12); --line-soft: rgba(0,0,0,0.06); --cyan: #007acc; --cyan-hover: #005a9e; }
+    * { box-sizing: border-box; }
+    img, video { user-select: none; -webkit-user-drag: none; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif; }
+    .content-section { max-width: 700px; margin: 0 auto; padding: 40px 20px; position: relative; }
+    .nav-circle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.04); border: 1px solid var(--line); color: var(--fg); font-size: 18px; text-decoration: none; transition: all .2s ease; }
+    .nav-circle:hover { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.2); transform: scale(1.05); }
+    .back-circle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.04); border: 1px solid var(--line); color: var(--fg); font-size: 18px; text-decoration: none; transition: all .2s ease; margin-bottom: 24px; }
+    /* Removed bottom nav-circle styling for prev-circle and next-circle */
+    .content-header { text-align: left; margin-bottom: 16px; }
+    .content-title { font-size: clamp(28px, 5vw, 42px); margin: 0 0 4px 0; font-weight: 600; letter-spacing: .02em; color: var(--fg); }
+
+  .content-title:hover { color: var(--soft); text-decoration: none; }
+    .content-meta { color: var(--muted); font-size: 14px; margin: 0; text-transform: uppercase; letter-spacing: .1em; }
+    .content-body { color: var(--fg); line-height: 1.8; font-size: 15px; }
+    .content-body p { margin: 0 0 16px 0; }
+    .content-body h2 { color: var(--fg); margin: 32px 0 16px 0; font-size: 20px; text-transform: uppercase; letter-spacing: .02em; font-weight: 600; }
+    .hero-image { width: 100%; height: auto; max-height: 400px; object-fit: cover; margin-bottom: 32px; background: var(--bg); }
+    .exhibition-image { width: 100%; height: auto; max-height: 600px; object-fit: contain; border: 1px solid var(--line); margin-bottom: 12px; background: var(--bg); object-position: center; }
+    .artwork-meta { color: var(--fg); font-size: 16px; margin: 0 0 8px 0; letter-spacing: .08em; font-weight: 600; }
+    .artwork-desc { color: var(--soft); line-height: 1.7; font-size: 14px; margin: 0 0 16px 0; }
+    .meta-tags { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .gallery-grid { display: block; margin-top: 24px; }
+    .artwork { border: 1px solid var(--line); padding: 16px; background: rgba(0,0,0,0.02); margin-bottom: 24px; }
+    /* Top navigation - STICKY */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 24px;
+      padding-right: 24px;
+      width: 100%;
+      border-bottom: 1px solid var(--line-soft);
+      background: var(--bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      margin-bottom: 24px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      transition: color .18s ease, border-color .18s ease;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+      border-bottom-color: var(--cyan);
+    }
+
+    .cart-dropdown {
+      position: relative;
+    }
+
+    .cart-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .cart-toggle:hover {
+      background: rgba(0,0,0,0.08);
+      border-color: rgba(0,0,0,0.2);
+      transform: scale(1.05);
+    }
+
+    .cart-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      min-width: 220px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all .2s ease;
+      overflow: hidden;
+    }
+
+    .cart-dropdown:hover .cart-menu,
+    .cart-dropdown:focus-within .cart-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .cart-menu a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 14px;
+      transition: background .15s ease;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cart-menu a:last-child {
+      border-bottom: none
+    }
+
+    .cart-menu a:hover {
+      background: rgba(0,0,0,0.04);
+    }
+
+    .cart-menu i {
+      width: 20px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--cyan);
+    }
+
+    .footer-link { color: #000;
+      text-decoration: none;
+      transition: color .18s ease;
+    }
+
+    .footer-link:hover { color: #666;
+      text-decoration: none;
+    }
+
+    /* Social icons */
+    .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; font-size: 20px; text-decoration: none; transition: all .18s ease; }
+    .social-icon.fb { background: rgba(24,119,242,0.1); border: 1px solid #1877f2; color: #1877f2; }
+    .social-icon.fb:hover { background: #1877f2; color: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(24,119,242,0.4); }
+    .social-icon.x { background: rgba(0,0,0,0.1); border: 1px solid #000; color: #000; }
+    .social-icon.x:hover { background: #000; color: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(0,0,0,0.4); }
+    .social-icon.discord { background: rgba(88,101,242,0.1); border: 1px solid #5865f2; color: #5865f2; }
+    .social-icon.discord:hover { background: #5865f2; color: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(88,101,242,0.4); }
+
+    /* Guest list bell button */
+    .guest-bell { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--cyan); border: 1px solid var(--cyan); color: #fff; font-size: 18px; text-decoration: none; transition: all .2s ease; }
+    .guest-bell:hover { background: var(--cyan-hover); border-color: var(--cyan-hover); transform: scale(1.1); box-shadow: 0 0 20px rgba(0,122,204,0.4); }
+
+    /* Footer social row - logo left, social center, guest list right */
+    .footer-social-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+      gap: 16px;
+    }
+    .footer-social-row .logo-link { flex: 0 0 auto; }
+    .footer-social-row .social-center { flex: 1; display: flex; justify-content: center; gap: 16px; }
+    .footer-social-row .guest-list-link { flex: 0 0 auto; }
+
+    /* Responsive breakpoints */
+    @media (max-width: 1024px) {
+      .nav { padding-left: 16px; padding-right: 16px; }
+      .nav-links { gap: 24px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 12px 16px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; letter-spacing: .12em; }
+      .cart-toggle { width: 40px; height: 40px; font-size: 16px; }
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 10px 12px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 10px; letter-spacing: .08em; }
+      .cart-toggle { width: 36px; height: 36px; font-size: 14px; }
+      .cart-menu { min-width: 180px; right: -8px; }
+      .footer-social-row { flex-direction: column; gap: 20px; padding-top: 20px; }
+      .footer-social-row .social-center { order: -1; gap: 12px; }
+      .social-icon { width: 40px; height: 40px; font-size: 16px; }
+      .footer-link { font-size: 12px; }
+    }
+
+    
+@media (max-width: 600px) {
+      .nav { padding: 10px 12px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 10px; letter-spacing: .08em; }
+      .cart-toggle { width: 36px; height: 36px; font-size: 14px; }
+      .cart-menu { min-width: 180px; right: -8px; }
+      .footer-social-row { flex-direction: column; gap: 20px; padding-top: 20px; }
+      .footer-social-row .social-center { order: -1; gap: 12px; }
+      .social-icon { width: 40px; height: 40px; font-size: 16px; }
+      .footer-link { font-size: 12px; }
+    }
+
+@media (max-width: 420px) {
+      .nav { padding: 8px 10px; }
+      .nav-links { gap: 8px; }
+      .nav-links a { font-size: 9px; letter-spacing: .05em; }
+      .cart-toggle { width: 32px; height: 32px; font-size: 12px; }
+      .wrap { padding: 16px 0 40px; }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .cart-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        margin-top: 8px;
+      }
+      .cart-menu a {
+        border-bottom: 1px solid var(--line-soft);
+        padding: 12px 0;
+      }
+      .cart-menu a:last-child {
+        border-bottom: none;
+      }
+      .cart-toggle {
+        display: none;
+      }
+    }
+
+.footer-legal {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+  font-size: 12px;
+}
+.footer-legal .footer-link { color: #000;
+  text-decoration: none;
+  transition: color .18s ease;
+}
+.footer-legal .footer-link:hover { color: #666;
+}
+.footer-legal a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer-legal a:hover {
+  color: var(--cyan);
+}
+.footer-legal img {
+  vertical-align: middle;
+  margin-right: 8px;
+  height: 20px;
+  width: auto;
+}
+
+
+/* Content text links - BLACK, BOLD, NO UNDERLINE, dark gray hover */
+.content-body a,
+.artwork-desc a,
+.prose a {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.content-body a:hover,
+.artwork-desc a:hover,
+.prose a:hover {
+  color: var(--soft);
+  text-decoration: none;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+      <div class="nav-links">
+        <a href="../gallery.html">GALLERY</a>
+        <a href="../studio.html">STUDIO</a>
+        <a href="../office.html">OFFICE</a>
+      </div>
+      <div class="cart-dropdown">
+        <button class="cart-toggle" aria-label="Shopping cart" aria-expanded="false" aria-haspopup="true">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <div class="cart-menu" role="menu">
+          <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" role="menuitem">ARTSY</a>
+          <a href="https://www.ebay.com/str/vgalleryspace" target="_blank" rel="noopener" role="menuitem">eBay</a>
+          <a href="https://www.hipstamp.com/store/stamp-gallery" target="_blank" rel="noopener" role="menuitem">HipStamp</a>
+          <a href="https://codes.gallery" target="_blank" rel="noopener" role="menuitem">codes.gallery</a>
+          <a href="https://opensea.io/vGallerySpace" target="_blank" rel="noopener" role="menuitem">OpenSea</a>
+          <a href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank" rel="noopener" role="menuitem">Objkt</a>
+          <a href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W?activeTab=%22allItems%22" target="_blank" rel="noopener" role="menuitem">Magic Eden</a>
+          <a href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam?blockchain=wax-mainnet&order=desc&sort=transferred" target="_blank" rel="noopener" role="menuitem">AtomicHub</a>
+          <a href="https://www.candy.io/dc/users/3eb43246-2f36-490a-b385-f8cfb2cf645c" target="_blank" rel="noopener" role="menuitem">Candy</a>
+        </div>
+      </div>
+    </nav>
+
+<main class="content-section">
+
+    <!-- Navigation: GALLERY STUDIO OFFICE -->
+
+<header class="content-header">
+      <h1 class="content-title">AUTO NATURE</h1>
+      <p class="content-meta">JULY 2016</p>
+    </header>
+
+<div class="content-body">
+      <p>A COLLECTION OF LANDSCAPE PHOTOGRAPHS, TAKEN WHILE HIKING THROUGH THE PARKS OF MISSOURI. IT WAS NOT UNTIL RECENTLY THAT I SERIOUSLY BEGAN TO REALIZE THE DIFFERENCES BETWEEN NATURAL AND ARTIFICIAL SPACES. THIS WORK IS SHOWN IN BLACK-AND-WHITE, WITH AN OLDER FILM STYLE CAMERA AND IN COLOR, USING A NEWER DIGITAL CAMERA. I HAVE INTERTWINED EACH VISUAL WITH RACING STRIPES, IN AN ATTEMPT TO HELP BRIDGE THE GAP BETWEEN THESE EXTREME POINTS OF REFERENCE. AS OUR BLEEDING EDGE LIFESTYLES CONTINUE AT AN UNPRECEDENTED PACE, IT IS CRUCIAL TO NOTICE THE IMPACT HUMANS STILL HAVE ON NATURE. MY INTENTION IS THAT YOU RETRAIN YOURSELF TO WALK CAUTIOUSLY, WITH A BETTER APPRECIATION OF THE SLOWNESS, TO MAKE A PATH FOR YOUR THOUGHTS IN A DIRECTION THAT IS LESS DESTRUCTIVE AND MORE SUSTAINABLE.</p>
+    <p style="font-size: 8pt; color: #8f939a;">* Any images or text used in the AUTO NATURE EXHIBITION are not an endorsement of the parks in Missouri and was not involved with or did not collaborate with the making of this artwork.</p>
+    </div>
+
+<div class="gallery-grid">
+      <article class="artwork">
+        <img src="../assets/twoskies_1-2.png" alt="Two Skies, 2015" class="exhibition-image" />
+        <p class="artwork-meta">TWO SKIES, 2015</p>
+        <p class="artwork-desc">THIS PHOTOGRAPH SHOWS THOSE HIDDEN MOMENTS OF NATURE THAT NORMALLY ARE NOT SEEN BY THE HUMAN EYE. THE MACHINE WAS ABLE TO CAPTURE A GLARE OF THE SUN AND ITS REFLECTION IN THE WATER FROM THE CAMERA LENS. IF YOU LOOK CLOSELY, A SUBTLE VISUAL OF A DUAL OCTAHEDRON APPEARS BETWEEN THE BEAMS OF LIGHT NEAR THE CENTER-LEFT, ALMOST AS IN ANOTHER DIMENSION. THAT IMAGINARY WORLD THAT EXISTS, FULL OF ALL KINDS OF DIFFERENT SHAPES OUR MIND IS UNABLE TO COMPREHEND.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/yellowroad_1.png" alt="Yellow Road, 2015" class="exhibition-image" />
+        <p class="artwork-meta">YELLOW ROAD, 2015</p>
+        <p class="artwork-desc">THE TRAIL IN THIS PHOTOGRAPH IS BARELY VISIBLE, COVERED BY LEAVES AND RUNNING THROUGH THE CENTER OF THE IMAGE. YOU CAN NOTICE A SHORT SLOPE TO THE LEFT AND SHALLOW BROOK TO THE RIGHT. THE CONTRAST OF DARK TO LIGHT GIVES THE IMAGE DEPTH. THE PICTURE ITSELF WAS TAKEN DURING THE GOLDEN HOUR, JUST AS THE SUN WAS ABOUT TO SET. THE HOLGA CAMERA GIVES THE SPACE A SENSE OF TIME AS IF IT HAD ALWAYS BEEN THERE AND YOU WERE THE ONE TO WALK THE PATH FOR THE FIRST TIME.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/branches_1.png" alt="Branches, 2015" class="exhibition-image" />
+        <p class="artwork-meta">BRANCHES, 2015</p>
+        <p class="artwork-desc">I HAVE WALKED BY MANY BRANCHES, BUT NONE LIKE THIS. THE EXTENSIONS HAD GROWN SO MUCH THAT THEY BEGAN TO WEIGH THEMSELVES DOWN, ALMOST TOUCHING THE GROUND. AT FIRST SIGHT, IT APPEARS TO BE A DIVERGENT TANGLED MESS AND THEN AS I CONTINUED TO LOOK AT THE PICTURE ITS LIMBS STARTED TO SEEM MORE LIKE ROOTS. AS IF YOU WERE UNDERGROUND SOMEHOW AND ABLE TO SEE THROUGH THE SOIL.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/privategreens.png" alt="Private Greens, 2015" class="exhibition-image" />
+        <p class="artwork-meta">PRIVATE GREENS, 2015</p>
+        <p class="artwork-desc">AT FIRST GLANCE THE OLD OAK TREE APPEARS TO BE LONELY AND ISOLATED, GUARDED BY PRIVACY BEHIND THE HARVESTED FIELD, AS IF IT WERE THE LAST TREE STANDING. THEN THE MORE YOU LOOK AT IT, YOU BEGIN TO WONDER HOW MANY YEARS IT MIGHT HAVE TAKEN TO GROW AND WHAT KIND OF OTHER EXPERIENCES IT MIGHT HAVE HAD IF IT COULD TALK. GOT TO BE HUNDREDS OF YEARS OLD BY NOW. SOME THINGS YOU JUST DON'T WANT TO CUT DOWN.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/sundaydriver.png" alt="Sunday Driver, 2015" class="exhibition-image" />
+        <p class="artwork-meta">SUNDAY DRIVER, 2015</p>
+        <p class="artwork-desc">THIS PHOTOGRAPH WAS TAKEN JUST AFTER A CONTROLLED BURN. IF YOU LOOK CLOSELY, YOU CAN SEE THE REMNANTS OF A FIRE PIT IN THE BACKGROUND. THE CAR IS MISSING, ONLY THE DOOR REMAINS, ABANDON AND YOU WONDER WHERE THE OTHERS PARTS ARE. AN UNEXPECTED FEELING TO HAVE AFTER WALKING THROUGH THE WOODS FOR A FEW MILES. YOU WANT TO OPEN IT AS IF THERE IS SUPPOSED TO BE A PASSAGEWAY ON THE OTHER SIDE.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/cliffhanger.png" alt="Cliff-hanger, 2016" class="exhibition-image" />
+        <p class="artwork-meta">CLIFF-HANGER, 2016</p>
+        <p class="artwork-desc">A SERENE, SKY COVERED BY DARKNESS. ON THE SIDE OF A CLIFF SITS A SMALL TREE, LIVING ON THE EDGE SURVIVING IN SOME WAY. HOW CAN A TREE EVEN DECIDE TO SECURE ITSELF THERE? A SORT OF THRESHOLD BETWEEN TRUST AND FEAR. LOOKING OUT OVER ITS LIMITED CORNER OF EXISTENCE, ON THE VERGE OF THE END, BARELY HANGING TO ITS SUPPORT. IT MAKES YOU WANT TO QUESTION YOUR BOUNDARIES AND DECIDE JUST HOW INVITING SHOULD ONE BE? I FIND THIS PRINT HELPS TO CAPTURE A SENSE OF THE EXTREMENESS THAT WE ALL FACE MOVING TOWARD CREATING A FUTURE THAT IS UNKNOWN.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/footbridge.png" alt="Footbridge, 2015" class="exhibition-image" />
+        <p class="artwork-meta">FOOTBRIDGE, 2015</p>
+        <p class="artwork-desc">IN LOOKING AT THIS IMAGE, IT FEELS AS THOUGH YOU COULD WALK ACROSS THE WATER EASILY WITHOUT ANY EFFORT AND GO FOR A SWIM. THE FALLEN TREE RESTS ON THE REFLECTION OF THE LIGHT, COMPLETELY VOID OF ALL SPACE OR TIME. AN ALMOST VANISHING PATHWAY, OR AN ILLUSION OF A DEAD-END STREET. THEN YOU QUICKLY REALIZE, THERE IS NO SUPPORT OR SUBSTRUCTURE TO BRACE YOURSELF AND YOUR FEET COULD LOSE THEIR BALANCE AND FALL ANYTIME.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/clouds.png" alt="Clouds, 2016" class="exhibition-image" />
+        <p class="artwork-meta">CLOUDS, 2016</p>
+        <p class="artwork-desc">IT IS A MODEST SKY, LIKE MANY OTHERS AND YET IT GETS MORE AND MORE COMPLEX WHEN STUDIED ALONGSIDE THE POSSIBILITY OF INFINITY. THE SUN IS HIDDEN, BEHIND THE LOOSELY FORMED CLOUDS, ALMOST WITH A SENSE OF SHYNESS. THE COLORS ARE MUTED, THROUGH A SORT OF SILENCE AS RAYS OF LIGHT ARE SHOWN BEAMING DOWN STILL CAPABLE OF NOURISHING THE GROUND, UNPOLLUTED AND SINCERE.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/darkwoods.png" alt="Dark Woods, 2016" class="exhibition-image" />
+        <p class="artwork-meta">DARK WOODS, 2016</p>
+        <p class="artwork-desc">TAKEN JUST BEFORE WINTER, WHEN THE TREES HAVE LOST MOST OF THEIR LEAVES. IT WAS NEARLY DARK, WITHOUT THE SUN. THE WOODS TAKE ON ANOTHER SOUND THEN, SILENT. YOU NOTICE YOUR MOVEMENTS AND BEGIN TO QUESTION THEM. WILL I FIND MY WAY BACK OR IS IT TOO LATE? THERE IS A SENSE OF FEAR, BUT NOT OF THE FOREST. I THINK IT IS MORE FROM THE SHADOWS WITHIN THE OUTDOORS. ALMOST LIKE THE DARKNESS IS COMPETING WITH ITSELF FOR ATTENTION AS TO WHO IS DARKER. WHEN IN A FEW HOURS ALL WILL BE DARK FOR NOTHING WILL BE SEEN.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/digitalhiker.png" alt="Digital Hiker, 2015" class="exhibition-image" />
+        <p class="artwork-meta">DIGITAL HIKER, 2015</p>
+        <p class="artwork-desc">A WORN STRAIGHT TRAIL WITHIN THE WOODS, SURROUNDED BY MOSS ON EITHER SIDE. IT MAKES YOU WONDER HOW MANY CREATURES HAVE TRAVELED ALONG ITS PATH TO MAKE SUCH A DEEP RUT. I FELT HONORED WALKING ALONG THE ROUTE AS IF I WAS A PART OF THE ONES WHO WALKED BEFORE. THE STEMS ARE SCARCELY COVERED, ALMOST NAKED LOOKING, UNABLE TO GROW THEIR LEAVES UNTIL NEXT SPRING.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/electricspirit.png" alt="Electric Spirit, 2016" class="exhibition-image" />
+        <p class="artwork-meta">ELECTRIC SPIRIT, 2016</p>
+        <p class="artwork-desc">IN THE FOREFRONT, A NEARLY ANCIENT LOOKING TELEPHONE POLL AS IT STILL TRIES TO SUPPORT ITSELF, OVERGROWN BY THE VEGETATION AND VINES FROM A NEARBY TREE. NOTICE THE CONNECTION OF THE SECOND TELEPHONE POLL SITTING JUST ABOVE THE BLUFF IN THE DISTANCE, CAN'T HELP TO WONDER IF IT STILL WORKS OR IF IT IS THERE, JUST FORGOTTEN. THE PHOTO HAPPENED TO BE TAKEN ON EASTER DAY, GIVING THE IMAGE A SORT OF TIRED CRUCIFIX FEELS, WORN OUT FROM ALL THE ATTENTION.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/lighteningarch.png" alt="Lightening Arch, 2015" class="exhibition-image" />
+        <p class="artwork-meta">LIGHTENING ARCH, 2015</p>
+        <p class="artwork-desc">THE FORCE THAT IT MUST HAVE TAKEN TO MAKE THIS. ITS ANGLE IS IN THE SHAPE OF A PYRAMID. LOOKING AS THOUGH IT SUPPOSED TO BE AN OTHERWORLDLY ARCHITECTURE CONSTRUCTED FOR MONUMENTAL PURPOSES. WHEN VIEWED CLOSELY, IT TAKES ON A FUTURISTIC MODERNITY NOT YET DISCOVERED. THE TIMBER VIOLENTLY SPLINTERS OUT IN LINES THAT ARE DIFFICULT TO REPRODUCE WITH THE HUMAN HAND. IT IS UNNATURAL, WITH A DESTRUCTIVE STYLE WHEN FIRST SEEN. ONCE CONSUMED AND DIGESTED THOUGH IT LEAVES YOU WITH A SENSE OF THE MISUNDERSTOOD POWER THAT NATURE HAS TO OFFER.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/quarryhouse.png" alt="Quarry House, 2016" class="exhibition-image" />
+        <p class="artwork-meta">QUARRY HOUSE, 2016</p>
+        <p class="artwork-desc">A SIMPLE SQUARE BIRDHOUSE POSITIONED IN A MARSH AT THE BOTTOM OF A LIMESTONE QUARRY. THE BLUFF EXPOSED, THE AREA DUG OUT FROM THE EARTH FOR BUILDING OR OTHER PURPOSES. THE END OF THE TRAIL, THE ONLY DIRECTION TO GO IS BACKTRACKING HOW YOU CAME IN. SUCH AN INTERESTING PLACE FOR A BIRD TO LIVE. IT IS SO ISOLATED AND ALMOST IMPOSSIBLE TO APPROACH FOR A CLOSER LOOK.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/stream.png" alt="Stream, 2015" class="exhibition-image" />
+        <p class="artwork-meta">STREAM, 2015</p>
+        <p class="artwork-desc">THE WATER IS STILL, UNDISTURBED. REFLECTING A MIRRORED IMAGE AND GLASSLIKE, UPON A FLOATING IMPRESSION. ON THE EDGE OF THE BANK WHERE THE WATER MEETS THE SHORE. ITS ROCKS ARE EXPOSED, SURROUNDED BY MOSS AND TWIGS THAT SEEM TO ALMOST DANCE WITH EACH OTHER ALONG THE TWO DISTINCT SURFACES. THE COLORS OF THE STRIPES ARE USED TO MIMIC THE DESIGN OF THE LANDSCAPE.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/treebark.png" alt="Tree Bark, 2016" class="exhibition-image" />
+        <p class="artwork-meta">TREE BARK, 2016</p>
+        <p class="artwork-desc">ON A PARTICULAR DAY, I TOOK SEVERAL SHOTS OF DIFFERENT TREE BARK AND THIS ONE IS MY FAVORITE. THE COLORS WERE SO PROVOKING. I REALIZED THAT DAY THERE IS A WHOLE ABSTRACT WORLD OF SO MANY THINGS WITHIN THE FOREST IF LOOKED AT FROM A CLOSE PERSPECTIVE. ONCE YOU SPEND SOME TIME REVIEWING THIS IMAGE, IT BEGINS TO ALMOST TAKE ON THE SCENE OF AN ENTIRELY DIFFERENT TERRAIN WITHIN ITSELF.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/treefield.png" alt="Tree Field, 2016" class="exhibition-image" />
+        <p class="artwork-meta">TREE FIELD, 2016</p>
+        <p class="artwork-desc">TREES ON A HILLSIDE OVERLOOKING A FIELD THAT IS BARELY VISIBLE, RUNNING ALONG THE RIGHT. THE PORTRAYAL IS AN INTERESTING CONTRAST, FROM THE EARTH TO THE SKY. THERE ARE THESE EMPTY SPACES BETWEEN THE CLOUDS AND DARKNESS OF THE TREES, SUCH THE DIVISION OF NATURE. THE LINES USED WERE FROM COLORS THAT EXIST WITHIN THE REALIZATION OF THE BACKGROUND. TOGETHER THEY LOOK SERENE.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/treetops.png" alt="Treetops, 2016" class="exhibition-image" />
+        <p class="artwork-meta">TREETOPS, 2016</p>
+        <p class="artwork-desc">THE DARKNESS OF THE FOREST, THE SUBTLE NUANCE OF CLOUDS AND BLUE OF THE SKY, AS IT SLOWLY FADES IN THE PLANE. ITS JUXTAPOSITION CONFUSES THE VIEWER NOT KNOWING EXACTLY IF IT IS NIGHT OR MORNING. INTERESTING THAT THE TOPS OF THE TREES ALWAYS SEEM TO TAKE ON UNIQUE SHAPES. IT IS THE DIVISION BETWEEN EARTH AND HEAVEN.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/twilight.png" alt="Twilight, 2015" class="exhibition-image" />
+        <p class="artwork-meta">TWILIGHT, 2015</p>
+        <p class="artwork-desc">JUST AFTER THE SUN SETS, A FAINT LIGHT ON THE HORIZON. INSPIRED BY THE ILLUMINATION OF THE ATMOSPHERE AND RAYS OF LIGHT. THE FACADE OF THE EARTH IMPERFECTLY ILLUMINATED AND OBSCURED. IT FEELS SHADED AND EPIC. THE TIME WHEN NATURE'S POWERS ARE AT ITS GREATEST.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/waterfall_1.png" alt="Waterfall, 2015" class="exhibition-image" />
+        <p class="artwork-meta">WATERFALL, 2015</p>
+        <p class="artwork-desc">THE SETTING IS A WASH, WITH FALLING WATER AND CHOPPED DOWN TREES. SITTING JUST ABOVE AND IN FRONT OF A BARREN WOODED BACKDROP IS A STUMP. THE INCLINATION SHOWN MUST HAVE BEEN SLOWLY ERODING OVER MILLIONS OF YEARS TO FORM. A SORT OF WORN MASONRY OCCASIONALLY FOUND THROUGHOUT THE MISSOURI LANDSCAPE. THIS PARTICULAR ONE THOUGH IS UNLIKE ANY I HAVE EVER SEEN. ALMOST PERFECTLY MANUFACTURED.</p>
+      </article>
+
+<article class="artwork">
+        <img src="../assets/wildplants.png" alt="Wild Plants, 2015" class="exhibition-image" />
+        <p class="artwork-meta">WILD PLANTS, 2015</p>
+        <p class="artwork-desc">A CLOSE-UP VIEW OF A HILLSIDE COVERED IN PLANTS, I BELIEVE THEY COULD BE SOME WILD FERN. NEARLY PASSED BY WITHOUT TAKING A PHOTO. THESE COLORS ARE FOUND SO OFTEN IN NATURE. THE LEAVES WERE SO DENSELY POPULATED TOGETHER WITH HARDLY ANY SPACE IN BETWEEN.</p>
+      </article>
+    </div>
+
+<div class="content-body">
+      <h2>CLOSING STATEMENT</h2>
+      <p>HOW TO PAINT THE LINES? THE INTENSE RELATIONSHIP BETWEEN THE SUBJECT MATTER OF NATURE AND MACHINE IS, DIFFICULT FOR MOST PEOPLE TO COMPREHEND. CREATING A CHANCE TO COMPARE THE DIFFERENCES AMONG PERFECTION AND CHAOS HAS BEEN OVERWHELMING. THIS EXHIBITION HELPED ME TO GAIN MORE CLARITY, IN A STILL UNCHARTED TERRITORY FOR MANY. I WANTED TO KEEP THE WRITING RELAXED AND PHOTOGRAPHS CONCEPTUAL. I FEEL THE IMAGES ARE NOW IN THE EARLY STAGES OF DEVELOPMENT AND COULD TAKE A LIFETIME TO GET THE RIGHT SHOTS. ORIGINALLY, THE INSTALLATION WAS SUPPOSED TO CONCENTRATE ON THE NURTURING ASPECTS OF NATURE AND HOW THE ORGANIC MACHINE INTERACTS WITH IT. SPECIFICALLY, THE TRANSITIONAL PARTS FROM THE VERY BEGINNING OF NATURE UP TO THE CURRENT EFFECTS THAT OURSELVES AND MACHINES ARE HAVING AND CONTINUE TO HAVE ON CIVILIZATION AS A WHOLE. I AM NOT SURE IF THIS GOAL IS ATTAINABLE WITH MY LIMITED MAINTENANCE. HOWEVER, THE FURTHER I WORKED WITH THIS NOTION THE MORE IDEAS THERE WERE TO CONSIDER.</p>
+      <p>IT SEEMS NOWADAYS WE'RE FORCED TO LIVE IN CONSTANT STATE OF CONFLICT WITH OUR SURROUNDINGS. TRYING TO DECIDE OVER INTERNAL AND EXTERNAL FORCES AS IF THERE IS NO REAL RESOLUTION. THE MENTAL, ARGUMENTS FOR THE FIGHT TO SURVIVE IN AN UNWINNABLE ENVIRONMENT. CHOOSING ONE OVER THE OTHER AND HAVING TO WITNESS THIS CONTEST THAT EXISTS BETWEEN NATURE OR MACHINE CAN BE TORTUOUS. WHEN WHAT ONE, REALLY NEEDS IS A COMBINATION OF BOTH FOR ANY JUDGMENT OF EQUILIBRIUM.</p>
+      <p>HUMANKIND DOESN'T SEEM TO BE COMPATIBLE WITH NATURE AT TIMES, AS IT ALMOST REJECTS THE CONTINUED MECHANIZATION OF SOCIETY IN CULTURE AND ITS CITIES. IS IT THE LIGHT THAT GIVES US ENERGY OR POSSIBLY THE DARKNESS OF NOT KNOWING, IN OUR HURRY TO DISCOVER THE LATEST ANSWER? HAVING THE SKILL TO INTERPRET THE CYCLE OF NATURE IS WHY I DESPERATELY SEEM TO BE SEARCHING. IN LOOKING THERE IS A SORT OF BEAUTIFUL CRUELTY THAT EXISTS, A REAL MISUNDERSTANDING WITHIN SPECIES. TRYING TO BE ABLE TO FIGURE OUT HOW IT FUNCTIONS AND MAKE SENSE OF IT ALL, SO THE DIRECTION I GROW IS AT THE VERY LEAST MANAGEABLE IS MY PURPOSE. I BELIEVE, THIS TO BE THE JOURNEY OR ADVENTURE WE ALL GO THROUGH AS WE EACH FIND OUR OWN, INNATE ABILITY TO EXPLORE NEW PLACES.</p>
+      <p>IT IS IMPORTANT NOT TO FORGET ABOUT THE PAST AND NATURE AS THE SOURCE OF THIS PAST. THERE SEEMS TO BE A PROFOUND MEANING TO THINGS WHEN THOUGHT OF AS THEY ONCE WERE. THE PLACE WHERE WE CAME FROM, THE ANCIENT AND NATIVE EARTH. EVEN WHEN, THE FUTURE PATH IS SO UNNATURAL AND CROWDED, WITH A CONTINUOUSLY FAST LIVING FLOW OF ARTIFICIALITY.</p>
+    </div></div>
+          </div>
+    </div>
+    
+  </main>
+</body>
+</html>

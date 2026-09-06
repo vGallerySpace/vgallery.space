@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VGALLERYSPACE - vgallery.space</title>
+  <meta name="description" content="VGALLERYSPACE - Gallery exhibitions and archives" />
+  <link rel="canonical" href="https://vgallery.space/" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <meta property="og:site_name" content="vgallery.space" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vgallery.space/" />
+  <meta property="og:title" content="GALLERY - vgallery.space" />
+  <meta property="og:description" content="VGALLERYSPACE Gallery exhibitions and archives" />
+  <meta property="og:image" content="https://vgallery.space/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://vgallery.space/" />
+  <meta name="twitter:title" content="GALLERY - vgallery.space" />
+  <meta name="twitter:description" content="VGALLERYSPACE Gallery exhibitions and archives" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/favicon-32.png" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1c20;
+      --soft: #4a4e56;
+      --muted: #8f939a;
+      --line: rgba(0,0,0,0.12);
+      --line-soft: rgba(0,0,0,0.06);
+      --cyan: #007acc;
+      --cyan-hover: #005a9e;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif;
+    }
+
+    /* Navigation with Bootstrap navbar */
+    .navbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line-soft);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--fg) !important;
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--muted) !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 14px;
+      transition: all .18s ease;
+      padding: 0.5rem 1rem !important;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--cyan) !important;
+      border-bottom-color: var(--cyan);
+    }
+
+    /* Hero section */
+    .hero-section {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      min-height: 70vh;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image-wrapper {
+      width: 100%;
+      max-height: 500px;
+      margin: 0;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      filter: brightness(0.5);
+      display: block;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      max-width: 600px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: .02em;
+      color: #ff006e;
+      margin: 0 0 4px 0;
+      line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: lowercase;
+      margin: 0 0 16px 0;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero-enter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 32px;
+      background: var(--cyan);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      transition: all .18s ease;
+      border: 2px solid var(--cyan);
+    }
+
+    .hero-enter-btn:hover {
+      background: var(--cyan-hover);
+      border-color: var(--cyan-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0,122,204,0.3);
+      color: #fff;
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .artwork-card {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      overflow: hidden;
+      transition: all .2s ease;
+    }
+
+    .artwork-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    .artwork-image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .artwork-meta {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      letter-spacing: .08em;
+      color: var(--fg);
+      padding: 16px 16px 0;
+    }
+
+    .artwork-desc {
+      font-size: 14px;
+      color: var(--soft);
+      margin: 0 0 16px 0;
+      line-height: 1.7;
+      padding: 0 16px 16px;
+    }
+
+    /* Footer - clean and consistent */
+    .footer-clean {
+      background: var(--bg);
+      border-top: 1px solid var(--line-soft);
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      transition: color .18s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--cyan);
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all .2s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--cyan);
+      border-color: var(--cyan);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    /* Utility classes */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--soft);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Responsive improvements */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      .hero-title {
+        font-size: clamp(28px, 6vw, 48px);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+
+    /* Consistent card hover effects */
+    .nav-item {
+      position: relative;
+    }
+
+    /* Remove default Bootstrap margins */
+    body {
+      padding-top: 76px; /* Account for navbar */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">VGALLERYSPACE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">GALLERY</a></li>
+          <li class="nav-item"><a class="nav-link" href="studio.html">STUDIO</a></li>
+          <li class="nav-item"><a class="nav-link" href="office.html">OFFICE</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">CART <i class="fas fa-shopping-cart ms-1"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-image-wrapper">
+      <img src="assets/alleyway.jpg" alt="Alleyway Background">
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">VGALLERYSPACE</h1>
+      <p class="hero-subtitle">digital art exhibition space</p>
+      <a href="#gallery" class="hero-enter-btn">
+        ENTER <i class="fas fa-chevron-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section id="gallery" class="py-5">
+      <div class="section-title">
+        <h2>Featured Exhibitions</h2>
+        <p>Curated digital art collections from emerging and established artists</p>
+      </div>
+      
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items will be populated by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-clean">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">GALLERY</a>
+        <a href="studio.html" class="footer-link">STUDIO</a>
+        <a href="office.html" class="footer-link">OFFICE</a>
+        <a href="#" class="footer-link">ARTISTS</a>
+        <a href="#" class="footer-link">EXHIBITIONS</a>
+        <a href="#" class="footer-link">CONTACT</a>
+      </div>
+      
+      <div class="footer-social">
+        <a href="#" class="footer-social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="footer-social-link" title="Twitter/X"><i class="fab fa-x"></i></a>
+        <a href="#" class="footer-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-social-link" title="Discord"><i class="fab fa-discord"></i></a>
+        <a href="#" class="footer-social-link" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      
+      <div class="footer-copy">
+        <p>&copy; 2024 VGALLERYSPACE. All rights reserved. Digital art exhibition space.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Populate gallery with exhibition data
+    document.addEventListener('DOMContentLoaded', function() {
+      const galleryGrid = document.getElementById('galleryGrid');
+      
+      // Get exhibition files from exhibitions directory
+      const exhibitions = [
+        { title: 'AD ART SHOW 2020', slug: 'exhibitions/ad-art-show-2020.html', image: 'assets/ad2020-larger.jpg', desc: 'Third annual art show featuring artists from advertising. Winner honored with Clio Award.' },
+        { title: 'codes.gallery', slug: 'exhibitions/codes-gallery.html', image: 'assets/vGallerySpaceFinal_originalmotion_working.gif', desc: 'Solo for nearly 20 years across a 01010 of exhibitions. Frames emerged as collaborator in the studio.' },
+        { title: 'Infinity Museum', slug: 'exhibitions/infinity-museum-xtz.html', image: 'assets/infinity-collection.png', desc: 'Interactive digital infinity installation exploring perception and space.' },
+        { title: 'Internet Lounge', slug: 'exhibitions/internet-lounge.html', image: 'assets/VG_Internet_Lounge_opt-1024x768.jpg', desc: 'Digital lounge space showcasing internet art and virtual reality experiences.' },
+        { title: 'Prototype No 5', slug: 'exhibitions/prototype-no-5.html', image: 'assets/proto5-gallery-thumb.png', desc: 'Experimental prototype exploring new forms of digital interaction and display.' },
+        { title: 'MOMA Postcard Installation', slug: 'exhibitions/moma-postcard-installation.html', image: 'assets/moma.webp', desc: 'Interactive postcard installation reimagining physical and digital museum experiences.' },
+        { title: 'OSG Gallery', slug: 'exhibitions/osg.html', image: 'assets/osg-gallery.jpg', desc: 'Organic Systems Gallery featuring bio-digital art and natural algorithms.' },
+        { title: 'Auto-Nature', slug: 'exhibitions/auto-nature.html', image: 'assets/vG_Internet_Lounge_opt-1024x768.jpg', desc: 'Digital art exploring the intersection of technology and natural ecosystems.' }
+      ];
+      
+      exhibitions.forEach(exhibition => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-6 col-lg-4';
+        
+        col.innerHTML = `
+          <div class="artwork-card" onclick="window.location.href='${exhibition.slug}'">
+            <img src="${exhibition.image}" alt="${exhibition.title}" class="artwork-image">
+            <h3 class="artwork-meta">${exhibition.title}</h3>
+            <p class="artwork-desc">${exhibition.desc}</p>
+          </div>
+        `;
+        
+        galleryGrid.appendChild(col);
+      });
+    });
+  </script>
+</body>
+</html>
