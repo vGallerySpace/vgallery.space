@@ -221,33 +221,52 @@
       font-weight: 700;
     }
 
-    .hero-image {
+    .hero-video {
+      display: block;
       width: 100%;
       height: auto;
       max-height: 520px;
       object-fit: contain;
-      margin-bottom: 28px;
-      background: var(--bg);
-      border: 1px solid var(--line);
+      margin: 0 auto 20px auto;
+      background: #ffffff;
+      border: 8px solid #000000 !important;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
+    }
+
+    .hero-image {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 520px;
+      margin: 0 auto 20px auto;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
     }
 
     .exhibition-image {
-      width: 100%;
+      display: block;
+      width: auto;
+      max-width: 100%;
       height: auto;
-      max-height: 600px;
-      object-fit: contain;
-      border: 1px solid var(--line);
-      margin-bottom: 16px;
-      background: var(--bg);
-      object-position: center;
+      max-height: 520px;
+      margin: 0 auto 16px auto;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
     }
 
     .artwork-meta {
       color: #000000;
-      font-size: 15px;
+      font-size: 14px;
       margin: 0 0 8px 0;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       font-weight: 700;
+      text-align: center;
     }
 
     .artwork-desc {
@@ -274,10 +293,24 @@
     }
 
     .artwork {
-      border: 1px solid var(--line);
-      padding: 16px;
-      background: #ffffff;
-      margin-bottom: 24px;
+      border: none;
+      padding: 0;
+      background: transparent;
+      margin-bottom: 36px;
+    }
+
+    .opensea-logo-link {
+      display: inline-block;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .opensea-logo-link:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+    .opensea-logo-link img {
+      height: 38px;
+      width: auto;
+      display: inline-block;
     }
 
     .proto-link {
@@ -449,17 +482,14 @@
       <p class="content-meta">JUNE 2018</p>
     </header>
 
-<!-- VJ Loop - Self-hosted video (arch scul loop III.mp4) - Auto loop -->
-    <div class="video-player">
-      <div class="video-player-grid">
-          <video autoplay loop muted playsinline>
+<!-- Hero Video Loop - 8px black frame -->
+    <div style="margin-bottom: 20px;">
+      <video autoplay loop muted playsinline poster="../assets/proto6-thumbnail.png" class="hero-video">
         <source src="../assets/proto6-archscul-loop-iii.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-        </div>
+      <p class="artwork-meta" style="margin-top: 14px;">arch>scul loop III, 2018</p>
     </div>
-
-<p class="artwork-meta">arch>scul loop III, 2018</p>
 
 <div class="content-body">
       <p>NOW THE 3RD VIDEO INSTALLATION MAKES IT THE TRILOGY OF EACH NEW PROTOTYPE CONSTRUCTED USING A GOLDEN MEAN CAMERA SHOT, THIS TIME PUSHING BOUNDARIES OF VIDEOGRAPHY, SCULPTURE, AND REFLECTION. SILENT WITHOUT SOUND THE VISUALS TAKE YOU THROUGH A SPACE IN WHICH NATURE AND ARCHITECTURE BLEND CONTINUOUSLY, QUESTIONING ITSELF FOR ITS OWN EXISTENCE.</p>
@@ -514,8 +544,6 @@
 
 <div class="content-body">
       <p>THE SCULPTURE WAS SELECTED FOR A GROUP SHOW FEATURING NEW ARTWORKS BY 35 ST. LOUIS REGIONAL ARTISTS FROM MISSOURI AND ILLINOIS. ALL THE DETAILS ARE ON THE POSTER BELOW, IF YOU NEED FURTHER INFORMATION PLEASE JUST CLICK THROUGH THE POSTER TO BE REDIRECTED TO THE ORGANIZATION'S SITE.</p>
-    </div></div>
-          </div>
     </div>
 
   </main>
