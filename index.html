@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VGALLERYSPACE - vgallery.space</title>
+  <title>VGALLERYSPACE — vgallery.space</title>
   <meta name="description" content="VGALLERYSPACE - Gallery exhibitions and archives" />
   <link rel="canonical" href="https://vgallery.space/" />
   <meta name="theme-color" content="#ffffff" />
@@ -11,7 +11,7 @@
   <meta property="og:site_name" content="vgallery.space" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vgallery.space/" />
-  <meta property="og:title" content="GALLERY - vgallery.space" />
+  <meta property="og:title" content="GALLERY — vgallery.space" />
   <meta property="og:description" content="VGALLERYSPACE Gallery exhibitions and archives" />
   <meta property="og:image" content="https://vgallery.space/assets/social-card.png" />
   <meta property="og:image:width" content="1200" />
@@ -19,7 +19,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://vgallery.space/" />
-  <meta name="twitter:title" content="GALLERY - vgallery.space" />
+  <meta name="twitter:title" content="GALLERY — vgallery.space" />
   <meta name="twitter:description" content="VGALLERYSPACE Gallery exhibitions and archives" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -34,19 +34,35 @@
   <style>
     :root {
       --bg: #ffffff;
-      --fg: #1a1c20;
-      --soft: #4a4e56;
-      --muted: #8f939a;
+      --fg: #000000;
+      --soft: #333333;
+      --muted: #777777;
       --line: rgba(0,0,0,0.12);
       --line-soft: rgba(0,0,0,0.06);
-      --cyan: #007acc;
-      --cyan-hover: #005a9e;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       background: var(--bg);
       color: var(--fg);
       font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif;
+      margin: 0;
+      padding: 0;
+      padding-top: 76px;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    a:hover {
+      color: #777777;
+      text-decoration: none;
     }
 
     /* Navigation with Bootstrap navbar */
@@ -86,6 +102,20 @@
       position: relative;
     }
 
+    .cart-toggle {
+      background: none;
+      border: none;
+      color: #000000;
+      font-size: 18px;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+
+    .cart-toggle:hover {
+      color: #777777;
+    }
+
     .cart-toggle::after {
       display: none !important;
     }
@@ -101,50 +131,66 @@
       left: auto !important;
       margin-top: 8px !important;
       border: 1px solid var(--line);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      border-radius: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
       min-width: 180px;
       max-width: 240px;
+      background: #ffffff;
+      padding: 6px 0;
     }
 
-    .navbar-brand {
-      font-weight: 700;
-      color: var(--fg) !important;
-      font-size: 1.5rem;
+    .dropdown-item {
+      color: #000000;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 8px 16px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(0,0,0,0.05);
+      color: #000000;
     }
 
     .nav-link {
-      color: var(--fg) !important;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .12em;
+      color: #000000 !important;
+      text-decoration: none;
       font-size: 14px;
-      transition: color .18s ease;
-      padding: 0.5rem 1rem !important;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.5rem 0.75rem !important;
+      transition: color 0.18s ease;
     }
 
-    .nav-link:hover, .nav-link.active {
-      color: var(--muted) !important;
+    .nav-link:hover {
+      color: #777777 !important;
+    }
+
+    .nav-link.active {
+      color: #000000 !important;
+      border-bottom: 2px solid #000000;
     }
 
     /* Hero section */
     .hero-section {
       position: relative;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: min(75vh, 680px);
-      min-height: 440px;
-      overflow: hidden;
+      height: 480px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      margin-bottom: 60px;
     }
 
     .hero-image-wrapper {
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
+      z-index: 1;
     }
 
     .hero-image-wrapper img {
@@ -152,20 +198,14 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: brightness(0.45);
-      display: block;
+      filter: brightness(0.85);
     }
 
     .hero-content {
       position: relative;
-      z-index: 10;
-      max-width: 600px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
+      z-index: 2;
       text-align: center;
+      color: #fff;
     }
 
     .hero-title {
@@ -195,113 +235,181 @@
       align-items: center;
       gap: 10px;
       padding: 12px 32px;
-      background: var(--cyan);
-      color: #fff;
+      background: #000000;
+      color: #fff !important;
       text-decoration: none;
       border-radius: 999px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
       font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
       transition: all .18s ease;
-      border: 2px solid var(--cyan);
+      border: 2px solid #000000;
     }
 
     .hero-enter-btn:hover {
-      background: var(--cyan-hover);
-      border-color: var(--cyan-hover);
+      background: #333333;
+      border-color: #333333;
       transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(0,122,204,0.3);
-      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      color: #fff !important;
     }
 
-    /* Gallery grid */
+    /* Section title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Gallery Placard Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 24px;
     }
 
-    .artwork-card {
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    .placard-card {
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
       border: 1px solid var(--line);
-      background: var(--bg);
-      overflow: hidden;
-      transition: all .2s ease;
-    }
-
-    .artwork-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    }
-
-    .artwork-image {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: contain;
-      background: var(--bg);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .artwork-meta {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 0 0 8px 0;
-      letter-spacing: .08em;
+      text-decoration: none !important;
       color: var(--fg);
-      padding: 16px 16px 0;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      height: 100%;
     }
 
-    .artwork-desc {
-      font-size: 14px;
+    .placard-card:hover {
+      border-color: #000000;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      color: inherit;
+    }
+
+    .placard-image-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 16px;
+    }
+
+    .placard-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .placard-card:hover .placard-image {
+      transform: scale(1.02);
+    }
+
+    .placard-content {
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .placard-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #000000;
+      letter-spacing: 0.04em;
+      margin: 0 0 4px 0;
+      line-height: 1.3;
+    }
+
+    .placard-card:hover .placard-title {
+      color: #333333;
+    }
+
+    .placard-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .placard-desc {
+      font-size: 0.88rem;
       color: var(--soft);
-      margin: 0 0 16px 0;
-      line-height: 1.7;
-      padding: 0 16px 16px;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+      flex-grow: 1;
+    }
+
+    .placard-enter {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #000000;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.18s ease;
+    }
+
+    .placard-card:hover .placard-enter {
+      color: #777777;
     }
 
     /* Footer - clean and consistent */
     .footer-clean {
       background: var(--bg);
       border-top: 1px solid var(--line-soft);
-      padding: 40px 0;
-      margin-top: 60px;
+      padding: 48px 0 40px;
+      margin-top: 80px;
     }
 
     .footer-logo-link {
       display: inline-block;
       transition: all .2s ease;
       padding: 6px 12px;
-      border-radius: 8px;
     }
 
     .footer-logo-link:hover {
       opacity: 0.6;
-      background: rgba(0,0,0,0.04);
       transform: translateY(-1px);
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      transition: color .18s ease;
-    }
-
-    .footer-link:hover {
-      color: var(--cyan);
     }
 
     .footer-social {
@@ -318,72 +426,26 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(0,0,0,0.04);
+      background: rgba(0,0,0,0.03);
       border: 1px solid var(--line);
-      color: var(--fg);
+      color: #000000;
       font-size: 18px;
       text-decoration: none;
       transition: all .2s ease;
-    }
-
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      min-height: 44px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.04);
-      border: 1px solid var(--line);
-      color: var(--fg);
-      font-size: 18px;
-      text-decoration: none;
-      transition: all .2s ease;
-      box-sizing: border-box;
     }
 
     .footer-social a:hover {
-      background: var(--fg);
-      border-color: var(--fg);
-      color: #fff;
-      transform: scale(1.1);
-    }
-
-    .guest-bell {
-      background: rgba(0,0,0,0.04) !important;
-      border-color: var(--line) !important;
-      color: var(--fg) !important;
+      background: rgba(0,0,0,0.08);
+      border-color: #000000;
+      color: #000000;
+      transform: scale(1.08);
     }
 
     .guest-bell:hover {
-      background: var(--fg) !important;
-      border-color: var(--fg) !important;
+      background: #000000 !important;
+      border-color: #000000 !important;
       color: #fff !important;
-      transform: scale(1.1);
-    }
-
-    .cart-toggle {
-      background: none;
-      border: none;
-      color: var(--fg);
-      font-size: 18px;
-      padding: 0.5rem;
-    }
-
-    .cart-toggle:hover {
-      color: var(--muted);
-    }
-
-    .dropdown-item {
-      color: var(--fg);
-      transition: background .15s ease;
-    }
-
-    .dropdown-item:hover {
-      background: rgba(0,0,0,0.04);
+      transform: scale(1.08);
     }
 
     .footer-legal-links {
@@ -392,10 +454,10 @@
     }
 
     .footer-policy-link {
-      color: var(--fg);
+      color: #000000;
       text-decoration: none;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
       transition: color .18s ease;
@@ -403,7 +465,7 @@
     }
 
     .footer-policy-link:hover {
-      color: var(--muted);
+      color: #777777;
     }
 
     .footer-dot {
@@ -413,14 +475,14 @@
     }
 
     .cc-license-link {
-      color: var(--fg);
+      color: #000000;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       transition: color .18s ease;
     }
 
     .cc-license-link:hover {
-      color: var(--muted);
+      color: #777777;
     }
 
     .footer-copy {
@@ -432,96 +494,14 @@
       border-top: 1px solid var(--line-soft);
     }
 
-    /* Utility classes */
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      color: var(--fg);
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: var(--soft);
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Responsive improvements */
     @media (max-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-      
-      .hero-title {
-        font-size: clamp(28px, 6vw, 48px);
-      }
-    }
-
-    @media (max-width: 576px) {
-      .hero-section {
-        height: 380px;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .navbar .container {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
       .nav-center-links {
-        gap: 0.25rem !important;
+        gap: 1rem;
       }
-
       .nav-link {
-        padding: 0.35rem 0.45rem !important;
-        font-size: 13px !important;
-        letter-spacing: .06em !important;
+        font-size: 12px;
+        padding: 0.5rem 0.35rem !important;
       }
-
-      .cart-toggle {
-        padding: 0.35rem 0.5rem !important;
-        font-size: 16px !important;
-      }
-
-      .footer-social {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 10px !important;
-      }
-
-      .footer-social a {
-        width: 38px !important;
-        height: 38px !important;
-        min-width: 38px !important;
-        min-height: 38px !important;
-        font-size: 15px !important;
-      }
-    }
-
-    /* Consistent card hover effects */
-    .nav-item {
-      position: relative;
-    }
-
-    /* Remove default Bootstrap margins */
-    body {
-      padding-top: 76px; /* Account for navbar */
     }
   </style>
 </head>
@@ -542,15 +522,15 @@
               <i class="fas fa-shopping-cart"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank">ARTSY</a></li>
-              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank">eBay</a></li>
-              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank">HipStamp</a></li>
-              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank">codes.gallery</a></li>
-              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank">OpenSea</a></li>
-              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank">Objkt</a></li>
-              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank">Magic Eden</a></li>
-              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank">AtomicHub</a></li>
-              <li><a class="dropdown-item" href="https://www.candy.io/dc/users/3eb43246-2f36-490a-b385-f8cfb2cf645c" target="_blank">Candy</a></li>
+              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener">ARTSY</a></li>
+              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank" rel="noopener">eBay</a></li>
+              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank" rel="noopener">HipStamp</a></li>
+              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank" rel="noopener">codes.gallery</a></li>
+              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank" rel="noopener">OpenSea</a></li>
+              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank" rel="noopener">Objkt</a></li>
+              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank" rel="noopener">Magic Eden</a></li>
+              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank" rel="noopener">AtomicHub</a></li>
+              <li><a class="dropdown-item" href="https://www.candy.io/dc/users/3eb43246-2f36-490a-b385-f8cfb2cf645c" target="_blank" rel="noopener">Candy</a></li>
             </ul>
           </div>
         </div>
@@ -574,14 +554,207 @@
 
   <!-- Main Content -->
   <main class="container">
-    <section id="gallery" class="py-5">
+    <section id="gallery" class="py-2">
       <div class="section-title">
-        <h2>Featured Exhibitions</h2>
-        <p>Curated digital art collections from emerging and established artists</p>
+        <h2>EXHIBITIONS</h2>
+        <p>Curated digital art collections &amp; archives</p>
       </div>
       
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Gallery items will be populated by JavaScript -->
+      <div class="gallery-grid">
+        <!-- 15. codes.gallery -->
+        <a href="exhibitions/codes-gallery.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/vGallerySpaceFinal_originalmotion_working.gif" alt="codes.gallery" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">codes.gallery</h3>
+            <div class="placard-date">JUNE 2026</div>
+            <p class="placard-desc">Solo for nearly 20 years across a 01010 of exhibitions. Frames emerged as collaborator in the studio.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 14. vGallerySpace : eBay -->
+        <a href="exhibitions/vgalleryspace-ebay.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/vgebay.webp" alt="vGallerySpace : eBay" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">vGallerySpace : eBay</h3>
+            <div class="placard-date">FEBRUARY 2025</div>
+            <p class="placard-desc">Marketplace exhibition of items from artists who have influenced my work and others who influence the marketplace.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 13. INFINITY MUSEUM : XTZ -->
+        <a href="exhibitions/infinity-museum-xtz.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/infinity-collection.png" alt="INFINITY MUSEUM : XTZ" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">INFINITY MUSEUM : XTZ</h3>
+            <div class="placard-date">AUGUST 2024</div>
+            <p class="placard-desc">Interactive digital infinity installation exploring generative art, mid-brow aesthetics, and code within perception.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 12. MoMA POSTCARD PROJECT -->
+        <a href="exhibitions/moma-postcard-installation.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/moma.webp" alt="MoMA POSTCARD PROJECT" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">MoMA POSTCARD PROJECT</h3>
+            <div class="placard-date">DECEMBER 2023</div>
+            <p class="placard-desc">Interactive NFT postcard project and ongoing postal archive connecting physical museum history with digital collections.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 11. vGallerySpace : METAVERSE EXHIBITION -->
+        <a href="exhibitions/vgalleryspace-metaverse-exhibition.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/stratosphere2022.webp" alt="vGallerySpace : METAVERSE EXHIBITION" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">vGallerySpace : METAVERSE EXHIBITION</h3>
+            <div class="placard-date">JUNE 2022</div>
+            <p class="placard-desc">Virtual gallery space brought to fruition in the metaverse, exploring new discoveries and spatial possibilities.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 10. AD ART SHOW 2021 -->
+        <a href="exhibitions/ad-art-show-2021.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/ad2021-adart-new.png" alt="AD ART SHOW 2021" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">AD ART SHOW 2021</h3>
+            <div class="placard-date">MAY 2021</div>
+            <p class="placard-desc">Exhibition at the Oculus at Westfield World Trade Center, New York, featuring stills from arch&gt;scul.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 09. AD ART SHOW 2020 -->
+        <a href="exhibitions/ad-art-show-2020.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/ad2020-marquee-new.jpg" alt="AD ART SHOW 2020" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">AD ART SHOW 2020</h3>
+            <div class="placard-date">SEPTEMBER 2020</div>
+            <p class="placard-desc">Third annual art show featuring artists from advertising. Stills from arch&gt;scul loop III prototype No.6 on view.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 08. OSG -->
+        <a href="exhibitions/osg.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/osg-office.jpg" alt="OSG" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">OSG</h3>
+            <div class="placard-date">FEBRUARY 2019 – FEBRUARY 2022</div>
+            <p class="placard-desc">3 years of experiments at the Lemp Brewery Complex testing and learning what arch&gt;scul would evolve into.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 07. prototype No.6 -->
+        <a href="exhibitions/prototype-no-6.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/proto6-fronts1.jpg" alt="prototype No.6" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">prototype No.6</h3>
+            <div class="placard-date">JUNE 2018</div>
+            <p class="placard-desc">The 3rd video installation completing the trilogy of prototypes constructed using a Golden Mean camera shot.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 06. Biz-Zine No.1 -->
+        <a href="exhibitions/biz-zine-no-1.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/biz-zine-cliffcaves.png" alt="Biz-Zine No.1" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">Biz-Zine No.1</h3>
+            <div class="placard-date">JANUARY – MAY 2018</div>
+            <p class="placard-desc">A gray market publication and zine exploring commerce, self-publishing, and art distribution.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 05. prototype No.5 -->
+        <a href="exhibitions/prototype-no-5.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/proto5-poster1a.png" alt="prototype No.5" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">prototype No.5</h3>
+            <div class="placard-date">JUNE 17, 2017 – NOVEMBER 25, 2017</div>
+            <p class="placard-desc">A visual mix of something ancient from the past with a futuristic unknown. An intrinsic voyage of the mind.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 04. Internet Lounge -->
+        <a href="exhibitions/internet-lounge.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/vG_Internet_Lounge_opt-1024x768.jpg" alt="Internet Lounge" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">Internet Lounge</h3>
+            <div class="placard-date">FEBRUARY 2017</div>
+            <p class="placard-desc">Digital lounge space exploring how music and sound sculptures influence identity and space.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 03. arch>scul -->
+        <a href="exhibitions/archscul.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/nads01_a.png" alt="arch&gt;scul" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">arch&gt;scul</h3>
+            <div class="placard-date">OCTOBER 2016</div>
+            <p class="placard-desc">Architectural sculpture study representing a gallery + office/studio mixed-use residential project.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 02. AUTO NATURE -->
+        <a href="exhibitions/auto-nature.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/twoskies_1-2.png" alt="AUTO NATURE" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">AUTO NATURE</h3>
+            <div class="placard-date">JULY 2016</div>
+            <p class="placard-desc">A collection of landscape photographs taken while hiking through the parks of Missouri.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <!-- 01. AUTO MNEMONIC BODY -->
+        <a href="exhibitions/auto-mnemonic-body.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/amb-autobodyshop.jpg" alt="AUTO MNEMONIC BODY" class="placard-image" loading="lazy">
+          </div>
+          <div class="placard-content">
+            <h3 class="placard-title">AUTO MNEMONIC BODY</h3>
+            <div class="placard-date">MARCH 2016</div>
+            <p class="placard-desc">The first exhibition of vGallerySpace: exploring the body as archive at the intersection of philosophy, science, and AI.</p>
+            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+          </div>
+        </a>
       </div>
     </section>
   </main>
@@ -633,39 +806,5 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    // Populate gallery with exhibition data
-    document.addEventListener('DOMContentLoaded', function() {
-      const galleryGrid = document.getElementById('galleryGrid');
-      
-      // Get exhibition files from exhibitions directory
-      const exhibitions = [
-        { title: 'AD ART SHOW 2020', slug: 'exhibitions/ad-art-show-2020.html', image: 'assets/ad2020-larger.jpg', desc: 'Third annual art show featuring artists from advertising. Winner honored with Clio Award.' },
-        { title: 'codes.gallery', slug: 'exhibitions/codes-gallery.html', image: 'assets/vGallerySpaceFinal_originalmotion_working.gif', desc: 'Solo for nearly 20 years across a 01010 of exhibitions. Frames emerged as collaborator in the studio.' },
-        { title: 'Infinity Museum', slug: 'exhibitions/infinity-museum-xtz.html', image: 'assets/infinity-collection.png', desc: 'Interactive digital infinity installation exploring perception and space.' },
-        { title: 'Internet Lounge', slug: 'exhibitions/internet-lounge.html', image: 'assets/VG_Internet_Lounge_opt-1024x768.jpg', desc: 'Digital lounge space showcasing internet art and virtual reality experiences.' },
-        { title: 'Prototype No 5', slug: 'exhibitions/prototype-no-5.html', image: 'assets/proto5-gallery-thumb.png', desc: 'Experimental prototype exploring new forms of digital interaction and display.' },
-        { title: 'MOMA Postcard Installation', slug: 'exhibitions/moma-postcard-installation.html', image: 'assets/moma.webp', desc: 'Interactive postcard installation reimagining physical and digital museum experiences.' },
-        { title: 'OSG Gallery', slug: 'exhibitions/osg.html', image: 'assets/osg-gallery.jpg', desc: 'Organic Systems Gallery featuring bio-digital art and natural algorithms.' },
-        { title: 'Auto-Nature', slug: 'exhibitions/auto-nature.html', image: 'assets/vG_Internet_Lounge_opt-1024x768.jpg', desc: 'Digital art exploring the intersection of technology and natural ecosystems.' }
-      ];
-      
-      exhibitions.forEach(exhibition => {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-md-6 col-lg-4';
-        
-        col.innerHTML = `
-          <div class="artwork-card" onclick="window.location.href='${exhibition.slug}'">
-            <img src="${exhibition.image}" alt="${exhibition.title}" class="artwork-image">
-            <h3 class="artwork-meta">${exhibition.title}</h3>
-            <p class="artwork-desc">${exhibition.desc}</p>
-          </div>
-        `;
-        
-        galleryGrid.appendChild(col);
-      });
-    });
-  </script>
 </body>
 </html>
