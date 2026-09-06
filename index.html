@@ -306,14 +306,15 @@
       border: 1px solid var(--line);
       text-decoration: none !important;
       color: var(--fg);
-      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.18s ease;
       height: 100%;
     }
 
     .placard-card:hover {
-      border-color: #000000;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border-color: #888888;
+      background: #fbfbfb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       color: inherit;
     }
 
@@ -321,19 +322,18 @@
       width: 100%;
       aspect-ratio: 1 / 1;
       background: #ffffff;
-      border-bottom: 1px solid var(--line-soft);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding: 16px;
+      padding: 12px;
     }
 
     .placard-image {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease;
     }
 
     .placard-card:hover .placard-image {
@@ -341,19 +341,19 @@
     }
 
     .placard-content {
-      padding: 24px 20px;
+      padding: 0 16px 16px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
     .placard-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #000000;
       letter-spacing: 0.04em;
-      margin: 0 0 4px 0;
-      line-height: 1.3;
+      margin: 0 0 2px 0;
+      line-height: 1.25;
     }
 
     .placard-card:hover .placard-title {
@@ -361,36 +361,20 @@
     }
 
     .placard-date {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--muted);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .placard-desc {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--soft);
-      line-height: 1.6;
-      margin: 0 0 20px 0;
+      line-height: 1.5;
+      margin: 0;
       flex-grow: 1;
-    }
-
-    .placard-enter {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #000000;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: color 0.18s ease;
-    }
-
-    .placard-card:hover .placard-enter {
-      color: #777777;
     }
 
     /* Footer - clean and consistent */
@@ -561,13 +545,12 @@
         <!-- 15. codes.gallery -->
         <a href="exhibitions/codes-gallery.html" class="placard-card">
           <div class="placard-image-wrap">
-            <img src="assets/vGallerySpaceFinal_originalmotion_working.gif" alt="codes.gallery" class="placard-image" loading="lazy">
+            <img src="assets/furby-catalog.png" alt="codes.gallery" class="placard-image" loading="lazy">
           </div>
           <div class="placard-content">
             <h3 class="placard-title">codes.gallery</h3>
-            <div class="placard-date">JUNE 2026</div>
-            <p class="placard-desc">Solo for nearly 20 years across a 01010 of exhibitions. Frames emerged as collaborator in the studio.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <div class="placard-date">MARCH 2026</div>
+            <p class="placard-desc">Solo for nearly 20 years, across a 01010 of exhibitions, and that leaves a mark. You learn how to carry the whole structure yourself, but over time, you also sense the weight of doing everything independently...</p>
           </div>
         </a>
 
@@ -579,8 +562,7 @@
           <div class="placard-content">
             <h3 class="placard-title">vGallerySpace : eBay</h3>
             <div class="placard-date">FEBRUARY 2025</div>
-            <p class="placard-desc">Marketplace exhibition of items from artists who have influenced my work and others who influence the marketplace.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">A marketplace exhibition featuring items from artists who have influenced my work and others who influence the marketplace. Exploring secondary markets, artist multiples, and the intersections of commerce...</p>
           </div>
         </a>
 
@@ -592,8 +574,7 @@
           <div class="placard-content">
             <h3 class="placard-title">INFINITY MUSEUM : XTZ</h3>
             <div class="placard-date">AUGUST 2024</div>
-            <p class="placard-desc">Interactive digital infinity installation exploring generative art, mid-brow aesthetics, and code within perception.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">An interactive digital infinity installation exploring generative art, mid-brow aesthetics, and code within perception. Examining digital abundance, spatial repetition, and blockchain-based provenance...</p>
           </div>
         </a>
 
@@ -605,8 +586,7 @@
           <div class="placard-content">
             <h3 class="placard-title">MoMA POSTCARD PROJECT</h3>
             <div class="placard-date">DECEMBER 2023</div>
-            <p class="placard-desc">Interactive NFT postcard project and ongoing postal archive connecting physical museum history with digital collections.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">Interactive NFT postcard project and ongoing postal installation connecting physical museum history with digital collections. Exploring participatory art, community minting, and the postal network...</p>
           </div>
         </a>
 
@@ -618,8 +598,7 @@
           <div class="placard-content">
             <h3 class="placard-title">vGallerySpace : METAVERSE EXHIBITION</h3>
             <div class="placard-date">JUNE 2022</div>
-            <p class="placard-desc">Virtual gallery space brought to fruition in the metaverse, exploring new discoveries and spatial possibilities.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">Virtual gallery space brought to fruition in the metaverse, exploring new discoveries and spatial possibilities. Navigating architectural forms in digital space, virtual walkthroughs, and spatial presence...</p>
           </div>
         </a>
 
@@ -631,8 +610,7 @@
           <div class="placard-content">
             <h3 class="placard-title">AD ART SHOW 2021</h3>
             <div class="placard-date">MAY 2021</div>
-            <p class="placard-desc">Exhibition at the Oculus at Westfield World Trade Center, New York, featuring stills from arch&gt;scul.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">Exhibition at the Oculus at Westfield World Trade Center in New York, featuring digital stills from arch>scul. Presenting fine art created by artists with careers rooted in commercial advertising...</p>
           </div>
         </a>
 
@@ -644,8 +622,7 @@
           <div class="placard-content">
             <h3 class="placard-title">AD ART SHOW 2020</h3>
             <div class="placard-date">SEPTEMBER 2020</div>
-            <p class="placard-desc">Third annual art show featuring artists from advertising. Stills from arch&gt;scul loop III prototype No.6 on view.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">Third annual art show featuring artworks by artists from advertising. Stills from arch>scul loop III prototype No.6 on view at the Oculus screens, presented in partnership with NBCUniversal and Clio...</p>
           </div>
         </a>
 
@@ -657,8 +634,7 @@
           <div class="placard-content">
             <h3 class="placard-title">OSG</h3>
             <div class="placard-date">FEBRUARY 2019 – FEBRUARY 2022</div>
-            <p class="placard-desc">3 years of experiments at the Lemp Brewery Complex testing and learning what arch&gt;scul would evolve into.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">Spent 3 years experimenting at the Lemp Brewery Complex in Saint Louis, Missouri, testing and learning what arch>scul would be like in a real-world setting across 7,000 square feet divided into 3 parts...</p>
           </div>
         </a>
 
@@ -670,8 +646,7 @@
           <div class="placard-content">
             <h3 class="placard-title">prototype No.6</h3>
             <div class="placard-date">JUNE 2018</div>
-            <p class="placard-desc">The 3rd video installation completing the trilogy of prototypes constructed using a Golden Mean camera shot.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">The 3rd video installation completing the trilogy of prototypes constructed using a Golden Mean camera shot. Continuing investigations into spatial geometry, loop duration, and architectural video...</p>
           </div>
         </a>
 
@@ -683,8 +658,7 @@
           <div class="placard-content">
             <h3 class="placard-title">Biz-Zine No.1</h3>
             <div class="placard-date">JANUARY – MAY 2018</div>
-            <p class="placard-desc">A gray market publication and zine exploring commerce, self-publishing, and art distribution.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">A gray market publication and zine exploring commerce, self-publishing, and art distribution. Documenting studio ephemera, critical essays, and early prototypes in an accessible print format...</p>
           </div>
         </a>
 
@@ -696,8 +670,7 @@
           <div class="placard-content">
             <h3 class="placard-title">prototype No.5</h3>
             <div class="placard-date">JUNE 17, 2017 – NOVEMBER 25, 2017</div>
-            <p class="placard-desc">A visual mix of something ancient from the past with a futuristic unknown. An intrinsic voyage of the mind.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">A visual mix of something ancient from the past with a futuristic unknown. An intrinsic voyage of the mind exploring spatial rhythm, Golden Ratio framing, and cinematic installation loops...</p>
           </div>
         </a>
 
@@ -709,8 +682,7 @@
           <div class="placard-content">
             <h3 class="placard-title">Internet Lounge</h3>
             <div class="placard-date">FEBRUARY 2017</div>
-            <p class="placard-desc">Digital lounge space exploring how music and sound sculptures influence identity and space.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">Digital lounge space exploring how music and sound sculptures influence identity and space. A curated audiovisual environment examining ambient soundscapes, digital interaction, and internet culture...</p>
           </div>
         </a>
 
@@ -722,8 +694,7 @@
           <div class="placard-content">
             <h3 class="placard-title">arch&gt;scul</h3>
             <div class="placard-date">OCTOBER 2016</div>
-            <p class="placard-desc">Architectural sculpture study representing a gallery + office/studio mixed-use residential project.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">Architectural sculpture study representing a gallery + office/studio mixed-use residential project. Exploring the convergence of architectural space, spatial sculpture, and physical construction...</p>
           </div>
         </a>
 
@@ -735,8 +706,7 @@
           <div class="placard-content">
             <h3 class="placard-title">AUTO NATURE</h3>
             <div class="placard-date">JULY 2016</div>
-            <p class="placard-desc">A collection of landscape photographs taken while hiking through the parks of Missouri.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">A collection of landscape photographs taken while hiking through the state parks of Missouri. Documenting natural geometries, dual skies, atmospheric light, and the rural Midwestern landscape...</p>
           </div>
         </a>
 
@@ -748,8 +718,7 @@
           <div class="placard-content">
             <h3 class="placard-title">AUTO MNEMONIC BODY</h3>
             <div class="placard-date">MARCH 2016</div>
-            <p class="placard-desc">The first exhibition of vGallerySpace: exploring the body as archive at the intersection of philosophy, science, and AI.</p>
-            <div class="placard-enter">ENTER EXHIBITION <i class="fas fa-arrow-right"></i></div>
+            <p class="placard-desc">The first exhibition of the vGallery: an experiment developing a place online to showcase projects, exploring the eCommerce gallery space as an anatomical extension of memory and artistic archive...</p>
           </div>
         </a>
       </div>
