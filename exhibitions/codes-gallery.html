@@ -222,13 +222,24 @@
     }
 
     .hero-image {
+      display: block;
       width: 100%;
       height: auto;
       max-height: 520px;
       object-fit: contain;
       margin-bottom: 20px;
-      background: var(--bg);
-      border: 1px solid var(--line);
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
+    }
+
+    .hero-image-link {
+      display: block;
+      text-decoration: none;
+    }
+    .hero-image-link:hover .hero-image {
+      opacity: 0.92;
     }
 
     .exhibition-image {
@@ -482,7 +493,7 @@
     </header>
 
     <!-- Main hero image - crisp img unmasked motion cube - clickable to codes.gallery -->
-    <a href="https://codes.gallery/" target="_blank" rel="noopener" aria-label="Enter codes.gallery">
+    <a href="https://codes.gallery/" target="_blank" rel="noopener" aria-label="Enter codes.gallery" class="hero-image-link">
       <img src="../assets/vGallerySpaceFinal_originalmotion_working.gif" alt="Codes Gallery exhibition thumbnail" class="hero-image" />
     </a>
 
