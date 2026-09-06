@@ -296,6 +296,56 @@
       border: 1px solid var(--line);
     }
 
+    .hero-video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      margin-bottom: 20px;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
+    }
+
+    .hero-image-link {
+      display: block;
+      text-decoration: none;
+    }
+    .hero-image-link:hover .hero-video {
+      opacity: 0.92;
+    }
+
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: #000000;
+      border: 1px solid #000000;
+      color: #ffffff !important;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: all .18s ease;
+    }
+
+    .external-link:hover {
+      background: #333333;
+      border-color: #333333;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .external-link i {
+      font-size: 14px;
+    }
+
     /* Footer - clean and consistent */
     .footer-clean {
       background: var(--bg);
@@ -445,27 +495,26 @@
   <main class="content-section">
 
 <header class="content-header">
-      <h1 class="content-title">vGallerySpace : METAVERSE EXHIBITION</h1>
+      <h1 class="content-title">vGallerySpace : METAVERSE</h1>
       <p class="content-meta">JUNE 2022</p>
     </header>
 
-<!-- Main hero video - autoplay loop -->
-    <div class="video-player">
-      <div class="video-player-grid">
-          <video autoplay loop muted playsinline>
+<!-- Main hero video - clickable to OnCyber/spatial metaverse space -->
+    <a href="https://t.co/fS1ga1iZOZ" target="_blank" rel="noopener" aria-label="Enter Metaverse Exhibition" class="hero-image-link">
+      <video autoplay loop muted playsinline poster="../assets/metaverse-thumbnail.png" class="hero-video">
         <source src="../assets/metaverse-exhibition.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-        </div>
-    </div>
+    </a>
 
-<div class="content-body">
-      <p style="text-align: center; margin: 24px 0 16px;">
-        <a href="https://t.co/fS1ga1iZOZ" target="_blank" rel="noopener" class="external-link">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          ENTER
-        </a>
-      </p>
+    <p style="text-align: center; margin: 0 0 24px;">
+      <a href="https://t.co/fS1ga1iZOZ" target="_blank" rel="noopener" class="external-link">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        ENTER
+      </a>
+    </p>
+
+    <div class="content-body">
       <p>FINALLY, AFTER ALL THESE YEARS OF IMAGINING HOW A VIRTUAL GALLERY SPACE WOULD LOOK! FRUITION HAS CAUGHT UP WITH THE CONCEPT. LIKE A NEW DREAM COME TRUE. THE POSSIBILITY AND POTENTIAL OF THE SPACE CONTINUALLY FIND NEW DISCOVERIES.</p>
     </div>
 
