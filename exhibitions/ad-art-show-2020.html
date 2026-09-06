@@ -222,13 +222,33 @@
     }
 
     .hero-image {
-      width: 100%;
+      display: block;
+      width: auto;
+      max-width: 100%;
       height: auto;
       max-height: 520px;
-      object-fit: contain;
-      margin-bottom: 28px;
-      background: var(--bg);
-      border: 1px solid var(--line);
+      margin: 0 auto 20px auto;
+      background: #ffffff;
+      border: 8px solid #000000;
+      box-sizing: border-box;
+      transition: opacity 0.18s ease;
+    }
+
+    .hero-image-link {
+      display: block;
+      text-decoration: none;
+    }
+    .hero-image-link:hover .hero-image {
+      opacity: 0.92;
+    }
+
+    .partner-logo-link {
+      display: inline-block;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .partner-logo-link:hover {
+      opacity: 0.82;
+      transform: translateY(-2px);
     }
 
     .exhibition-image {
@@ -450,31 +470,32 @@
     </header>
 
 <!-- Main hero image - clickable to Artsy -->
-    <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" aria-label="View on Artsy">
+    <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" aria-label="View on Artsy" class="hero-image-link">
       <img src="../assets/ad2020-marquee-new.jpg" alt="AD Art Show 2020" class="hero-image" />
     </a>
 
 <div class="content-body">
       <p>FOUR STILLS FROM <a href="https://vgallery.space/exhibitions/prototype-no-6.html" target="_blank" rel="noopener" class="proto-link"><strong>arch>scul loop III prototype No.6</strong></a></p>
       <p>THIRD ANNUAL ART SHOW FEATURING ARTWORKS BY ARTISTS FROM ADVERTISING FROM SEPTEMBER 1 TO SEPTEMBER 30, 2020, 23/7. WINNER TO BE HONORED WITH SPECIALTY CLIO AWARD WITH PRESENTING SPONSOR NBCUNIVERSAL.</p>
-      <p>ARTWORK WILL BE FOR SALE ON THE <strong><a href="https://www.mvvoart.com/" target="_blank" rel="noopener" class="proto-link">MvVO</a></strong> WEBSITE & VIA THEIR <strong><a href="https://www.artsy.net/partner/mvmo-art" target="_blank" rel="noopener" class="proto-link">ARTSY GALLERY</a></strong>.</p>
+      <p>ARTWORK WILL BE FOR SALE ON THE <strong><a href="https://www.mvvoart.com/2020-ad-art-show" target="_blank" rel="noopener" class="proto-link">MvVO</a></strong> WEBSITE & VIA THEIR <strong><a href="https://www.artsy.net/partner/mvmo-art" target="_blank" rel="noopener" class="proto-link">ARTSY GALLERY</a></strong>.</p>
       <p>AN ADDITIONAL EIGHT PHOTOGRAPHS WILL BE SLOWLY ADDED TO ARTSY WITH ALL 12 PHOTOGRAPHS ON VIEW FOR A YEAR!</p>
     </div>
 
-<div class="gallery-grid">
-      <article class="artwork">
-        <a href="https://www.mvvoart.com/2020-ad-art-show" target="_blank" rel="noopener" aria-label="View on MVVO">
-          <img src="../assets/ad2020-larger-new.jpg" alt="arch>scul Loop III still" class="exhibition-image" />
-        </a>
-      </article>
+<div style="margin: 28px 0;">
+      <a href="https://www.mvvoart.com/2020-ad-art-show" target="_blank" rel="noopener" aria-label="View on MvVO" class="hero-image-link">
+        <img src="../assets/ad2020-larger-new.jpg" alt="arch>scul Loop III still" class="hero-image" />
+      </a>
     </div>
 
-<!-- Artsy logo link -->
-    <p style="text-align: center; margin: 24px 0 16px;">
-      <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" class="artsy-logo-link" aria-label="View on Artsy (opens in new tab)">
-        <img src="../assets/Artsy_Logo_Full_Black_Jpeg_Small.jpg" alt="Artsy" />
+<!-- Partner Logos: MvVO flush left, Artsy flush right -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 40px 0 24px;">
+      <a href="https://www.mvvoart.com/2020-ad-art-show" target="_blank" rel="noopener" class="partner-logo-link" aria-label="MvVO ART">
+        <img src="../assets/MvVO_vgalleryspace.png" alt="MvVO ART" style="height: 68px; width: auto; display: block;" />
       </a>
-    </p>
+      <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" class="partner-logo-link" aria-label="View on Artsy">
+        <img src="../assets/ARTSY_vGallerySpace.jpg" alt="Artsy" style="height: 50px; width: auto; display: block;" />
+      </a>
+    </div>
 
   </main>
 
