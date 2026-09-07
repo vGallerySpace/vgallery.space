@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VGALLERYSPACE — vgallery.space</title>
+  <title>vGallerySpace — GALLERY</title>
   <meta name="description" content="VGALLERYSPACE - Gallery exhibitions and archives" />
   <link rel="canonical" href="https://vgallery.space/" />
   <meta name="theme-color" content="#ffffff" />
@@ -25,7 +25,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-  <link rel="apple-touch-icon" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -176,7 +176,7 @@
     /* Hero section */
     .hero-section {
       position: relative;
-      height: 480px;
+      height: 540px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -197,7 +197,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: top center;
       filter: brightness(0.85);
     }
 
@@ -212,7 +212,7 @@
       font-size: clamp(36px, 6vw, 64px);
       font-weight: 700;
       letter-spacing: .08em;
-      color: #ff006e;
+      color: #ff2680;
       margin: 0 0 4px 0;
       line-height: 1.1;
       text-shadow: 0 2px 20px rgba(0,0,0,0.6);
@@ -235,8 +235,8 @@
       align-items: center;
       gap: 10px;
       padding: 12px 32px;
-      background: #000000;
-      color: #fff !important;
+      background: #4FF6FF;
+      color: #000000 !important;
       text-decoration: none;
       border-radius: 999px;
       font-size: 14px;
@@ -245,15 +245,15 @@
       text-transform: uppercase;
       font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
       transition: all .18s ease;
-      border: 2px solid #000000;
+      border: 2px solid #4FF6FF;
     }
 
     .hero-enter-btn:hover {
-      background: #333333;
-      border-color: #333333;
+      background: #2ee6f2;
+      border-color: #2ee6f2;
       transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      color: #fff !important;
+      box-shadow: 0 4px 20px rgba(79, 246, 255, 0.45);
+      color: #000000 !important;
     }
 
     /* Section title */
@@ -685,19 +685,19 @@
         <!-- 05. prototype No.5 -->
         <a href="exhibitions/prototype-no-5.html" class="placard-card">
           <div class="placard-image-wrap">
-            <img src="assets/proto5-poster1a.png" alt="prototype No.5" class="placard-image" loading="lazy">
+            <video src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.png" autoplay loop muted playsinline class="placard-media"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">prototype No.5</h3>
             <div class="placard-date">JUNE 17, 2017 – NOVEMBER 25, 2017</div>
-            <p class="placard-desc">A visual mix of something ancient from the past with a futuristic unknown. An intrinsic voyage of the mind exploring spatial rhythm, Golden Ratio framing, and cinematic installation loops...</p>
+            <p class="placard-desc">A visual mix of something ancient from the past with a futuristic unknown. An intrinsic voyage of the mind exploring spatial rhythm, Golden Ratio framing, transformable sculptures, and cinematic installation loops...</p>
           </div>
         </a>
 
         <!-- 04. Internet Lounge -->
         <a href="exhibitions/internet-lounge.html" class="placard-card">
           <div class="placard-image-wrap">
-            <img src="assets/vG_Internet_Lounge_opt-1024x768.jpg" alt="Internet Lounge" class="placard-image" loading="lazy">
+            <video src="assets/archscul-loop-i.mp4" poster="assets/archscul-loop-i-thumb.png" autoplay loop muted playsinline class="placard-media"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">Internet Lounge</h3>
