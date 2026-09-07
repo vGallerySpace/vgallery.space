@@ -461,6 +461,37 @@
         padding: 0.5rem 0.35rem !important;
       }
     }
+          /* Exhibition Navigation */
+    .exhibition-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 780px;
+      margin: 0 auto 32px auto;
+      padding: 0 20px;
+    }
+
+    .exhibit-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid var(--line);
+      color: #000000;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all .2s ease;
+    }
+
+    .exhibit-nav-btn:hover {
+      background: rgba(0,0,0,0.08);
+      border-color: #000000;
+      color: #000000;
+      transform: scale(1.08);
+    }
   </style>
 </head>
 <body>
@@ -557,6 +588,16 @@
   <!-- Footer -->
   <footer class="footer-clean">
     <div class="container">
+            <!-- Exhibition Navigation -->
+      <div class="exhibition-nav">
+        <a href="ad-art-show-2021.html" class="exhibit-nav-btn" title="Previous: AD ART SHOW 2021" aria-label="Previous exhibition: AD ART SHOW 2021">
+          <i class="fas fa-chevron-left"></i>
+        </a>
+        <a href="moma-postcard-installation.html" class="exhibit-nav-btn" title="Next: MoMA POSTCARD PROJECT" aria-label="Next exhibition: MoMA POSTCARD PROJECT">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+
       <!-- FRAMOUS Logo - Above Social Icons -->
       <div class="footer-logo text-center mb-4">
         <a href="../artist-statement.html" class="footer-logo-link" title="Artist Statement">

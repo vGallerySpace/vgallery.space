@@ -440,6 +440,37 @@
         padding: 0.5rem 0.35rem !important;
       }
     }
+          /* Exhibition Navigation */
+    .exhibition-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 780px;
+      margin: 0 auto 32px auto;
+      padding: 0 20px;
+    }
+
+    .exhibit-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid var(--line);
+      color: #000000;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all .2s ease;
+    }
+
+    .exhibit-nav-btn:hover {
+      background: rgba(0,0,0,0.08);
+      border-color: #000000;
+      color: #000000;
+      transform: scale(1.08);
+    }
   </style>
 </head>
 <body>
@@ -495,7 +526,7 @@
 <!-- Partner Logos: MvVO flush left, Artsy flush right -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin: 40px 0 24px;">
       <a href="https://www.mvvoart.com/2021-ad-art-show-wesfield-wtc" target="_blank" rel="noopener" class="partner-logo-link" aria-label="MvVO ART">
-        <img src="../assets/MvVO_vgalleryspace.png" alt="MvVO ART" style="height: 68px; width: auto; display: block;" />
+        <img src="../assets/MvVO_vGallerySpace.avif" alt="MvVO ART" style="height: 50px; width: auto; display: block;" />
       </a>
       <a href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener" class="partner-logo-link" aria-label="View on Artsy">
         <img src="../assets/ARTSY_vGallerySpace.jpg" alt="Artsy" style="height: 50px; width: auto; display: block;" />
@@ -507,6 +538,16 @@
   <!-- Footer -->
   <footer class="footer-clean">
     <div class="container">
+            <!-- Exhibition Navigation -->
+      <div class="exhibition-nav">
+        <a href="ad-art-show-2020.html" class="exhibit-nav-btn" title="Previous: AD ART SHOW 2020" aria-label="Previous exhibition: AD ART SHOW 2020">
+          <i class="fas fa-chevron-left"></i>
+        </a>
+        <a href="vgalleryspace-metaverse-exhibition.html" class="exhibit-nav-btn" title="Next: vGallerySpace : METAVERSE" aria-label="Next exhibition: vGallerySpace : METAVERSE">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+
       <!-- FRAMOUS Logo - Above Social Icons -->
       <div class="footer-logo text-center mb-4">
         <a href="../artist-statement.html" class="footer-logo-link" title="Artist Statement">

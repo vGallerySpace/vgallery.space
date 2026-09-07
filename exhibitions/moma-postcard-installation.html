@@ -469,6 +469,37 @@
         padding: 0.5rem 0.35rem !important;
       }
     }
+          /* Exhibition Navigation */
+    .exhibition-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 780px;
+      margin: 0 auto 32px auto;
+      padding: 0 20px;
+    }
+
+    .exhibit-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid var(--line);
+      color: #000000;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all .2s ease;
+    }
+
+    .exhibit-nav-btn:hover {
+      background: rgba(0,0,0,0.08);
+      border-color: #000000;
+      color: #000000;
+      transform: scale(1.08);
+    }
   </style>
 </head>
 <body>
@@ -547,6 +578,16 @@
   <!-- Footer -->
   <footer class="footer-clean">
     <div class="container">
+            <!-- Exhibition Navigation -->
+      <div class="exhibition-nav">
+        <a href="vgalleryspace-metaverse-exhibition.html" class="exhibit-nav-btn" title="Previous: vGallerySpace : METAVERSE" aria-label="Previous exhibition: vGallerySpace : METAVERSE">
+          <i class="fas fa-chevron-left"></i>
+        </a>
+        <a href="infinity-museum-xtz.html" class="exhibit-nav-btn" title="Next: INFINITY MUSEUM : XTZ" aria-label="Next exhibition: INFINITY MUSEUM : XTZ">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+
       <!-- FRAMOUS Logo - Above Social Icons -->
       <div class="footer-logo text-center mb-4">
         <a href="../artist-statement.html" class="footer-logo-link" title="Artist Statement">
