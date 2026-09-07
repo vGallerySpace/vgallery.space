@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>vGallerySpace</title>
+    <link>https://vgallery.space/</link>
+    <atom:link href="https://vgallery.space/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Curated exhibitions, digital architecture, video installations, and virtual gallery projects by FRAMOUS.</description>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2016-2026 FRAMOUS / vGallerySpace. CC BY-NC-SA 4.0</copyright>
+    <lastBuildDate>Mon, 07 Sep 2026 12:00:00 -0500</lastBuildDate>
+    <managingEditor>framous@vgallery.space (FRAMOUS)</managingEditor>
+    <webMaster>framous@vgallery.space (FRAMOUS)</webMaster>
+
+    <!-- ============================================================
+         NEXT POST (Upcoming / Ready to Publish)
+         To publish the next post, replace the values below and change isUpcoming="false"
+         ============================================================ -->
+    <!--
+    <item>
+      <title>NEXT EXHIBITION TITLE</title>
+      <link>https://vgallery.space/exhibitions/next-post.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/next-post.html</guid>
+      <pubDate>Mon, 07 Sep 2026 12:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[Summary description for the new exhibition...]]></description>
+    </item>
+    -->
+
+    <item>
+      <title>codes.gallery</title>
+      <link>https://vgallery.space/exhibitions/codes-gallery.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/codes-gallery.html</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 -0600</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[SOLO FOR NEARLY 20 YEARS, ACROSS A 01010 OF EXHIBITIONS. YOU LEARN HOW TO CARRY THE WHOLE STRUCTURE YOURSELF, BUT OVER TIME, YOU ALSO SENSE THE WEIGHT OF DOING EVERYTHING INDEPENDENTLY.]]></description>
+    </item>
+    <item>
+      <title>vGallerySpace : eBay</title>
+      <link>https://vgallery.space/exhibitions/vgalleryspace-ebay.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/vgalleryspace-ebay.html</guid>
+      <pubDate>Sat, 01 Feb 2025 00:00:00 -0600</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[MANY OF THE ITEMS ARE FROM ARTISTS WHO HAVE INFLUENCED MY WORK AND OTHERS WHO INFLUENCE THE MARKETPLACE. ALWAYS MAKING REVISIONS AND UPDATING WITH MORE ACCURATE INFORMATION. IF YOU SEE ANYTHING THAT DOESN'T LOOK RIGHT, PLEASE LET ME KNOW. LEARNING AND STUDYING THE PAST TO CREATE A RELEVANT PRESENT WITH A BETTER PROJECTION OF THE FUTURE IS MY MAIN GOAL.]]></description>
+    </item>
+    <item>
+      <title>INFINITY MUSEUM : XTZ</title>
+      <link>https://vgallery.space/exhibitions/infinity-museum-xtz.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/infinity-museum-xtz.html</guid>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[ORIGINALLY, BEGAN THINKING THE PLACE I FIT MOST WOULD BE BETWEEN LOW-BROW AND HIGH-BROW, SO NATURALLY THOUGHT OF IT AS MID-BROW. TRY TO VIEW ART AS OBJECTIVE, EACH PERSON HAS THEIR OWN IDEAS EVEN AFTER LEARNING WHAT HISTORY HAS TAUGHT US. GENERATIVE ART ADDS ANOTHER DIMENSION TO THE WAY WE LOOK AT THINGS.]]></description>
+    </item>
+    <item>
+      <title>MoMA POSTCARD PROJECT</title>
+      <link>https://vgallery.space/exhibitions/moma-postcard-installation.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/moma-postcard-installation.html</guid>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 -0600</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[SUNRISE/SUNSETS SOMEWHERE IN TIME… SUPER SOLO. CLOUD IN THE SKY, WITH A HINT OF RAIN, BUT GOING FOR A SWIM. IT'S SUPPOSED TO BE SUCH A WONDERFUL PLACE TO VISIT. CLICK ON THE POSTCARD ABOVE FOR MORE INFO ON THE PROJECT AND TO READ ABOUT THE INSTALLATION.]]></description>
+    </item>
+    <item>
+      <title>vGallerySpace : METAVERSE</title>
+      <link>https://vgallery.space/exhibitions/vgalleryspace-metaverse-exhibition.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/vgalleryspace-metaverse-exhibition.html</guid>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[FINALLY, AFTER ALL THESE YEARS OF IMAGINING HOW A VIRTUAL GALLERY SPACE WOULD LOOK! FRUITION HAS CAUGHT UP WITH THE CONCEPT. LIKE A NEW DREAM COME TRUE. THE POSSIBILITY AND POTENTIAL OF THE SPACE CONTINUALLY FIND NEW DISCOVERIES.]]></description>
+    </item>
+    <item>
+      <title>AD ART SHOW 2021</title>
+      <link>https://vgallery.space/exhibitions/ad-art-show-2021.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/ad-art-show-2021.html</guid>
+      <pubDate>Sat, 01 May 2021 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[A NEW EVENT IN THE OCULUS AT THE WESTFIELD WORLD TRADE CENTER, NEW YORK. 4 IMAGES WERE SHOWN DURING THE EVENT FROM arch>scul loop III prototype No.6 OF A STILL TITLED ANDROID DREAMING USING THE COLOR WHEEL AS A BACKGROUND. 8 MORE IMAGES WERE ADDED AFTER THE SHOW.]]></description>
+    </item>
+    <item>
+      <title>AD ART SHOW 2020</title>
+      <link>https://vgallery.space/exhibitions/ad-art-show-2020.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/ad-art-show-2020.html</guid>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[THIRD ANNUAL ART SHOW FEATURING ARTWORKS BY ARTISTS FROM ADVERTISING FROM SEPTEMBER 1 TO SEPTEMBER 30, 2020, 23/7. WINNER TO BE HONORED WITH SPECIALTY CLIO AWARD WITH PRESENTING SPONSOR NBCUNIVERSAL. ARTWORK WILL BE FOR SALE ON THE MvVO WEBSITE & VIA ARTSY.]]></description>
+    </item>
+    <item>
+      <title>OSG</title>
+      <link>https://vgallery.space/exhibitions/osg.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/osg.html</guid>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 -0600</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[SPENT 3 YEARS EXPERIMENTING AT THE LEMP BREWERY COMPLEX IN SAINT LOUIS MISSOURI TESTING AND LEARNING WHAT arch>scul WOULD BE LIKE IN A REAL WORLD SETTING. OCCUPIED A 7000 SQUARE FOOT SPACE DIVIDED EVENLY INTO THREE PARTS. STILL LOOKING FOR THOSE DATAPOINTS TO FIND THE CENTER.]]></description>
+    </item>
+    <item>
+      <title>prototype No.6</title>
+      <link>https://vgallery.space/exhibitions/prototype-no-6.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/prototype-no-6.html</guid>
+      <pubDate>Fri, 01 Jun 2018 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[NOW THE 3RD VIDEO INSTALLATION MAKES IT THE TRILOGY OF EACH NEW PROTOTYPE CONSTRUCTED USING A GOLDEN MEAN CAMERA SHOT, THIS TIME PUSHING BOUNDARIES OF VIDEOGRAPHY, SCULPTURE, AND REFLECTION. SILENT WITHOUT SOUND THE VISUALS TAKE YOU THROUGH A SPACE IN WHICH NATURE AND ARCHITECTURE BLEND CONTINUOUSLY.]]></description>
+    </item>
+    <item>
+      <title>Biz-Zine No.1</title>
+      <link>https://vgallery.space/exhibitions/biz-zine-no-1.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/biz-zine-no-1.html</guid>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 -0600</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[AFTER MANY YEARS IN THE MAKING, I AM FINALLY GETTING AROUND TO PRODUCING A ZINE. IT'S BASICALLY GOING TO BE A GRAY MARKET/STRATEGIC ART PUB, DOWNLOADABLE AND PRINTABLE FROM A HOME PRINTER. MY GOAL IS TO MAKE AT LEAST ONE A YEAR, CONSISTING OF ABOUT 20 PAGES.]]></description>
+    </item>
+    <item>
+      <title>prototype No.5</title>
+      <link>https://vgallery.space/exhibitions/prototype-no-5.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/prototype-no-5.html</guid>
+      <pubDate>Sat, 17 Jun 2017 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[THE VISUAL IS A MIX OF SOMETHING ANCIENT FROM THE PAST WITH A FUTURISTIC UNKNOWN. AN INTRINSIC VOYAGE OF THE MIND, ACTING BESIDE TIME. THE BODY OF THE SCULPTURE ABSTRACTS SPACE, CREATING NEW PLACES NEVER BEFORE SEEN. THE SPECULATION OF SPIRIT IS FELT, ONLY TO BE LEFT WONDERING IF IT IS REAL.]]></description>
+    </item>
+    <item>
+      <title>Internet Lounge</title>
+      <link>https://vgallery.space/exhibitions/internet-lounge.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/internet-lounge.html</guid>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 -0600</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[MUSIC CONTINUES TO BE INSTRUMENTAL IN MY DEVELOPMENT. SOUNDS HELP TO INFLUENCE AND SHAPE MY IDENTITY. THE ABILITY TO LISTEN TO BOTH THE REGULAR AND IRREGULAR FORMS IS UNIQUE. BEING ABLE TO PAY ATTENTION TO THE MOVEMENTS CREATED BETWEEN THE MIND/BODY + SPACE/TIME AS THEY MIX, TOGETHER IS EVEN MORE INTERESTING.]]></description>
+    </item>
+    <item>
+      <title>arch&gt;scul</title>
+      <link>https://vgallery.space/exhibitions/archscul.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/archscul.html</guid>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[UNFINISHED IDEA OF A SCULPTURE I HAVE BEEN WORKING ON, THAT REPRESENTS A GALLERY + OFFICE/STUDIO MIXED-USE RESIDENTIAL AND BUILDING CONCEPT. IT IS A NEW AMERICAN DREAM OF TRANSFORMABLE AND MOVABLE ARCHITECTURE. A TRUE MULTI-DIMENSIONAL SPACE WITH WHAT SEEMS TO BE AN INFINITE NUMBER OF LIVABLE SITUATIONS AND POSSIBILITIES.]]></description>
+    </item>
+    <item>
+      <title>AUTO NATURE</title>
+      <link>https://vgallery.space/exhibitions/auto-nature.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/auto-nature.html</guid>
+      <pubDate>Fri, 01 Jul 2016 00:00:00 -0500</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[A COLLECTION OF LANDSCAPE PHOTOGRAPHS, TAKEN WHILE HIKING THROUGH THE PARKS OF MISSOURI. IT WAS NOT UNTIL RECENTLY THAT I SERIOUSLY BEGAN TO REALIZE THE DIFFERENCES BETWEEN NATURAL AND ARTIFICIAL SPACES. THIS WORK IS SHOWN IN BLACK-AND-WHITE, WITH AN OLDER FILM STYLE CAMERA AND IN COLOR, USING A NEWER DIGITAL CAMERA.]]></description>
+    </item>
+    <item>
+      <title>AUTO MNEMONIC BODY</title>
+      <link>https://vgallery.space/exhibitions/auto-mnemonic-body.html</link>
+      <guid isPermaLink="true">https://vgallery.space/exhibitions/auto-mnemonic-body.html</guid>
+      <pubDate>Tue, 01 Mar 2016 00:00:00 -0600</pubDate>
+      <dc:creator>FRAMOUS</dc:creator>
+      <description><![CDATA[THE FIRST EXHIBITION OF THE vGallerySpace IS THE BEGINNING OF AN EXPERIMENT FOR DEVELOPING A PLACE ONLINE TO SHOWCASE RELEVANT PROJECTS WORTH EXPLORING. THE MAIN CONCENTRATION IS TO BE THE CREATION OF AN ECOMMERCE SITE, THAT LOOKS AND FEELS LIKE A REAL GALLERY. ITS FUNCTIONALITY, EASE OF USE, INTERACTIVITY, AND REPRESENTATION OF ARTWORK ARE THE UNIVERSAL DRIVING FORCES.]]></description>
+    </item>
+  </channel>
+</rss>

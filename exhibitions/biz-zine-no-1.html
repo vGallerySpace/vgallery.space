@@ -350,7 +350,8 @@
       transform: scale(1.08);
     }
 
-    .guest-bell:hover {
+    .guest-bell:hover,
+    .rss-link:hover {
       background: #000000 !important;
       border-color: #000000 !important;
       color: #fff !important;
@@ -468,6 +469,7 @@
       transform: translateX(-50%) translateY(0);
     }
   </style>
+  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="../feed.xml" />
 </head>
 <body>
   <!-- Navigation -->
@@ -601,6 +603,7 @@
         <a href="mailto:framous@vgallery.space" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="javascript:void(0)" class="share-btn" title="Share" onclick="handleShare()"><i class="fas fa-share-nodes"></i></a>
         <a href="../guest-list.html" class="guest-bell" title="Guest List"><i class="fas fa-bell"></i></a>
+        <a href="../feed.xml" class="rss-link" title="RSS Feed" target="_blank"><i class="fas fa-rss"></i></a>
       </div>
 
       <!-- Legal / Policy Links -->

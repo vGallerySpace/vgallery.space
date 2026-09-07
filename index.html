@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>vGallerySpace — GALLERY</title>
+  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
   <meta name="description" content="VGALLERYSPACE - Gallery exhibitions and archives" />
   <link rel="canonical" href="https://vgallery.space/" />
   <meta name="theme-color" content="#ffffff" />
@@ -480,7 +481,8 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    .guest-bell:hover {
+    .guest-bell:hover,
+    .rss-link:hover {
       background: #000000 !important;
       border-color: #000000 !important;
       color: #fff !important;
@@ -802,6 +804,7 @@
         <a href="mailto:framous@vgallery.space" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="javascript:void(0)" class="share-btn" title="Share" onclick="handleShare()"><i class="fas fa-share-nodes"></i></a>
         <a href="guest-list.html" class="guest-bell" title="Guest List"><i class="fas fa-bell"></i></a>
+        <a href="feed.xml" class="rss-link" title="RSS Feed" target="_blank"><i class="fas fa-rss"></i></a>
       </div>
 
       <!-- Legal / Policy Links -->
