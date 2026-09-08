@@ -382,20 +382,40 @@
       justify-content: center;
       width: 44px;
       height: 44px;
+      min-width: 44px;
+      min-height: 44px;
+      flex-shrink: 0;
       border-radius: 50%;
-      background: rgba(0,0,0,0.03);
+      background: rgba(0,0,0,0.04);
       border: 1px solid var(--line);
-      color: #000000;
+      color: var(--fg);
       font-size: 18px;
       text-decoration: none;
       transition: all .2s ease;
+      box-sizing: border-box;
     }
 
     .footer-social a:hover {
-      background: rgba(0,0,0,0.08);
-      border-color: #000000;
-      color: #000000;
-      transform: scale(1.08);
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .footer-social {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+      }
+
+      .footer-social a {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+        font-size: 15px !important;
+      }
     }
 
     .guest-bell:hover,
