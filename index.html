@@ -75,6 +75,13 @@
     }
 
     /* Navigation with Bootstrap navbar */
+        .fixed-top {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1030;
+    }
     .navbar {
       background: var(--bg);
       border-bottom: 1px solid var(--line-soft);
@@ -427,7 +434,7 @@
 
     .footer-logo-link {
       display: inline-block;
-      transition: all .2s ease;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
       padding: 6px 12px;
     }
 
@@ -459,7 +466,7 @@
       color: var(--fg);
       font-size: 18px;
       text-decoration: none;
-      transition: all .2s ease;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
       box-sizing: border-box;
     }
 
