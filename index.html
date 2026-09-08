@@ -38,7 +38,7 @@
       --bg: #ffffff;
       --fg: #000000;
       --soft: #333333;
-      --muted: #777777;
+      --muted: #595959;
       --line: rgba(0,0,0,0.12);
       --line-soft: rgba(0,0,0,0.06);
     }
@@ -436,7 +436,8 @@
       margin-top: 24px;
     }
 
-    .footer-social a {
+    .footer-social a,
+    .footer-social button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -455,7 +456,8 @@
       box-sizing: border-box;
     }
 
-    .footer-social a:hover {
+    .footer-social a:hover,
+    .footer-social button:hover {
       background: var(--fg);
       border-color: var(--fg);
       color: #fff;
@@ -469,7 +471,8 @@
         gap: 10px !important;
       }
 
-      .footer-social a {
+      .footer-social a,
+    .footer-social button {
         width: 38px !important;
         height: 38px !important;
         min-width: 38px !important;
@@ -647,7 +650,7 @@
         <!-- 13. INFINITY MUSEUM : XTZ -->
         <a href="exhibitions/infinity-museum-xtz.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video src="assets/infinity-loop.mp4" poster="assets/infinity-thumbnail.webp" autoplay loop muted playsinline class="placard-media"></video>
+            <video data-src="assets/infinity-loop.mp4" poster="assets/infinity-thumbnail.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">INFINITY MUSEUM : XTZ</h3>
@@ -671,7 +674,7 @@
         <!-- 11. vGallerySpace : METAVERSE -->
         <a href="exhibitions/vgalleryspace-metaverse-exhibition.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video src="assets/metaverse-exhibition.mp4" poster="assets/metaverse-thumbnail.webp" autoplay loop muted playsinline class="placard-media"></video>
+            <video data-src="assets/metaverse-exhibition.mp4" poster="assets/metaverse-thumbnail.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">vGallerySpace : METAVERSE</h3>
@@ -719,9 +722,7 @@
         <!-- 07. prototype No.6 -->
         <a href="exhibitions/prototype-no-6.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video autoplay loop muted playsinline poster="assets/proto6-thumbnail.webp" class="placard-image">
-              <source src="assets/proto6-archscul-loop-iii.mp4" type="video/mp4">
-            </video>
+            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" loop muted playsinline preload="none" class="placard-image lazy-video"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">prototype No.6</h3>
@@ -745,7 +746,7 @@
         <!-- 05. prototype No.5 -->
         <a href="exhibitions/prototype-no-5.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.webp" autoplay loop muted playsinline class="placard-media"></video>
+            <video data-src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">prototype No.5</h3>
@@ -757,7 +758,7 @@
         <!-- 04. Internet Lounge -->
         <a href="exhibitions/internet-lounge.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video src="assets/archscul-loop-i.mp4" poster="assets/archscul-loop-i-thumb.webp" autoplay loop muted playsinline class="placard-media"></video>
+            <video data-src="assets/archscul-loop-i.mp4" poster="assets/archscul-loop-i-thumb.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h3 class="placard-title">Internet Lounge</h3>
@@ -823,7 +824,7 @@
         <a href="https://youtube.com/@FRAMOUS" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
         <a href="https://discordapp.com/users/framous/" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
         <a href="mailto:framous@vgallery.space" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="javascript:void(0)" class="share-btn" title="Share" onclick="handleShare()"><i class="fas fa-share-nodes"></i></a>
+        <button type="button" class="share-btn" title="Share" aria-label="Share" onclick="handleShare()"><i class="fas fa-share-nodes"></i></button>
         <a href="guest-list.html" class="guest-bell" title="Guest List"><i class="fas fa-bell"></i></a>
         <a href="feed.xml" class="rss-link" title="RSS Feed" target="_blank"><i class="fas fa-rss"></i></a>
       </div>
@@ -857,6 +858,41 @@
 
   <!-- Share Functionality -->
   <script>
+    
+    // Lazy-load and play placard videos when scrolled near viewport
+    document.addEventListener('DOMContentLoaded', function() {
+      var lazyVideos = document.querySelectorAll('video.lazy-video');
+      if ('IntersectionObserver' in window) {
+        var videoObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            var video = entry.target;
+            if (entry.isIntersecting) {
+              if (!video.src && video.dataset.src) {
+                video.src = video.dataset.src;
+                video.load();
+              }
+              video.play().catch(function() {});
+            } else {
+              if (video.src) {
+                video.pause();
+              }
+            }
+          });
+        }, { rootMargin: '250px 0px' });
+
+        lazyVideos.forEach(function(video) {
+          videoObserver.observe(video);
+        });
+      } else {
+        lazyVideos.forEach(function(video) {
+          if (video.dataset.src) {
+            video.src = video.dataset.src;
+            video.play().catch(function() {});
+          }
+        });
+      }
+    });
+
     function handleShare() {
       if (navigator.share) {
         navigator.share({
