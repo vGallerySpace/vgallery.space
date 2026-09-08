@@ -254,11 +254,43 @@
       height: auto;
       max-height: 520px;
       object-fit: contain;
-      margin: 0 auto 16px auto;
+      margin: 0 0 16px 0;
       background: #ffffff;
       border: 8px solid #000000 !important;
       box-sizing: border-box;
       transition: opacity 0.18s ease;
+    }
+
+    .video-player-grid {
+      position: relative;
+    }
+
+    .sound-toggle-btn {
+      position: absolute;
+      bottom: 28px;
+      right: 18px;
+      background: rgba(0, 0, 0, 0.85);
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .sound-toggle-btn:hover {
+      background: #000000;
+      border-color: #ffffff;
+      transform: scale(1.04);
     }
 
     .spotify-embed {
@@ -600,13 +632,17 @@
         <p class="artwork-desc">A NUMBER OF FUNCTIONS AND FEATURES ACCESSIBLE THROUGH THE BACK. IT HAS TWO DIFFERENT RING TONES AND SETTINGS FOR ENGLISH OR SPANISH.</p>
       </article>
 
-<!-- 6. arch scul loop I.mp4 - Autoplay loop, no text -->
+<!-- 6. arch scul loop I.mp4 - Autoplay loop with Sound Toggle -->
       <article class="artwork">
         <div class="video-player-grid">
-          <video autoplay loop muted playsinline>
+          <video id="vj-loop-video" autoplay loop muted playsinline>
             <source src="../assets/archscul-loop-i.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          <button type="button" class="sound-toggle-btn" id="sound-btn" onclick="toggleVjSound()" aria-label="Toggle sound">
+            <i class="fas fa-volume-xmark" id="sound-icon"></i>
+            <span id="sound-text">SOUND OFF</span>
+          </button>
         </div>
       </article>
 
@@ -763,6 +799,24 @@
       setTimeout(function() {
         toast.classList.remove('show');
       }, 2200);
+    }
+
+    function toggleVjSound() {
+      var video = document.getElementById('vj-loop-video');
+      var icon = document.getElementById('sound-icon');
+      var text = document.getElementById('sound-text');
+      if (!video) return;
+
+      if (video.muted) {
+        video.muted = false;
+        video.volume = 1.0;
+        if (icon) icon.className = 'fas fa-volume-high';
+        if (text) text.textContent = 'SOUND ON';
+      } else {
+        video.muted = true;
+        if (icon) icon.className = 'fas fa-volume-xmark';
+        if (text) text.textContent = 'SOUND OFF';
+      }
     }
   </script>
 
