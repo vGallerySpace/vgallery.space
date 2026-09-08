@@ -1,9 +1,10 @@
 name = "vgallery-space"
 compatibility_date = "2026-09-08"
+workers_dev = true
 
 routes = [
-  { pattern = "vgallery.space", custom_domain = true },
-  { pattern = "www.vgallery.space", custom_domain = true }
+  { pattern = "vgallery.space/*", zone_name = "vgallery.space" },
+  { pattern = "www.vgallery.space/*", zone_name = "vgallery.space" }
 ]
 
 [assets]
