@@ -92,16 +92,21 @@
     }
 
     .nav-link {
-      color: var(--fg) !important;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .12em;
+      color: #000000 !important;
+      text-decoration: none;
       font-size: 14px;
-      transition: color .18s ease;
-      padding: 0.5rem 1rem !important;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.5rem 0.75rem !important;
+      transition: color 0.18s ease;
     }
 
-    .nav-link:hover, .nav-link.active {
+    .nav-link:hover {
+      color: #777777 !important;
+    }
+
+    .nav-link.active {
       color: var(--muted) !important;
     }
 
@@ -316,20 +321,21 @@
     }
 
     /* Mobile Breakpoints */
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
       .navbar .container {
         padding-left: 12px;
         padding-right: 12px;
       }
 
       .nav-center-links {
-        gap: 0.25rem !important;
+        gap: 1rem !important;
       }
 
       .nav-link {
-        padding: 0.35rem 0.45rem !important;
-        font-size: 13px !important;
-        letter-spacing: .06em !important;
+        font-size: 12px !important;
+        padding: 0.5rem 0.35rem !important;
+        letter-spacing: .12em !important;
+        font-weight: 700 !important;
       }
 
       .cart-toggle {
