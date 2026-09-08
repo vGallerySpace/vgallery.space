@@ -635,13 +635,13 @@
 <!-- 6. arch scul loop I.mp4 - Autoplay loop with Sound Toggle -->
       <article class="artwork">
         <div class="video-player-grid">
-          <video id="vj-loop-video" autoplay loop muted playsinline>
+          <video id="vj-loop-video" autoplay loop playsinline>
             <source src="../assets/archscul-loop-i.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <button type="button" class="sound-toggle-btn" id="sound-btn" onclick="toggleVjSound()" aria-label="Toggle sound">
-            <i class="fas fa-volume-xmark" id="sound-icon"></i>
-            <span id="sound-text">SOUND OFF</span>
+            <i class="fas fa-volume-high" id="sound-icon"></i>
+            <span id="sound-text">SOUND ON</span>
           </button>
         </div>
       </article>
@@ -810,6 +810,7 @@
       if (video.muted) {
         video.muted = false;
         video.volume = 1.0;
+        video.play().catch(function() {});
         if (icon) icon.className = 'fas fa-volume-high';
         if (text) text.textContent = 'SOUND ON';
       } else {
@@ -818,6 +819,41 @@
         if (text) text.textContent = 'SOUND OFF';
       }
     }
+
+    // Default VJ Loop sound to ON
+    document.addEventListener('DOMContentLoaded', function() {
+      var video = document.getElementById('vj-loop-video');
+      var icon = document.getElementById('sound-icon');
+      var text = document.getElementById('sound-text');
+      if (!video) return;
+
+      video.muted = false;
+      video.volume = 1.0;
+      var playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(function() {
+          if (icon) icon.className = 'fas fa-volume-high';
+          if (text) text.textContent = 'SOUND ON';
+        }).catch(function() {
+          // If browser autoplay policy requires user gesture, start muted then unmute on first interaction
+          video.muted = true;
+          video.play();
+          if (icon) icon.className = 'fas fa-volume-xmark';
+          if (text) text.textContent = 'SOUND OFF (CLICK)';
+
+          function unmuteOnGesture() {
+            video.muted = false;
+            video.volume = 1.0;
+            if (icon) icon.className = 'fas fa-volume-high';
+            if (text) text.textContent = 'SOUND ON';
+            document.removeEventListener('click', unmuteOnGesture);
+            document.removeEventListener('touchstart', unmuteOnGesture);
+          }
+          document.addEventListener('click', unmuteOnGesture, { once: true });
+          document.addEventListener('touchstart', unmuteOnGesture, { once: true });
+        });
+      }
+    });
   </script>
 
   <!-- Bootstrap JS -->
