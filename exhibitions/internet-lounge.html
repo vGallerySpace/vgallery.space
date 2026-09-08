@@ -838,8 +838,8 @@
           // If browser autoplay policy requires user gesture, start muted then unmute on first interaction
           video.muted = true;
           video.play();
-          if (icon) icon.className = 'fas fa-volume-xmark';
-          if (text) text.textContent = 'SOUND OFF (CLICK)';
+          if (icon) icon.className = 'fas fa-volume-high';
+          if (text) text.textContent = 'SOUND ON';
 
           function unmuteOnGesture() {
             video.muted = false;
