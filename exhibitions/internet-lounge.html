@@ -542,6 +542,42 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+  
+    .unmute-badge {
+      position: absolute;
+      bottom: 36px;
+      right: 24px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 10;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .unmute-badge:hover {
+      background: #000000;
+      border-color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    .unmute-badge.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
   </style>
   <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="../feed.xml" />
 </head>
@@ -601,13 +637,16 @@
     </div>
 
 <div class="gallery-grid">
-      <!-- 1. Sound Sculpture No.1.mp4 - Autoplay loop -->
+      <!-- 1. Sound Sculpture No.1.mp4 - Autoplay loop with controls and unmute badge -->
       <article class="artwork">
         <div class="video-player-grid">
-          <video autoplay loop muted playsinline>
+          <video id="toy-sound-video" autoplay loop muted playsinline controls>
             <source src="../assets/internet-lounge-vj-loop.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          <button type="button" class="unmute-badge" onclick="toggleMute('toy-sound-video', this)" aria-label="Toggle Audio">
+            <i class="fas fa-volume-xmark"></i> UNMUTE SOUND
+          </button>
         </div>
       </article>
 
@@ -794,6 +833,22 @@
         showShareToast();
       } catch (err) {}
       document.body.removeChild(temp);
+    }
+
+    
+    function toggleMute(videoId, btn) {
+      const vid = document.getElementById(videoId);
+      if (vid) {
+        vid.muted = !vid.muted;
+        if (!vid.muted) {
+          vid.volume = 1.0;
+          btn.innerHTML = '<i class="fas fa-volume-high"></i> SOUND ON';
+          btn.classList.add('active');
+        } else {
+          btn.innerHTML = '<i class="fas fa-volume-xmark"></i> UNMUTE SOUND';
+          btn.classList.remove('active');
+        }
+      }
     }
 
     function showShareToast() {
