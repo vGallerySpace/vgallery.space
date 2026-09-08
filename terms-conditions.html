@@ -35,6 +35,13 @@
     }
 
     /* Navigation */
+    .fixed-top {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1030;
+    }
     .navbar {
       background: var(--bg);
       border-bottom: 1px solid var(--line-soft);
@@ -99,6 +106,7 @@
       text-transform: uppercase;
       font-weight: 700;
       padding: 0.5rem 0.75rem !important;
+      line-height: 1.2;
       transition: color 0.18s ease;
     }
 
@@ -300,6 +308,7 @@
         padding: 0.5rem 0.35rem !important;
         letter-spacing: .12em !important;
         font-weight: 700 !important;
+        line-height: 1.2 !important;
       }
 
       .cart-toggle {
