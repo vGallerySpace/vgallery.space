@@ -816,10 +816,18 @@
       if (video.muted) {
         video.muted = false;
         video.volume = 1.0;
+        var p = video.play();
+        if (p !== undefined) {
+          p.catch(function() {});
+        }
         if (icon) icon.className = 'fas fa-volume-xmark';
         if (text) text.textContent = 'MUTE SOUND';
       } else {
         video.muted = true;
+        var p2 = video.play();
+        if (p2 !== undefined) {
+          p2.catch(function() {});
+        }
         if (icon) icon.className = 'fas fa-volume-high';
         if (text) text.textContent = 'TURN SOUND ON';
       }
