@@ -637,7 +637,7 @@
 <!-- 6. arch scul loop I.mp4 - Autoplay loop with Sound Toggle -->
       <article class="artwork">
         <div class="video-player-grid">
-          <video id="vj-loop-video" autoplay loop muted playsinline>
+          <video id="vj-loop-video" autoplay loop muted playsinline preload="auto">
             <source src="../assets/archscul-loop-i.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -809,29 +809,45 @@
         event.stopPropagation();
       }
       var video = document.getElementById('vj-loop-video');
+      if (!video) return;
+
+      video.muted = !video.muted;
+      if (!video.muted) {
+        video.volume = 1.0;
+      }
+      video.play().catch(function() {});
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var video = document.getElementById('vj-loop-video');
       var icon = document.getElementById('sound-icon');
       var text = document.getElementById('sound-text');
       if (!video) return;
 
-      if (video.muted) {
-        video.muted = false;
-        video.volume = 1.0;
-        var p = video.play();
-        if (p !== undefined) {
-          p.catch(function() {});
+      function updateBtnState() {
+        if (!icon || !text) return;
+        if (!video.muted && video.volume > 0) {
+          icon.className = 'fas fa-volume-xmark';
+          text.textContent = 'MUTE SOUND';
+        } else {
+          icon.className = 'fas fa-volume-high';
+          text.textContent = 'TURN SOUND ON';
         }
-        if (icon) icon.className = 'fas fa-volume-xmark';
-        if (text) text.textContent = 'MUTE SOUND';
-      } else {
-        video.muted = true;
-        var p2 = video.play();
-        if (p2 !== undefined) {
-          p2.catch(function() {});
-        }
-        if (icon) icon.className = 'fas fa-volume-high';
-        if (text) text.textContent = 'TURN SOUND ON';
       }
-    }
+
+      video.addEventListener('volumechange', updateBtnState);
+
+      // Auto-resume if audio buffer/pipeline initialization pauses playback
+      video.addEventListener('pause', function() {
+        video.play().catch(function() {});
+      });
+
+      // Seamless loop fallback
+      video.addEventListener('ended', function() {
+        video.currentTime = 0;
+        video.play().catch(function() {});
+      });
+    });
   </script>
 
   <!-- Bootstrap JS -->
