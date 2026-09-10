@@ -448,24 +448,37 @@
     <h1 class="guest-title">GUEST LIST</h1>
     <p class="guest-lead">JOIN THE GUEST LIST FOR EXHIBITION ANNOUNCEMENTS, OPENING INVITATIONS, AND STUDIO UPDATES.</p>
 
-    <!-- Clean Form: submits to Formspree endpoint (or direct to email) -->
-    <form action="https://formspree.io/f/framous@vgallery.space" method="POST">
+    <!-- Clean Form: submits to Formspree endpoint via AJAX -->
+    <form id="guest-form" action="https://formspree.io/f/meaqvpyr" method="POST">
       <!-- Honeypot anti-spam protection -->
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="guestEmail" name="email" placeholder="name@example.com" required autocomplete="email">
+        <input type="email" class="form-control" id="guestEmail" name="email" placeholder="name@example.com" required autocomplete="email" data-fs-field>
         <label for="guestEmail">Email Address *</label>
+        <span data-fs-error="email" class="text-danger small mt-1 d-block"></span>
       </div>
 
-      <button type="submit" class="btn-submit">
+      <button type="submit" class="btn-submit" data-fs-submit-btn>
         <i class="fas fa-bell"></i> SUBSCRIBE
       </button>
 
       <p class="form-privacy">
         By subscribing you agree to receive studio updates from vGallerySpace. No spam, ever.
       </p>
+
+      <div data-fs-success class="text-success text-center mt-3 d-none">
+        <i class="fas fa-check-circle me-2"></i>Thanks for joining the guest list!
+      </div>
+      <div data-fs-error class="text-danger text-center mt-3 d-none"></div>
     </form>
+
+    <!-- Formspree AJAX library -->
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#guest-form', formId: 'meaqvpyr' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </main>
 
   <!-- Footer -->
