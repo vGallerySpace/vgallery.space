@@ -14,7 +14,7 @@ class ThreadingServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     allow_reuse_address = True
 
 if __name__ == '__main__':
-    os.chdir('/home/dataspace/vgallery-rebuild')
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     server = ThreadingServer(('0.0.0.0', 8080), RobustHandler)
     print('Serving at port 8080...')
     server.serve_forever()

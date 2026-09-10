@@ -34,7 +34,7 @@ def main():
         now = datetime.now(timezone.utc).astimezone()
         pub_date = now.strftime("%a, %d %b %Y %H:%M:%S %z")
 
-    url = f"https://vgallery.space/exhibitions/{args.slug.lstrip('/')}"
+    url = f"https://vgallery.space/exhibitions/{re.sub(r'^exhibitions/', '', args.slug.lstrip('/'))}"
     safe_title = args.title.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
     new_item = f"""    <item>
@@ -43,7 +43,7 @@ def main():
       <guid isPermaLink="true">{url}</guid>
       <pubDate>{pub_date}</pubDate>
       <dc:creator>FRAMOUS</dc:creator>
-      <description><![CDATA[{args.desc.strip()}]]></description>
+      <description><![CDATA[{args.desc.strip().replace(']]>', ']]]]><![CDATA[>')}]]></description>
     </item>"""
 
     # Update lastBuildDate
