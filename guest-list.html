@@ -479,6 +479,55 @@
       formspree('initForm', { formElement: '#guest-form', formId: 'meaqvpyr' });
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+    <!-- Custom toast for clearer feedback -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('guest-form');
+        var successDiv = document.querySelector('[data-fs-success]');
+        var errorDiv = document.querySelector('[data-fs-error]');
+        var submitBtn = document.querySelector('[data-fs-submit-btn]');
+        var emailInput = document.getElementById('guestEmail');
+
+        if (!form || !window.formspree) return;
+
+        // Hook into formspree events
+        form.addEventListener('fs:success', function(e) {
+          if (successDiv) {
+            successDiv.classList.remove('d-none');
+            successDiv.innerHTML = '<i class="fas fa-check-circle me-2"></i>Thanks for joining the guest list!';
+          }
+          if (submitBtn) {
+            submitBtn.innerHTML = '<i class="fas fa-check me-2"></i> SUBSCRIBED';
+            submitBtn.style.background = '#28a745';
+            submitBtn.style.borderColor = '#28a745';
+          }
+          if (emailInput) {
+            emailInput.value = '';
+            emailInput.blur();
+          }
+          // Hide success after 5 seconds
+          setTimeout(function() {
+            if (successDiv) successDiv.classList.add('d-none');
+            if (submitBtn) {
+              submitBtn.innerHTML = '<i class="fas fa-bell me-2"></i> SUBSCRIBE';
+              submitBtn.style.background = '';
+              submitBtn.style.borderColor = '';
+            }
+          }, 5000);
+        });
+
+        form.addEventListener('fs:error', function(e) {
+          if (errorDiv) {
+            errorDiv.classList.remove('d-none');
+            errorDiv.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Something went wrong. Please try again.';
+          }
+          setTimeout(function() {
+            if (errorDiv) errorDiv.classList.add('d-none');
+          }, 5000);
+        });
+      });
+    </script>
   </main>
 
   <!-- Footer -->
