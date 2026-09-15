@@ -915,18 +915,20 @@
           entries.forEach(function(entry) {
             var video = entry.target;
             if (entry.isIntersecting) {
-              if (!video.src && video.dataset.src) {
-                video.src = video.dataset.src;
-                video.load();
-              }
-              video.play().catch(function() {});
+              setTimeout(function() {
+                if (!video.src && video.dataset.src) {
+                  video.src = video.dataset.src;
+                  video.load();
+                }
+                video.play().catch(function() {});
+              }, 80);
             } else {
               if (video.src) {
                 video.pause();
               }
             }
           });
-        }, { rootMargin: '250px 0px' });
+        }, { rootMargin: '100px 0px' });
 
         lazyVideos.forEach(function(video) {
           videoObserver.observe(video);
