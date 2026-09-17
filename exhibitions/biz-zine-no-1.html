@@ -365,11 +365,12 @@
       color: var(--fg);
       font-size: 18px;
       text-decoration: none;
-      transition: all .2s ease;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
       box-sizing: border-box;
     }
 
-    .footer-social a:hover {
+    .footer-social a:hover,
+    .footer-social button:hover {
       background: var(--fg);
       border-color: var(--fg);
       color: #fff;
@@ -393,100 +394,6 @@
       }
     }
 
-    .guest-bell:hover,
-    .rss-link:hover {
-      background: #000000 !important;
-      border-color: #000000 !important;
-      color: #fff !important;
-      transform: scale(1.08);
-    }
-
-    .footer-legal-links {
-      margin-top: 24px;
-      margin-bottom: 16px;
-    }
-
-    .footer-policy-link {
-      color: #000000;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      transition: color .18s ease;
-      padding: 0 4px;
-    }
-
-    .footer-policy-link:hover {
-      color: #777777;
-    }
-
-    .footer-dot {
-      color: var(--muted);
-      margin: 0 8px;
-      font-size: 14px;
-    }
-
-    .cc-license-link {
-      color: #000000;
-      text-decoration: none;
-      font-weight: 700;
-      transition: color .18s ease;
-    }
-
-    .cc-license-link:hover {
-      color: #777777;
-    }
-
-    .footer-copy {
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line-soft);
-    }
-
-    @media (max-width: 768px) {
-      .nav-center-links {
-        gap: 1rem;
-      }
-      .nav-link {
-        font-size: 12px;
-        padding: 0.5rem 0.35rem !important;
-      }
-    }
-          /* Exhibition Navigation */
-    .exhibition-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 780px;
-      margin: 0 auto 32px auto;
-      padding: 0 20px;
-    }
-
-    .exhibit-nav-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.03);
-      border: 1px solid var(--line);
-      color: #000000;
-      font-size: 16px;
-      text-decoration: none;
-      transition: all .2s ease;
-    }
-
-    .exhibit-nav-btn:hover {
-      background: rgba(0,0,0,0.08);
-      border-color: #000000;
-      color: #000000;
-      transform: scale(1.08);
-    }
     /* Share Toast */
     .share-toast {
       position: fixed;
