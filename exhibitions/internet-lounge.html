@@ -560,8 +560,8 @@
       <!-- 1. Sound Sculpture No.1.mp4 - Autoplay loop with controls and unmute badge -->
       <article class="artwork">
         <div class="video-player-grid">
-          <video id="toy-sound-video" autoplay loop muted playsinline controls>
-            <source src="../assets/internet-lounge-vj-loop.mp4" type="video/mp4" />
+          <video id="toy-sound-video" loop muted playsinline controls preload="none" poster="../assets/vG_Internet_Lounge_opt-1024x768.webp" class="hero-video lazy-video" data-src="../assets/internet-lounge-vj-loop.mp4">
+            
             Your browser does not support the video tag.
           </video>
           <button type="button" class="unmute-badge" onclick="toggleMute('toy-sound-video', this)" aria-label="Toggle Audio">
