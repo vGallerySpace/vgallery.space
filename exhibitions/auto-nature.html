@@ -477,6 +477,53 @@
       margin: 0 8px;
       font-size: 14px;
     }
+    /* Custom Exhibition Nav Tooltips */
+    .exhibit-nav-btn {
+      position: relative;
+    }
+    .exhibit-nav-btn::after {
+      content: attr(title);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      background: rgba(33, 37, 41, 0.92);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      text-transform: none;
+    }
+    .exhibit-nav-btn::before {
+      content: "";
+      position: absolute;
+      bottom: 115%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      border-width: 5px;
+      border-style: solid;
+      border-color: rgba(33, 37, 41, 0.92) transparent transparent transparent;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+    .exhibit-nav-btn:hover::after,
+    .exhibit-nav-btn:hover::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
 </style>
   <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="../feed.xml" />
 </head>
