@@ -761,7 +761,7 @@
         <!-- 08. OSG -->
         <a href="exhibitions/osg.html" class="placard-card">
           <div class="placard-image-wrap">
-            <img src="assets/osg-office.webp" alt="OSG" class="placard-image" loading="lazy" width="768" height="576">
+            <img src="assets/osg-office.webp" alt="OSG" class="placard-image" loading="lazy" width="768" height="576" id="osg-img">
           </div>
           <div class="placard-content">
             <h2 class="placard-title">OSG</h2>
@@ -833,7 +833,7 @@
         <!-- 02. AUTO NATURE -->
         <a href="exhibitions/auto-nature.html" class="placard-card">
           <div class="placard-image-wrap">
-            <img src="assets/stream.webp" alt="AUTO NATURE" class="placard-image" loading="lazy" width="800" height="600">
+            <img src="assets/stream.webp" alt="AUTO NATURE" class="placard-image" loading="lazy" width="800" height="600" id="autonature-img">
           </div>
           <div class="placard-content">
             <h2 class="placard-title">AUTO NATURE</h2>
@@ -845,7 +845,7 @@
         <!-- 01. AUTO MNEMONIC BODY -->
         <a href="exhibitions/auto-mnemonic-body.html" class="placard-card">
           <div class="placard-image-wrap">
-            <img src="assets/amb-autobodyshop.webp" alt="AUTO MNEMONIC BODY" class="placard-image" loading="lazy" width="800" height="484">
+            <img src="assets/amb-autobodyshop.webp" alt="AUTO MNEMONIC BODY" class="placard-image" loading="lazy" width="800" height="484" id="automnemonic-img">
           </div>
           <div class="placard-content">
             <h2 class="placard-title">AUTO MNEMONIC BODY</h2>
@@ -984,5 +984,24 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rotations = {
+    "osg-img": ["assets/osg-office.webp", "assets/osg-studio.webp", "assets/osg-gallery.webp"],
+    "autonature-img": ["assets/darkwoods.webp", "assets/digitalhiker.webp", "assets/stream.webp", "assets/treebark.webp"],
+    "automnemonic-img": ["assets/amb-autobodyshop.webp", "assets/amb-balance.webp"]
+  };
+  
+  for (const [id, images] of Object.entries(rotations)) {
+    const el = document.getElementById(id);
+    if (el && images.length > 0) {
+      const randomImg = images[Math.floor(Math.random() * images.length)];
+      el.src = randomImg;
+    }
+  }
+});
+</script>
 </body>
+
 </html>
