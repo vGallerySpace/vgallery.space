@@ -907,7 +907,7 @@
   <!-- Share Functionality -->
   <script>
     
-    // Lazy-load and play placard videos when scrolled near viewport
+    // Lazy-load, play, and unload placard videos when scrolled out of viewport (saves mobile GPU/decoders)
     document.addEventListener('DOMContentLoaded', function() {
       var lazyVideos = document.querySelectorAll('video.lazy-video');
       if ('IntersectionObserver' in window) {
@@ -921,14 +921,17 @@
                   video.load();
                 }
                 video.play().catch(function() {});
-              }, 80);
+              }, 60);
             } else {
               if (video.src) {
                 video.pause();
+                // Unload src when far out of view to release mobile hardware decoder memory
+                video.removeAttribute('src');
+                video.load();
               }
             }
           });
-        }, { rootMargin: '100px 0px' });
+        }, { rootMargin: '200px 0px' });
 
         lazyVideos.forEach(function(video) {
           videoObserver.observe(video);
