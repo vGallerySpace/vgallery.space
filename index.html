@@ -625,53 +625,88 @@
   
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
+    /* --- REFINED PRINT STYLESHEET: SINGLE NAVBAR ON PAGE 1 & TOP SPACING --- */
     @media print {
       body {
         background: #ffffff !important;
         color: #111111 !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         margin: 0 !important;
-        padding: 20px !important;
+        padding: 15px !important;
       }
-      .exhibition-nav, .nav-container, .share-toast, .unmute-badge {
+      /* Navbar only on first page, hidden on subsequent pages or printed clean */
+      .navbar {
+        position: static !important;
+        background: #ffffff !important;
+        border-bottom: 2px solid #000000 !important;
+        margin-bottom: 25px !important;
+        padding: 8px 0 !important;
+        display: block !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+      .navbar .nav-link {
+        color: #000000 !important;
+        font-weight: 700 !important;
+      }
+      .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav {
         display: none !important;
       }
-      .content-header, .content-body, .gallery-grid, main, .hero-section, .footer, .footer-clean {
+      /* Ensure main content / gallery grid starts cleanly with proper spacing below navbar */
+      main, .content-section, .content-header, .gallery-grid {
         background: #ffffff !important;
         color: #111111 !important;
         width: 100% !important;
         max-width: none !important;
-        margin: 0 0 20px 0 !important;
-        padding: 0 !important;
+        margin-top: 15px !important;
+        margin-bottom: 16px !important;
+        padding-top: 10px !important;
         box-shadow: none !important;
         display: block !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
       h1, h2, h3, h4, .content-title, .placard-title {
         color: #000000 !important;
         page-break-after: avoid !important;
+        break-after: avoid !important;
       }
-      p, .content-desc, .placard-desc, .artwork-desc {
+      p, .content-desc, .placard-desc, .artwork-desc, .content-medium, .content-meta {
         color: #222222 !important;
-        line-height: 1.5 !important;
+        line-height: 1.4 !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
-      /* Exhibition and artwork images get nice print borders */
-      .exhibition-image, .hero-image, .artwork img, .hero-video {
+      /* Ensure images and 8px black top frames are fully visible with generous margins */
+      .exhibition-image, .hero-image, .artwork img, .hero-video, .gallery-card img {
         max-width: 100% !important;
         height: auto !important;
         page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-before: auto !important;
+        break-before: auto !important;
         border: 2px solid #000000 !important;
         object-fit: contain !important;
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+        box-sizing: border-box !important;
       }
-      /* Exclude footer logo and small badges from forced borders and oversized rendering */
-      .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"] {
+      /* Specific exemption for index gallery card images to keep their nice styling */
+      .gallery-card {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 30px !important;
         border: none !important;
-        max-height: 36px !important;
+      }
+      /* Exclude logos, signatures, and badges from forced borders */
+      .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"], img[src*="OpenSea"], img[src*="objkt"] {
+        border: none !important;
+        max-height: 40px !important;
         width: auto !important;
         display: inline-block !important;
       }
-      article.artwork, .gallery-grid {
-        page-break-inside: avoid !important;
-        display: block !important;
+      video {
+        display: none !important;
       }
     }
     </style>
