@@ -30,15 +30,32 @@
     /* --- REFINED EXHIBITION PRINT STYLESHEET --- */
     /* --- REFINED EXHIBITION PRINT STYLESHEET (TOP FRAME FIX) --- */
     /* --- REFINED EXHIBITION PRINT STYLESHEET (FIXED TOP OVERLAP) --- */
+    /* --- REFINED EXHIBITION PRINT STYLESHEET (KEEP NAVBAR & ADD SPACE) --- */
     @media print {
       body {
         background: #ffffff !important;
         color: #111111 !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         margin: 0 !important;
-        padding: 40px 15px 15px 15px !important;
+        padding: 20px 15px 15px 15px !important;
       }
-      .navbar, .footer, .footer-clean, .exhibition-nav, .nav-container, .share-toast, .unmute-badge {
+      /* Keep navbar visible in print mode as requested */
+      .navbar {
+        position: relative !important;
+        background: #ffffff !important;
+        border-bottom: 2px solid #000000 !important;
+        margin-bottom: 30px !important;
+        padding: 10px 0 !important;
+        display: block !important;
+      }
+      .navbar .nav-link {
+        color: #000000 !important;
+        font-weight: 700 !important;
+      }
+      .nav-cart-wrapper, .share-toast, .unmute-badge {
+        display: none !important;
+      }
+      .footer, .footer-clean, .exhibition-nav {
         display: none !important;
       }
       main.content-section, .content-header, .content-body, .gallery-grid, .hero-section {
@@ -46,9 +63,9 @@
         color: #111111 !important;
         width: 100% !important;
         max-width: none !important;
-        margin-top: 30px !important;
+        margin-top: 15px !important;
         margin-bottom: 16px !important;
-        padding-top: 20px !important;
+        padding-top: 10px !important;
         box-shadow: none !important;
         display: block !important;
         page-break-inside: avoid !important;
@@ -65,7 +82,7 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      /* Ensure hero and artwork images / top frames have ample top margin so they never get clipped */
+      /* Ensure hero and artwork images / top frames have ample top margin so they sit nicely below the menu */
       .exhibition-image, .hero-image, .artwork img, .hero-video {
         max-width: 100% !important;
         height: auto !important;
@@ -75,7 +92,7 @@
         break-before: auto !important;
         border: 2px solid #000000 !important;
         object-fit: contain !important;
-        margin-top: 20px !important;
+        margin-top: 25px !important;
         margin-bottom: 15px !important;
       }
       /* Exclude logos, signatures, and badges from forced borders and oversized rendering */
