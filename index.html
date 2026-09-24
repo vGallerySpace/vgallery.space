@@ -627,6 +627,7 @@
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
     /* --- REFINED PRINT STYLESHEET: SINGLE NAVBAR ON PAGE 1 & TOP SPACING --- */
     /* --- REFINED INDEX PRINT STYLESHEET (CLEAN PER-EXHIBITION PAGE BREAKS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (PERFECT CATALOGUE FLOW) --- */
     @media print {
       body {
         background: #ffffff !important;
@@ -635,15 +636,16 @@
         margin: 0 !important;
         padding: 15px !important;
       }
+      /* Navbar on first page */
       .navbar {
-        position: static !important;
+        position: relative !important;
         background: #ffffff !important;
         border-bottom: 2px solid #000000 !important;
-        margin-bottom: 25px !important;
+        margin-bottom: 20px !important;
         padding: 8px 0 !important;
         display: block !important;
-        page-break-after: always !important;
-        break-after: page !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
       }
       .navbar .nav-link {
         color: #000000 !important;
@@ -652,7 +654,7 @@
       .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav {
         display: none !important;
       }
-      main, .content-section, .content-header {
+      main, .content-section {
         background: #ffffff !important;
         color: #111111 !important;
         width: 100% !important;
@@ -666,8 +668,8 @@
         display: block !important;
         width: 100% !important;
       }
-      /* Each gallery card gets its own clean page so nothing gets chopped in half */
-      .gallery-card {
+      /* Each placard card starts on a fresh page */
+      .placard-card {
         display: block !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -675,41 +677,57 @@
         break-before: page !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        margin: 0 0 30px 0 !important;
-        padding: 20px 0 !important;
+        margin: 0 0 20px 0 !important;
+        padding: 10px 0 !important;
         border: none !important;
         background: #ffffff !important;
       }
-      .gallery-card:first-of-type {
+      /* First placard card flows right after navbar on page 1 without creating a blank first page */
+      .placard-card:first-of-type {
         page-break-before: avoid !important;
         break-before: avoid !important;
+        margin-top: 0 !important;
       }
-      h1, h2, h3, h4, .content-title, .placard-title, .gallery-card-title {
+      h1, h2, h3, h4, .placard-title {
         color: #000000 !important;
         page-break-after: avoid !important;
         break-after: avoid !important;
       }
-      p, .content-desc, .placard-desc, .artwork-desc, .content-medium, .content-meta, .gallery-card-meta {
+      p, .placard-desc, .placard-date {
         color: #222222 !important;
         line-height: 1.4 !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      .gallery-card img, .gallery-card video {
+      /* Ensure images and video posters render properly with clean black framing */
+      .placard-image, .placard-media {
         max-width: 100% !important;
         height: auto !important;
-        max-height: 550px !important;
+        max-height: 500px !important;
         object-fit: contain !important;
         border: 2px solid #000000 !important;
-        margin-top: 15px !important;
-        margin-bottom: 15px !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
         display: block !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         box-sizing: border-box !important;
+        background: #ffffff !important;
       }
+      /* Fallback for video elements in print mode so they display poster / placeholder */
       video {
-        display: none !important;
+        display: block !important;
+        height: 350px !important;
+        background: #000000 !important;
+        border: 2px solid #000000 !important;
+      }
+      footer, .footer-clean {
+        display: block !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        background: #ffffff !important;
+        color: #111111 !important;
+        padding: 30px 0 !important;
       }
       .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"], img[src*="OpenSea"], img[src*="objkt"] {
         border: none !important;
