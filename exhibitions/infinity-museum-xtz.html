@@ -28,13 +28,14 @@
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
     /* --- REFINED EXHIBITION PRINT STYLESHEET --- */
+    /* --- REFINED EXHIBITION PRINT STYLESHEET (TOP FRAME FIX) --- */
     @media print {
       body {
         background: #ffffff !important;
         color: #111111 !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         margin: 0 !important;
-        padding: 15px !important;
+        padding: 20px 15px 15px 15px !important;
       }
       .exhibition-nav, .nav-container, .share-toast, .unmute-badge {
         display: none !important;
@@ -44,10 +45,12 @@
         color: #111111 !important;
         width: 100% !important;
         max-width: none !important;
-        margin: 0 0 16px 0 !important;
-        padding: 0 !important;
+        margin: 20px 0 16px 0 !important;
+        padding-top: 15px !important;
         box-shadow: none !important;
         display: block !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
       h1, h2, h3, h4, .content-title, .placard-title {
         color: #000000 !important;
@@ -60,7 +63,7 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      /* Prevent images from getting cut off at the top of pages */
+      /* Ensure hero and artwork images / top frames have ample top margin so they never get clipped */
       .exhibition-image, .hero-image, .artwork img, .hero-video {
         max-width: 100% !important;
         height: auto !important;
@@ -70,8 +73,8 @@
         break-before: auto !important;
         border: 2px solid #000000 !important;
         object-fit: contain !important;
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
       }
       /* Exclude logos, signatures, and badges from forced borders and oversized rendering */
       .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"], img[src*="OpenSea"], img[src*="objkt"], img[src*="infinity-collection"] {
@@ -81,7 +84,7 @@
         display: inline-block !important;
       }
       video {
-        display: none !important; /* Hide empty print video frames that show blank white boxes */
+        display: none !important;
       }
       article.artwork, .gallery-grid {
         page-break-inside: avoid !important;
