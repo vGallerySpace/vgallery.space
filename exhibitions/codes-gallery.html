@@ -27,23 +27,24 @@
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap" onload="this.rel='stylesheet'"><style>@font-face{font-family:"bootstrap-icons";font-display:swap;}
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
+    /* --- REFINED EXHIBITION PRINT STYLESHEET --- */
     @media print {
       body {
         background: #ffffff !important;
         color: #111111 !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         margin: 0 !important;
-        padding: 20px !important;
+        padding: 15px !important;
       }
-      .exhibition-nav, .nav-container, .share-toast, .unmute-badge {
+      .footer, .footer-clean, .exhibition-nav, .nav-container, .share-toast, .unmute-badge {
         display: none !important;
       }
-      .content-header, .content-body, .gallery-grid, main, .hero-section, .footer, .footer-clean {
+      .content-header, .content-body, .gallery-grid, main, .hero-section {
         background: #ffffff !important;
         color: #111111 !important;
         width: 100% !important;
         max-width: none !important;
-        margin: 0 0 20px 0 !important;
+        margin: 0 0 16px 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
         display: block !important;
@@ -51,29 +52,42 @@
       h1, h2, h3, h4, .content-title, .placard-title {
         color: #000000 !important;
         page-break-after: avoid !important;
+        break-after: avoid !important;
       }
-      p, .content-desc, .placard-desc, .artwork-desc {
+      p, .content-desc, .placard-desc, .artwork-desc, .content-medium, .content-meta {
         color: #222222 !important;
-        line-height: 1.5 !important;
+        line-height: 1.4 !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
-      /* Exhibition and artwork images get nice print borders */
+      /* Prevent images from getting cut off at the top of pages */
       .exhibition-image, .hero-image, .artwork img, .hero-video {
         max-width: 100% !important;
         height: auto !important;
         page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-before: auto !important;
+        break-before: auto !important;
         border: 2px solid #000000 !important;
         object-fit: contain !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
       }
-      /* Exclude footer logo and small badges from forced borders and oversized rendering */
-      .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"] {
+      /* Exclude logos, signatures, and badges from forced borders and oversized rendering */
+      .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"], img[src*="OpenSea"], img[src*="objkt"], img[src*="infinity-collection"] {
         border: none !important;
-        max-height: 36px !important;
+        max-height: 40px !important;
         width: auto !important;
         display: inline-block !important;
       }
+      video {
+        display: none !important; /* Hide empty print video frames that show blank white boxes */
+      }
       article.artwork, .gallery-grid {
         page-break-inside: avoid !important;
+        break-inside: avoid !important;
         display: block !important;
+        margin-bottom: 20px !important;
       }
     }
     </style>
