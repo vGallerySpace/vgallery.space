@@ -26,20 +26,19 @@
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></noscript>
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap" onload="this.rel='stylesheet'"><style>@font-face{font-family:"bootstrap-icons";font-display:swap;}
     /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
+    /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
     @media print {
       body {
-      overflow-x: hidden;
-      max-width: 100%;
         background: #ffffff !important;
         color: #111111 !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         margin: 0 !important;
         padding: 20px !important;
       }
-      .exhibition-nav, .nav-container, .footer, .share-toast, .unmute-badge, .hero-enter-btn, .external-link {
+      .exhibition-nav, .nav-container, .share-toast, .unmute-badge {
         display: none !important;
       }
-      .content-header, .content-body, .gallery-grid, main, .hero-section {
+      .content-header, .content-body, .gallery-grid, main, .hero-section, .footer, .footer-clean {
         background: #ffffff !important;
         color: #111111 !important;
         width: 100% !important;
@@ -47,6 +46,7 @@
         margin: 0 0 20px 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
+        display: block !important;
       }
       h1, h2, h3, h4, .content-title, .placard-title {
         color: #000000 !important;
@@ -56,25 +56,27 @@
         color: #222222 !important;
         line-height: 1.5 !important;
       }
-      img, video {
+      /* Exhibition and artwork images get nice print borders */
+      .exhibition-image, .hero-image, .artwork img, .hero-video {
         max-width: 100% !important;
         height: auto !important;
         page-break-inside: avoid !important;
-        page-break-before: auto !important;
-        page-break-after: auto !important;
         border: 2px solid #000000 !important;
-      }
-      video {
-        /* Fallback: ensure video posters or first frames print nicely instead of blank boxes */
         object-fit: contain !important;
+      }
+      /* Exclude footer logo and small badges from forced borders and oversized rendering */
+      .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"] {
+        border: none !important;
+        max-height: 36px !important;
+        width: auto !important;
+        display: inline-block !important;
       }
       article.artwork, .gallery-grid {
         page-break-inside: avoid !important;
         display: block !important;
       }
     }
-
-  </style>
+    </style>
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap"></noscript>
 
   <style>
