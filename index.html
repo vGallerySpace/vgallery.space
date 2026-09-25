@@ -628,6 +628,8 @@
     /* --- REFINED PRINT STYLESHEET: SINGLE NAVBAR ON PAGE 1 & TOP SPACING --- */
     /* --- REFINED INDEX PRINT STYLESHEET (CLEAN PER-EXHIBITION PAGE BREAKS) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (PERFECT CATALOGUE FLOW) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (CLEAN FRAMING & NO LINE GLITCHES) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NO NAVBAR, PERFECT FRAMING) --- */
     @media print {
       body {
         background: #ffffff !important;
@@ -636,22 +638,8 @@
         margin: 0 !important;
         padding: 15px !important;
       }
-      /* Navbar on first page */
-      .navbar {
-        position: relative !important;
-        background: #ffffff !important;
-        border-bottom: 2px solid #000000 !important;
-        margin-bottom: 20px !important;
-        padding: 8px 0 !important;
-        display: block !important;
-        page-break-after: avoid !important;
-        break-after: avoid !important;
-      }
-      .navbar .nav-link {
-        color: #000000 !important;
-        font-weight: 700 !important;
-      }
-      .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav {
+      /* Hide navbar completely in print mode */
+      .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav {
         display: none !important;
       }
       main, .content-section {
@@ -668,7 +656,6 @@
         display: block !important;
         width: 100% !important;
       }
-      /* Each placard card starts on a fresh page */
       .placard-card {
         display: block !important;
         width: 100% !important;
@@ -682,7 +669,6 @@
         border: none !important;
         background: #ffffff !important;
       }
-      /* First placard card flows right after navbar on page 1 without creating a blank first page */
       .placard-card:first-of-type {
         page-break-before: avoid !important;
         break-before: avoid !important;
@@ -699,27 +685,38 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      /* Ensure images and video posters render properly with clean black framing */
-      .placard-image, .placard-media {
-        max-width: 100% !important;
-        height: auto !important;
-        max-height: 500px !important;
-        object-fit: contain !important;
-        border: 2px solid #000000 !important;
+      /* Solid 8px black frame wrap matching web appearance */
+      .placard-image-wrap {
+        background: #000000 !important;
+        border: 8px solid #000000 !important;
+        box-sizing: border-box !important;
         margin-top: 10px !important;
         margin-bottom: 10px !important;
-        display: block !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        box-sizing: border-box !important;
-        background: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
-      /* Fallback for video elements in print mode so they display poster / placeholder */
-      video {
+      .placard-image {
+        max-width: 100% !important;
+        max-height: 480px !important;
+        height: auto !important;
+        object-fit: contain !important;
+        border: none !important;
         display: block !important;
-        height: 350px !important;
+      }
+      video.placard-media {
+        display: block !important;
+        width: 100% !important;
+        height: 380px !important;
+        object-fit: contain !important;
         background: #000000 !important;
-        border: 2px solid #000000 !important;
+        border: 8px solid #000000 !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
       footer, .footer-clean {
         display: block !important;
