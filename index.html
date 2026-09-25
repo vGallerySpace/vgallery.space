@@ -632,6 +632,7 @@
     /* --- REFINED INDEX PRINT STYLESHEET (NO NAVBAR, PERFECT FRAMING) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (NATURAL ASPECT RATIO, SINGLE FRAME, NO BLANKS) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (NO FOOTER, FIREFOX VIDEO FIX, COMPACT PAGES) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (TIGHT WRAP FRAMING, NATURAL PROPORTIONS) --- */
     @media print {
       body {
         background: #ffffff !important;
@@ -640,7 +641,6 @@
         margin: 0 !important;
         padding: 10px !important;
       }
-      /* Hide navbar, footer, and extra UI elements completely in print mode */
       .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav, footer, .footer-clean {
         display: none !important;
       }
@@ -691,33 +691,35 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
+      /* Tight black frame wrap that hugs each image's natural dimensions perfectly */
       .placard-image-wrap {
         background: #000000 !important;
         border: 6px solid #000000 !important;
         box-sizing: border-box !important;
         margin-top: 5px !important;
         margin-bottom: 8px !important;
-        max-height: 420px !important;
+        aspect-ratio: auto !important;
+        height: auto !important;
+        max-height: none !important;
         overflow: hidden !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 100% !important;
       }
       .placard-image {
         width: 100% !important;
         height: auto !important;
-        max-height: 400px !important;
+        max-height: 450px !important;
         object-fit: contain !important;
         border: none !important;
         display: block !important;
       }
-      /* Firefox & general video placard print fix using inline background posters */
       video.placard-media {
         width: 100% !important;
         height: 340px !important;
-        object-fit: contain !important;
+        object-fit: cover !important;
         background-color: #000000 !important;
         border: none !important;
         display: block !important;
