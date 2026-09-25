@@ -630,6 +630,7 @@
     /* --- REFINED INDEX PRINT STYLESHEET (PERFECT CATALOGUE FLOW) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (CLEAN FRAMING & NO LINE GLITCHES) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (NO NAVBAR, PERFECT FRAMING) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NATURAL ASPECT RATIO, SINGLE FRAME, NO BLANKS) --- */
     @media print {
       body {
         background: #ffffff !important;
@@ -685,38 +686,36 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      /* Solid 8px black frame wrap matching web appearance */
+      /* Single clean frame matching natural image proportions without letterbox padding */
       .placard-image-wrap {
-        background: #000000 !important;
-        border: 8px solid #000000 !important;
+        background: transparent !important;
+        border: 6px solid #000000 !important;
         box-sizing: border-box !important;
         margin-top: 10px !important;
         margin-bottom: 10px !important;
+        aspect-ratio: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        display: block !important;
       }
       .placard-image {
-        max-width: 100% !important;
-        max-height: 480px !important;
+        width: 100% !important;
         height: auto !important;
-        object-fit: contain !important;
+        max-height: none !important;
+        object-fit: unset !important;
         border: none !important;
         display: block !important;
       }
+      /* For video placards, show poster image background or size correctly */
       video.placard-media {
-        display: block !important;
         width: 100% !important;
-        height: 380px !important;
-        object-fit: contain !important;
-        background: #000000 !important;
-        border: 8px solid #000000 !important;
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: unset !important;
+        display: block !important;
+        border: none !important;
       }
       footer, .footer-clean {
         display: block !important;
@@ -886,7 +885,7 @@
         <!-- 07. prototype No.6 -->
         <a href="exhibitions/prototype-no-6.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" loop muted playsinline preload="none" class="placard-image lazy-video"></video>
+            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h2 class="placard-title">prototype No.6</h2>
