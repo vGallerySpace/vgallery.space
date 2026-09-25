@@ -631,16 +631,17 @@
     /* --- REFINED INDEX PRINT STYLESHEET (CLEAN FRAMING & NO LINE GLITCHES) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (NO NAVBAR, PERFECT FRAMING) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (NATURAL ASPECT RATIO, SINGLE FRAME, NO BLANKS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NO FOOTER, FIREFOX VIDEO FIX, COMPACT PAGES) --- */
     @media print {
       body {
         background: #ffffff !important;
         color: #111111 !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         margin: 0 !important;
-        padding: 15px !important;
+        padding: 10px !important;
       }
-      /* Hide navbar completely in print mode */
-      .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav {
+      /* Hide navbar, footer, and extra UI elements completely in print mode */
+      .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav, footer, .footer-clean {
         display: none !important;
       }
       main, .content-section {
@@ -665,8 +666,8 @@
         break-before: page !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        margin: 0 0 20px 0 !important;
-        padding: 10px 0 !important;
+        margin: 0 0 15px 0 !important;
+        padding: 5px 0 !important;
         border: none !important;
         background: #ffffff !important;
       }
@@ -677,59 +678,51 @@
       }
       h1, h2, h3, h4, .placard-title {
         color: #000000 !important;
+        font-size: 16px !important;
+        margin-bottom: 6px !important;
         page-break-after: avoid !important;
         break-after: avoid !important;
       }
       p, .placard-desc, .placard-date {
         color: #222222 !important;
-        line-height: 1.4 !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 8px !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      /* Single clean frame matching natural image proportions without letterbox padding */
       .placard-image-wrap {
-        background: transparent !important;
+        background: #000000 !important;
         border: 6px solid #000000 !important;
         box-sizing: border-box !important;
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-        aspect-ratio: auto !important;
-        height: auto !important;
+        margin-top: 5px !important;
+        margin-bottom: 8px !important;
+        max-height: 420px !important;
         overflow: hidden !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        display: block !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
       .placard-image {
         width: 100% !important;
         height: auto !important;
-        max-height: none !important;
-        object-fit: unset !important;
+        max-height: 400px !important;
+        object-fit: contain !important;
         border: none !important;
         display: block !important;
       }
-      /* For video placards, show poster image background or size correctly */
+      /* Firefox & general video placard print fix using inline background posters */
       video.placard-media {
         width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        object-fit: unset !important;
-        display: block !important;
+        height: 340px !important;
+        object-fit: contain !important;
+        background-color: #000000 !important;
         border: none !important;
-      }
-      footer, .footer-clean {
         display: block !important;
-        page-break-before: always !important;
-        break-before: page !important;
-        background: #ffffff !important;
-        color: #111111 !important;
-        padding: 30px 0 !important;
-      }
-      .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"], img[src*="OpenSea"], img[src*="objkt"] {
-        border: none !important;
-        max-height: 40px !important;
-        width: auto !important;
-        display: inline-block !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
     }
     </style>
@@ -813,7 +806,7 @@
         <!-- 13. INFINITY MUSEUM : XTZ -->
         <a href="exhibitions/infinity-museum-xtz.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video data-src="/assets/infinity-loop.mp4" poster="/assets/infinity-thumbnail.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+            <video data-src="/assets/infinity-loop.mp4" poster="/assets/infinity-thumbnail.webp" style="background-image: url('/assets/infinity-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h2 class="placard-title">INFINITY MUSEUM : XTZ</h2>
@@ -837,7 +830,7 @@
         <!-- 11. vGallerySpace : METAVERSE -->
         <a href="exhibitions/vgalleryspace-metaverse-exhibition.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video data-src="assets/metaverse-exhibition.mp4" poster="assets/metaverse-thumbnail.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+            <video data-src="assets/metaverse-exhibition.mp4" poster="assets/metaverse-thumbnail.webp" style="background-image: url('assets/metaverse-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h2 class="placard-title">vGallerySpace : METAVERSE</h2>
@@ -885,7 +878,7 @@
         <!-- 07. prototype No.6 -->
         <a href="exhibitions/prototype-no-6.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" style="background-image: url('assets/proto6-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h2 class="placard-title">prototype No.6</h2>
@@ -909,7 +902,7 @@
         <!-- 05. prototype No.5 -->
         <a href="exhibitions/prototype-no-5.html" class="placard-card">
           <div class="placard-image-wrap">
-            <video data-src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.webp" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+            <video data-src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.webp" style="background-image: url('assets/proto5-vj-loop-2-thumb.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
           </div>
           <div class="placard-content">
             <h2 class="placard-title">prototype No.5</h2>
