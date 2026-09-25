@@ -634,6 +634,7 @@
     /* --- REFINED INDEX PRINT STYLESHEET (NO FOOTER, FIREFOX VIDEO FIX, COMPACT PAGES) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (TIGHT WRAP FRAMING, NATURAL PROPORTIONS) --- */
     /* --- REFINED INDEX PRINT STYLESHEET (CONSISTENT FULL-WIDTH FRAMES & NATURAL HEIGHT) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (UNIFORM STANDARD FRAMES) --- */
     @media print {
       body {
         background: #ffffff !important;
@@ -692,17 +693,16 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      /* Consistent full-width black frame wrap with natural height fitting */
+      /* Uniform standard frame size matching web appearance with clean letterbox framing */
       .placard-image-wrap {
         background: #000000 !important;
-        border: 6px solid #000000 !important;
+        border: 8px solid #000000 !important;
         box-sizing: border-box !important;
         margin-top: 5px !important;
         margin-bottom: 8px !important;
         width: 100% !important;
         max-width: 100% !important;
-        height: auto !important;
-        max-height: 480px !important;
+        aspect-ratio: 4 / 3 !important;
         overflow: hidden !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
@@ -712,15 +712,14 @@
       }
       .placard-image {
         width: 100% !important;
-        height: auto !important;
-        max-height: 468px !important;
-        object-fit: contain !important;
+        height: 100% !important;
+        object-fit: cover !important;
         border: none !important;
         display: block !important;
       }
       video.placard-media {
         width: 100% !important;
-        height: 340px !important;
+        height: 100% !important;
         object-fit: cover !important;
         background-color: #000000 !important;
         border: none !important;
