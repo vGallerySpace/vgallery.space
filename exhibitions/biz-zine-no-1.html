@@ -32,6 +32,7 @@
     /* --- REFINED EXHIBITION PRINT STYLESHEET (FIXED TOP OVERLAP) --- */
     /* --- REFINED EXHIBITION PRINT STYLESHEET (KEEP NAVBAR & ADD SPACE) --- */
     /* --- REFINED PRINT STYLESHEET: SINGLE NAVBAR ON PAGE 1 & TOP SPACING --- */
+        /* --- UNIFORM EXHIBITION PRINT STYLESHEET (NO NAVBAR, NO FOOTER, VIDEO POSTERS FIXED) --- */
     @media print {
       body {
         background: #ffffff !important;
@@ -40,79 +41,49 @@
         margin: 0 !important;
         padding: 15px !important;
       }
-      /* Navbar only on first page, hidden on subsequent pages or printed clean */
-      .navbar {
-        position: static !important;
-        background: #ffffff !important;
-        border-bottom: 2px solid #000000 !important;
-        margin-bottom: 25px !important;
-        padding: 8px 0 !important;
-        display: block !important;
-        page-break-after: avoid !important;
-        break-after: avoid !important;
-      }
-      .navbar .nav-link {
-        color: #000000 !important;
-        font-weight: 700 !important;
-      }
-      .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav {
+      .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav, footer, .footer-clean {
         display: none !important;
       }
-      /* Ensure main content / gallery grid starts cleanly with proper spacing below navbar */
-      main, .content-section, .content-header, .gallery-grid {
+      main, .content-section, .container {
         background: #ffffff !important;
         color: #111111 !important;
         width: 100% !important;
         max-width: none !important;
-        margin-top: 15px !important;
-        margin-bottom: 16px !important;
-        padding-top: 10px !important;
+        margin: 0 !important;
+        padding: 0 !important;
         box-shadow: none !important;
         display: block !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
       }
       h1, h2, h3, h4, .content-title, .placard-title {
         color: #000000 !important;
         page-break-after: avoid !important;
         break-after: avoid !important;
       }
-      p, .content-desc, .placard-desc, .artwork-desc, .content-medium, .content-meta {
+      p, .content-body p, .content-desc {
         color: #222222 !important;
         line-height: 1.4 !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      /* Ensure images and 8px black top frames are fully visible with generous margins */
-      .exhibition-image, .hero-image, .artwork img, .hero-video, .gallery-card img {
+      img, .artwork img, .content-image img {
         max-width: 100% !important;
         height: auto !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-        page-break-before: auto !important;
-        break-before: auto !important;
-        border: 2px solid #000000 !important;
-        object-fit: contain !important;
-        margin-top: 15px !important;
-        margin-bottom: 15px !important;
-        box-sizing: border-box !important;
-      }
-      /* Specific exemption for index gallery card images to keep their nice styling */
-      .gallery-card {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-        margin-bottom: 30px !important;
         border: none !important;
+        box-shadow: none !important;
+        display: block !important;
+        margin: 10px auto !important;
       }
-      /* Exclude logos, signatures, and badges from forced borders */
-      .footer-logo img, img[src*="framous_black"], img[src*="logo"], img[src*="Artsy"], img[src*="MvVO"], img[src*="Spatial"], img[src*="OpenSea"], img[src*="objkt"] {
-        border: none !important;
-        max-height: 40px !important;
-        width: auto !important;
-        display: inline-block !important;
-      }
+      /* Ensure video tags show their poster thumbnails in print across all video exhibitions */
       video {
-        display: none !important;
+        width: 100% !important;
+        height: 380px !important;
+        object-fit: contain !important;
+        background-color: #000000 !important;
+        border: 6px solid #000000 !important;
+        display: block !important;
+        margin: 10px auto !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
     }
     </style>

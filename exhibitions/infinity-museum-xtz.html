@@ -33,6 +33,7 @@
     /* --- REFINED EXHIBITION PRINT STYLESHEET (KEEP NAVBAR & ADD SPACE) --- */
     /* --- REFINED PRINT STYLESHEET: SINGLE NAVBAR ON PAGE 1 & TOP SPACING --- */
     /* --- REFINED EXHIBITION PRINT STYLESHEET (NO NAVBAR, NO FOOTER, CLEAN LOGO) --- */
+        /* --- UNIFORM EXHIBITION PRINT STYLESHEET (NO NAVBAR, NO FOOTER, VIDEO POSTERS FIXED) --- */
     @media print {
       body {
         background: #ffffff !important;
@@ -41,7 +42,6 @@
         margin: 0 !important;
         padding: 15px !important;
       }
-      /* Hide navbar, footer, and exhibition nav in print */
       .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav, footer, .footer-clean {
         display: none !important;
       }
@@ -66,22 +66,25 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      img, .artwork img {
+      img, .artwork img, .content-image img {
         max-width: 100% !important;
         height: auto !important;
         border: none !important;
         box-shadow: none !important;
-      }
-      /* Keep Infinity collection logo sized correctly without giant scaling or outlines */
-      img[src*="infinity-collection"] {
-        max-width: 120px !important;
-        height: auto !important;
-        border: none !important;
         display: block !important;
-        margin: 15px auto !important;
+        margin: 10px auto !important;
       }
+      /* Ensure video tags show their poster thumbnails in print across all video exhibitions */
       video {
-        display: none !important;
+        width: 100% !important;
+        height: 380px !important;
+        object-fit: contain !important;
+        background-color: #000000 !important;
+        border: 6px solid #000000 !important;
+        display: block !important;
+        margin: 10px auto !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
     }
     </style>
