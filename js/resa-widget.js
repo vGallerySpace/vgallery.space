@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * Ultra-concise, direct conversational responses.
+ * Direct, art-literate, thoughtful exhibition responses.
  */
 
 (function () {
@@ -107,12 +107,14 @@
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Direct, concise Docent Reply (Zero repeated "Welcome" greetings)
+    // Direct, thoughtful Docent Reply
     setTimeout(() => {
       const lower = text.toLowerCase();
       let reply = "Take your time exploring. Let me know if you'd like specific context on any exhibition or artwork!";
 
-      if (lower.includes('favorite') || lower.includes('favourite') || lower.includes('best') || lower.includes('recommend') || lower.includes('highlight')) {
+      if (lower.includes('codes') || lower.includes('codes.gallery')) {
+        reply = "codes.gallery is our featured exhibition examining agentic AI collaboration, generative code as creative material, and solo structuring across nearly two years of intensive development.";
+      } else if (lower.includes('favorite') || lower.includes('favourite') || lower.includes('best') || lower.includes('recommend') || lower.includes('highlight')) {
         reply = "My favorite highlight is Prototype No. 7 in the STUDIO—a transformable carbon fiber structure bridging physical architecture and sculpture. I also recommend codes.gallery in the GALLERY room.";
       } else if (lower.includes('protoype') || lower.includes('prototype') || lower.includes('prototypes')) {
         reply = "Featured in the STUDIO, Prototype No. 7 is an unfinished carbon fiber table exploring movable architecture under the arch>scul prototypes series.";
@@ -124,8 +126,8 @@
         reply = "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
         reply = "The OFFICE houses Way Back Machine archives, Facebook records, and reflections documenting nearly three decades of studio evolution.";
-      } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
-        reply = "Explore codes.gallery or acquire physical works and digital editions via Artsy and eBay in the top-right cart dropdown.";
+      } else if (lower.includes('store') || lower.includes('ebay') || lower.includes('artsy') || lower.includes('buy') || lower.includes('acquire')) {
+        reply = "You can acquire physical works and digital editions via Artsy, eBay, OpenSea, and Objkt in the top-right cart dropdown.";
       } else if (lower.includes('framous') || lower.includes('artist') || lower.includes('who')) {
         reply = "vGallerySpace was created by FRAMOUS, spanning architectural sculpture, brand direction, and digital/AI curation over three decades.";
       }
