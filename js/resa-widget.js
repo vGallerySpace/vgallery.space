@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * Dual-Engine: Live Gemini API + Dynamic Knowledge Matrix
+ * Dual-Engine: Live Gemini API + Easy Key Linking + Dynamic Knowledge Matrix
  */
 
 (function () {
@@ -150,6 +150,25 @@
 
     if (!textOverride) inputEl.value = '';
 
+    // Check if user is linking an API key directly in chat
+    if (text.toLowerCase().startsWith('/key ') || text.toLowerCase().startsWith('key ') || text.startsWith('AIzaSy')) {
+      const extractedKey = text.replace(/^\/key\s+|^key\s+/i, '').trim();
+      if (extractedKey.length > 20) {
+        localStorage.setItem('vgallery_gemini_key', extractedKey);
+        const userMsg = document.createElement('div');
+        userMsg.className = 'resa-w-msg user';
+        userMsg.innerHTML = '<i>[Linking Gemini API Key...]</i>';
+        msgList.appendChild(userMsg);
+
+        const botMsg = document.createElement('div');
+        botMsg.className = 'resa-w-msg bot';
+        botMsg.innerHTML = 'Gemini API key linked successfully! I am now operating with live AI reasoning.';
+        msgList.appendChild(botMsg);
+        msgList.scrollTop = msgList.scrollHeight;
+        return;
+      }
+    }
+
     // Add user message
     const userMsg = document.createElement('div');
     userMsg.className = 'resa-w-msg user';
@@ -164,11 +183,11 @@
     msgList.appendChild(typingMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Check for client-stored key
+    // 1. Try Client Gemini API Key if linked
     const clientKey = localStorage.getItem('vgallery_gemini_key');
     if (clientKey) {
       try {
-        const sysPrompt = "You are RESA, the Virtual Docent for vGallerySpace by FRAMOUS. Speak with quiet curatorial confidence—art-literate, direct, concise, articulate, and thoughtful. Never use robotic filler. Answer questions directly, offering deep insights into exhibitions, Prototype No. 7, codes.gallery, and historical archives.";
+        const sysPrompt = "You are RESA, the Virtual Docent & Curator for vGallerySpace by FRAMOUS. Speak with quiet curatorial confidence—art-literate, direct, concise, articulate, and thoughtful. Never use robotic sycophantic filler. Never repeat Welcome greetings during ongoing turns. Synthesize deep connections between physical sculpture, digital architecture, and 30 years of studio practice.";
         const gRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${clientKey}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -189,6 +208,7 @@
       } catch (err) { /* Fallback */ }
     }
 
+    // 2. Try Serverless Endpoint /api/docent
     try {
       const res = await fetch('/api/docent', {
         method: 'POST',
@@ -206,7 +226,7 @@
       }
     } catch (e) { /* Fallback */ }
 
-    // Fallback if API not available
+    // 3. Dynamic Knowledge Matrix Fallback
     typingMsg.innerHTML = getFallbackReply(text);
     msgList.scrollTop = msgList.scrollHeight;
   }
