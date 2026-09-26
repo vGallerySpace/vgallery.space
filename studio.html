@@ -4,170 +4,639 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>vGallerySpace — STUDIO</title>
-  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
-  <meta name="description" content="Explore STUDIO by FRAMOUS at vGallerySpace: physical engineering, 3D modeling, and architectural sculpture prototypes like Prototype No. 7." />
-  <meta name="keywords" content="virtual gallery, studio, prototype no. 7, carbon fiber, architectural sculpture, arch>scul" />
-  <link rel="canonical" href="https://vgallery.space/studio" />
-  <meta name="theme-color" content="#ffffff" />
-
+  <meta name="description" content="VGALLERYSPACE - Studio production and creative archives" />
   <meta property="og:site_name" content="vgallery.space" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vgallery.space/studio" />
-  <meta property="og:title" content="STUDIO — vgallery.space" />
-  <meta property="og:description" content="Explore STUDIO by FRAMOUS at vGallerySpace: physical engineering, 3D modeling, and architectural sculpture prototypes like Prototype No. 7." />
-  <meta property="og:image" content="https://vgallery.space/assets/osg-studio.webp" />
+  <meta property="og:url" content="https://vgallery.space/studio.html" />
+  <meta property="og:title" content="vGallerySpace — STUDIO" />
+  <meta property="og:description" content="VGALLERYSPACE - Studio production and creative archives" />
+  <meta property="og:image" content="https://vgallery.space/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://vgallery.space/studio.html" />
+  <meta name="twitter:title" content="vGallerySpace — STUDIO" />
+  <meta name="twitter:description" content="VGALLERYSPACE - Studio production and creative archives" />
+  <meta name="twitter:image" content="https://vgallery.space/assets/social-card.png" />
+  <link rel="canonical" href="https://vgallery.space/studio.html" />
+  <meta name="theme-color" content="#ffffff" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-  <!-- Bootstrap 5 & Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Custom Site Styling -->
-  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/resa-widget.css" />
+
+  <style>
+    html {
+      scrollbar-gutter: stable;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1c20;
+      --soft: #4a4e56;
+      --muted: #8f939a;
+      --line: rgba(0,0,0,0.12);
+      --line-soft: rgba(0,0,0,0.06);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif;
+      padding-top: 76px;
+    }
+
+    /* Navigation */
+    .fixed-top {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1030;
+    }
+    .navbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line-soft);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.75rem 0;
+      z-index: 1030;
+    }
+
+    .navbar-header-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-center-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-cart-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+    }
+
+    .cart-toggle::after {
+      display: none !important;
+    }
+
+    .dropdown {
+      position: relative !important;
+    }
+
+    .dropdown-menu.show {
+      display: block !important;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute !important;
+      top: 100% !important;
+      right: 0 !important;
+      left: auto !important;
+      margin-top: 8px !important;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      min-width: 180px;
+      max-width: 240px;
+    }
+
+    .nav-link {
+      color: #000000 !important;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.5rem 0.75rem !important;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      color: #777777 !important;
+    }
+
+    .nav-link.active {
+      color: var(--muted) !important;
+    }
+
+    .cart-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 18px;
+      padding: 0.5rem;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+
+    .cart-toggle:hover {
+      color: var(--muted);
+    }
+
+    .dropdown-item {
+      color: var(--fg);
+      transition: background .15s ease;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(0,0,0,0.04);
+    }
+
+    /* Hero section */
+    .hero-section {
+      position: relative;
+      height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 60px;
+    }
+
+    .hero-image-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: brightness(0.85);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #ff2680;
+      margin: 0 0 4px 0;
+      line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: lowercase;
+      margin: 0 0 16px 0;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero-enter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 32px;
+      background: #4FF6FF;
+      color: #000000 !important;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      transition: all .18s ease;
+      border: 2px solid #4FF6FF;
+    }
+
+    .hero-enter-btn:hover {
+      background: #2ee6f2;
+      border-color: #2ee6f2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(79, 246, 255, 0.45);
+      color: #000000 !important;
+    }
+
+    /* Main Content */
+    .studio-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 23px 1.5rem 4rem 1.5rem;
+      min-height: 40vh;
+    }
+
+    .studio-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--fg);
+      letter-spacing: .02em;
+    }
+
+    .studio-body p {
+      margin-bottom: 2rem;
+    }
+
+    .blogger-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all .2s ease;
+      box-sizing: border-box;
+    }
+
+    .blogger-btn:hover {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    .footer-clean {
+      background: var(--bg);
+      border-top: 1px solid var(--line-soft);
+      padding: 3rem 0 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-logo-link {
+      display: inline-block;
+      transition: all .2s ease;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    .footer-logo-link:hover {
+      opacity: 0.6;
+      background: rgba(0,0,0,0.04);
+      transform: translateY(-1px);
+    }
+
+    .footer-legal-links {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-policy-link {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: color .18s ease;
+      padding: 0 4px;
+    }
+
+    .footer-policy-link:hover {
+      color: var(--muted);
+    }
+
+    .footer-dot {
+      color: var(--muted);
+      margin: 0 8px;
+      font-size: 14px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      min-height: 44px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all .2s ease;
+      box-sizing: border-box;
+    }
+
+    .footer-social a:hover {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .guest-bell {
+      background: rgba(0,0,0,0.04) !important;
+      border-color: var(--line) !important;
+      color: var(--fg) !important;
+    }
+
+    .guest-bell:hover,
+    .rss-link:hover {
+      background: var(--fg) !important;
+      border-color: var(--fg) !important;
+      color: #fff !important;
+      transform: scale(1.1);
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .cc-license-link {
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .18s ease;
+    }
+
+    .cc-license-link:hover {
+      color: var(--muted);
+    }
+
+    /* Mobile Breakpoints */
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 380px;
+      }
+
+      .navbar .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .nav-center-links {
+        gap: 1rem !important;
+      }
+
+      .nav-link {
+        font-size: 12px !important;
+        padding: 0.5rem 0.35rem !important;
+        letter-spacing: .12em !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+      }
+
+      .cart-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 18px;
+      padding: 0.5rem;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+
+      .footer-social {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+      }
+
+      .footer-social a {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+        font-size: 15px !important;
+      }
+    }
+    /* Share Toast */
+    .share-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #000000;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 9999;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    }
+
+    .share-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
 </head>
 <body>
-
-  <!-- Top Announcement Bar -->
-  <div class="announcement-bar">
-    <span>LATEST EXHIBITION: CODES.GALLERY &mdash; <a href="exhibitions/codes-gallery.html">VIEW NOW &rarr;</a></span>
-  </div>
-
-  <!-- Primary Header & Navigation -->
-  <header class="navbar navbar-expand-lg sticky-top border-bottom bg-white" id="mainHeader">
-    <div class="container navbar-container">
-      <div class="nav-left-brand">
-        <a class="navbar-brand font-monospace text-uppercase tracking-wider text-dark m-0 fw-bold" href="index.html">
-          vGallerySpace
-        </a>
-      </div>
-
-      <div class="nav-center-links">
-        <a class="nav-link" href="index.html">GALLERY</a>
-        <a class="nav-link active fw-bold" href="studio.html">STUDIO</a>
-        <a class="nav-link" href="office.html">OFFICE</a>
-      </div>
-
-      <div class="nav-right-actions">
-        <a href="docent-lounge.html" class="docent-lounge-link">
-          <i class="bi bi-chat-left-dots-fill me-1"></i> DOCENT LOUNGE
-        </a>
-
-        <!-- Cart / Acquisitions Dropdown -->
-        <div class="dropdown cart-dropdown">
-          <button class="btn btn-outline-dark position-relative py-1 px-3" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="ACQUISITIONS / MARKETPLACES">
-            <i class="bi bi-bag"></i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 p-2" aria-labelledby="cartDropdown" style="min-width: 280px;">
-            <li><h6 class="dropdown-header text-uppercase tracking-wider text-muted font-monospace small">ACQUISITIONS / MARKETPLACES</h6></li>
-            <li><a class="dropdown-item py-2 border-bottom" href="https://www.artsy.net/partner/mvvo-art/artists/framous" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right text-muted me-2"></i> Artsy &mdash; Physical Works</a></li>
-            <li><a class="dropdown-item py-2 border-bottom" href="https://www.ebay.com/usr/vgalleryspace" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right text-muted me-2"></i> eBay &mdash; Collectibles & Print</a></li>
-            <li><a class="dropdown-item py-2 border-bottom" href="https://opensea.io/vgalleryspace" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right text-muted me-2"></i> OpenSea &mdash; Digital Editions</a></li>
-            <li><a class="dropdown-item py-2" href="https://objkt.com/users/tz1.../created" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right text-muted me-2"></i> Objkt &mdash; Tezos Generative</a></li>
-          </ul>
+  <!-- Navigation -->
+  <nav class="navbar fixed-top">
+    <div class="container">
+      <div class="navbar-header-grid">
+        <div></div>
+        <ul class="nav-center-links">
+          <li><a class="nav-link" href="/">GALLERY</a></li>
+          <li><a class="nav-link active" href="studio.html">STUDIO</a></li>
+          <li><a class="nav-link" href="office.html">OFFICE</a></li>
+        </ul>
+        <div class="nav-cart-wrapper">
+          <div class="dropdown">
+            <button class="cart-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Cart">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener nofollow">ARTSY</a></li>
+              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank" rel="noopener nofollow">eBay</a></li>
+              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank" rel="noopener nofollow">HipStamp</a></li>
+              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank" rel="noopener nofollow">codes.gallery</a></li>
+              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank" rel="noopener nofollow">OpenSea</a></li>
+              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank" rel="noopener nofollow">Objkt</a></li>
+              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank" rel="noopener nofollow">Magic Eden</a></li>
+              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank" rel="noopener nofollow">AtomicHub</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero-section">
-    <div class="hero-image-wrapper" aria-hidden="true">
-      <img src="assets/osg-studio.webp" alt="vGallerySpace Studio" width="720" height="405" fetchpriority="high">
+    <div class="hero-image-wrapper">
+      <img src="assets/alleyway.webp" alt="Alleyway Background">
     </div>
     <div class="hero-content">
-      <h1 class="hero-title">STUDIO</h1>
-      <p class="hero-subtitle">PHYSICAL ENGINEERING · 3D MODELING · ARCHITECTURAL SCULPTURE PROTOTYPES</p>
-      <a href="exhibitions/archscul.html" class="hero-enter-btn">
-        EXPLORE PROTOTYPES <i class="bi bi-chevron-right"></i>
+      <h1 class="hero-title">OS:AI</h1>
+      <p class="hero-subtitle">codes.gallery</p>
+      <a href="https://codes.gallery" target="_blank" rel="noopener" class="hero-enter-btn">
+        ENTER <i class="fas fa-chevron-right"></i>
       </a>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <main class="container">
-    <section id="gallery" class="py-2">
+  <!-- Main Content Area -->
+  <main class="container studio-content">
+    <div class="studio-body">
+      <p>EVER SINCE I CAN REMEMBER, MY ART HAS BEEN A REAL STRUGGLE AND A TRUE ON-AGAIN-OFF-AGAIN RELATIONSHIP. AROUND 2007, I BEGAN SPENDING MOST OF MY ENERGY ON THIS SIDE OF LIFE, PUTTING MY COMMERCIAL ART EFFORTS ON HOLD. THE REASON FOUND WAS SIMPLE. GROWTH IS A BATTLE BETWEEN CREATION AND DESTRUCTION. TRYING TO EXIST IN BOTH THE BUSINESS WORLD AND THE ART WORLD IS EVEN MORE OF A CHALLENGE. TYPICALLY, IT IS ONE OR THE OTHER, AND WHEN YOU GET THESE GROUPS TOGETHER, THINGS DO NOT ALWAYS MIX AS EXPECTED. BOTH INDUSTRIES ARE EXTREMELY COMPETITIVE, NOT TO MENTION MOST HAVE A DIFFICULT TIME UNDERSTANDING EACH OTHER'S WORK STYLE, PLUS WHAT IT TAKES TO MAKE IT. FINDING THE RIGHT BALANCE BETWEEN DISCIPLINES AND ALLOWING COLLABORATION IS NECESSARY. TAKING A MULTI-DISCIPLINARY APPROACH AND LEARNING MANY DIFFERENT TYPES OF SKILLS IS WHAT I ENJOY MOST.</p>
 
-      <div class="gallery-grid">
-        <!-- 01. arch>scul -->
-        <a href="exhibitions/archscul.html" class="placard-card">
-          <div class="placard-image-wrap">
-            <img src="assets/prono7a-carousel.webp" alt="arch>scul Prototype No. 7" class="placard-image" loading="lazy" width="768" height="512">
-          </div>
-          <div class="placard-content">
-            <h2 class="placard-title">arch&gt;scul : Prototype No. 7</h2>
-            <div class="placard-date">OCTOBER 2024</div>
-            <p class="placard-desc">UNFINISHED CARBON FIBER COFFEE TABLE SCULPTURE PROTOTYPE. A TRANSFORMABLE ARCHITECTURAL SCULPTURE EXPERIMENT IN PHYSICAL FORM, MATERIAL REFLECTION, AND STRUCTURAL BALANCING.</p>
-          </div>
-        </a>
+      <p>I TRY MY BEST TO KEEP A DIGITAL JOURNAL OF PROJECTS.</p>
 
-        <!-- 02. prototype No.6 -->
-        <a href="exhibitions/prototype-no-6.html" class="placard-card">
-          <div class="placard-image-wrap">
-            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" style="background-image: url('assets/proto6-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
-          </div>
-          <div class="placard-content">
-            <h2 class="placard-title">prototype No.6</h2>
-            <div class="placard-date">JUNE 2018</div>
-            <p class="placard-desc">NOW THE 3RD VIDEO INSTALLATION MAKES IT THE TRILOGY OF EACH NEW PROTOTYPE CONSTRUCTED USING A GOLDEN MEAN CAMERA SHOT, PUSHING BOUNDARIES OF VIDEOGRAPHY, SCULPTURE, AND REFLECTION.</p>
-          </div>
+      <div style="margin: 28px 0;">
+        <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="blogger-btn" title="archscul blog">
+          <i class="fab fa-blogger"></i>
         </a>
-
-        <!-- 03. prototype No.5 -->
-        <a href="exhibitions/prototype-no-5.html" class="placard-card">
-          <div class="placard-image-wrap">
-            <video data-src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.webp" style="background-image: url('assets/proto5-vj-loop-2-thumb.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
-          </div>
-          <div class="placard-content">
-            <h2 class="placard-title">prototype No.5</h2>
-            <div class="placard-date">JUNE 2017</div>
-            <p class="placard-desc">THE VISUAL IS A MIX OF SOMETHING ANCIENT FROM THE PAST WITH A FUTURISTIC UNKNOWN. AN INTRINSIC VOYAGE OF THE MIND, ACTING BESIDE TIME. THE BODY OF THE SCULPTURE ABSTRACTS SPACE.</p>
-          </div>
-        </a>
-
-        <!-- 04. OSG : STUDIO -->
-        <a href="exhibitions/osg.html" class="placard-card">
-          <div class="placard-image-wrap">
-            <img src="assets/osg-studio.webp" alt="OSG STUDIO" class="placard-image" loading="lazy" width="768" height="576">
-          </div>
-          <div class="placard-content">
-            <h2 class="placard-title">OSG : STUDIO</h2>
-            <div class="placard-date">FEBRUARY 2019 – FEBRUARY 2022</div>
-            <p class="placard-desc">SPENT 3 YEARS EXPERIMENTING AT THE LEMP BREWERY COMPLEX IN SAINT LOUIS MISSOURI TESTING AND LEARNING WHAT arch>scul WOULD BE LIKE IN A REAL WORLD SETTING across 7,000 SQ FT.</p>
-          </div>
-        </a>
-
-        <!-- 05. codes.gallery -->
-        <a href="exhibitions/codes-gallery.html" class="placard-card">
-          <div class="placard-image-wrap">
-            <img src="assets/codes-gallery-card.webp" alt="codes.gallery" class="placard-image" loading="lazy" width="370" height="276">
-          </div>
-          <div class="placard-content">
-            <h2 class="placard-title">codes.gallery</h2>
-            <div class="placard-date">MARCH 2026</div>
-            <p class="placard-desc">AGENTIC AI COLLABORATION & SOLO STRUCTURING ACROSS 2 YEARS. LEARNING HOW TO CARRY THE WHOLE ARCHITECTURAL & SCULPTURAL SYSTEM INDEPENDENTLY.</p>
-          </div>
-        </a>
+        <p style="margin-top: 12px; font-weight: 500;">FOR A VIRTUAL TOUR OF FUTURE, CURRENT AND PAST EXHIBITIONS FOLLOW MY FACEBOOK.</p>
       </div>
-    </section>
+
+      <div style="line-height: 1.4; margin-top: 2rem;">
+        <div style="margin-bottom: 0.25rem;">
+          <a href="https://www.facebook.com/share/1F4VWGLEJg/" target="_blank" rel="noopener" style="color: var(--fg); font-weight: 700; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">Way Back Machine, #1-22</a>
+        </div>
+        <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 0.5rem;">1984-2014</div>
+        <div>AN ARCHIVED COLLECTION OF CLIENTS, ART SHOWS, ARTWORKS AND OTHER PROJECTS FROM OVER THE YEARS USING SOCAIL MEDIA FOR EXHIBIT SPACE.</div>
+      </div>
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer-clean border-top py-5 bg-white text-dark mt-5">
-    <div class="container text-center">
-      <p class="small text-muted mb-0 font-monospace">&copy; 1984–2026 vGallerySpace. All rights reserved.</p>
+  <footer class="footer-clean">
+    <div class="container">
+      <!-- FRAMOUS Logo - Above Social Icons -->
+      <div class="footer-logo text-center mb-4">
+        <a href="artist-statement.html" class="footer-logo-link" title="Artist Statement">
+          <img src="assets/framous_black.webp" alt="FRAMOUS" style="height: 48px; width: auto;">
+        </a>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="footer-social d-flex justify-content-center gap-3 mb-4">
+        <a href="https://www.facebook.com/share/1F4VWGLEJg/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/vgalleryspace" target="_blank" title="Twitter/X"><i class="fab fa-x"></i></a>
+        <a href="https://www.instagram.com/ryanleepresson?igsi=MTRyb3Vzem5odGRsMA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@FRAMOUS" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://discordapp.com/users/framous/" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+        <a href="mailto:framous@vgallery.space" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="javascript:void(0)" class="share-btn" title="Share" onclick="handleShare()"><i class="fas fa-share-nodes"></i></a>
+        <a href="guest-list.html" class="guest-bell" title="Guest List"><i class="fas fa-bell"></i></a>
+        <a href="feed.xml" class="rss-link" title="RSS Feed" target="_blank"><i class="fas fa-rss"></i></a>
+      </div>
+
+      <!-- Legal / Policy Links -->
+      <div class="footer-legal-links text-center mb-3">
+        <a href="privacy-policy.html" class="footer-policy-link">PRIVACY POLICY</a>
+        <span class="footer-dot">·</span>
+        <a href="terms-conditions.html" class="footer-policy-link">TERMS &amp; CONDITIONS</a>
+      </div>
+
+      <!-- Creative Commons License -->
+      <div class="footer-copy text-center">
+        <p style="margin: 0; font-size: 14px; color: var(--fg); display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem;">
+          <span style="display: inline-flex; gap: 0.35rem; vertical-align: middle;">
+            <i class="fab fa-creative-commons" style="font-size: 18px; color: var(--fg);"></i>
+            <i class="fab fa-creative-commons-sa" style="font-size: 18px; color: var(--fg);"></i>
+            <i class="fab fa-creative-commons-by" style="font-size: 18px; color: var(--fg);"></i>
+          </span>
+          <span>
+            vGallerySpace by FRAMOUS work is licensed under a
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="cc-license-link">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </span>
+        </p>
+      </div>
     </div>
   </footer>
 
+  <!-- Share Toast -->
+  <div id="share-toast" class="share-toast">Link copied to clipboard!</div>
+
+  <!-- Share Functionality -->
+  <script>
+    function handleShare() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(function() {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          showShareToast();
+        }).catch(function() {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+    }
+
+    function fallbackCopy() {
+      var temp = document.createElement('input');
+      temp.value = window.location.href;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+        showShareToast();
+      } catch (err) {}
+      document.body.removeChild(temp);
+    }
+
+    function showShareToast() {
+      var toast = document.getElementById('share-toast');
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/resa-widget.js"></script>
 </body>
