@@ -44,7 +44,7 @@
     <div class="resa-w-header">
       <div class="resa-w-info">
         <div class="resa-w-avatar">
-          <img src="assets/resa2.jpeg" alt="RESA">
+          <img src="/assets/resa2.jpeg" alt="RESA">
         </div>
         <div class="resa-w-title-block">
           <div class="resa-w-title">RESA</div>
