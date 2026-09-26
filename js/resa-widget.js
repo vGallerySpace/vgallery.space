@@ -1,5 +1,5 @@
 /**
- * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget (ALL CAPS with brand-preserved vGallerySpace)
+ * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget (Brand-Preserved Formatting)
  */
 
 (function () {
@@ -12,7 +12,7 @@
   if (path.includes('office')) {
     pageGreeting = "WELCOME TO THE OFFICE. I AM RESA. ASK ME ABOUT THE GALLERY'S HISTORICAL ARCHIVES, WAYBACK MACHINE RECORDS, AND STUDIO HISTORY.";
   } else if (path.includes('studio')) {
-    pageGreeting = "WELCOME TO THE STUDIO. I'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND ARCHITECTURAL SCULPTURE CONCEPTS.";
+    pageGreeting = "WELCOME TO THE STUDIO. I'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND arch>scul CONCEPTS.";
   }
 
   // Build UI DOM
@@ -48,7 +48,7 @@
     <div class="resa-w-topics">
       <button class="resa-w-chip" onclick="window.sendResaTopic('TELL ME ABOUT THE FUTURE, CURRENT, AND PAST EXHIBITION VISION.')">⏳ FUTURE / CURRENT / PAST</button>
       <button class="resa-w-chip" onclick="window.sendResaTopic('WHAT IS THE CURATION PHILOSOPHY BEHIND vGallerySpace?')">🏛️ CURATION PHILOSOPHY</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND ARCH > SCUL?')">🗿 ARCH > SCUL PROTOTYPES</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND arch>scul?')">🗿 arch>scul PROTOTYPES</button>
     </div>
 
     <div class="resa-w-messages" id="resa-w-msg-list">
@@ -89,6 +89,13 @@
   launcher.addEventListener('click', toggle);
   closeBtn.addEventListener('click', toggle);
 
+  function formatBrandText(text) {
+    return text.toUpperCase()
+      .replace(/VGALLERYSPACE/g, 'vGallerySpace')
+      .replace(/ARCH > SCUL/g, 'arch>scul')
+      .replace(/ARCH>SCUL/g, 'arch>scul');
+  }
+
   function handleSend(textOverride) {
     const text = textOverride || inputEl.value.trim();
     if (!text) return;
@@ -98,11 +105,11 @@
     // Add user message
     const userMsg = document.createElement('div');
     userMsg.className = 'resa-w-msg user';
-    userMsg.textContent = text.toUpperCase().replace(/VGALLERYSPACE/g, 'vGallerySpace');
+    userMsg.textContent = formatBrandText(text);
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Smart Docent Reply (Preserving exact vGallerySpace brand casing)
+    // Smart Docent Reply (Preserving exact brand casing)
     setTimeout(() => {
       const lower = text.toLowerCase();
       let reply = "WELCOME TO vGallerySpace. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
@@ -112,7 +119,7 @@
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
         reply = "vGallerySpace IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
       } else if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('arch') || lower.includes('scul')) {
-        reply = "THE ARCH > SCUL SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
+        reply = "THE arch>scul SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
         reply = "THE OFFICE HOUSES HISTORICAL RECORDS, WAYBACK MACHINE ARCHIVES, AND REFLECTIONS DOCUMENTING THE EVOLUTION OF FRAMOUS'S STUDIO PRACTICE ACROSS NEARLY THREE DECADES.";
       } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
@@ -121,7 +128,7 @@
 
       const botMsg = document.createElement('div');
       botMsg.className = 'resa-w-msg bot';
-      botMsg.textContent = reply;
+      botMsg.textContent = formatBrandText(reply);
       msgList.appendChild(botMsg);
       msgList.scrollTop = msgList.scrollHeight;
     }, 600);
