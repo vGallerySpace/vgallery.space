@@ -54,12 +54,6 @@
       <button class="resa-w-close-btn" id="resa-w-close" aria-label="Close Lounge">&times;</button>
     </div>
 
-    <div class="resa-w-topics">
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Tell me about the Future, Current, and Past exhibition vision.')">⏳ Future / Current / Past</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('How do I contact FRAMOUS or inquire about artwork acquisitions?')">✉️ Contact & FAQ</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Can you explain Prototype No. 7 and arch>scul prototypes?')">🗿 arch>scul prototypes</button>
-    </div>
-
     <div class="resa-w-messages" id="resa-w-msg-list">
       <div class="resa-w-msg bot">${pageGreeting}</div>
     </div>
