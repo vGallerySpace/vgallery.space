@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * (ALL CAPS with <span class="brand-term"> for exact case preservation)
+ * (ALL CAPS with <span class="brand-term"> for exact case preservation on brand names & arch>scul prototypes)
  */
 
 (function () {
@@ -13,7 +13,7 @@
   if (path.includes('office')) {
     pageGreeting = "WELCOME TO THE OFFICE. I AM RESA. ASK ME ABOUT THE GALLERY'S HISTORICAL ARCHIVES, WAYBACK MACHINE RECORDS, AND STUDIO HISTORY.";
   } else if (path.includes('studio')) {
-    pageGreeting = 'WELCOME TO THE STUDIO. I\'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND <span class="brand-term">arch>scul</span> CONCEPTS.';
+    pageGreeting = 'WELCOME TO THE STUDIO. I\'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND <span class="brand-term">arch>scul prototypes</span> CONCEPTS.';
   }
 
   // Build UI DOM
@@ -49,7 +49,7 @@
     <div class="resa-w-topics">
       <button class="resa-w-chip" onclick="window.sendResaTopic('TELL ME ABOUT THE FUTURE, CURRENT, AND PAST EXHIBITION VISION.')">⏳ FUTURE / CURRENT / PAST</button>
       <button class="resa-w-chip" onclick="window.sendResaTopic('WHAT IS THE CURATION PHILOSOPHY BEHIND vGallerySpace?')">🏛️ CURATION PHILOSOPHY</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND arch>scul?')">🗿 <span class="brand-term">arch>scul</span> PROTOTYPES</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND arch>scul prototypes?')">🗿 <span class="brand-term">arch>scul prototypes</span></button>
     </div>
 
     <div class="resa-w-messages" id="resa-w-msg-list">
@@ -94,8 +94,11 @@
     let upper = text.toUpperCase();
     return upper
       .replace(/VGALLERYSPACE/g, '<span class="brand-term">vGallerySpace</span>')
+      .replace(/ARCH > SCUL PROTOTYPES/g, '<span class="brand-term">arch>scul prototypes</span>')
+      .replace(/ARCH>SCUL PROTOTYPES/g, '<span class="brand-term">arch>scul prototypes</span>')
       .replace(/ARCH > SCUL/g, '<span class="brand-term">arch>scul</span>')
-      .replace(/ARCH>SCUL/g, '<span class="brand-term">arch>scul</span>');
+      .replace(/ARCH>SCUL/g, '<span class="brand-term">arch>scul</span>')
+      .replace(/PROTOTYPES/g, '<span class="brand-term">prototypes</span>');
   }
 
   function handleSend(textOverride) {
@@ -121,7 +124,7 @@
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
         reply = "<span class=\"brand-term\">vGallerySpace</span> IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
       } else if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('arch') || lower.includes('scul')) {
-        reply = "THE <span class=\"brand-term\">arch>scul</span> SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
+        reply = "THE <span class=\"brand-term\">arch>scul prototypes</span> SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
         reply = "THE OFFICE HOUSES HISTORICAL RECORDS, WAYBACK MACHINE ARCHIVES, AND REFLECTIONS DOCUMENTING THE EVOLUTION OF FRAMOUS'S STUDIO PRACTICE ACROSS NEARLY THREE DECADES.";
       } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
