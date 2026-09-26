@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * (Natural sentence case for prompts, choices, and docent responses)
+ * Concise, direct, art-literate responses.
  */
 
 (function () {
@@ -8,12 +8,12 @@
 
   // Determine current page context
   const path = window.location.pathname.toLowerCase();
-  let pageGreeting = 'Welcome to vGallerySpace. I am RESA, your virtual docent. How can I guide your tour today?';
+  let pageGreeting = 'Welcome to vGallerySpace. How can I guide your tour today?';
 
   if (path.includes('office')) {
-    pageGreeting = "Welcome to the Office. I am RESA. Ask me about the gallery's historical archives, Wayback Machine records, and studio history.";
+    pageGreeting = "Welcome to the OFFICE. Ask me about historical archives, Wayback Machine records, or studio history.";
   } else if (path.includes('studio')) {
-    pageGreeting = 'Welcome to the Studio. I\'m RESA. Ask me about Prototype No. 7, 3D modeling, and arch>scul prototypes concepts.';
+    pageGreeting = 'Welcome to the STUDIO. Ask me about Prototype No. 7, 3D models, or arch>scul prototypes.';
   }
 
   // Build UI DOM
@@ -107,27 +107,27 @@
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Smart Docent Reply (Natural Sentence Case)
+    // Concise Docent Reply
     setTimeout(() => {
       const lower = text.toLowerCase();
-      let reply = "Welcome to vGallerySpace. I am RESA, your virtual docent. Our gallery spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and architectural sculptures.";
+      let reply = "vGallerySpace spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and architectural sculptures.";
 
       if (lower.includes('favorite') || lower.includes('favourite') || lower.includes('best') || lower.includes('recommend') || lower.includes('highlight')) {
-        reply = "My favorite exhibition highlight is Prototype No. 7 in the STUDIO—a transformable carbon fiber structure that bridges physical architecture and sculptural form. I also highly recommend exploring codes.gallery in the GALLERY room!";
+        reply = "My favorite highlight is Prototype No. 7 in the STUDIO—a transformable carbon fiber structure bridging physical architecture and sculpture. I also recommend exploring codes.gallery in the GALLERY room.";
       } else if (lower.includes('protoype') || lower.includes('prototype') || lower.includes('prototypes')) {
-        reply = "Our featured prototype is Prototype No. 7 in the STUDIO—an unfinished carbon fiber coffee table that explores movable architecture under the arch>scul prototypes series.";
+        reply = "Featured in the STUDIO, Prototype No. 7 is an unfinished carbon fiber table exploring movable architecture under the arch>scul prototypes series.";
       } else if (lower.includes('sculpture') || lower.includes('sculptures')) {
-        reply = "The arch>scul prototypes series examines the intersection of architecture and sculpture. Featured in our STUDIO exhibition, Prototype No. 7 explores transformable carbon fiber structures.";
+        reply = "The arch>scul prototypes series examines the intersection of architecture and sculpture, led by Prototype No. 7 in the STUDIO.";
       } else if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
-        reply = "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (archival records spanning 1984–2014).";
+        reply = "vGallerySpace spans three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (1984–2014 archival records).";
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
-        reply = "vGallerySpace is built on a philosophy of pure, tracker-free architectural presentation. We treat the digital space with the reverence of a physical institution.";
+        reply = "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
-        reply = "The OFFICE houses historical records, wayback machine archives, and reflections documenting the evolution of FRAMOUS's studio practice across nearly three decades.";
+        reply = "The OFFICE houses Way Back Machine archives, Facebook records, and reflections documenting nearly three decades of studio evolution.";
       } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
-        reply = "You can view codes.gallery or explore available physical works and collectibles via our official eBay storefront and Artsy profiles linked in the top-right cart dropdown!";
+        reply = "Explore codes.gallery or acquire physical works and digital editions via Artsy and eBay in the top-right cart dropdown.";
       } else if (lower.includes('framous') || lower.includes('artist') || lower.includes('who')) {
-        reply = "vGallerySpace was created by FRAMOUS, an artist and designer spanning architectural sculpture, advertising, brand direction, and digital/AI curation over nearly three decades.";
+        reply = "vGallerySpace was created by FRAMOUS, spanning architectural sculpture, brand direction, and digital/AI curation over three decades.";
       }
 
       const botMsg = document.createElement('div');
@@ -135,7 +135,7 @@
       botMsg.innerHTML = reply;
       msgList.appendChild(botMsg);
       msgList.scrollTop = msgList.scrollHeight;
-    }, 600);
+    }, 500);
   }
 
   window.sendResaTopic = function(topicText) {
