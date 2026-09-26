@@ -19,3 +19,4 @@
    git push origin main
    ```
 4. Cloudflare Pages auto-deploys from the GitHub repo.
+# Trigger Cloudflare Pages Re-build
