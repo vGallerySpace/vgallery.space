@@ -1,7 +1,7 @@
 /* ==========================================================================
    vGallerySpace — RESA Floating Docent Lounge Widget
    Monochrome White / Black / Charcoal Gray
-   All-in-One Lounge Experience inside the Pop-Up Window (ALL CAPS with strict brand overrides)
+   All-in-One Lounge Experience inside the Pop-Up Window
    ========================================================================== */
 
 #resa-launcher {
@@ -71,10 +71,9 @@
   transform: translateY(12px) scale(0.98);
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
-  text-transform: uppercase;
 }
 
-/* Strict Brand Case Preservation Class (Bypasses CSS uppercase) */
+/* Strict Brand Case Preservation Class */
 .brand-term {
   text-transform: none !important;
   font-weight: 700;
@@ -213,12 +212,11 @@
 
 .resa-w-msg {
   padding: 12px 14px;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   line-height: 1.5;
   max-width: 88%;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .resa-w-msg.bot {
@@ -226,6 +224,7 @@
   background: #f4f4f4;
   border: 1px solid #111111;
   color: #111111;
+  text-transform: uppercase;
 }
 
 .resa-w-msg.user {
@@ -233,9 +232,10 @@
   background: #111111;
   border: 1px solid #111111;
   color: #ffffff;
+  text-transform: none; /* User message keeps normal natural typing rhythm */
 }
 
-/* Footer / Input */
+/* Footer / Input - Natural Typing Rhythm */
 .resa-w-footer {
   padding: 12px 14px;
   background: #fcfcfc;
@@ -249,16 +249,16 @@
   background: #ffffff;
   border: 1px solid #111111;
   padding: 10px 12px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: #111111;
   outline: none;
-  text-transform: uppercase;
+  text-transform: none; /* Natural typing case */
   transition: border-color 0.2s;
 }
 
 .resa-w-input::placeholder {
-  text-transform: uppercase;
+  text-transform: none;
   color: #888888;
 }
 

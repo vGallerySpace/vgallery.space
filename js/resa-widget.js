@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * (ALL CAPS with <span class="brand-term"> for exact case preservation)
+ * (Natural user typing rhythm + brand-preserved docent replies)
  */
 
 (function () {
@@ -47,9 +47,9 @@
     </div>
 
     <div class="resa-w-topics">
-      <button class="resa-w-chip" onclick="window.sendResaTopic('TELL ME ABOUT THE FUTURE, CURRENT, AND PAST EXHIBITION VISION.')">⏳ FUTURE / CURRENT / PAST</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('WHAT IS THE CURATION PHILOSOPHY BEHIND vGallerySpace?')">🏛️ CURATION PHILOSOPHY</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND arch>scul prototypes?')">🗿 <span class="brand-term">arch>scul prototypes</span></button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('Tell me about the Future, Current, and Past exhibition vision.')">⏳ FUTURE / CURRENT / PAST</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('What is the curation philosophy behind vGallerySpace?')">🏛️ CURATION PHILOSOPHY</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('Can you explain Prototype No. 7 and arch>scul prototypes?')">🗿 <span class="brand-term">arch>scul prototypes</span></button>
     </div>
 
     <div class="resa-w-messages" id="resa-w-msg-list">
@@ -57,7 +57,7 @@
     </div>
 
     <div class="resa-w-footer">
-      <input type="text" class="resa-w-input" id="resa-w-input" placeholder="ASK RESA ABOUT THE GALLERY..." autocomplete="off">
+      <input type="text" class="resa-w-input" id="resa-w-input" placeholder="Ask RESA about the gallery..." autocomplete="off">
       <button class="resa-w-send" id="resa-w-send">SEND</button>
     </div>
   `;
@@ -101,16 +101,20 @@
       .replace(/PROTOTYPES/g, '<span class="brand-term">prototypes</span>');
   }
 
+  function escapeHTML(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   function handleSend(textOverride) {
     const text = textOverride || inputEl.value.trim();
     if (!text) return;
 
     if (!textOverride) inputEl.value = '';
 
-    // Add user message
+    // Add user message with natural typing case
     const userMsg = document.createElement('div');
     userMsg.className = 'resa-w-msg user';
-    userMsg.innerHTML = formatBrandText(text);
+    userMsg.innerHTML = escapeHTML(text);
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
