@@ -178,7 +178,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center center;
       filter: brightness(0.85);
     }
 
@@ -534,17 +534,50 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-image-wrapper" aria-hidden="true">
-      <img src="assets/alleyway.webp" alt="" width="720" height="405" fetchpriority="high">
-    </div>
-    <div class="hero-content">
-      <h1 class="hero-title">OS:AI</h1>
-      <p class="hero-subtitle">codes.gallery</p>
-      <a href="https://codes.gallery" target="_blank" rel="noopener" class="hero-enter-btn">
-        ENTER <i class="bi bi-chevron-right"></i>
-      </a>
+  <!-- Hero Section with Bootstrap Carousel (Images Only) -->
+  <section class="hero-section position-relative" style="background: #0b0c10;">
+    <div id="studioCarousel" class="carousel slide carousel-fade hero-image-wrapper" data-bs-ride="carousel" data-bs-interval="5000" style="background: #0b0c10;">
+      <div class="carousel-inner w-100 h-100">
+        <!-- Slide 1: Prototype No.7 A -->
+        <div class="carousel-item active w-100 h-100" style="background: #000000;">
+          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
+            <img src="assets/prono7a-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Carbon Fiber Table" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);" fetchpriority="high">
+            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
+              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
+              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
+              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
+            </div>
+          </a>
+        </div>
+        <!-- Slide 2: Prototype No.7 B -->
+        <div class="carousel-item w-100 h-100" style="background: #000000;">
+          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
+            <img src="assets/prono7b-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Movable Parts" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);">
+            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
+              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
+              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
+              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
+            </div>
+          </a>
+        </div>
+        <!-- Slide 3: Prototype No.7 C -->
+        <div class="carousel-item w-100 h-100" style="background: #000000;">
+          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
+            <img src="assets/prono7c-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Dynamic Structure" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);">
+            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
+              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
+              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
+              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators" style="z-index: 3; bottom: 10px;">
+        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
     </div>
   </section>
 
