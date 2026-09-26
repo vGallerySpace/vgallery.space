@@ -1,12 +1,12 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * Concise, direct, art-literate responses.
+ * Ultra-concise, direct conversational responses.
  */
 
 (function () {
   'use strict';
 
-  // Determine current page context
+  // Determine current page context greeting (Only shown ONCE at launch)
   const path = window.location.pathname.toLowerCase();
   let pageGreeting = 'Welcome to vGallerySpace. How can I guide your tour today?';
 
@@ -107,19 +107,19 @@
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Concise Docent Reply
+    // Direct, concise Docent Reply (Zero repeated "Welcome" greetings)
     setTimeout(() => {
       const lower = text.toLowerCase();
-      let reply = "vGallerySpace spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and architectural sculptures.";
+      let reply = "Take your time exploring. Let me know if you'd like specific context on any exhibition or artwork!";
 
       if (lower.includes('favorite') || lower.includes('favourite') || lower.includes('best') || lower.includes('recommend') || lower.includes('highlight')) {
-        reply = "My favorite highlight is Prototype No. 7 in the STUDIO—a transformable carbon fiber structure bridging physical architecture and sculpture. I also recommend exploring codes.gallery in the GALLERY room.";
+        reply = "My favorite highlight is Prototype No. 7 in the STUDIO—a transformable carbon fiber structure bridging physical architecture and sculpture. I also recommend codes.gallery in the GALLERY room.";
       } else if (lower.includes('protoype') || lower.includes('prototype') || lower.includes('prototypes')) {
         reply = "Featured in the STUDIO, Prototype No. 7 is an unfinished carbon fiber table exploring movable architecture under the arch>scul prototypes series.";
       } else if (lower.includes('sculpture') || lower.includes('sculptures')) {
         reply = "The arch>scul prototypes series examines the intersection of architecture and sculpture, led by Prototype No. 7 in the STUDIO.";
       } else if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
-        reply = "vGallerySpace spans three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (1984–2014 archival records).";
+        reply = "Exhibitions span three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (1984–2014 archival records).";
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
         reply = "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
