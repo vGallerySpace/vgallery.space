@@ -1,12 +1,3 @@
 name = "vgallery-space"
 compatibility_date = "2026-09-08"
 pages_build_output_dir = "."
-workers_dev = true
-
-routes = [
-  { pattern = "vgallery.space/*", zone_name = "vgallery.space" },
-  { pattern = "www.vgallery.space/*", zone_name = "vgallery.space" }
-]
-
-[assets]
-directory = "."
