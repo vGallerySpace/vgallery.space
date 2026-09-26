@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * (ALL CAPS with <span class="brand-term"> for exact case preservation on brand names & arch>scul prototypes)
+ * (ALL CAPS with <span class="brand-term"> for exact case preservation)
  */
 
 (function () {
@@ -119,16 +119,22 @@
       const lower = text.toLowerCase();
       let reply = "WELCOME TO <span class=\"brand-term\">vGallerySpace</span>. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
 
-      if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
+      if (lower.includes('favorite') || lower.includes('favourite') || lower.includes('best') || lower.includes('recommend') || lower.includes('highlight')) {
+        reply = "MY FAVORITE EXHIBITION HIGHLIGHT IS PROTOTYPE NO. 7 IN THE STUDIO—A TRANSFORMABLE CARBON FIBER STRUCTURE THAT BRIDGES PHYSICAL ARCHITECTURE AND SCULPTURAL FORM. I ALSO HIGHLY RECOMMEND EXPLORING CODES.GALLERY IN THE GALLERY ROOM!";
+      } else if (lower.includes('protoype') || lower.includes('prototype') || lower.includes('prototypes')) {
+        reply = "OUR FEATURED PROTOTYPE IS PROTOTYPE NO. 7 IN THE STUDIO—AN UNFINISHED CARBON FIBER COFFEE TABLE THAT EXPLORES MOVABLE ARCHITECTURE UNDER THE <span class=\"brand-term\">arch>scul prototypes</span> SERIES.";
+      } else if (lower.includes('sculpture') || lower.includes('sculptures')) {
+        reply = "THE <span class=\"brand-term\">arch>scul prototypes</span> SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
+      } else if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
         reply = "<span class=\"brand-term\">vGallerySpace</span> PRESENTS EXHIBITIONS ACROSS THREE TEMPORAL PLANES: FUTURE (SPECULATIVE DIGITAL ARCHITECTURE), CURRENT (ACTIVE EXHIBITIONS LIKE CODES.GALLERY), AND PAST (ARCHIVAL RECORDS SPANNING 1984–2014).";
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
         reply = "<span class=\"brand-term\">vGallerySpace</span> IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
-      } else if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('arch') || lower.includes('scul')) {
-        reply = "THE <span class=\"brand-term\">arch>scul prototypes</span> SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
         reply = "THE OFFICE HOUSES HISTORICAL RECORDS, WAYBACK MACHINE ARCHIVES, AND REFLECTIONS DOCUMENTING THE EVOLUTION OF FRAMOUS'S STUDIO PRACTICE ACROSS NEARLY THREE DECADES.";
       } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
         reply = "YOU CAN VIEW CODES.GALLERY OR EXPLORE AVAILABLE PHYSICAL WORKS AND COLLECTIBLES VIA OUR OFFICIAL EBAY STOREFRONT AND ARTSY PROFILES LINKED IN THE TOP-RIGHT CART DROPDOWN!";
+      } else if (lower.includes('framous') || lower.includes('artist') || lower.includes('who')) {
+        reply = "<span class=\"brand-term\">vGallerySpace</span> WAS CREATED BY FRAMOUS, AN ARTIST AND DESIGNER SPANNING ARCHITECTURAL SCULPTURE, ADVERTISING, BRAND DIRECTION, AND DIGITAL/AI CURATION OVER NEARLY THREE DECADES.";
       }
 
       const botMsg = document.createElement('div');
