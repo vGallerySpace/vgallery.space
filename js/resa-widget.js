@@ -56,7 +56,7 @@
 
     <div class="resa-w-topics">
       <button class="resa-w-chip" onclick="window.sendResaTopic('Tell me about the Future, Current, and Past exhibition vision.')">⏳ Future / Current / Past</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('What is the curation philosophy behind vGallerySpace?')">🏛️ Curation Philosophy</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('How do I contact FRAMOUS or inquire about artwork acquisitions?')">✉️ Contact & FAQ</button>
       <button class="resa-w-chip" onclick="window.sendResaTopic('Can you explain Prototype No. 7 and arch>scul prototypes?')">🗿 arch>scul prototypes</button>
     </div>
 

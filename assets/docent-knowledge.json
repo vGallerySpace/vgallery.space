@@ -8,67 +8,156 @@
     {
       "id": "temporal-vision",
       "title": "Future, Current, and Past Vision",
-      "keywords": ["future", "current", "past", "vision", "temporal", "planes"],
-      "summary": "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (archival records spanning 1984–2014)."
+      "keywords": [
+        "future",
+        "current",
+        "past",
+        "vision",
+        "temporal",
+        "planes"
+      ],
+      "summary": "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (archival records spanning 1984\u20132014)."
     },
     {
       "id": "curation-philosophy",
       "title": "Curation Philosophy",
-      "keywords": ["curation", "philosophy", "pure", "tracker-free", "institution"],
+      "keywords": [
+        "curation",
+        "philosophy",
+        "pure",
+        "tracker-free",
+        "institution"
+      ],
       "summary": "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution."
     },
     {
       "id": "codes-gallery",
       "title": "codes.gallery",
-      "keywords": ["codes", "codes.gallery", "code", "ai", "agentic"],
+      "keywords": [
+        "codes",
+        "codes.gallery",
+        "code",
+        "ai",
+        "agentic"
+      ],
       "summary": "codes.gallery is our featured exhibition examining agentic AI collaboration, generative code as creative material, and solo structuring across nearly two years of intensive development."
     },
     {
       "id": "prototype-no-7",
       "title": "Prototype No. 7",
-      "keywords": ["prototype 7", "prototype no. 7", "coffee table", "carbon fiber", "table"],
+      "keywords": [
+        "prototype 7",
+        "prototype no. 7",
+        "coffee table",
+        "carbon fiber",
+        "table"
+      ],
       "summary": "Featured in the STUDIO, Prototype No. 7 is an unfinished carbon fiber coffee table exploring movable, transformable architecture under the arch>scul prototypes series."
     },
     {
       "id": "archscul",
       "title": "arch>scul prototypes",
-      "keywords": ["arch>scul", "arch scul", "sculpture", "sculptures", "architectural sculpture"],
+      "keywords": [
+        "arch>scul",
+        "arch scul",
+        "sculpture",
+        "sculptures",
+        "architectural sculpture"
+      ],
       "summary": "The arch>scul prototypes series examines the intersection of architecture and sculpture, exploring structural, transformable spatial forms."
     },
     {
       "id": "infinity-museum-xtz",
       "title": "Infinity Museum : XTZ",
-      "keywords": ["infinity museum", "xtz", "tezos", "infinity"],
+      "keywords": [
+        "infinity museum",
+        "xtz",
+        "tezos",
+        "infinity"
+      ],
       "summary": "Infinity Museum : XTZ explores infinite spatial curation and crypto-art archives on Tezos."
     },
     {
       "id": "auto-mnemonic-body",
       "title": "Auto-Mnemonic Body",
-      "keywords": ["auto-mnemonic", "mnemonic", "body"],
+      "keywords": [
+        "auto-mnemonic",
+        "mnemonic",
+        "body"
+      ],
       "summary": "Auto-Mnemonic Body examines digital memory, physical form, and self-archival systems."
     },
     {
       "id": "ad-art-show",
       "title": "Ad Art Show (2020 / 2021)",
-      "keywords": ["ad art", "ad art show", "advertising", "oculus", "westfield"],
+      "keywords": [
+        "ad art",
+        "ad art show",
+        "advertising",
+        "oculus",
+        "westfield"
+      ],
       "summary": "Featured at the Oculus in Westfield World Trade Center, NYC, bridging commercial advertising design and fine art."
     },
     {
       "id": "office-archives",
       "title": "OFFICE Archives & Way Back Machine",
-      "keywords": ["office", "archive", "facebook", "wayback", "records", "history"],
-      "summary": "The OFFICE houses Way Back Machine archives, Facebook records, and reflections documenting nearly three decades of studio evolution (1984–2014)."
+      "keywords": [
+        "office",
+        "archive",
+        "facebook",
+        "wayback",
+        "records",
+        "history"
+      ],
+      "summary": "The OFFICE houses Way Back Machine archives, Facebook records, and reflections documenting nearly three decades of studio evolution (1984\u20132014)."
     },
     {
       "id": "storefronts",
       "title": "Acquisitions & Storefronts",
-      "keywords": ["buy", "acquire", "ebay", "artsy", "store", "shop", "hipstamp", "opensea", "objkt"],
+      "keywords": [
+        "buy",
+        "acquire",
+        "ebay",
+        "artsy",
+        "store",
+        "shop",
+        "hipstamp",
+        "opensea",
+        "objkt"
+      ],
       "summary": "You can acquire physical works, rare collectibles, and digital editions via Artsy, eBay, OpenSea, and Objkt in the top-right cart dropdown."
+    },
+    {
+      "id": "faq-contact",
+      "title": "FAQ & Direct Contact with FRAMOUS",
+      "keywords": [
+        "faq",
+        "contact",
+        "email",
+        "reach",
+        "buy",
+        "acquire",
+        "inquire",
+        "commission",
+        "framous",
+        "question",
+        "questions",
+        "answer",
+        "answers",
+        "connect"
+      ],
+      "summary": "For direct questions, acquisitions, studio visits, or press inquiries, you can reach FRAMOUS directly at framous@vgallery.space, join the Guest List at /guest-list.html, or browse active listings on Artsy, eBay (vgalleryspace), and OpenSea."
     }
   ],
   "artist": {
     "name": "FRAMOUS",
-    "keywords": ["framous", "artist", "creator", "who made"],
+    "keywords": [
+      "framous",
+      "artist",
+      "creator",
+      "who made"
+    ],
     "summary": "vGallerySpace was created by FRAMOUS, an artist and designer spanning architectural sculpture, brand direction, advertising, and digital/AI curation over three decades."
   }
 }
