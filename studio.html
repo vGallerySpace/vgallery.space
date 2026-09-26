@@ -3,24 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>vGallerySpace — STUDIO</title>
-  <meta name="description" content="VGALLERYSPACE - Studio production and creative archives" />
-  <link rel="canonical" href="https://vgallery.space/studio.html" />
+  <title>vGallerySpace — GALLERY</title>
+  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
+  <meta name="description" content="Explore vGallerySpace by FRAMOUS: curated virtual art exhibitions spanning architecture, sculpture, video installations, and conceptual photography." />
+  <meta name="keywords" content="virtual gallery, architecture, sculpture, video installation" />
+  <link rel="canonical" href="https://vgallery.space/" />
   <meta name="theme-color" content="#ffffff" />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:site_name" content="vgallery.space" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vgallery.space/" />
+  <meta property="og:title" content="GALLERY — vgallery.space" />
+  <meta property="og:description" content="Explore vGallerySpace by FRAMOUS: curated virtual art exhibitions spanning architecture, sculpture, video installations, and conceptual photography." />
+  <meta property="og:image" content="https://vgallery.space/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://vgallery.space/" />
+  <meta name="twitter:title" content="GALLERY — vgallery.space" />
+  <meta name="twitter:description" content="Explore vGallerySpace by FRAMOUS: curated virtual art exhibitions spanning architecture, sculpture, video installations, and conceptual photography." />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  
 
+  <!-- Preconnect to CDNs to eliminate connection latency -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-  <!-- Bootstrap CSS -->
-  <!-- Preload Bootstrap CSS for performance -->
+  <!-- Non-blocking Stylesheets with Preload -->
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></noscript>
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap" onload="this.rel='stylesheet'" font-display="swap">
-
-  <style>
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap">
+  </noscript>
+<style>
     html {
       scrollbar-gutter: stable;
     }
@@ -34,15 +54,34 @@
       --line-soft: rgba(0,0,0,0.06);
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      overflow-x: hidden;
+      max-width: 100%;
       background: var(--bg);
       color: var(--fg);
       font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif;
+      margin: 0;
+      padding: 0;
       padding-top: 76px;
     }
 
-    /* Navigation */
-    .fixed-top {
+    a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    a:hover {
+      color: #777777;
+      text-decoration: none;
+    }
+
+    /* Navigation with Bootstrap navbar */
+        .fixed-top {
       position: fixed;
       top: 0;
       right: 0;
@@ -85,6 +124,21 @@
       position: relative;
     }
 
+    .cart-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 18px;
+      padding: 0.5rem;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+
+    .cart-toggle:hover {
+      color: #777777;
+    }
+
     .cart-toggle::after {
       display: none !important;
     }
@@ -105,9 +159,26 @@
       left: auto !important;
       margin-top: 8px !important;
       border: 1px solid var(--line);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      border-radius: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
       min-width: 180px;
       max-width: 240px;
+      background: #ffffff;
+      padding: 6px 0;
+    }
+
+    .dropdown-item {
+      color: #000000;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 8px 16px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(0,0,0,0.05);
+      color: #000000;
     }
 
     .nav-link {
@@ -128,30 +199,6 @@
 
     .nav-link.active {
       color: #444444 !important;
-    }
-
-    .cart-toggle {
-      background: none;
-      border: none;
-      color: var(--fg);
-      font-size: 18px;
-      padding: 0.5rem;
-      cursor: pointer;
-      line-height: 1.2;
-      transition: color 0.18s ease;
-    }
-
-    .cart-toggle:hover {
-      color: var(--muted);
-    }
-
-    .dropdown-item {
-      color: var(--fg);
-      transition: background .15s ease;
-    }
-
-    .dropdown-item:hover {
-      background: rgba(0,0,0,0.04);
     }
 
     /* Hero section */
@@ -178,7 +225,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
+      object-position: top center;
       filter: brightness(0.85);
     }
 
@@ -237,193 +284,178 @@
       color: #000000 !important;
     }
 
-    /* Main Content */
-    .studio-content {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 23px 1.5rem 4rem 1.5rem;
-      min-height: 40vh;
+    /* Section title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
     }
 
-    .studio-body {
-      font-size: 15px;
-      line-height: 1.9;
+    .section-title h2 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Gallery Placard Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    .placard-card {
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      text-decoration: none !important;
       color: var(--fg);
-      letter-spacing: .02em;
+      transition: all 0.18s ease;
+      height: 100%;
     }
 
-    .studio-body p {
-      margin-bottom: 2rem;
+    .placard-card:hover {
+      border-color: #000000;
+      background: #fbfbfb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      color: inherit;
     }
 
-    .blogger-btn {
-      display: inline-flex;
+    .placard-image-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #000000;
+      border: 8px solid #000000;
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      min-height: 38px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.04);
-      border: 1px solid var(--line);
-      color: var(--fg);
-      font-size: 18px;
-      text-decoration: none;
-      transition: all .2s ease;
+      overflow: hidden;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    .blogger-btn:hover {
-      background: var(--fg);
-      border-color: var(--fg);
-      color: #fff;
-      transform: scale(1.1);
+    .placard-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border: none;
+      box-sizing: border-box;
+      transition: transform 0.25s ease;
     }
 
-    /* Footer */
+    .placard-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      border: none;
+      box-sizing: border-box;
+      transition: transform 0.25s ease;
+    }
+
+    .placard-card:hover .placard-image,
+    .placard-card:hover .placard-media {
+      transform: scale(1.02);
+    }
+
+    .placard-content {
+      padding: 12px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .placard-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #000000;
+      letter-spacing: 0.04em;
+      margin: 0 0 4px 0;
+      line-height: 1.25;
+    }
+
+    .placard-card:hover .placard-title {
+      color: #333333;
+    }
+
+    .placard-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #595959;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .placard-desc strong,
+    .placard-desc b {
+      text-transform: none;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    .placard-desc {
+      font-size: 0.85rem;
+      color: var(--soft);
+      line-height: 1.55;
+      margin: 0;
+      flex-grow: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Footer - clean and consistent */
     .footer-clean {
       background: var(--bg);
       border-top: 1px solid var(--line-soft);
-      padding: 3rem 0 1.5rem;
-      margin-top: 4rem;
+      padding: 48px 0 40px;
+      margin-top: 80px;
     }
 
     .footer-logo-link {
       display: inline-block;
-      transition: all .2s ease;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
       padding: 6px 12px;
-      border-radius: 8px;
     }
 
     .footer-logo-link:hover {
       opacity: 0.6;
-      background: rgba(0,0,0,0.04);
       transform: translateY(-1px);
     }
 
-    .footer-legal-links {
-      margin-top: 24px;
-      margin-bottom: 16px;
-    }
-
-    .footer-policy-link {
-      color: var(--fg);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      transition: color .18s ease;
-      padding: 0 4px;
-    }
-
-    .footer-policy-link:hover {
-      color: var(--muted);
-    }
-
-    .footer-dot {
-      color: var(--muted);
-      margin: 0 8px;
-      font-size: 14px;
-    }
-
-    .footer-social a,
-    .footer-social button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      min-height: 38px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.04);
-      border: 1px solid var(--line);
-      color: var(--fg);
-      font-size: 18px;
-      text-decoration: none;
-      transition: all .2s ease;
-      box-sizing: border-box;
-    }
-
-    .footer-social a:hover {
-      background: var(--fg);
-      border-color: var(--fg);
-      color: #fff;
-      transform: scale(1.1);
-    }
-
-    .guest-bell {
-      background: rgba(0,0,0,0.04) !important;
-      border-color: var(--line) !important;
-      color: var(--fg) !important;
-    }
-
-    .guest-bell:hover,
-    .rss-link:hover {
-      background: var(--fg) !important;
-      border-color: var(--fg) !important;
-      color: #fff !important;
-      transform: scale(1.1);
-    }
-
-    .footer-copy {
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line-soft);
-    }
-
-    .cc-license-link {
-      color: var(--fg);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .18s ease;
-    }
-
-    .cc-license-link:hover {
-      color: var(--muted);
-    }
-
-    /* Mobile Breakpoints */
-    @media (max-width: 768px) {
-      .hero-section {
-        height: 380px;
-      }
-
-      .navbar .container {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
-      .nav-center-links {
-        gap: 1rem !important;
-      }
-
-      .nav-link {
-        font-size: 12px !important;
-        padding: 0.5rem 0.35rem !important;
-        letter-spacing: .12em !important;
-        font-weight: 700 !important;
-        line-height: 1.2 !important;
-      }
-
-      .cart-toggle {
-      background: none;
-      border: none;
-      color: var(--fg);
-      font-size: 18px;
-      padding: 0.5rem;
-      cursor: pointer;
-      line-height: 1.2;
-      transition: color 0.18s ease;
-    }
-
-      .footer-social {
+    .footer-social {
       display: flex;
       justify-content: center;
       gap: 16px;
@@ -499,8 +531,204 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
-  </style>
-  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
+
+    .guest-bell:hover,
+    .rss-link:hover {
+      background: #000000 !important;
+      border-color: #000000 !important;
+      color: #fff !important;
+      transform: scale(1.08);
+    }
+
+    .footer-legal-links {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-policy-link {
+      color: #000000;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: color .18s ease;
+      padding: 0 4px;
+    }
+
+    .footer-policy-link:hover {
+      color: #777777;
+    }
+
+    .footer-dot {
+      color: var(--muted);
+      margin: 0 8px;
+      font-size: 12px;
+    }
+
+    .cc-license-link {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color .18s ease;
+    }
+
+    .cc-license-link:hover {
+      color: #777777;
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: #595959;
+      font-size: 14px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 380px;
+      }
+
+      .navbar .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .nav-center-links {
+        gap: 1rem !important;
+      }
+
+      .nav-link {
+        font-size: 12px !important;
+        padding: 0.5rem 0.35rem !important;
+        letter-spacing: .12em !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+      }
+
+      .cart-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 18px;
+      padding: 0.5rem;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+    }
+  
+    
+
+  
+    /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
+    /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
+    /* --- REFINED PRINT STYLESHEET: SINGLE NAVBAR ON PAGE 1 & TOP SPACING --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (CLEAN PER-EXHIBITION PAGE BREAKS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (PERFECT CATALOGUE FLOW) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (CLEAN FRAMING & NO LINE GLITCHES) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NO NAVBAR, PERFECT FRAMING) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NATURAL ASPECT RATIO, SINGLE FRAME, NO BLANKS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NO FOOTER, FIREFOX VIDEO FIX, COMPACT PAGES) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (TIGHT WRAP FRAMING, NATURAL PROPORTIONS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (CONSISTENT FULL-WIDTH FRAMES & NATURAL HEIGHT) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (UNIFORM STANDARD FRAMES) --- */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        margin: 0 !important;
+        padding: 10px !important;
+      }
+      .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav, footer, .footer-clean {
+        display: none !important;
+      }
+      main, .content-section {
+        background: #ffffff !important;
+        color: #111111 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        display: block !important;
+      }
+      .gallery-grid {
+        display: block !important;
+        width: 100% !important;
+      }
+      .placard-card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin: 0 0 15px 0 !important;
+        padding: 5px 0 !important;
+        border: none !important;
+        background: #ffffff !important;
+      }
+      .placard-card:first-of-type {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        margin-top: 0 !important;
+      }
+      h1, h2, h3, h4, .placard-title {
+        color: #000000 !important;
+        font-size: 16px !important;
+        margin-bottom: 6px !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+      p, .placard-desc, .placard-date {
+        color: #222222 !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 8px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      /* Uniform standard frame size matching web appearance with clean letterbox framing */
+      .placard-image-wrap {
+        background: #000000 !important;
+        border: 8px solid #000000 !important;
+        box-sizing: border-box !important;
+        margin-top: 5px !important;
+        margin-bottom: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        aspect-ratio: 4 / 3 !important;
+        overflow: hidden !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .placard-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border: none !important;
+        display: block !important;
+      }
+      video.placard-media {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        background-color: #000000 !important;
+        border: none !important;
+        display: block !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+    }
+    </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -509,8 +737,8 @@
       <div class="navbar-header-grid">
         <div></div>
         <ul class="nav-center-links">
-          <li><a class="nav-link" href="index.html">GALLERY</a></li>
-          <li><a class="nav-link active" href="studio.html">STUDIO</a></li>
+          <li><a class="nav-link active" href="index.html">GALLERY</a></li>
+          <li><a class="nav-link" href="studio.html">STUDIO</a></li>
           <li><a class="nav-link" href="office.html">OFFICE</a></li>
         </ul>
         <div class="nav-cart-wrapper">
@@ -519,14 +747,14 @@
               <i class="bi bi-cart"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank">ARTSY</a></li>
-              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank">eBay</a></li>
-              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank">HipStamp</a></li>
-              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank">codes.gallery</a></li>
-              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank">OpenSea</a></li>
-              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank">Objkt</a></li>
-              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank">Magic Eden</a></li>
-              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank">AtomicHub</a></li>
+              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener">ARTSY</a></li>
+              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank" rel="noopener">eBay</a></li>
+              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank" rel="noopener">HipStamp</a></li>
+              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank" rel="noopener">codes.gallery</a></li>
+              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank" rel="noopener">OpenSea</a></li>
+              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank" rel="noopener">Objkt</a></li>
+              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank" rel="noopener">Magic Eden</a></li>
+              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank" rel="noopener">AtomicHub</a></li>
             </ul>
           </div>
         </div>
@@ -534,74 +762,207 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Bootstrap Carousel (Images Only) -->
-  <section class="hero-section position-relative" style="background: #0b0c10;">
-    <div id="studioCarousel" class="carousel slide carousel-fade hero-image-wrapper" data-bs-ride="carousel" data-bs-interval="5000" style="background: #0b0c10;">
-      <div class="carousel-inner w-100 h-100">
-        <!-- Slide 1: Prototype No.7 A -->
-        <div class="carousel-item active w-100 h-100" style="background: #000000;">
-          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
-            <img src="assets/prono7a-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Carbon Fiber Table" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);" fetchpriority="high">
-            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
-              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
-              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
-              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
-            </div>
-          </a>
-        </div>
-        <!-- Slide 2: Prototype No.7 B -->
-        <div class="carousel-item w-100 h-100" style="background: #000000;">
-          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
-            <img src="assets/prono7b-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Movable Parts" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);">
-            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
-              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
-              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
-              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
-            </div>
-          </a>
-        </div>
-        <!-- Slide 3: Prototype No.7 C -->
-        <div class="carousel-item w-100 h-100" style="background: #000000;">
-          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
-            <img src="assets/prono7c-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Dynamic Structure" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);">
-            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
-              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
-              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
-              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
-            </div>
-          </a>
-        </div>
-      </div>
-      <!-- Carousel Indicators -->
-      <div class="carousel-indicators" style="z-index: 3; bottom: 10px;">
-        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-image-wrapper" aria-hidden="true">
+      <img src="assets/alleyway.webp" alt="" width="720" height="405" fetchpriority="high">
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">OS:AI</h1>
+      <p class="hero-subtitle">codes.gallery</p>
+      <a href="https://codes.gallery" target="_blank" rel="noopener" class="hero-enter-btn">
+        ENTER <i class="bi bi-chevron-right"></i>
+      </a>
     </div>
   </section>
 
-  <!-- Main Content Area -->
-  <main class="container studio-content">
-    <div class="studio-body">
-      <p>EVER SINCE I CAN REMEMBER, MY ART HAS BEEN A REAL STRUGGLE AND A TRUE ON-AGAIN-OFF-AGAIN RELATIONSHIP. AROUND 2007, I BEGAN SPENDING MOST OF MY ENERGY ON THIS SIDE OF LIFE, PUTTING MY COMMERCIAL ART EFFORTS ON HOLD. THE REASON FOUND WAS SIMPLE. GROWTH IS A BATTLE BETWEEN CREATION AND DESTRUCTION. TRYING TO EXIST IN BOTH THE BUSINESS WORLD AND THE ART WORLD IS EVEN MORE OF A CHALLENGE. TYPICALLY, IT IS ONE OR THE OTHER, AND WHEN YOU GET THESE GROUPS TOGETHER, THINGS DO NOT ALWAYS MIX AS EXPECTED. BOTH INDUSTRIES ARE EXTREMELY COMPETITIVE, NOT TO MENTION MOST HAVE A DIFFICULT TIME UNDERSTANDING EACH OTHER'S WORK STYLE, PLUS WHAT IT TAKES TO MAKE IT. FINDING THE RIGHT BALANCE BETWEEN DISCIPLINES AND ALLOWING COLLABORATION IS NECESSARY. TAKING A MULTI-DISCIPLINARY APPROACH AND LEARNING MANY DIFFERENT TYPES OF SKILLS IS WHAT I ENJOY MOST.</p>
+  <!-- Main Content -->
+  <main class="container">
+    <section id="gallery" class="py-2">
 
-      <p>I TRY MY BEST TO KEEP A DIGITAL JOURNAL OF PROJECTS.</p>
+      
+      <div class="gallery-grid">
+        <!-- 15. codes.gallery -->
+        <a href="exhibitions/codes-gallery.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/codes-gallery-card.webp" alt="codes.gallery" class="placard-image" loading="lazy" width="370" height="276">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">codes.gallery</h2>
+            <div class="placard-date">MARCH 2026</div>
+            <p class="placard-desc">SOLO FOR NEARLY 20 YEARS, ACROSS A 01010 OF EXHIBITIONS. YOU LEARN HOW TO CARRY THE WHOLE STRUCTURE YOURSELF, BUT OVER TIME, YOU ALSO SENSE THE WEIGHT OF DOING EVERYTHING INDEPENDENTLY.</p>
+          </div>
+        </a>
 
-      <div style="margin: 8px 0 28px 0;">
-        <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="blogger-btn" title="archscul blog">
-          <i class="bi bi-journal-text"></i>
+        <!-- 14. vGallerySpace : eBay -->
+        <a href="exhibitions/vgalleryspace-ebay.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/vgebay-new.webp" alt="vGallerySpace : eBay" class="placard-image" loading="lazy" width="370" height="278">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">vGallerySpace : eBay</h2>
+            <div class="placard-date">FEBRUARY 2025</div>
+            <p class="placard-desc">MANY OF THE ITEMS ARE FROM ARTISTS WHO HAVE INFLUENCED MY WORK AND OTHERS WHO INFLUENCE THE MARKETPLACE. ALWAYS MAKING REVISIONS AND UPDATING WITH MORE ACCURATE INFORMATION. IF YOU SEE ANYTHING THAT DOESN'T LOOK RIGHT, PLEASE LET ME KNOW. LEARNING AND STUDYING THE PAST TO CREATE A RELEVANT PRESENT WITH A BETTER PROJECTION OF THE FUTURE IS MY MAIN GOAL.</p>
+          </div>
+        </a>
+
+        <!-- 13. INFINITY MUSEUM : XTZ -->
+        <a href="exhibitions/infinity-museum-xtz.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="/assets/infinity-loop.mp4" poster="/assets/infinity-thumbnail.webp" style="background-image: url('/assets/infinity-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">INFINITY MUSEUM : XTZ</h2>
+            <div class="placard-date">AUGUST 2024</div>
+            <p class="placard-desc">ORIGINALLY, BEGAN THINKING THE PLACE I FIT MOST WOULD BE BETWEEN LOW-BROW AND HIGH-BROW, SO NATURALLY THOUGHT OF IT AS MID-BROW. TRY TO VIEW ART AS OBJECTIVE, EACH PERSON HAS THEIR OWN IDEAS EVEN AFTER LEARNING WHAT HISTORY HAS TAUGHT US. GENERATIVE ART ADDS ANOTHER DIMENSION TO THE WAY WE LOOK AT THINGS.</p>
+          </div>
+        </a>
+
+        <!-- 12. MoMA POSTCARD PROJECT -->
+        <a href="exhibitions/moma-postcard-installation.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/moma.webp" alt="MoMA POSTCARD PROJECT" class="placard-image" loading="lazy" width="768" height="579">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">MoMA POSTCARD PROJECT</h2>
+            <div class="placard-date">DECEMBER 2023</div>
+            <p class="placard-desc">SUNRISE/SUNSETS SOMEWHERE IN TIME… SUPER SOLO. CLOUD IN THE SKY, WITH A HINT OF RAIN, BUT GOING FOR A SWIM. IT'S SUPPOSED TO BE SUCH A WONDERFUL PLACE TO VISIT. CLICK ON THE POSTCARD ABOVE FOR MORE INFO ON THE PROJECT AND TO READ ABOUT THE INSTALLATION.</p>
+          </div>
+        </a>
+
+        <!-- 11. vGallerySpace : METAVERSE -->
+        <a href="exhibitions/vgalleryspace-metaverse-exhibition.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="assets/metaverse-exhibition.mp4" poster="assets/metaverse-thumbnail.webp" style="background-image: url('assets/metaverse-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">vGallerySpace : METAVERSE</h2>
+            <div class="placard-date">JUNE 2022</div>
+            <p class="placard-desc">FINALLY, AFTER ALL THESE YEARS OF IMAGINING HOW A VIRTUAL GALLERY SPACE WOULD LOOK! FRUITION HAS CAUGHT UP WITH THE CONCEPT. LIKE A NEW DREAM COME TRUE. THE POSSIBILITY AND POTENTIAL OF THE SPACE CONTINUALLY FIND NEW DISCOVERIES.</p>
+          </div>
+        </a>
+
+        <!-- 10. AD ART SHOW 2021 -->
+        <a href="exhibitions/ad-art-show-2021.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/ad2021-adart-new.webp" alt="AD ART SHOW 2021" class="placard-image" loading="lazy" width="768" height="613">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AD ART SHOW 2021</h2>
+            <div class="placard-date">MAY 2021</div>
+            <p class="placard-desc">A NEW EVENT IN THE OCULUS AT THE WESTFIELD WORLD TRADE CENTER, NEW YORK. 4 IMAGES WERE SHOWN DURING THE EVENT FROM arch>scul loop III prototype No.6 OF A STILL TITLED ANDROID DREAMING USING THE COLOR WHEEL AS A BACKGROUND. 8 MORE IMAGES WERE ADDED AFTER THE SHOW.</p>
+          </div>
+        </a>
+
+        <!-- 09. AD ART SHOW 2020 -->
+        <a href="exhibitions/ad-art-show-2020.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/ad2020-marquee-new.webp" alt="AD ART SHOW 2020" class="placard-image" loading="lazy" width="768" height="324">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AD ART SHOW 2020</h2>
+            <div class="placard-date">SEPTEMBER 2020</div>
+            <p class="placard-desc">THIRD ANNUAL ART SHOW FEATURING ARTWORKS BY ARTISTS FROM ADVERTISING FROM SEPTEMBER 1 TO SEPTEMBER 30, 2020, 23/7. WINNER TO BE HONORED WITH SPECIALTY CLIO AWARD WITH PRESENTING SPONSOR NBCUNIVERSAL. ARTWORK WILL BE FOR SALE ON THE MvVO WEBSITE & VIA ARTSY.</p>
+          </div>
+        </a>
+
+        <!-- 08. OSG -->
+        <a href="exhibitions/osg.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/osg-office.webp" alt="OSG" class="placard-image" loading="lazy" width="768" height="576" id="osg-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">OSG</h2>
+            <div class="placard-date">FEBRUARY 2019 – FEBRUARY 2022</div>
+            <p class="placard-desc">SPENT 3 YEARS EXPERIMENTING AT THE LEMP BREWERY COMPLEX IN SAINT LOUIS MISSOURI TESTING AND LEARNING WHAT arch>scul WOULD BE LIKE IN A REAL WORLD SETTING. OCCUPIED A 7000 SQUARE FOOT SPACE DIVIDED EVENLY INTO THREE PARTS. STILL LOOKING FOR THOSE DATAPOINTS TO FIND THE CENTER.</p>
+          </div>
+        </a>
+
+        <!-- 07. prototype No.6 -->
+        <a href="exhibitions/prototype-no-6.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" style="background-image: url('assets/proto6-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">prototype No.6</h2>
+            <div class="placard-date">JUNE 2018</div>
+            <p class="placard-desc">NOW THE 3RD VIDEO INSTALLATION MAKES IT THE TRILOGY OF EACH NEW PROTOTYPE CONSTRUCTED USING A GOLDEN MEAN CAMERA SHOT, THIS TIME PUSHING BOUNDARIES OF VIDEOGRAPHY, SCULPTURE, AND REFLECTION. SILENT WITHOUT SOUND THE VISUALS TAKE YOU THROUGH A SPACE IN WHICH NATURE AND ARCHITECTURE BLEND CONTINUOUSLY.</p>
+          </div>
+        </a>
+
+        <!-- 06. Biz-Zine No.1 -->
+        <a href="exhibitions/biz-zine-no-1.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/biz-zine-cliffcaves.webp" alt="Biz-Zine No.1" class="placard-image" loading="lazy" width="1024" height="630">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">Biz-Zine No.1</h2>
+            <div class="placard-date">JANUARY 2018</div>
+            <p class="placard-desc">AFTER MANY YEARS IN THE MAKING, I AM FINALLY GETTING AROUND TO PRODUCING A ZINE. IT'S BASICALLY GOING TO BE A GRAY MARKET/STRATEGIC ART PUB, DOWNLOADABLE AND PRINTABLE FROM A HOME PRINTER. MY GOAL IS TO MAKE AT LEAST ONE A YEAR, CONSISTING OF ABOUT 20 PAGES.</p>
+          </div>
+        </a>
+
+        <!-- 05. prototype No.5 -->
+        <a href="exhibitions/prototype-no-5.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.webp" style="background-image: url('assets/proto5-vj-loop-2-thumb.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">prototype No.5</h2>
+            <div class="placard-date">JUNE 2017</div>
+            <p class="placard-desc">THE VISUAL IS A MIX OF SOMETHING ANCIENT FROM THE PAST WITH A FUTURISTIC UNKNOWN. AN INTRINSIC VOYAGE OF THE MIND, ACTING BESIDE TIME. THE BODY OF THE SCULPTURE ABSTRACTS SPACE, CREATING NEW PLACES NEVER BEFORE SEEN. THE SPECULATION OF SPIRIT IS FELT, ONLY TO BE LEFT WONDERING IF IT IS REAL.</p>
+          </div>
+        </a>
+
+        <!-- 04. Internet Lounge -->
+        <a href="exhibitions/internet-lounge.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/vG_Internet_Lounge_opt-1024x768.webp" alt="Internet Lounge" width="1024" height="768" class="placard-image" loading="lazy" />
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">Internet Lounge</h2>
+            <div class="placard-date">FEBRUARY 2017</div>
+            <p class="placard-desc">MUSIC CONTINUES TO BE INSTRUMENTAL IN MY DEVELOPMENT. SOUNDS HELP TO INFLUENCE AND SHAPE MY IDENTITY. THE ABILITY TO LISTEN TO BOTH THE REGULAR AND IRREGULAR FORMS IS UNIQUE. BEING ABLE TO PAY ATTENTION TO THE MOVEMENTS CREATED BETWEEN THE MIND/BODY + SPACE/TIME AS THEY MIX, TOGETHER IS EVEN MORE INTERESTING.</p>
+          </div>
+        </a>
+
+        <!-- 03. arch>scul -->
+        <a href="exhibitions/archscul.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/nads08_a.webp" alt="arch&gt;scul" class="placard-image" loading="lazy" width="600" height="400" id="archscul-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">arch&gt;scul</h2>
+            <div class="placard-date">OCTOBER 2016</div>
+            <p class="placard-desc">UNFINISHED IDEA OF A SCULPTURE I HAVE BEEN WORKING ON, THAT REPRESENTS A GALLERY + OFFICE/STUDIO MIXED-USE RESIDENTIAL AND BUILDING CONCEPT. IT IS A NEW AMERICAN DREAM OF TRANSFORMABLE AND MOVABLE ARCHITECTURE. A TRUE MULTI-DIMENSIONAL SPACE WITH WHAT SEEMS TO BE AN INFINITE NUMBER OF LIVABLE SITUATIONS AND POSSIBILITIES.</p>
+          </div>
+        </a>
+
+        <!-- 02. AUTO NATURE -->
+        <a href="exhibitions/auto-nature.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/stream.webp" alt="AUTO NATURE" class="placard-image" loading="lazy" width="800" height="600" id="autonature-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AUTO NATURE</h2>
+            <div class="placard-date">JULY 2016</div>
+            <p class="placard-desc">A COLLECTION OF LANDSCAPE PHOTOGRAPHS, TAKEN WHILE HIKING THROUGH THE PARKS OF MISSOURI. IT WAS NOT UNTIL RECENTLY THAT I SERIOUSLY BEGAN TO REALIZE THE DIFFERENCES BETWEEN NATURAL AND ARTIFICIAL SPACES. THIS WORK IS SHOWN IN BLACK-AND-WHITE, WITH AN OLDER FILM STYLE CAMERA AND IN COLOR, USING A NEWER DIGITAL CAMERA.</p>
+          </div>
+        </a>
+
+        <!-- 01. AUTO MNEMONIC BODY -->
+        <a href="exhibitions/auto-mnemonic-body.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/amb-autobodyshop.webp" alt="AUTO MNEMONIC BODY" class="placard-image" loading="lazy" width="800" height="484" id="automnemonic-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AUTO MNEMONIC BODY</h2>
+            <div class="placard-date">MARCH 2016</div>
+            <p class="placard-desc">THE FIRST EXHIBITION OF THE <strong>vGallerySpace</strong> IS THE BEGINNING OF AN EXPERIMENT FOR DEVELOPING A PLACE ONLINE TO SHOWCASE RELEVANT PROJECTS WORTH EXPLORING. THE MAIN CONCENTRATION IS TO BE THE CREATION OF AN ECOMMERCE SITE, THAT LOOKS AND FEELS LIKE A REAL GALLERY. ITS FUNCTIONALITY, EASE OF USE, INTERACTIVITY, AND REPRESENTATION OF ARTWORK ARE THE UNIVERSAL DRIVING FORCES.</p>
+          </div>
         </a>
       </div>
-
-      <p style="margin-bottom: 1.5rem;">FOR A VIRTUAL TOUR OF FUTURE, CURRENT AND PAST EXHIBITIONS, FOLLOW MY FACEBOOK.</p>
-
-      <p style="margin-bottom: 0.25rem;">
-        <a href="https://www.facebook.com/share/1F4VWGLEJg/" target="_blank" rel="noopener" style="font-weight: 700; color: #000000; text-decoration: none; font-size: 1.05rem; letter-spacing: 0.04em; line-height: 1.25; transition: color 0.18s ease;">Way Back Machine, #1&ndash;22</a>
-      </p>
-      <p style="margin: 0 0 0.25rem; color: var(--soft); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.25;">1984&ndash;2014</p>
-      <p style="margin: 0; color: var(--soft); font-size: 0.85rem; line-height: 1.55; letter-spacing: 0.02em; text-transform: uppercase;">AN ARCHIVED COLLECTION OF CLIENTS, ART SHOWS, ARTWORKS AND OTHER PROJECTS FROM OVER THE YEARS USING SOCIAL MEDIA FOR EXHIBIT SPACE.</p>
-    </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -610,7 +971,7 @@
       <!-- FRAMOUS Logo - Above Social Icons -->
       <div class="footer-logo text-center mb-4">
         <a href="artist-statement.html" class="footer-logo-link" title="Artist Statement">
-          <img src="assets/framous_black.webp" alt="FRAMOUS" style="height: 48px; width: auto;" width="250" height="119">
+          <img src="assets/framous_black.webp" alt="FRAMOUS" width="160" height="48" loading="lazy" style="height: 48px; width: auto;">
         </a>
       </div>
 
@@ -653,6 +1014,46 @@
 
   <!-- Share Functionality -->
   <script>
+    
+    // Lazy-load, play, and unload placard videos when scrolled out of viewport (saves mobile GPU/decoders)
+    document.addEventListener('DOMContentLoaded', function() {
+      var lazyVideos = document.querySelectorAll('video.lazy-video');
+      if ('IntersectionObserver' in window) {
+        var videoObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            var video = entry.target;
+            if (entry.isIntersecting) {
+              setTimeout(function() {
+                if (!video.src && video.dataset.src) {
+                  video.src = video.dataset.src;
+                  video.load();
+                }
+                video.play().catch(function() {});
+              }, 60);
+            } else {
+              if (video.src) {
+                video.pause();
+                // Unload src when far out of view to release mobile hardware decoder memory
+                video.removeAttribute('src');
+                video.load();
+              }
+            }
+          });
+        }, { rootMargin: '200px 0px' });
+
+        lazyVideos.forEach(function(video) {
+          videoObserver.observe(video);
+        });
+      } else {
+        lazyVideos.forEach(function(video) {
+          if (video.dataset.src) {
+            video.src = video.dataset.src;
+            video.play().catch(function() {});
+          }
+        });
+      }
+    });
+
     function handleShare() {
       if (navigator.share) {
         navigator.share({
@@ -693,23 +1094,225 @@
   </script>
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Chatwoot Widget - RESA AI Docent -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rotations = {
+    "osg-img": ["assets/osg-office.webp", "assets/osg-studio.webp", "assets/osg-gallery.webp"],
+    "autonature-img": ["assets/darkwoods.webp", "assets/digitalhiker.webp", "assets/stream.webp", "assets/treebark.webp"],
+    "automnemonic-img": ["assets/amb-autobodyshop.webp", "assets/amb-balance.webp"],
+    "archscul-img": ["assets/nads07_a.webp", "assets/nads08_a.webp", "assets/nads12_a.webp"]
+  };
+  
+  for (const [id, images] of Object.entries(rotations)) {
+    const el = document.getElementById(id);
+    if (el && images.length > 0) {
+      const randomImg = images[Math.floor(Math.random() * images.length)];
+      el.src = randomImg;
+    }
+  }
+});
+</script>
+  
+<!-- RESA AI Docent Widget (Custom Lightweight Floating Chat) -->
+<div id="resa-chat-container">
+  <style>
+    #resa-toggle-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #000000;
+      color: #4FF6FF;
+      border: 2px solid #4FF6FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      z-index: 99999;
+      transition: transform 0.2s ease, background 0.2s ease;
+      font-size: 24px;
+    }
+    #resa-toggle-btn:hover {
+      transform: scale(1.08);
+      background: #111111;
+    }
+    #resa-window {
+      position: fixed;
+      bottom: 96px;
+      right: 24px;
+      width: 360px;
+      height: 480px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+      border-radius: 12px;
+      display: none;
+      flex-direction: column;
+      z-index: 99999;
+      font-family: inherit;
+      overflow: hidden;
+    }
+    #resa-header {
+      background: #000000;
+      color: #ffffff;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 14px;
+    }
+    #resa-close {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    #resa-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      background: #fbfbfb;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .resa-msg {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      line-height: 1.5;
+    }
+    .resa-msg.bot {
+      background: #000000;
+      color: #ffffff;
+      align-self: flex-start;
+      border-bottom-left-radius: 2px;
+    }
+    .resa-msg.user {
+      background: #4FF6FF;
+      color: #000000;
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
+      font-weight: 600;
+    }
+    #resa-input-area {
+      display: flex;
+      padding: 12px;
+      background: #ffffff;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    #resa-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 6px;
+      outline: none;
+      font-size: 13px;
+    }
+    #resa-send {
+      background: #000000;
+      color: #4FF6FF;
+      border: none;
+      padding: 0 16px;
+      margin-left: 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+
+  <button id="resa-toggle-btn" onclick="toggleResaChat()" aria-label="Open RESA Docent Chat">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <div id="resa-window">
+    <div id="resa-header">
+      <span>RESA · vGallerySpace Docent</span>
+      <button id="resa-close" onclick="toggleResaChat()">&times;</button>
+    </div>
+    <div id="resa-messages">
+      <div class="resa-msg bot">Hello. I am RESA, your virtual docent for vGallerySpace. Feel free to ask me about the exhibitions, Prototype No. 7, or FRAMOUS's archives.</div>
+    </div>
+    <div id="resa-input-area">
+      <input type="text" id="resa-input" placeholder="Ask RESA about the art..." onkeypress="if(event.key==='Enter') sendResaMsg()" />
+      <button id="resa-send" onclick="sendResaMsg()">Send</button>
+    </div>
+  </div>
+
   <script>
-    window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Hi I'm RESA you AI Docent"};
-    (function(d,t) {
-      var BASE_URL="https://app.chatwoot.com";
-      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=BASE_URL+"/packs/js/sdk.js";
-      g.async = true;
-      s.parentNode.insertBefore(g,s);
-      g.onload=function(){
-        window.chatwootSDK.run({
-          websiteToken: 'yMiCEHBcSiRV1Y7m19RDkUdc',
-          baseUrl: BASE_URL
-        })
+    function toggleResaChat() {
+      var win = document.getElementById('resa-window');
+      if (win.style.display === 'flex') {
+        win.style.display = 'none';
+      } else {
+        win.style.display = 'flex';
+        document.getElementById('resa-input').focus();
       }
-    })(document,"script");
+    }
+
+    function sendResaMsg() {
+      var input = document.getElementById('resa-input');
+      var text = input.value.trim();
+      if (!text) return;
+
+      var msgs = document.getElementById('resa-messages');
+      
+      // Append user msg
+      var userDiv = document.createElement('div');
+      userDiv.className = 'resa-msg user';
+      userDiv.textContent = text;
+      msgs.appendChild(userDiv);
+      input.value = '';
+      msgs.scrollTop = msgs.scrollHeight;
+
+      // Simulated intelligent Docent response based on queries
+      setTimeout(function() {
+        var reply = "That is a fascinating inquiry. vGallerySpace spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and Prototype No. 7. You can explore our permanent rooms via the navigation above.";
+        
+        var lower = text.toLowerCase();
+        if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('table')) {
+          reply = "Prototype No. 7 is an unfinished carbon fiber coffee table featured in our STUDIO exhibition, exploring transformable and movable architecture through arch>scul.";
+        } else if (lower.includes('codes.gallery') || lower.includes('os:ai')) {
+          reply = "codes.gallery is our current featured exhibition exploring agentic AI collaboration and solo structuring across nearly 20 years of work.";
+        } else if (lower.includes('ebay') || lower.includes('buy') || lower.includes('store')) {
+          reply = "You can explore curated works and collectibles via our eBay storefront and other official links in the cart dropdown menu at the top right.";
+        }
+
+        var botDiv = document.createElement('div');
+        botDiv.className = 'resa-msg bot';
+        botDiv.textContent = reply;
+        msgs.appendChild(botDiv);
+        msgs.scrollTop = msgs.scrollHeight;
+      }, 600);
+    }
+  </script>
+</div>
+
+  <!-- Typebot Widget - RESA AI Docent -->
+  <script type="module">
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
+
+    Typebot.initBubble({
+      typebot: "my-typebot-i0urjk1",
+      theme: {
+        button: {
+          backgroundColor: "#1D1D1D",
+          customIconSrc:
+            "https://s3.typebotstorage.com/public/workspaces/cmuin2cd600000agm1qb0ila7/typebots/cmuin4wry00010agmti0urjk1/bubble-icon?v=1790444434781",
+        },
+        chatWindow: { backgroundColor: "#F8F8F8" },
+      },
+    });
   </script>
 </body>
+
 </html>
