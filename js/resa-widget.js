@@ -1,5 +1,5 @@
 /**
- * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
+ * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget (ALL CAPS)
  */
 
 (function () {
@@ -7,18 +7,18 @@
 
   // Determine current page context
   const path = window.location.pathname.toLowerCase();
-  let pageGreeting = "Welcome to vGallerySpace. I am RESA, your virtual docent. How can I guide your tour today?";
+  let pageGreeting = "WELCOME TO VGALLERYSPACE. I AM RESA, YOUR VIRTUAL DOCENT. HOW CAN I GUIDE YOUR TOUR TODAY?";
 
   if (path.includes('office')) {
-    pageGreeting = "Welcome to the Office. I am RESA. Ask me about the gallery's historical archives, Wayback Machine records, and studio history.";
+    pageGreeting = "WELCOME TO THE OFFICE. I AM RESA. ASK ME ABOUT THE GALLERY'S HISTORICAL ARCHIVES, WAYBACK MACHINE RECORDS, AND STUDIO HISTORY.";
   } else if (path.includes('studio')) {
-    pageGreeting = "Welcome to the Studio. I'm RESA. Ask me about Prototype No. 7, 3D modeling, and architectural sculpture concepts.";
+    pageGreeting = "WELCOME TO THE STUDIO. I'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND ARCHITECTURAL SCULPTURE CONCEPTS.";
   }
 
   // Build UI DOM
   const launcher = document.createElement('button');
   launcher.id = 'resa-launcher';
-  launcher.setAttribute('aria-label', 'Open RESA Docent Lounge');
+  launcher.setAttribute('aria-label', 'OPEN RESA DOCENT LOUNGE');
   launcher.innerHTML = `
     <svg class="icon-chat" viewBox="0 0 24 24">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -39,16 +39,16 @@
         </div>
         <div class="resa-w-title-block">
           <div class="resa-w-title">RESA</div>
-          <div class="resa-w-badge"><span class="resa-w-dot"></span> In Residence</div>
+          <div class="resa-w-badge"><span class="resa-w-dot"></span> IN RESIDENCE</div>
         </div>
       </div>
-      <button class="resa-w-close-btn" id="resa-w-close" aria-label="Close Lounge">&times;</button>
+      <button class="resa-w-close-btn" id="resa-w-close" aria-label="CLOSE LOUNGE">&times;</button>
     </div>
 
     <div class="resa-w-topics">
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Tell me about the Future, Current, and Past exhibition vision.')">⏳ Future / Current / Past</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('What is the curation philosophy behind vGallerySpace?')">🏛️ Curation Philosophy</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Can you explain Prototype No. 7 and Arch > Scul?')">🗿 Arch > Scul Prototypes</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('TELL ME ABOUT THE FUTURE, CURRENT, AND PAST EXHIBITION VISION.')">⏳ FUTURE / CURRENT / PAST</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('WHAT IS THE CURATION PHILOSOPHY BEHIND VGALLERYSPACE?')">🏛️ CURATION PHILOSOPHY</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND ARCH > SCUL?')">🗿 ARCH > SCUL PROTOTYPES</button>
     </div>
 
     <div class="resa-w-messages" id="resa-w-msg-list">
@@ -56,8 +56,8 @@
     </div>
 
     <div class="resa-w-footer">
-      <input type="text" class="resa-w-input" id="resa-w-input" placeholder="Ask RESA about the gallery..." autocomplete="off">
-      <button class="resa-w-send" id="resa-w-send">Send</button>
+      <input type="text" class="resa-w-input" id="resa-w-input" placeholder="ASK RESA ABOUT THE GALLERY..." autocomplete="off">
+      <button class="resa-w-send" id="resa-w-send">SEND</button>
     </div>
   `;
 
@@ -98,25 +98,25 @@
     // Add user message
     const userMsg = document.createElement('div');
     userMsg.className = 'resa-w-msg user';
-    userMsg.textContent = text;
+    userMsg.textContent = text.toUpperCase();
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Smart Docent Reply
+    // Smart Docent Reply (ALL CAPS)
     setTimeout(() => {
       const lower = text.toLowerCase();
-      let reply = "Welcome to vGallerySpace. I am RESA, your virtual docent. Our gallery spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and architectural sculptures.";
+      let reply = "WELCOME TO VGALLERYSPACE. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
 
       if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
-        reply = "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (archival records spanning 1984–2014).";
+        reply = "VGALLERYSPACE PRESENTS EXHIBITIONS ACROSS THREE TEMPORAL PLANES: FUTURE (SPECULATIVE DIGITAL ARCHITECTURE), CURRENT (ACTIVE EXHIBITIONS LIKE CODES.GALLERY), AND PAST (ARCHIVAL RECORDS SPANNING 1984–2014).";
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
-        reply = "vGallerySpace is built on a philosophy of pure, tracker-free architectural presentation. We treat the digital space with the reverence of a physical institution.";
+        reply = "VGALLERYSPACE IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
       } else if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('arch') || lower.includes('scul')) {
-        reply = "The Arch > Scul series examines the intersection of architecture and sculpture. Featured in our STUDIO exhibition, Prototype No. 7 explores transformable carbon fiber structures.";
+        reply = "THE ARCH > SCUL SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
-        reply = "The OFFICE houses historical records, wayback machine archives, and reflections documenting the evolution of FRAMOUS's studio practice across nearly three decades.";
+        reply = "THE OFFICE HOUSES HISTORICAL RECORDS, WAYBACK MACHINE ARCHIVES, AND REFLECTIONS DOCUMENTING THE EVOLUTION OF FRAMOUS'S STUDIO PRACTICE ACROSS NEARLY THREE DECADES.";
       } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
-        reply = "You can view codes.gallery or explore available physical works and collectibles via our official eBay storefront and Artsy profiles linked in the top-right cart dropdown!";
+        reply = "YOU CAN VIEW CODES.GALLERY OR EXPLORE AVAILABLE PHYSICAL WORKS AND COLLECTIBLES VIA OUR OFFICIAL EBAY STOREFRONT AND ARTSY PROFILES LINKED IN THE TOP-RIGHT CART DROPDOWN!";
       }
 
       const botMsg = document.createElement('div');
