@@ -1,0 +1,67 @@
+{
+  "gallery_info": {
+    "name": "vGallerySpace",
+    "creator": "FRAMOUS",
+    "philosophy": "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution.",
+    "temporal_planes": {
+      "future": "Future: Speculative digital architecture, agentic AI collaboration, and synthetic space.",
+      "current": "Current: Active exhibitions including codes.gallery, physical prototype developments, and current editions.",
+      "past": "Past: Archival records, 1984–2014 Way Back Machine posts, promotional design, and fine art history."
+    }
+  },
+  "exhibitions": [
+    {
+      "id": "codes-gallery",
+      "title": "codes.gallery",
+      "keywords": ["codes", "codes.gallery", "code", "ai", "agentic"],
+      "summary": "codes.gallery is our featured exhibition examining agentic AI collaboration, generative code as creative material, and solo structuring across nearly two years of intensive development."
+    },
+    {
+      "id": "prototype-no-7",
+      "title": "Prototype No. 7",
+      "keywords": ["prototype 7", "prototype no. 7", "coffee table", "carbon fiber", "table"],
+      "summary": "Featured in the STUDIO, Prototype No. 7 is an unfinished carbon fiber coffee table exploring movable, transformable architecture under the arch>scul prototypes series."
+    },
+    {
+      "id": "archscul",
+      "title": "arch>scul prototypes",
+      "keywords": ["arch>scul", "arch scul", "sculpture", "sculptures", "architectural sculpture"],
+      "summary": "The arch>scul prototypes series examines the intersection of architecture and sculpture, exploring structural, transformable spatial forms."
+    },
+    {
+      "id": "infinity-museum-xtz",
+      "title": "Infinity Museum : XTZ",
+      "keywords": ["infinity museum", "xtz", "tezos", "infinity"],
+      "summary": "Infinity Museum : XTZ explores infinite spatial curation and crypto-art archives on Tezos."
+    },
+    {
+      "id": "auto-mnemonic-body",
+      "title": "Auto-Mnemonic Body",
+      "keywords": ["auto-mnemonic", "mnemonic", "body"],
+      "summary": "Auto-Mnemonic Body examines digital memory, physical form, and self-archival systems."
+    },
+    {
+      "id": "ad-art-show",
+      "title": "Ad Art Show (2020 / 2021)",
+      "keywords": ["ad art", "ad art show", "advertising", "oculus", "westfield"],
+      "summary": "Featured at the Oculus in Westfield World Trade Center, NYC, bridging commercial advertising design and fine art."
+    },
+    {
+      "id": "office-archives",
+      "title": "OFFICE Archives & Way Back Machine",
+      "keywords": ["office", "archive", "facebook", "wayback", "records", "history"],
+      "summary": "The OFFICE houses Way Back Machine archives, Facebook records, and reflections documenting nearly three decades of studio evolution (1984–2014)."
+    },
+    {
+      "id": "storefronts",
+      "title": "Acquisitions & Storefronts",
+      "keywords": ["buy", "acquire", "ebay", "artsy", "store", "shop", "hipstamp", "opensea", "objkt"],
+      "summary": "You can acquire physical works, rare collectibles, and digital editions via Artsy, eBay, OpenSea, and Objkt in the top-right cart dropdown."
+    }
+  ],
+  "artist": {
+    "name": "FRAMOUS",
+    "keywords": ["framous", "artist", "creator", "who made"],
+    "summary": "vGallerySpace was created by FRAMOUS, an artist and designer spanning architectural sculpture, brand direction, advertising, and digital/AI curation over three decades."
+  }
+}
