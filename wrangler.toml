@@ -1,4 +1,7 @@
 name = "vgallery-space"
-pages_build_output_dir = "."
+main = "functions/api/docent.js"
 compatibility_date = "2026-09-08"
 compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "."
