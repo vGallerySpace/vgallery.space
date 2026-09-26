@@ -2,14 +2,21 @@
   "gallery_info": {
     "name": "vGallerySpace",
     "creator": "FRAMOUS",
-    "philosophy": "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution.",
-    "temporal_planes": {
-      "future": "Future: Speculative digital architecture, agentic AI collaboration, and synthetic space.",
-      "current": "Current: Active exhibitions including codes.gallery, physical prototype developments, and current editions.",
-      "past": "Past: Archival records, 1984–2014 Way Back Machine posts, promotional design, and fine art history."
-    }
+    "philosophy": "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution."
   },
   "exhibitions": [
+    {
+      "id": "temporal-vision",
+      "title": "Future, Current, and Past Vision",
+      "keywords": ["future", "current", "past", "vision", "temporal", "planes"],
+      "summary": "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (archival records spanning 1984–2014)."
+    },
+    {
+      "id": "curation-philosophy",
+      "title": "Curation Philosophy",
+      "keywords": ["curation", "philosophy", "pure", "tracker-free", "institution"],
+      "summary": "vGallerySpace presents pure, tracker-free architectural exhibitions treated with the reverence of a physical institution."
+    },
     {
       "id": "codes-gallery",
       "title": "codes.gallery",
