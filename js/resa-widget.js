@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * Powered by live Gemini API via /api/docent with fallback matrix.
+ * Dual-Engine: Live Gemini API + Dynamic Knowledge Matrix
  */
 
 (function () {
@@ -157,12 +157,37 @@
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Show typing placeholder
+    // Show thinking indicator
     const typingMsg = document.createElement('div');
     typingMsg.className = 'resa-w-msg bot';
     typingMsg.innerHTML = '<span style="opacity: 0.6;">Thinking...</span>';
     msgList.appendChild(typingMsg);
     msgList.scrollTop = msgList.scrollHeight;
+
+    // Check for client-stored key
+    const clientKey = localStorage.getItem('vgallery_gemini_key');
+    if (clientKey) {
+      try {
+        const sysPrompt = "You are RESA, the Virtual Docent for vGallerySpace by FRAMOUS. Speak with quiet curatorial confidence—art-literate, direct, concise, articulate, and thoughtful. Never use robotic filler. Answer questions directly, offering deep insights into exhibitions, Prototype No. 7, codes.gallery, and historical archives.";
+        const gRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${clientKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ role: "user", parts: [{ text: `[System Instruction: ${sysPrompt}]\n\nVisitor Question: ${text}` }] }],
+            generationConfig: { temperature: 0.85, topP: 0.95, maxOutputTokens: 350 }
+          })
+        });
+        if (gRes.ok) {
+          const gData = await gRes.json();
+          const reply = gData.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (reply) {
+            typingMsg.innerHTML = escapeHTML(reply);
+            msgList.scrollTop = msgList.scrollHeight;
+            return;
+          }
+        }
+      } catch (err) { /* Fallback */ }
+    }
 
     try {
       const res = await fetch('/api/docent', {
@@ -179,9 +204,7 @@
           return;
         }
       }
-    } catch (e) {
-      /* Fallback on API timeout/error */
-    }
+    } catch (e) { /* Fallback */ }
 
     // Fallback if API not available
     typingMsg.innerHTML = getFallbackReply(text);
