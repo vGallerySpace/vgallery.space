@@ -1,0 +1,210 @@
+/* ==========================================================================
+   vGallerySpace — RESA Custom Floating Docent Widget
+   Monochrome White / Black / Charcoal Gray
+   ========================================================================== */
+
+#resa-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  outline: none;
+}
+
+#resa-launcher:hover {
+  transform: scale(1.08);
+  background: #111111;
+}
+
+#resa-launcher svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#resa-launcher .icon-close {
+  display: none;
+}
+
+#resa-launcher.is-open .icon-chat {
+  display: none;
+}
+
+#resa-launcher.is-open .icon-close {
+  display: block;
+}
+
+/* Floating Widget Container */
+#resa-widget {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  height: 480px;
+  max-height: calc(100vh - 100px);
+  background: #ffffff;
+  border: 1px solid #111111;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 99998;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#resa-widget.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Header */
+.resa-w-header {
+  background: #000000;
+  color: #ffffff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resa-w-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resa-w-avatar {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  overflow: hidden;
+  background: #000;
+}
+
+.resa-w-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.resa-w-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #ffffff;
+}
+
+.resa-w-status {
+  font-size: 0.68rem;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.resa-w-lounge-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+
+.resa-w-lounge-link:hover {
+  opacity: 0.6;
+}
+
+/* Messages Area */
+.resa-w-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fcfcfc;
+}
+
+.resa-w-msg {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  max-width: 85%;
+}
+
+.resa-w-msg.bot {
+  align-self: flex-start;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  color: #111111;
+}
+
+.resa-w-msg.user {
+  align-self: flex-end;
+  background: #111111;
+  border: 1px solid #111111;
+  color: #ffffff;
+}
+
+/* Footer / Input */
+.resa-w-footer {
+  padding: 12px;
+  background: #ffffff;
+  border-top: 1px solid #111111;
+  display: flex;
+  gap: 8px;
+}
+
+.resa-w-input {
+  flex: 1;
+  background: #f5f5f5;
+  border: 1px solid #111111;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  color: #111111;
+  outline: none;
+}
+
+.resa-w-send {
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  padding: 0 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.resa-w-send:hover {
+  background: #333333;
+}
