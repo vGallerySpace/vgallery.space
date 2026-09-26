@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOCENT — vGallerySpace</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Bootstrap 5 CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #777777;
+      --line: #e0e0e0;
+      --line-soft: #f0f0f0;
+      --card-bg: #fcfcfc;
+      --input-bg: #f5f5f5;
+      --border-dark: #111111;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding-top: 70px; /* space for fixed navbar */
+    }
+
+    /* Fixed Navigation Bar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line-soft);
+      padding: 12px 0;
+      z-index: 1030;
+    }
+
+    .navbar-header-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-center-links {
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--fg) !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 0.5rem 0.5rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link.active {
+      border-bottom: 2px solid var(--fg);
+    }
+
+    .nav-cart-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .cart-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Main Lounge Layout */
+    main {
+      flex: 1;
+      max-width: 1240px;
+      width: 100%;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 36px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+        margin: 20px auto;
+        padding: 0 16px;
+      }
+
+      .nav-center-links {
+        gap: 0.8rem !important;
+      }
+
+      .nav-link {
+        font-size: 11px !important;
+        letter-spacing: .1em !important;
+      }
+    }
+
+    /* Docent Card */
+    .docent-card {
+      background: var(--bg);
+      border: 1px solid var(--fg);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: fit-content;
+    }
+
+    .docent-portrait {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 1px solid var(--fg);
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: #000;
+    }
+
+    .docent-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #000;
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: #00ff88;
+      border-radius: 50%;
+    }
+
+    .docent-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--fg);
+      margin-bottom: 4px;
+    }
+
+    .docent-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .docent-bio {
+      font-size: 0.88rem;
+      color: #444444;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* Prompt Suggestions */
+    .prompt-topics {
+      width: 100%;
+      text-align: left;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .prompt-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .topic-btn {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--fg);
+      color: var(--fg);
+      padding: 12px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-align: left;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .topic-btn:hover {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    /* Lounge Container */
+    .lounge-container {
+      background: var(--bg);
+      border: 1px solid var(--fg);
+      display: flex;
+      flex-direction: column;
+      height: 680px;
+      overflow: hidden;
+    }
+
+    .lounge-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--fg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-bg);
+    }
+
+    .lounge-header h2 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .lounge-messages {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: #ffffff;
+    }
+
+    /* Message Bubbles */
+    .msg-row {
+      display: flex;
+      gap: 12px;
+      max-width: 82%;
+    }
+
+    .msg-row.resa {
+      align-self: flex-start;
+    }
+
+    .msg-row.visitor {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .msg-content {
+      padding: 14px 18px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .msg-row.resa .msg-content {
+      background: #f4f4f4;
+      border: 1px solid #d0d0d0;
+      color: #111111;
+    }
+
+    .msg-row.visitor .msg-content {
+      background: #111111;
+      border: 1px solid #111111;
+      color: #ffffff;
+    }
+
+    /* Lounge Input */
+    .lounge-footer {
+      padding: 18px 24px;
+      border-top: 1px solid var(--fg);
+      background: var(--card-bg);
+      display: flex;
+      gap: 12px;
+    }
+
+    .lounge-input {
+      flex: 1;
+      background: #ffffff;
+      border: 1px solid var(--fg);
+      padding: 14px 18px;
+      color: #111111;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .lounge-input:focus {
+      border-color: #000000;
+      box-shadow: 0 0 0 1px #000000;
+    }
+
+    .send-btn {
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      padding: 0 24px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .send-btn:hover {
+      background: #444444;
+    }
+
+    /* Clean Footer */
+    .footer-clean {
+      background: var(--bg);
+      border-top: 1px solid var(--line-soft);
+      padding: 48px 0 40px;
+      margin-top: 60px;
+    }
+
+    .footer-logo-link {
+      display: inline-block;
+      padding: 6px 12px;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-logo-link:hover {
+      opacity: 0.6;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #ffffff;
+      transform: scale(1.08);
+    }
+
+    .footer-legal-links {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-policy-link {
+      color: #000000;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 0 4px;
+    }
+
+    .footer-policy-link:hover {
+      color: #777777;
+    }
+
+    .footer-dot {
+      color: var(--muted);
+      margin: 0 8px;
+      font-size: 12px;
+    }
+
+    .cc-license-link {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: #595959;
+      font-size: 14px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top">
+    <div class="container">
+      <div class="navbar-header-grid">
+        <div></div>
+        <ul class="nav-center-links">
+          <li><a class="nav-link" href="index.html">GALLERY</a></li>
+          <li><a class="nav-link" href="studio.html">STUDIO</a></li>
+          <li><a class="nav-link" href="office.html">OFFICE</a></li>
+          <li><a class="nav-link active" href="docent-lounge.html">DOCENT</a></li>
+        </ul>
+        <div class="nav-cart-wrapper">
+          <div class="dropdown">
+            <button class="cart-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Cart">
+              <i class="bi bi-cart"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener">ARTSY</a></li>
+              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank" rel="noopener">eBay</a></li>
+              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank" rel="noopener">HipStamp</a></li>
+              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank" rel="noopener">codes.gallery</a></li>
+              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank" rel="noopener">OpenSea</a></li>
+              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank" rel="noopener">Objkt</a></li>
+              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank" rel="noopener">Magic Eden</a></li>
+              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank" rel="noopener">AtomicHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Left: Docent Profile -->
+    <aside class="docent-card">
+      <div class="docent-portrait">
+        <img src="assets/resa2.jpeg" alt="RESA Docent Portrait">
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span> In Residence
+      </div>
+      <h1 class="docent-name">RESA</h1>
+      <div class="docent-role">Virtual Docent</div>
+      <p class="docent-bio">
+        Welcome to the Docent Lounge. I am RESA, your resident guide through vGallerySpace. Step inside to explore our Future, Current, and Past exhibitions, digital curation philosophy, and architectural sculpture series.
+      </p>
+
+      <div class="prompt-topics">
+        <div class="prompt-title">Suggested Topics</div>
+        <button class="topic-btn" onclick="sendPrompt('Tell me about the Future, Current, and Past exhibition vision.')">⏳ Future, Current & Past</button>
+        <button class="topic-btn" onclick="sendPrompt('What is the philosophy behind vGallerySpace and its curation?')">🏛️ vGallerySpace & Curation</button>
+        <button class="topic-btn" onclick="sendPrompt('Can you explain the Arch > Scul prototypes and architectural sculpture series?')">🗿 Arch > Scul Prototypes</button>
+      </div>
+    </aside>
+
+    <!-- Right: Conversation Lounge -->
+    <section class="lounge-container">
+      <div class="lounge-header">
+        <h2>Conversation Lounge</h2>
+        <span style="font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 700;">Gemini Powered</span>
+      </div>
+
+      <div class="lounge-messages" id="chat-messages">
+        <div class="msg-row resa">
+          <div class="msg-content">
+            Welcome to the lounge. Take your time exploring. What caught your eye in the gallery today?
+          </div>
+        </div>
+      </div>
+
+      <div class="lounge-footer">
+        <input type="text" id="user-input" class="lounge-input" placeholder="Ask RESA about the artwork or exhibitions..." autocomplete="off">
+        <button class="send-btn" onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-clean">
+    <div class="container">
+      <div class="footer-logo text-center mb-4">
+        <a href="artist-statement.html" class="footer-logo-link" title="Artist Statement">
+          <img src="assets/framous_black.webp" alt="FRAMOUS" width="160" height="48" loading="lazy" style="height: 48px; width: auto;">
+        </a>
+      </div>
+
+      <div class="footer-social d-flex justify-content-center gap-3 mb-4">
+        <a href="https://www.facebook.com/share/1F4VWGLEJg/" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://x.com/vgalleryspace" target="_blank" title="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/ryanleepresson?igsi=MTRyb3Vzem5odGRsMA==" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://youtube.com/@FRAMOUS" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="https://discordapp.com/users/framous/" target="_blank" title="Discord"><i class="bi bi-discord"></i></a>
+        <a href="mailto:framous@vgallery.space" title="Email"><i class="bi bi-envelope"></i></a>
+        <a href="guest-list.html" class="guest-bell" title="Guest List"><i class="bi bi-bell"></i></a>
+        <a href="feed.xml" class="rss-link" title="RSS Feed" target="_blank"><i class="bi bi-rss"></i></a>
+      </div>
+
+      <div class="footer-legal-links text-center mb-3">
+        <a href="privacy-policy.html" class="footer-policy-link">PRIVACY POLICY</a>
+        <span class="footer-dot">·</span>
+        <a href="terms-conditions.html" class="footer-policy-link">TERMS &amp; CONDITIONS</a>
+      </div>
+
+      <div class="footer-copy text-center">
+        <div style="display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px; font-size: 14px; color: var(--fg); max-width: 100%; padding: 0 10px; line-height: 1.6;">
+          <span style="display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">
+            <i class="bi bi-cc-circle" style="font-size: 16px;"></i>
+            <span>vGallerySpace by FRAMOUS</span>
+          </span>
+          <span>work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="cc-license-link">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById('user-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMsg(text, 'visitor');
+      input.value = '';
+
+      setTimeout(() => {
+        const lower = text.toLowerCase();
+        let reply = "Welcome to vGallerySpace. I am RESA, your virtual docent. Our gallery spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and architectural sculptures.";
+
+        if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
+          reply = "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture & agentic space), Current (active exhibitions like codes.gallery and active prototypes), and Past (archival records spanning 1984–2014).";
+        } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
+          reply = "vGallerySpace is built on a philosophy of pure, tracker-free architectural presentation. We treat the digital space with the reverence of a physical institution—minimalist, immersive, and focused entirely on the work.";
+        } else if (lower.includes('arch') || lower.includes('scul') || lower.includes('prototype') || lower.includes('carbon')) {
+          reply = "The Arch > Scul series examines the intersection of architecture and sculpture. Featured in our STUDIO exhibition, Prototype No. 7 explores transformable carbon fiber structures designed for physical-digital spatial harmony.";
+        } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
+          reply = "The OFFICE houses historical records, wayback machine archives, and social reflections documenting the evolution of FRAMOUS's studio practice across nearly three decades.";
+        } else if (lower.includes('codes') || lower.includes('os:ai')) {
+          reply = "codes.gallery is our featured exhibition exploring agentic AI collaboration, generative design, and solo structuring across tech and art.";
+        } else if (lower.includes('ebay') || lower.includes('buy') || lower.includes('artsy') || lower.includes('store')) {
+          reply = "You can explore available physical works, digital editions, and collectibles via our official eBay storefront and Artsy profiles linked in the top-right cart dropdown.";
+        }
+
+        appendMsg(reply, 'resa');
+      }, 600);
+    }
+
+    function sendPrompt(text) {
+      document.getElementById('user-input').value = text;
+      sendMessage();
+    }
+
+    function appendMsg(text, sender) {
+      const list = document.getElementById('chat-messages');
+      const row = document.createElement('div');
+      row.className = `msg-row ${sender}`;
+      row.innerHTML = `<div class="msg-content">${escapeHTML(text)}</div>`;
+      list.appendChild(row);
+      list.scrollTop = list.scrollHeight;
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>');
+    }
+
+    document.getElementById('user-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>

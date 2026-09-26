@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>vGallerySpace — OFFICE</title>
+  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
+  <meta name="description" content="Explore OFFICE by FRAMOUS at vGallerySpace: historical archives, Way Back Machine records, studio history, and commercial design." />
+  <meta name="keywords" content="virtual gallery, office, wayback machine archives, studio history, framous" />
+  <link rel="canonical" href="https://vgallery.space/office.html" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <meta property="og:site_name" content="vgallery.space" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vgallery.space/office.html" />
+  <meta property="og:title" content="OFFICE — vgallery.space" />
+  <meta property="og:description" content="Explore OFFICE by FRAMOUS at vGallerySpace: historical archives, Way Back Machine records, studio history, and commercial design." />
+  <meta property="og:image" content="https://vgallery.space/assets/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://vgallery.space/" />
+  <meta name="twitter:title" content="GALLERY — vgallery.space" />
+  <meta name="twitter:description" content="Explore vGallerySpace by FRAMOUS: curated virtual art exhibitions spanning architecture, sculpture, video installations, and conceptual photography." />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  
+
+  <!-- Preconnect to CDNs to eliminate connection latency -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+  <!-- Non-blocking Stylesheets with Preload -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap" onload="this.rel='stylesheet'" font-display="swap">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap">
+  </noscript>
+<style>
+    html {
+      scrollbar-gutter: stable;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1c20;
+      --soft: #4a4e56;
+      --muted: #8f939a;
+      --line: rgba(0,0,0,0.12);
+      --line-soft: rgba(0,0,0,0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+      max-width: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif;
+      margin: 0;
+      padding: 0;
+      padding-top: 76px;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    a:hover {
+      color: #777777;
+      text-decoration: none;
+    }
+
+    /* Navigation with Bootstrap navbar */
+        .fixed-top {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1030;
+    }
+    .navbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line-soft);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.75rem 0;
+      z-index: 1030;
+    }
+
+    .navbar-header-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-center-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-cart-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+    }
+
+    .cart-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 18px;
+      padding: 0.5rem;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+
+    .cart-toggle:hover {
+      color: #777777;
+    }
+
+    .cart-toggle::after {
+      display: none !important;
+    }
+
+    .dropdown {
+      position: relative !important;
+    }
+
+    .dropdown-menu.show {
+      display: block !important;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute !important;
+      top: 100% !important;
+      right: 0 !important;
+      left: auto !important;
+      margin-top: 8px !important;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      min-width: 180px;
+      max-width: 240px;
+      background: #ffffff;
+      padding: 6px 0;
+    }
+
+    .dropdown-item {
+      color: #000000;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 8px 16px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(0,0,0,0.05);
+      color: #000000;
+    }
+
+    .nav-link {
+      color: #000000 !important;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.5rem 0.75rem !important;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      color: #777777 !important;
+    }
+
+    .nav-link.active {
+      color: #444444 !important;
+    }
+
+    /* Hero section */
+    .hero-section {
+      position: relative;
+      height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 60px;
+    }
+
+    .hero-image-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: brightness(0.85);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #ff2680;
+      margin: 0 0 4px 0;
+      line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: lowercase;
+      margin: 0 0 16px 0;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero-enter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 32px;
+      background: #4FF6FF;
+      color: #000000 !important;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      transition: all .18s ease;
+      border: 2px solid #4FF6FF;
+    }
+
+    .hero-enter-btn:hover {
+      background: #2ee6f2;
+      border-color: #2ee6f2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(79, 246, 255, 0.45);
+      color: #000000 !important;
+    }
+
+    /* Section title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Gallery Placard Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    .placard-card {
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      text-decoration: none !important;
+      color: var(--fg);
+      transition: all 0.18s ease;
+      height: 100%;
+    }
+
+    .placard-card:hover {
+      border-color: #000000;
+      background: #fbfbfb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      color: inherit;
+    }
+
+    .placard-image-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #000000;
+      border: 8px solid #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .placard-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border: none;
+      box-sizing: border-box;
+      transition: transform 0.25s ease;
+    }
+
+    .placard-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      border: none;
+      box-sizing: border-box;
+      transition: transform 0.25s ease;
+    }
+
+    .placard-card:hover .placard-image,
+    .placard-card:hover .placard-media {
+      transform: scale(1.02);
+    }
+
+    .placard-content {
+      padding: 12px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .placard-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #000000;
+      letter-spacing: 0.04em;
+      margin: 0 0 4px 0;
+      line-height: 1.25;
+    }
+
+    .placard-card:hover .placard-title {
+      color: #333333;
+    }
+
+    .placard-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #595959;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .placard-desc strong,
+    .placard-desc b {
+      text-transform: none;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    .placard-desc {
+      font-size: 0.85rem;
+      color: var(--soft);
+      line-height: 1.55;
+      margin: 0;
+      flex-grow: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Footer - clean and consistent */
+    .footer-clean {
+      background: var(--bg);
+      border-top: 1px solid var(--line-soft);
+      padding: 48px 0 40px;
+      margin-top: 80px;
+    }
+
+    .footer-logo-link {
+      display: inline-block;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+      padding: 6px 12px;
+    }
+
+    .footer-logo-link:hover {
+      opacity: 0.6;
+      transform: translateY(-1px);
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .footer-social a,
+    .footer-social button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+      box-sizing: border-box;
+    }
+
+    .footer-social a:hover,
+    .footer-social button:hover {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .footer-social {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+      }
+
+      .footer-social a,
+    .footer-social button {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+        font-size: 15px !important;
+      }
+    }
+
+    /* Share Toast */
+    .share-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #000000;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 9999;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    }
+
+    .share-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .guest-bell:hover,
+    .rss-link:hover {
+      background: #000000 !important;
+      border-color: #000000 !important;
+      color: #fff !important;
+      transform: scale(1.08);
+    }
+
+    .footer-legal-links {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-policy-link {
+      color: #000000;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: color .18s ease;
+      padding: 0 4px;
+    }
+
+    .footer-policy-link:hover {
+      color: #777777;
+    }
+
+    .footer-dot {
+      color: var(--muted);
+      margin: 0 8px;
+      font-size: 12px;
+    }
+
+    .cc-license-link {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color .18s ease;
+    }
+
+    .cc-license-link:hover {
+      color: #777777;
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: #595959;
+      font-size: 14px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 380px;
+      }
+
+      .navbar .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .nav-center-links {
+        gap: 1rem !important;
+      }
+
+      .nav-link {
+        font-size: 12px !important;
+        padding: 0.5rem 0.35rem !important;
+        letter-spacing: .12em !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+      }
+
+      .cart-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 18px;
+      padding: 0.5rem;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: color 0.18s ease;
+    }
+    }
+  
+    
+
+  
+    /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
+    /* --- PRINT STYLESHEET (Museum Catalogue Mode) --- */
+    /* --- REFINED PRINT STYLESHEET: SINGLE NAVBAR ON PAGE 1 & TOP SPACING --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (CLEAN PER-EXHIBITION PAGE BREAKS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (PERFECT CATALOGUE FLOW) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (CLEAN FRAMING & NO LINE GLITCHES) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NO NAVBAR, PERFECT FRAMING) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NATURAL ASPECT RATIO, SINGLE FRAME, NO BLANKS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (NO FOOTER, FIREFOX VIDEO FIX, COMPACT PAGES) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (TIGHT WRAP FRAMING, NATURAL PROPORTIONS) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (CONSISTENT FULL-WIDTH FRAMES & NATURAL HEIGHT) --- */
+    /* --- REFINED INDEX PRINT STYLESHEET (UNIFORM STANDARD FRAMES) --- */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        margin: 0 !important;
+        padding: 10px !important;
+      }
+      .navbar, .nav-cart-wrapper, .share-toast, .unmute-badge, .exhibition-nav, footer, .footer-clean {
+        display: none !important;
+      }
+      main, .content-section {
+        background: #ffffff !important;
+        color: #111111 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        display: block !important;
+      }
+      .gallery-grid {
+        display: block !important;
+        width: 100% !important;
+      }
+      .placard-card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin: 0 0 15px 0 !important;
+        padding: 5px 0 !important;
+        border: none !important;
+        background: #ffffff !important;
+      }
+      .placard-card:first-of-type {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        margin-top: 0 !important;
+      }
+      h1, h2, h3, h4, .placard-title {
+        color: #000000 !important;
+        font-size: 16px !important;
+        margin-bottom: 6px !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+      p, .placard-desc, .placard-date {
+        color: #222222 !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 8px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      /* Uniform standard frame size matching web appearance with clean letterbox framing */
+      .placard-image-wrap {
+        background: #000000 !important;
+        border: 8px solid #000000 !important;
+        box-sizing: border-box !important;
+        margin-top: 5px !important;
+        margin-bottom: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        aspect-ratio: 4 / 3 !important;
+        overflow: hidden !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .placard-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border: none !important;
+        display: block !important;
+      }
+      video.placard-media {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        background-color: #000000 !important;
+        border: none !important;
+        display: block !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+    }
+    </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar fixed-top">
+    <div class="container">
+      <div class="navbar-header-grid">
+        <div></div>
+        <ul class="nav-center-links">
+          <li><a class="nav-link" href="index.html">GALLERY</a></li>
+          <li><a class="nav-link" href="studio.html">STUDIO</a></li>
+          <li><a class="nav-link active" href="office.html">OFFICE</a></li>
+        </ul>
+        <div class="nav-cart-wrapper">
+          <div class="dropdown">
+            <button class="cart-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Cart">
+              <i class="bi bi-cart"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank" rel="noopener">ARTSY</a></li>
+              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank" rel="noopener">eBay</a></li>
+              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank" rel="noopener">HipStamp</a></li>
+              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank" rel="noopener">codes.gallery</a></li>
+              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank" rel="noopener">OpenSea</a></li>
+              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank" rel="noopener">Objkt</a></li>
+              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank" rel="noopener">Magic Eden</a></li>
+              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank" rel="noopener">AtomicHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-image-wrapper" aria-hidden="true">
+      <img src="assets/alleyway.webp" alt="" width="720" height="405" fetchpriority="high">
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">OFFICE</h1>
+      <p class="hero-subtitle">HISTORICAL ARCHIVES · WAYBACK MACHINE RECORDS · BRAND PRACTICE (1984–PRESENT)</p>
+      <a href="exhibitions/biz-zine-no-1.html" class="hero-enter-btn">
+        ENTER OFFICE <i class="bi bi-chevron-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section id="gallery" class="py-2">
+
+      
+      <div class="gallery-grid">
+        <!-- 15. codes.gallery -->
+        <a href="exhibitions/codes-gallery.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/codes-gallery-card.webp" alt="codes.gallery" class="placard-image" loading="lazy" width="370" height="276">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">codes.gallery</h2>
+            <div class="placard-date">MARCH 2026</div>
+            <p class="placard-desc">SOLO FOR NEARLY 20 YEARS, ACROSS A 01010 OF EXHIBITIONS. YOU LEARN HOW TO CARRY THE WHOLE STRUCTURE YOURSELF, BUT OVER TIME, YOU ALSO SENSE THE WEIGHT OF DOING EVERYTHING INDEPENDENTLY.</p>
+          </div>
+        </a>
+
+        <!-- 14. vGallerySpace : eBay -->
+        <a href="exhibitions/vgalleryspace-ebay.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/vgebay-new.webp" alt="vGallerySpace : eBay" class="placard-image" loading="lazy" width="370" height="278">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">vGallerySpace : eBay</h2>
+            <div class="placard-date">FEBRUARY 2025</div>
+            <p class="placard-desc">MANY OF THE ITEMS ARE FROM ARTISTS WHO HAVE INFLUENCED MY WORK AND OTHERS WHO INFLUENCE THE MARKETPLACE. ALWAYS MAKING REVISIONS AND UPDATING WITH MORE ACCURATE INFORMATION. IF YOU SEE ANYTHING THAT DOESN'T LOOK RIGHT, PLEASE LET ME KNOW. LEARNING AND STUDYING THE PAST TO CREATE A RELEVANT PRESENT WITH A BETTER PROJECTION OF THE FUTURE IS MY MAIN GOAL.</p>
+          </div>
+        </a>
+
+        <!-- 13. INFINITY MUSEUM : XTZ -->
+        <a href="exhibitions/infinity-museum-xtz.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="/assets/infinity-loop.mp4" poster="/assets/infinity-thumbnail.webp" style="background-image: url('/assets/infinity-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">INFINITY MUSEUM : XTZ</h2>
+            <div class="placard-date">AUGUST 2024</div>
+            <p class="placard-desc">ORIGINALLY, BEGAN THINKING THE PLACE I FIT MOST WOULD BE BETWEEN LOW-BROW AND HIGH-BROW, SO NATURALLY THOUGHT OF IT AS MID-BROW. TRY TO VIEW ART AS OBJECTIVE, EACH PERSON HAS THEIR OWN IDEAS EVEN AFTER LEARNING WHAT HISTORY HAS TAUGHT US. GENERATIVE ART ADDS ANOTHER DIMENSION TO THE WAY WE LOOK AT THINGS.</p>
+          </div>
+        </a>
+
+        <!-- 12. MoMA POSTCARD PROJECT -->
+        <a href="exhibitions/moma-postcard-installation.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/moma.webp" alt="MoMA POSTCARD PROJECT" class="placard-image" loading="lazy" width="768" height="579">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">MoMA POSTCARD PROJECT</h2>
+            <div class="placard-date">DECEMBER 2023</div>
+            <p class="placard-desc">SUNRISE/SUNSETS SOMEWHERE IN TIME… SUPER SOLO. CLOUD IN THE SKY, WITH A HINT OF RAIN, BUT GOING FOR A SWIM. IT'S SUPPOSED TO BE SUCH A WONDERFUL PLACE TO VISIT. CLICK ON THE POSTCARD ABOVE FOR MORE INFO ON THE PROJECT AND TO READ ABOUT THE INSTALLATION.</p>
+          </div>
+        </a>
+
+        <!-- 11. vGallerySpace : METAVERSE -->
+        <a href="exhibitions/vgalleryspace-metaverse-exhibition.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="assets/metaverse-exhibition.mp4" poster="assets/metaverse-thumbnail.webp" style="background-image: url('assets/metaverse-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">vGallerySpace : METAVERSE</h2>
+            <div class="placard-date">JUNE 2022</div>
+            <p class="placard-desc">FINALLY, AFTER ALL THESE YEARS OF IMAGINING HOW A VIRTUAL GALLERY SPACE WOULD LOOK! FRUITION HAS CAUGHT UP WITH THE CONCEPT. LIKE A NEW DREAM COME TRUE. THE POSSIBILITY AND POTENTIAL OF THE SPACE CONTINUALLY FIND NEW DISCOVERIES.</p>
+          </div>
+        </a>
+
+        <!-- 10. AD ART SHOW 2021 -->
+        <a href="exhibitions/ad-art-show-2021.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/ad2021-adart-new.webp" alt="AD ART SHOW 2021" class="placard-image" loading="lazy" width="768" height="613">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AD ART SHOW 2021</h2>
+            <div class="placard-date">MAY 2021</div>
+            <p class="placard-desc">A NEW EVENT IN THE OCULUS AT THE WESTFIELD WORLD TRADE CENTER, NEW YORK. 4 IMAGES WERE SHOWN DURING THE EVENT FROM arch>scul loop III prototype No.6 OF A STILL TITLED ANDROID DREAMING USING THE COLOR WHEEL AS A BACKGROUND. 8 MORE IMAGES WERE ADDED AFTER THE SHOW.</p>
+          </div>
+        </a>
+
+        <!-- 09. AD ART SHOW 2020 -->
+        <a href="exhibitions/ad-art-show-2020.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/ad2020-marquee-new.webp" alt="AD ART SHOW 2020" class="placard-image" loading="lazy" width="768" height="324">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AD ART SHOW 2020</h2>
+            <div class="placard-date">SEPTEMBER 2020</div>
+            <p class="placard-desc">THIRD ANNUAL ART SHOW FEATURING ARTWORKS BY ARTISTS FROM ADVERTISING FROM SEPTEMBER 1 TO SEPTEMBER 30, 2020, 23/7. WINNER TO BE HONORED WITH SPECIALTY CLIO AWARD WITH PRESENTING SPONSOR NBCUNIVERSAL. ARTWORK WILL BE FOR SALE ON THE MvVO WEBSITE & VIA ARTSY.</p>
+          </div>
+        </a>
+
+        <!-- 08. OSG -->
+        <a href="exhibitions/osg.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/osg-office.webp" alt="OSG" class="placard-image" loading="lazy" width="768" height="576" id="osg-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">OSG</h2>
+            <div class="placard-date">FEBRUARY 2019 – FEBRUARY 2022</div>
+            <p class="placard-desc">SPENT 3 YEARS EXPERIMENTING AT THE LEMP BREWERY COMPLEX IN SAINT LOUIS MISSOURI TESTING AND LEARNING WHAT arch>scul WOULD BE LIKE IN A REAL WORLD SETTING. OCCUPIED A 7000 SQUARE FOOT SPACE DIVIDED EVENLY INTO THREE PARTS. STILL LOOKING FOR THOSE DATAPOINTS TO FIND THE CENTER.</p>
+          </div>
+        </a>
+
+        <!-- 07. prototype No.6 -->
+        <a href="exhibitions/prototype-no-6.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="assets/proto6-archscul-loop-iii.mp4" poster="assets/proto6-thumbnail.webp" style="background-image: url('assets/proto6-thumbnail.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">prototype No.6</h2>
+            <div class="placard-date">JUNE 2018</div>
+            <p class="placard-desc">NOW THE 3RD VIDEO INSTALLATION MAKES IT THE TRILOGY OF EACH NEW PROTOTYPE CONSTRUCTED USING A GOLDEN MEAN CAMERA SHOT, THIS TIME PUSHING BOUNDARIES OF VIDEOGRAPHY, SCULPTURE, AND REFLECTION. SILENT WITHOUT SOUND THE VISUALS TAKE YOU THROUGH A SPACE IN WHICH NATURE AND ARCHITECTURE BLEND CONTINUOUSLY.</p>
+          </div>
+        </a>
+
+        <!-- 06. Biz-Zine No.1 -->
+        <a href="exhibitions/biz-zine-no-1.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/biz-zine-cliffcaves.webp" alt="Biz-Zine No.1" class="placard-image" loading="lazy" width="1024" height="630">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">Biz-Zine No.1</h2>
+            <div class="placard-date">JANUARY 2018</div>
+            <p class="placard-desc">AFTER MANY YEARS IN THE MAKING, I AM FINALLY GETTING AROUND TO PRODUCING A ZINE. IT'S BASICALLY GOING TO BE A GRAY MARKET/STRATEGIC ART PUB, DOWNLOADABLE AND PRINTABLE FROM A HOME PRINTER. MY GOAL IS TO MAKE AT LEAST ONE A YEAR, CONSISTING OF ABOUT 20 PAGES.</p>
+          </div>
+        </a>
+
+        <!-- 05. prototype No.5 -->
+        <a href="exhibitions/prototype-no-5.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <video data-src="assets/proto5-vj-loop-2.mp4" poster="assets/proto5-vj-loop-2-thumb.webp" style="background-image: url('assets/proto5-vj-loop-2-thumb.webp'); background-size: cover; background-position: center;" loop muted playsinline preload="none" class="placard-media lazy-video"></video>
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">prototype No.5</h2>
+            <div class="placard-date">JUNE 2017</div>
+            <p class="placard-desc">THE VISUAL IS A MIX OF SOMETHING ANCIENT FROM THE PAST WITH A FUTURISTIC UNKNOWN. AN INTRINSIC VOYAGE OF THE MIND, ACTING BESIDE TIME. THE BODY OF THE SCULPTURE ABSTRACTS SPACE, CREATING NEW PLACES NEVER BEFORE SEEN. THE SPECULATION OF SPIRIT IS FELT, ONLY TO BE LEFT WONDERING IF IT IS REAL.</p>
+          </div>
+        </a>
+
+        <!-- 04. Internet Lounge -->
+        <a href="exhibitions/internet-lounge.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/vG_Internet_Lounge_opt-1024x768.webp" alt="Internet Lounge" width="1024" height="768" class="placard-image" loading="lazy" />
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">Internet Lounge</h2>
+            <div class="placard-date">FEBRUARY 2017</div>
+            <p class="placard-desc">MUSIC CONTINUES TO BE INSTRUMENTAL IN MY DEVELOPMENT. SOUNDS HELP TO INFLUENCE AND SHAPE MY IDENTITY. THE ABILITY TO LISTEN TO BOTH THE REGULAR AND IRREGULAR FORMS IS UNIQUE. BEING ABLE TO PAY ATTENTION TO THE MOVEMENTS CREATED BETWEEN THE MIND/BODY + SPACE/TIME AS THEY MIX, TOGETHER IS EVEN MORE INTERESTING.</p>
+          </div>
+        </a>
+
+        <!-- 03. arch>scul -->
+        <a href="exhibitions/archscul.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/nads08_a.webp" alt="arch&gt;scul" class="placard-image" loading="lazy" width="600" height="400" id="archscul-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">arch&gt;scul</h2>
+            <div class="placard-date">OCTOBER 2016</div>
+            <p class="placard-desc">UNFINISHED IDEA OF A SCULPTURE I HAVE BEEN WORKING ON, THAT REPRESENTS A GALLERY + OFFICE/STUDIO MIXED-USE RESIDENTIAL AND BUILDING CONCEPT. IT IS A NEW AMERICAN DREAM OF TRANSFORMABLE AND MOVABLE ARCHITECTURE. A TRUE MULTI-DIMENSIONAL SPACE WITH WHAT SEEMS TO BE AN INFINITE NUMBER OF LIVABLE SITUATIONS AND POSSIBILITIES.</p>
+          </div>
+        </a>
+
+        <!-- 02. AUTO NATURE -->
+        <a href="exhibitions/auto-nature.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/stream.webp" alt="AUTO NATURE" class="placard-image" loading="lazy" width="800" height="600" id="autonature-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AUTO NATURE</h2>
+            <div class="placard-date">JULY 2016</div>
+            <p class="placard-desc">A COLLECTION OF LANDSCAPE PHOTOGRAPHS, TAKEN WHILE HIKING THROUGH THE PARKS OF MISSOURI. IT WAS NOT UNTIL RECENTLY THAT I SERIOUSLY BEGAN TO REALIZE THE DIFFERENCES BETWEEN NATURAL AND ARTIFICIAL SPACES. THIS WORK IS SHOWN IN BLACK-AND-WHITE, WITH AN OLDER FILM STYLE CAMERA AND IN COLOR, USING A NEWER DIGITAL CAMERA.</p>
+          </div>
+        </a>
+
+        <!-- 01. AUTO MNEMONIC BODY -->
+        <a href="exhibitions/auto-mnemonic-body.html" class="placard-card">
+          <div class="placard-image-wrap">
+            <img src="assets/amb-autobodyshop.webp" alt="AUTO MNEMONIC BODY" class="placard-image" loading="lazy" width="800" height="484" id="automnemonic-img">
+          </div>
+          <div class="placard-content">
+            <h2 class="placard-title">AUTO MNEMONIC BODY</h2>
+            <div class="placard-date">MARCH 2016</div>
+            <p class="placard-desc">THE FIRST EXHIBITION OF THE <strong>vGallerySpace</strong> IS THE BEGINNING OF AN EXPERIMENT FOR DEVELOPING A PLACE ONLINE TO SHOWCASE RELEVANT PROJECTS WORTH EXPLORING. THE MAIN CONCENTRATION IS TO BE THE CREATION OF AN ECOMMERCE SITE, THAT LOOKS AND FEELS LIKE A REAL GALLERY. ITS FUNCTIONALITY, EASE OF USE, INTERACTIVITY, AND REPRESENTATION OF ARTWORK ARE THE UNIVERSAL DRIVING FORCES.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-clean">
+    <div class="container">
+      <!-- FRAMOUS Logo - Above Social Icons -->
+      <div class="footer-logo text-center mb-4">
+        <a href="artist-statement.html" class="footer-logo-link" title="Artist Statement">
+          <img src="assets/framous_black.webp" alt="FRAMOUS" width="160" height="48" loading="lazy" style="height: 48px; width: auto;">
+        </a>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="footer-social d-flex justify-content-center gap-3 mb-4">
+        <a href="https://www.facebook.com/share/1F4VWGLEJg/" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://x.com/vgalleryspace" target="_blank" title="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/ryanleepresson?igsi=MTRyb3Vzem5odGRsMA==" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://youtube.com/@FRAMOUS" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="https://discordapp.com/users/framous/" target="_blank" title="Discord"><i class="bi bi-discord"></i></a>
+        <a href="mailto:framous@vgallery.space" title="Email"><i class="bi bi-envelope"></i></a>
+        <a href="#share" class="share-btn" title="Share" aria-label="Share" role="button" onclick="handleShare(); return false;"><i class="bi bi-share"></i></a>
+        <a href="guest-list.html" class="guest-bell" title="Guest List"><i class="bi bi-bell"></i></a>
+        <a href="feed.xml" class="rss-link" title="RSS Feed" target="_blank"><i class="bi bi-rss"></i></a>
+      </div>
+
+      <!-- Legal / Policy Links -->
+      <div class="footer-legal-links text-center mb-3">
+        <a href="privacy-policy.html" class="footer-policy-link">PRIVACY POLICY</a>
+        <span class="footer-dot">·</span>
+        <a href="terms-conditions.html" class="footer-policy-link">TERMS &amp; CONDITIONS</a>
+      </div>
+
+      <!-- Creative Commons License -->
+      <div class="footer-copy text-center">
+        <div style="display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px; font-size: 14px; color: var(--fg); max-width: 100%; padding: 0 10px; line-height: 1.6;">
+          <span style="display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">
+            <i class="bi bi-cc-circle" style="font-size: 16px;"></i>
+            <span>vGallerySpace by FRAMOUS</span>
+          </span>
+          <span>work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="cc-license-link">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Share Toast -->
+  <div id="share-toast" class="share-toast">Link copied to clipboard!</div>
+
+  <!-- Share Functionality -->
+  <script>
+    
+    // Lazy-load, play, and unload placard videos when scrolled out of viewport (saves mobile GPU/decoders)
+    document.addEventListener('DOMContentLoaded', function() {
+      var lazyVideos = document.querySelectorAll('video.lazy-video');
+      if ('IntersectionObserver' in window) {
+        var videoObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            var video = entry.target;
+            if (entry.isIntersecting) {
+              setTimeout(function() {
+                if (!video.src && video.dataset.src) {
+                  video.src = video.dataset.src;
+                  video.load();
+                }
+                video.play().catch(function() {});
+              }, 60);
+            } else {
+              if (video.src) {
+                video.pause();
+                // Unload src when far out of view to release mobile hardware decoder memory
+                video.removeAttribute('src');
+                video.load();
+              }
+            }
+          });
+        }, { rootMargin: '200px 0px' });
+
+        lazyVideos.forEach(function(video) {
+          videoObserver.observe(video);
+        });
+      } else {
+        lazyVideos.forEach(function(video) {
+          if (video.dataset.src) {
+            video.src = video.dataset.src;
+            video.play().catch(function() {});
+          }
+        });
+      }
+    });
+
+    function handleShare() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(function() {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          showShareToast();
+        }).catch(function() {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+    }
+
+    function fallbackCopy() {
+      var temp = document.createElement('input');
+      temp.value = window.location.href;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+        showShareToast();
+      } catch (err) {}
+      document.body.removeChild(temp);
+    }
+
+    function showShareToast() {
+      var toast = document.getElementById('share-toast');
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rotations = {
+    "osg-img": ["assets/osg-office.webp", "assets/osg-studio.webp", "assets/osg-gallery.webp"],
+    "autonature-img": ["assets/darkwoods.webp", "assets/digitalhiker.webp", "assets/stream.webp", "assets/treebark.webp"],
+    "automnemonic-img": ["assets/amb-autobodyshop.webp", "assets/amb-balance.webp"],
+    "archscul-img": ["assets/nads07_a.webp", "assets/nads08_a.webp", "assets/nads12_a.webp"]
+  };
+  
+  for (const [id, images] of Object.entries(rotations)) {
+    const el = document.getElementById(id);
+    if (el && images.length > 0) {
+      const randomImg = images[Math.floor(Math.random() * images.length)];
+      el.src = randomImg;
+    }
+  }
+});
+</script>
+  
+
+
+  
+  <!-- RESA Custom Floating Docent Widget -->
+  <link rel="stylesheet" href="css/resa-widget.css">
+  <script src="js/resa-widget.js" defer></script>
+</body>
+
+</html>
