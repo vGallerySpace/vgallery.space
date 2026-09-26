@@ -1,5 +1,6 @@
 /**
- * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget (Brand-Preserved Formatting)
+ * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
+ * (ALL CAPS with <span class="brand-term"> for exact case preservation)
  */
 
 (function () {
@@ -7,12 +8,12 @@
 
   // Determine current page context
   const path = window.location.pathname.toLowerCase();
-  let pageGreeting = "WELCOME TO vGallerySpace. I AM RESA, YOUR VIRTUAL DOCENT. HOW CAN I GUIDE YOUR TOUR TODAY?";
+  let pageGreeting = 'WELCOME TO <span class="brand-term">vGallerySpace</span>. I AM RESA, YOUR VIRTUAL DOCENT. HOW CAN I GUIDE YOUR TOUR TODAY?';
 
   if (path.includes('office')) {
     pageGreeting = "WELCOME TO THE OFFICE. I AM RESA. ASK ME ABOUT THE GALLERY'S HISTORICAL ARCHIVES, WAYBACK MACHINE RECORDS, AND STUDIO HISTORY.";
   } else if (path.includes('studio')) {
-    pageGreeting = "WELCOME TO THE STUDIO. I'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND arch>scul CONCEPTS.";
+    pageGreeting = 'WELCOME TO THE STUDIO. I\'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND <span class="brand-term">arch>scul</span> CONCEPTS.';
   }
 
   // Build UI DOM
@@ -48,7 +49,7 @@
     <div class="resa-w-topics">
       <button class="resa-w-chip" onclick="window.sendResaTopic('TELL ME ABOUT THE FUTURE, CURRENT, AND PAST EXHIBITION VISION.')">⏳ FUTURE / CURRENT / PAST</button>
       <button class="resa-w-chip" onclick="window.sendResaTopic('WHAT IS THE CURATION PHILOSOPHY BEHIND vGallerySpace?')">🏛️ CURATION PHILOSOPHY</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND arch>scul?')">🗿 arch>scul PROTOTYPES</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND arch>scul?')">🗿 <span class="brand-term">arch>scul</span> PROTOTYPES</button>
     </div>
 
     <div class="resa-w-messages" id="resa-w-msg-list">
@@ -90,10 +91,11 @@
   closeBtn.addEventListener('click', toggle);
 
   function formatBrandText(text) {
-    return text.toUpperCase()
-      .replace(/VGALLERYSPACE/g, 'vGallerySpace')
-      .replace(/ARCH > SCUL/g, 'arch>scul')
-      .replace(/ARCH>SCUL/g, 'arch>scul');
+    let upper = text.toUpperCase();
+    return upper
+      .replace(/VGALLERYSPACE/g, '<span class="brand-term">vGallerySpace</span>')
+      .replace(/ARCH > SCUL/g, '<span class="brand-term">arch>scul</span>')
+      .replace(/ARCH>SCUL/g, '<span class="brand-term">arch>scul</span>');
   }
 
   function handleSend(textOverride) {
@@ -105,21 +107,21 @@
     // Add user message
     const userMsg = document.createElement('div');
     userMsg.className = 'resa-w-msg user';
-    userMsg.textContent = formatBrandText(text);
+    userMsg.innerHTML = formatBrandText(text);
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Smart Docent Reply (Preserving exact brand casing)
+    // Smart Docent Reply
     setTimeout(() => {
       const lower = text.toLowerCase();
-      let reply = "WELCOME TO vGallerySpace. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
+      let reply = "WELCOME TO <span class=\"brand-term\">vGallerySpace</span>. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
 
       if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
-        reply = "vGallerySpace PRESENTS EXHIBITIONS ACROSS THREE TEMPORAL PLANES: FUTURE (SPECULATIVE DIGITAL ARCHITECTURE), CURRENT (ACTIVE EXHIBITIONS LIKE CODES.GALLERY), AND PAST (ARCHIVAL RECORDS SPANNING 1984–2014).";
+        reply = "<span class=\"brand-term\">vGallerySpace</span> PRESENTS EXHIBITIONS ACROSS THREE TEMPORAL PLANES: FUTURE (SPECULATIVE DIGITAL ARCHITECTURE), CURRENT (ACTIVE EXHIBITIONS LIKE CODES.GALLERY), AND PAST (ARCHIVAL RECORDS SPANNING 1984–2014).";
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
-        reply = "vGallerySpace IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
+        reply = "<span class=\"brand-term\">vGallerySpace</span> IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
       } else if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('arch') || lower.includes('scul')) {
-        reply = "THE arch>scul SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
+        reply = "THE <span class=\"brand-term\">arch>scul</span> SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
         reply = "THE OFFICE HOUSES HISTORICAL RECORDS, WAYBACK MACHINE ARCHIVES, AND REFLECTIONS DOCUMENTING THE EVOLUTION OF FRAMOUS'S STUDIO PRACTICE ACROSS NEARLY THREE DECADES.";
       } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
@@ -128,7 +130,7 @@
 
       const botMsg = document.createElement('div');
       botMsg.className = 'resa-w-msg bot';
-      botMsg.textContent = formatBrandText(reply);
+      botMsg.innerHTML = formatBrandText(reply);
       msgList.appendChild(botMsg);
       msgList.scrollTop = msgList.scrollHeight;
     }, 600);

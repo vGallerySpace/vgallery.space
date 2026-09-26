@@ -1,7 +1,7 @@
 /* ==========================================================================
    vGallerySpace — RESA Floating Docent Lounge Widget
    Monochrome White / Black / Charcoal Gray
-   All-in-One Lounge Experience inside the Pop-Up Window (ALL CAPS Brutalist Vibe)
+   All-in-One Lounge Experience inside the Pop-Up Window (ALL CAPS with strict brand overrides)
    ========================================================================== */
 
 #resa-launcher {
@@ -71,7 +71,13 @@
   transform: translateY(12px) scale(0.98);
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
-  text-transform: uppercase; /* ALL CAPS FOR THE WHOLE LOUNGE */
+  text-transform: uppercase;
+}
+
+/* Strict Brand Case Preservation Class (Bypasses CSS uppercase) */
+.brand-term {
+  text-transform: none !important;
+  font-weight: 700;
 }
 
 #resa-widget.is-visible {
@@ -169,7 +175,7 @@
   border-bottom: 1px solid #111111;
   padding: 12px;
   display: flex;
-  flex-direction: column; /* Stacked vertically so nothing is chopped off */
+  flex-direction: column;
   gap: 8px;
   width: 100%;
 }
@@ -212,7 +218,7 @@
   max-width: 88%;
   font-weight: 700;
   letter-spacing: 0.5px;
-  text-transform: uppercase; /* ALL CAPS CHAT */
+  text-transform: uppercase;
 }
 
 .resa-w-msg.bot {
@@ -247,7 +253,7 @@
   font-weight: 700;
   color: #111111;
   outline: none;
-  text-transform: uppercase; /* ALL CAPS INPUT */
+  text-transform: uppercase;
   transition: border-color 0.2s;
 }
 
