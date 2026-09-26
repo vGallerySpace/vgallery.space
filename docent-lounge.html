@@ -572,8 +572,25 @@
       input.value = '';
 
       setTimeout(() => {
-        appendMsg("I'm receiving your inquiry! Once your Gemini API key is linked, I'll provide deep insights into this exhibition.", 'resa');
-      }, 800);
+        const lower = text.toLowerCase();
+        let reply = "Welcome to vGallerySpace. I am RESA, your virtual docent. Our gallery spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and architectural sculptures.";
+
+        if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
+          reply = "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture & agentic space), Current (active exhibitions like codes.gallery and active prototypes), and Past (archival records spanning 1984–2014).";
+        } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
+          reply = "vGallerySpace is built on a philosophy of pure, tracker-free architectural presentation. We treat the digital space with the reverence of a physical institution—minimalist, immersive, and focused entirely on the work.";
+        } else if (lower.includes('arch') || lower.includes('scul') || lower.includes('prototype') || lower.includes('carbon')) {
+          reply = "The Arch > Scul series examines the intersection of architecture and sculpture. Featured in our STUDIO exhibition, Prototype No. 7 explores transformable carbon fiber structures designed for physical-digital spatial harmony.";
+        } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
+          reply = "The OFFICE houses historical records, wayback machine archives, and social reflections documenting the evolution of FRAMOUS's studio practice across nearly three decades.";
+        } else if (lower.includes('codes') || lower.includes('os:ai')) {
+          reply = "codes.gallery is our featured exhibition exploring agentic AI collaboration, generative design, and solo structuring across tech and art.";
+        } else if (lower.includes('ebay') || lower.includes('buy') || lower.includes('artsy') || lower.includes('store')) {
+          reply = "You can explore available physical works, digital editions, and collectibles via our official eBay storefront and Artsy profiles linked in the top-right cart dropdown.";
+        }
+
+        appendMsg(reply, 'resa');
+      }, 600);
     }
 
     function sendPrompt(text) {

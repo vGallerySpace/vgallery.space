@@ -94,11 +94,24 @@
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Simulated docent reply placeholder
+    // Smart docent response
     setTimeout(() => {
+      const lower = text.toLowerCase();
+      let reply = "Thank you for asking! vGallerySpace spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and Prototype No. 7.";
+
+      if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
+        reply = "Our vision bridges Future speculative architecture, Current active digital exhibitions, and Past archival records.";
+      } else if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('scul') || lower.includes('arch')) {
+        reply = "Prototype No. 7 is a carbon fiber transformable sculpture featured in our STUDIO room under the Arch > Scul series.";
+      } else if (lower.includes('office') || lower.includes('facebook') || lower.includes('archive')) {
+        reply = "The OFFICE contains our Way Back Machine Facebook post archives and studio history spanning 1984–2014.";
+      } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay')) {
+        reply = "You can view codes.gallery or explore available editions on our eBay storefront in the top right menu!";
+      }
+
       const botMsg = document.createElement('div');
       botMsg.className = 'resa-w-msg bot';
-      botMsg.textContent = "Thank you for asking! For deep exhibition context, step into the full Docent Lounge above.";
+      botMsg.textContent = reply;
       msgList.appendChild(botMsg);
       msgList.scrollTop = msgList.scrollHeight;
     }, 600);
