@@ -1,5 +1,5 @@
 /**
- * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget (ALL CAPS)
+ * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget (ALL CAPS with brand-preserved vGallerySpace)
  */
 
 (function () {
@@ -7,7 +7,7 @@
 
   // Determine current page context
   const path = window.location.pathname.toLowerCase();
-  let pageGreeting = "WELCOME TO VGALLERYSPACE. I AM RESA, YOUR VIRTUAL DOCENT. HOW CAN I GUIDE YOUR TOUR TODAY?";
+  let pageGreeting = "WELCOME TO vGallerySpace. I AM RESA, YOUR VIRTUAL DOCENT. HOW CAN I GUIDE YOUR TOUR TODAY?";
 
   if (path.includes('office')) {
     pageGreeting = "WELCOME TO THE OFFICE. I AM RESA. ASK ME ABOUT THE GALLERY'S HISTORICAL ARCHIVES, WAYBACK MACHINE RECORDS, AND STUDIO HISTORY.";
@@ -47,7 +47,7 @@
 
     <div class="resa-w-topics">
       <button class="resa-w-chip" onclick="window.sendResaTopic('TELL ME ABOUT THE FUTURE, CURRENT, AND PAST EXHIBITION VISION.')">⏳ FUTURE / CURRENT / PAST</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('WHAT IS THE CURATION PHILOSOPHY BEHIND VGALLERYSPACE?')">🏛️ CURATION PHILOSOPHY</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('WHAT IS THE CURATION PHILOSOPHY BEHIND vGallerySpace?')">🏛️ CURATION PHILOSOPHY</button>
       <button class="resa-w-chip" onclick="window.sendResaTopic('CAN YOU EXPLAIN PROTOTYPE NO. 7 AND ARCH > SCUL?')">🗿 ARCH > SCUL PROTOTYPES</button>
     </div>
 
@@ -98,19 +98,19 @@
     // Add user message
     const userMsg = document.createElement('div');
     userMsg.className = 'resa-w-msg user';
-    userMsg.textContent = text.toUpperCase();
+    userMsg.textContent = text.toUpperCase().replace(/VGALLERYSPACE/g, 'vGallerySpace');
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Smart Docent Reply (ALL CAPS)
+    // Smart Docent Reply (Preserving exact vGallerySpace brand casing)
     setTimeout(() => {
       const lower = text.toLowerCase();
-      let reply = "WELCOME TO VGALLERYSPACE. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
+      let reply = "WELCOME TO vGallerySpace. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
 
       if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
-        reply = "VGALLERYSPACE PRESENTS EXHIBITIONS ACROSS THREE TEMPORAL PLANES: FUTURE (SPECULATIVE DIGITAL ARCHITECTURE), CURRENT (ACTIVE EXHIBITIONS LIKE CODES.GALLERY), AND PAST (ARCHIVAL RECORDS SPANNING 1984–2014).";
+        reply = "vGallerySpace PRESENTS EXHIBITIONS ACROSS THREE TEMPORAL PLANES: FUTURE (SPECULATIVE DIGITAL ARCHITECTURE), CURRENT (ACTIVE EXHIBITIONS LIKE CODES.GALLERY), AND PAST (ARCHIVAL RECORDS SPANNING 1984–2014).";
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
-        reply = "VGALLERYSPACE IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
+        reply = "vGallerySpace IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
       } else if (lower.includes('prototype') || lower.includes('carbon') || lower.includes('arch') || lower.includes('scul')) {
         reply = "THE ARCH > SCUL SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
