@@ -16,12 +16,12 @@
 
   // Determine current page context greeting (Only shown ONCE at launch)
   const path = window.location.pathname.toLowerCase();
-  let pageGreeting = 'Welcome to vGallerySpace. How can I guide your tour today?';
+  let pageGreeting = 'Welcome to vGallerySpace. I am currently in residence and undergoing continuous training, but I am here to guide your tour and answer questions about our exhibitions!';
 
   if (path.includes('office')) {
-    pageGreeting = "Welcome to the OFFICE. Ask me about historical archives, Wayback Machine records, or studio history.";
+    pageGreeting = "Welcome to the OFFICE. I am undergoing continuous training, but I can answer your questions about historical archives, Wayback Machine records, or studio history.";
   } else if (path.includes('studio')) {
-    pageGreeting = 'Welcome to the STUDIO. Ask me about Prototype No. 7, 3D models, or arch>scul prototypes.';
+    pageGreeting = 'Welcome to the STUDIO. I am undergoing continuous training, but I can answer your questions about Prototype No. 7, 3D models, or arch>scul prototypes.';
   }
 
   // Build UI DOM
@@ -187,8 +187,8 @@
     const clientKey = localStorage.getItem('vgallery_gemini_key');
     if (clientKey) {
       try {
-        const sysPrompt = "You are RESA, the Virtual Docent & Curator for vGallerySpace by FRAMOUS. Speak with quiet curatorial confidence—art-literate, direct, concise, articulate, and thoughtful. Never use robotic sycophantic filler. Never repeat Welcome greetings during ongoing turns. Synthesize deep connections between physical sculpture, digital architecture, and 30 years of studio practice.";
-        const gRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${clientKey}`, {
+        const sysPrompt = "You are RESA, the Virtual Docent & Curator for vGallerySpace by FRAMOUS. You are in residence and undergoing continuous training. Speak with quiet curatorial confidence—art-literate, direct, concise, articulate, and thoughtful. Never use robotic sycophantic filler. Never repeat Welcome greetings during ongoing turns. Synthesize deep connections between physical sculpture, digital architecture, and 30 years of studio practice.";
+        const gRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=***}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
