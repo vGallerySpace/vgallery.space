@@ -1,7 +1,7 @@
 /* ==========================================================================
    vGallerySpace — RESA Floating Docent Lounge Widget
    Monochrome White / Black / Charcoal Gray
-   All-in-One Lounge Experience inside the Pop-Up Window
+   All-in-One Lounge Experience inside the Pop-Up Window (Natural Conversational Tone)
    ========================================================================== */
 
 #resa-launcher {
@@ -71,12 +71,6 @@
   transform: translateY(12px) scale(0.98);
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-/* Strict Brand Case Preservation Class */
-.brand-term {
-  text-transform: none !important;
-  font-weight: 700;
 }
 
 #resa-widget.is-visible {
@@ -183,15 +177,15 @@
   background: #ffffff;
   border: 1px solid #111111;
   color: #111111;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
   padding: 9px 12px;
   cursor: pointer;
-  text-transform: uppercase;
   text-align: left;
   transition: all 0.2s ease;
   width: 100%;
+  text-transform: none; /* Natural sentence case */
 }
 
 .resa-w-chip:hover {
@@ -212,11 +206,11 @@
 
 .resa-w-msg {
   padding: 12px 14px;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   line-height: 1.5;
   max-width: 88%;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
 }
 
 .resa-w-msg.bot {
@@ -224,7 +218,7 @@
   background: #f4f4f4;
   border: 1px solid #111111;
   color: #111111;
-  text-transform: uppercase;
+  text-transform: none; /* Natural sentence case */
 }
 
 .resa-w-msg.user {
@@ -232,7 +226,8 @@
   background: #111111;
   border: 1px solid #111111;
   color: #ffffff;
-  text-transform: none; /* User message keeps normal natural typing rhythm */
+  font-weight: 600;
+  text-transform: none; /* Natural sentence case */
 }
 
 /* Footer / Input - Natural Typing Rhythm */
@@ -249,11 +244,11 @@
   background: #ffffff;
   border: 1px solid #111111;
   padding: 10px 12px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.88rem;
+  font-weight: 400;
   color: #111111;
   outline: none;
-  text-transform: none; /* Natural typing case */
+  text-transform: none;
   transition: border-color 0.2s;
 }
 

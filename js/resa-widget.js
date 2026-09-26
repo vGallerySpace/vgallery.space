@@ -1,6 +1,6 @@
 /**
  * vGallerySpace — RESA All-in-One Floating Docent Lounge Widget
- * (Natural user typing rhythm + brand-preserved docent replies)
+ * (Natural sentence case for prompts, choices, and docent responses)
  */
 
 (function () {
@@ -8,18 +8,18 @@
 
   // Determine current page context
   const path = window.location.pathname.toLowerCase();
-  let pageGreeting = 'WELCOME TO <span class="brand-term">vGallerySpace</span>. I AM RESA, YOUR VIRTUAL DOCENT. HOW CAN I GUIDE YOUR TOUR TODAY?';
+  let pageGreeting = 'Welcome to vGallerySpace. I am RESA, your virtual docent. How can I guide your tour today?';
 
   if (path.includes('office')) {
-    pageGreeting = "WELCOME TO THE OFFICE. I AM RESA. ASK ME ABOUT THE GALLERY'S HISTORICAL ARCHIVES, WAYBACK MACHINE RECORDS, AND STUDIO HISTORY.";
+    pageGreeting = "Welcome to the Office. I am RESA. Ask me about the gallery's historical archives, Wayback Machine records, and studio history.";
   } else if (path.includes('studio')) {
-    pageGreeting = 'WELCOME TO THE STUDIO. I\'M RESA. ASK ME ABOUT PROTOTYPE NO. 7, 3D MODELING, AND <span class="brand-term">arch>scul prototypes</span> CONCEPTS.';
+    pageGreeting = 'Welcome to the Studio. I\'m RESA. Ask me about Prototype No. 7, 3D modeling, and arch>scul prototypes concepts.';
   }
 
   // Build UI DOM
   const launcher = document.createElement('button');
   launcher.id = 'resa-launcher';
-  launcher.setAttribute('aria-label', 'OPEN RESA DOCENT LOUNGE');
+  launcher.setAttribute('aria-label', 'Open RESA Docent Lounge');
   launcher.innerHTML = `
     <svg class="icon-chat" viewBox="0 0 24 24">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -40,16 +40,16 @@
         </div>
         <div class="resa-w-title-block">
           <div class="resa-w-title">RESA</div>
-          <div class="resa-w-badge"><span class="resa-w-dot"></span> IN RESIDENCE</div>
+          <div class="resa-w-badge"><span class="resa-w-dot"></span> In Residence</div>
         </div>
       </div>
-      <button class="resa-w-close-btn" id="resa-w-close" aria-label="CLOSE LOUNGE">&times;</button>
+      <button class="resa-w-close-btn" id="resa-w-close" aria-label="Close Lounge">&times;</button>
     </div>
 
     <div class="resa-w-topics">
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Tell me about the Future, Current, and Past exhibition vision.')">⏳ FUTURE / CURRENT / PAST</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('What is the curation philosophy behind vGallerySpace?')">🏛️ CURATION PHILOSOPHY</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Can you explain Prototype No. 7 and arch>scul prototypes?')">🗿 <span class="brand-term">arch>scul prototypes</span></button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('Tell me about the Future, Current, and Past exhibition vision.')">⏳ Future / Current / Past</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('What is the curation philosophy behind vGallerySpace?')">🏛️ Curation Philosophy</button>
+      <button class="resa-w-chip" onclick="window.sendResaTopic('Can you explain Prototype No. 7 and arch>scul prototypes?')">🗿 arch>scul prototypes</button>
     </div>
 
     <div class="resa-w-messages" id="resa-w-msg-list">
@@ -58,7 +58,7 @@
 
     <div class="resa-w-footer">
       <input type="text" class="resa-w-input" id="resa-w-input" placeholder="Ask RESA about the gallery..." autocomplete="off">
-      <button class="resa-w-send" id="resa-w-send">SEND</button>
+      <button class="resa-w-send" id="resa-w-send">Send</button>
     </div>
   `;
 
@@ -90,17 +90,6 @@
   launcher.addEventListener('click', toggle);
   closeBtn.addEventListener('click', toggle);
 
-  function formatBrandText(text) {
-    let upper = text.toUpperCase();
-    return upper
-      .replace(/VGALLERYSPACE/g, '<span class="brand-term">vGallerySpace</span>')
-      .replace(/ARCH > SCUL PROTOTYPES/g, '<span class="brand-term">arch>scul prototypes</span>')
-      .replace(/ARCH>SCUL PROTOTYPES/g, '<span class="brand-term">arch>scul prototypes</span>')
-      .replace(/ARCH > SCUL/g, '<span class="brand-term">arch>scul</span>')
-      .replace(/ARCH>SCUL/g, '<span class="brand-term">arch>scul</span>')
-      .replace(/PROTOTYPES/g, '<span class="brand-term">prototypes</span>');
-  }
-
   function escapeHTML(str) {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
@@ -111,39 +100,39 @@
 
     if (!textOverride) inputEl.value = '';
 
-    // Add user message with natural typing case
+    // Add user message
     const userMsg = document.createElement('div');
     userMsg.className = 'resa-w-msg user';
     userMsg.innerHTML = escapeHTML(text);
     msgList.appendChild(userMsg);
     msgList.scrollTop = msgList.scrollHeight;
 
-    // Smart Docent Reply
+    // Smart Docent Reply (Natural Sentence Case)
     setTimeout(() => {
       const lower = text.toLowerCase();
-      let reply = "WELCOME TO <span class=\"brand-term\">vGallerySpace</span>. I AM RESA, YOUR VIRTUAL DOCENT. OUR GALLERY SPANS MULTI-DISCIPLINARY EXPLORATIONS FROM OUR 1984–2014 WAY BACK MACHINE ARCHIVES UP TO RECENT DIGITAL WORKS AND ARCHITECTURAL SCULPTURES.";
+      let reply = "Welcome to vGallerySpace. I am RESA, your virtual docent. Our gallery spans multi-disciplinary explorations from our 1984–2014 Way Back Machine archives up to recent digital works and architectural sculptures.";
 
       if (lower.includes('favorite') || lower.includes('favourite') || lower.includes('best') || lower.includes('recommend') || lower.includes('highlight')) {
-        reply = "MY FAVORITE EXHIBITION HIGHLIGHT IS PROTOTYPE NO. 7 IN THE STUDIO—A TRANSFORMABLE CARBON FIBER STRUCTURE THAT BRIDGES PHYSICAL ARCHITECTURE AND SCULPTURAL FORM. I ALSO HIGHLY RECOMMEND EXPLORING CODES.GALLERY IN THE GALLERY ROOM!";
+        reply = "My favorite exhibition highlight is Prototype No. 7 in the STUDIO—a transformable carbon fiber structure that bridges physical architecture and sculptural form. I also highly recommend exploring codes.gallery in the GALLERY room!";
       } else if (lower.includes('protoype') || lower.includes('prototype') || lower.includes('prototypes')) {
-        reply = "OUR FEATURED PROTOTYPE IS PROTOTYPE NO. 7 IN THE STUDIO—AN UNFINISHED CARBON FIBER COFFEE TABLE THAT EXPLORES MOVABLE ARCHITECTURE UNDER THE <span class=\"brand-term\">arch>scul prototypes</span> SERIES.";
+        reply = "Our featured prototype is Prototype No. 7 in the STUDIO—an unfinished carbon fiber coffee table that explores movable architecture under the arch>scul prototypes series.";
       } else if (lower.includes('sculpture') || lower.includes('sculptures')) {
-        reply = "THE <span class=\"brand-term\">arch>scul prototypes</span> SERIES EXAMINES THE INTERSECTION OF ARCHITECTURE AND SCULPTURE. FEATURED IN OUR STUDIO EXHIBITION, PROTOTYPE NO. 7 EXPLORES TRANSFORMABLE CARBON FIBER STRUCTURES.";
+        reply = "The arch>scul prototypes series examines the intersection of architecture and sculpture. Featured in our STUDIO exhibition, Prototype No. 7 explores transformable carbon fiber structures.";
       } else if (lower.includes('future') || lower.includes('past') || lower.includes('current')) {
-        reply = "<span class=\"brand-term\">vGallerySpace</span> PRESENTS EXHIBITIONS ACROSS THREE TEMPORAL PLANES: FUTURE (SPECULATIVE DIGITAL ARCHITECTURE), CURRENT (ACTIVE EXHIBITIONS LIKE CODES.GALLERY), AND PAST (ARCHIVAL RECORDS SPANNING 1984–2014).";
+        reply = "vGallerySpace presents exhibitions across three temporal planes: Future (speculative digital architecture), Current (active exhibitions like codes.gallery), and Past (archival records spanning 1984–2014).";
       } else if (lower.includes('curation') || lower.includes('philosophy') || lower.includes('vgalleryspace')) {
-        reply = "<span class=\"brand-term\">vGallerySpace</span> IS BUILT ON A PHILOSOPHY OF PURE, TRACKER-FREE ARCHITECTURAL PRESENTATION. WE TREAT THE DIGITAL SPACE WITH THE REVERENCE OF A PHYSICAL INSTITUTION.";
+        reply = "vGallerySpace is built on a philosophy of pure, tracker-free architectural presentation. We treat the digital space with the reverence of a physical institution.";
       } else if (lower.includes('office') || lower.includes('archive') || lower.includes('facebook') || lower.includes('wayback')) {
-        reply = "THE OFFICE HOUSES HISTORICAL RECORDS, WAYBACK MACHINE ARCHIVES, AND REFLECTIONS DOCUMENTING THE EVOLUTION OF FRAMOUS'S STUDIO PRACTICE ACROSS NEARLY THREE DECADES.";
+        reply = "The OFFICE houses historical records, wayback machine archives, and reflections documenting the evolution of FRAMOUS's studio practice across nearly three decades.";
       } else if (lower.includes('codes') || lower.includes('store') || lower.includes('ebay') || lower.includes('artsy')) {
-        reply = "YOU CAN VIEW CODES.GALLERY OR EXPLORE AVAILABLE PHYSICAL WORKS AND COLLECTIBLES VIA OUR OFFICIAL EBAY STOREFRONT AND ARTSY PROFILES LINKED IN THE TOP-RIGHT CART DROPDOWN!";
+        reply = "You can view codes.gallery or explore available physical works and collectibles via our official eBay storefront and Artsy profiles linked in the top-right cart dropdown!";
       } else if (lower.includes('framous') || lower.includes('artist') || lower.includes('who')) {
-        reply = "<span class=\"brand-term\">vGallerySpace</span> WAS CREATED BY FRAMOUS, AN ARTIST AND DESIGNER SPANNING ARCHITECTURAL SCULPTURE, ADVERTISING, BRAND DIRECTION, AND DIGITAL/AI CURATION OVER NEARLY THREE DECADES.";
+        reply = "vGallerySpace was created by FRAMOUS, an artist and designer spanning architectural sculpture, advertising, brand direction, and digital/AI curation over nearly three decades.";
       }
 
       const botMsg = document.createElement('div');
       botMsg.className = 'resa-w-msg bot';
-      botMsg.innerHTML = formatBrandText(reply);
+      botMsg.innerHTML = reply;
       msgList.appendChild(botMsg);
       msgList.scrollTop = msgList.scrollHeight;
     }, 600);
