@@ -1,22 +1,18 @@
-# vgallery.space deploy notes
+# vgallery.space Deploy Notes
 
-## Current architecture
-- **Domain:** `vgallery.space`
-- **Hosting:** Cloudflare Pages
-- **Local source folder:** `/home/dataspace/.openclaw/workspace/cloudflare/vgallery.space`
-- **Default branch:** `main`
+For full architecture details, navbar specifications, and deployment steps, see **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**.
 
-## Main deployment flow
-1. Edit files in the local source folder.
-2. Commit changes:
-   ```bash
-   cd /home/dataspace/.openclaw/workspace/cloudflare/vgallery.space
-   git add .
-   git commit -m "Describe change"
-   ```
-3. Push to GitHub:
-   ```bash
-   git push origin main
-   ```
-4. Cloudflare Pages auto-deploys from the GitHub repo.
-# Trigger Cloudflare Pages Re-build
+## Quick Deployment Commands
+
+```bash
+# 1. Go to repository
+cd /home/dataspace/Videos/vgallery.space
+
+# 2. Sync with GitHub
+git add .
+git commit -m "Describe your update"
+git push origin main
+
+# 3. Deploy live to production Cloudflare Worker (vgallery.space)
+npx wrangler deploy
+```
