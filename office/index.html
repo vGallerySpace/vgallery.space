@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>vGallerySpace — OFFICE</title>
   <meta name="description" content="VGALLERYSPACE - Office operations, business and archive" />
   <link rel="canonical" href="https://vgallery.space/office.html" />
@@ -500,6 +500,25 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+  
+    /* Viewport Overflow Lock & Unconstrained Media Constraint */
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+
+    img, video, iframe, object, embed {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .container, .container-fluid, main {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
   </style>
   <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
 </head>

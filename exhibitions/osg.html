@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>OSG — vGallerySpace</title>
   <meta name="description" content="Documenting a three-year residency at St. Louis Lemp Brewery Complex, testing architectural sculpture across office, studio, and gallery environments." />
   <meta name="keywords" content="OSG gallery, Lemp Brewery art, architectural sculpture, St Louis art" />
@@ -116,6 +116,25 @@
         line-height: 1.2;
         transition: color 0.18s ease;
       }
+    }
+
+  
+    /* Viewport Overflow Lock & Unconstrained Media Constraint */
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+
+    img, video, iframe, object, embed {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .container, .container-fluid, main {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
 
   </style>

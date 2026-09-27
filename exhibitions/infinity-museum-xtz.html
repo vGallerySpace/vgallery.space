@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>INFINITY MUSEUM : XTZ — vGallerySpace</title>
   <meta name="description" content="An interactive virtual museum on Tezos exploring mid-brow art culture, perception, and digital space through generative works and immersive Web3 curation." />
   <meta name="keywords" content="Infinity Museum, Tezos art, oncyber exhibition, Web3 museum" />
@@ -117,6 +117,25 @@
         line-height: 1.2;
         transition: color 0.18s ease;
       }
+    }
+
+  
+    /* Viewport Overflow Lock & Unconstrained Media Constraint */
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+
+    img, video, iframe, object, embed {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .container, .container-fluid, main {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
 
   </style>

@@ -4,277 +4,270 @@
    All-in-One Lounge Experience inside the Pop-Up Window (Natural Conversational Tone)
    ========================================================================== */
 
+/* Lock Viewport Horizontally Across All Pages */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
 #resa-launcher {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #000000;
-  border: 1.5px solid #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  outline: none;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 16px !important;
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: #000000 !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+  outline: none !important;
 }
 
 #resa-launcher:hover {
-  transform: scale(1.08);
-  background: #111111;
+  transform: scale(1.08) !important;
+  background: #111111 !important;
 }
 
 #resa-launcher svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  width: 24px !important;
+  height: 24px !important;
+  fill: none !important;
+  stroke: #ffffff !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
 }
 
 #resa-launcher .icon-close {
-  display: none;
+  display: none !important;
 }
 
 #resa-launcher.is-open .icon-chat {
-  display: none;
+  display: none !important;
 }
 
 #resa-launcher.is-open .icon-close {
-  display: block;
+  display: block !important;
 }
 
 /* Floating Lounge Window */
 #resa-widget {
-  position: fixed;
-  bottom: 88px;
-  right: 24px;
-  width: 380px;
-  max-width: calc(100vw - 32px);
-  height: 600px;
-  max-height: calc(100vh - 110px);
-  background: #ffffff;
-  border: 1px solid #111111;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 99998;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  opacity: 0;
-  transform: translateY(12px) scale(0.98);
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  position: fixed !important;
+  bottom: 80px !important;
+  right: 16px !important;
+  width: 380px !important;
+  max-width: calc(100vw - 32px) !important;
+  height: 580px !important;
+  max-height: calc(100vh - 100px) !important;
+  background: #ffffff !important;
+  border: 1px solid #111111 !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  z-index: 99998 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  opacity: 0 !important;
+  transform: translateY(12px) scale(0.98) !important;
+  pointer-events: none !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
 }
 
 #resa-widget.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
 }
 
 /* Header with Docent Portrait */
 .resa-w-header {
-  background: #000000;
-  color: #ffffff;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #222222;
+  background: #000000 !important;
+  color: #ffffff !important;
+  padding: 14px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid #222222 !important;
 }
 
 .resa-w-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
 }
 
 .resa-w-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid #ffffff;
-  overflow: hidden;
-  background: #000;
-  flex-shrink: 0;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #ffffff !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  flex-shrink: 0 !important;
 }
 
 .resa-w-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 .resa-w-title-block {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .resa-w-title {
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin: 0;
-  color: #ffffff;
-  line-height: 1.2;
+  font-size: 0.95rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
 }
 
 .resa-w-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.65rem;
-  color: #888888;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  margin-top: 2px;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 0.65rem !important;
+  color: #888888 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-weight: 700 !important;
+  margin-top: 2px !important;
 }
 
 .resa-w-dot {
-  width: 5px;
-  height: 5px;
-  background: #00ff88;
-  border-radius: 50%;
+  width: 5px !important;
+  height: 5px !important;
+  background: #00ff88 !important;
+  border-radius: 50% !important;
 }
 
 .resa-w-close-btn {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 22px;
-  cursor: pointer;
-  opacity: 0.8;
-  transition: opacity 0.2s;
-  padding: 0;
-  line-height: 1;
+  background: none !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 22px !important;
+  cursor: pointer !important;
+  opacity: 0.8 !important;
+  transition: opacity 0.2s !important;
+  padding: 0 !important;
+  line-height: 1 !important;
 }
 
 .resa-w-close-btn:hover {
-  opacity: 1;
-}
-
-/* Vertical Stacked Topic Buttons Area */
-.resa-w-topics {
-  background: #f4f4f4;
-  border-bottom: 1px solid #111111;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-}
-
-.resa-w-chip {
-  background: #ffffff;
-  border: 1px solid #111111;
-  color: #111111;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  padding: 9px 12px;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s ease;
-  width: 100%;
-  text-transform: none; /* Natural sentence case */
-}
-
-.resa-w-chip:hover {
-  background: #111111;
-  color: #ffffff;
+  opacity: 1 !important;
 }
 
 /* Messages Area */
 .resa-w-messages {
-  flex: 1;
-  padding: 16px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: #ffffff;
+  flex: 1 !important;
+  padding: 16px !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  background: #ffffff !important;
 }
 
 .resa-w-msg {
-  padding: 12px 14px;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  max-width: 88%;
-  font-weight: 400;
-  letter-spacing: 0.2px;
+  padding: 12px 14px !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+  max-width: 88% !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.2px !important;
 }
 
 .resa-w-msg.bot {
-  align-self: flex-start;
-  background: #f4f4f4;
-  border: 1px solid #111111;
-  color: #111111;
-  text-transform: none; /* Natural sentence case */
+  align-self: flex-start !important;
+  background: #f4f4f4 !important;
+  border: 1px solid #111111 !important;
+  color: #111111 !important;
+  text-transform: none !important;
 }
 
 .resa-w-msg.user {
-  align-self: flex-end;
-  background: #111111;
-  border: 1px solid #111111;
-  color: #ffffff;
-  font-weight: 600;
-  text-transform: none; /* Natural sentence case */
+  align-self: flex-end !important;
+  background: #111111 !important;
+  border: 1px solid #111111 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
 }
 
-/* Footer / Input - Natural Typing Rhythm */
+/* Footer / Input */
 .resa-w-footer {
-  padding: 12px 14px;
-  background: #fcfcfc;
-  border-top: 1px solid #111111;
-  display: flex;
-  gap: 8px;
+  padding: 12px 14px !important;
+  background: #fcfcfc !important;
+  border-top: 1px solid #111111 !important;
+  display: flex !important;
+  gap: 8px !important;
 }
 
 .resa-w-input {
-  flex: 1;
-  background: #ffffff;
-  border: 1px solid #111111;
-  padding: 10px 12px;
-  font-size: 0.88rem;
-  font-weight: 400;
-  color: #111111;
-  outline: none;
-  text-transform: none;
-  transition: border-color 0.2s;
+  flex: 1 !important;
+  background: #ffffff !important;
+  border: 1px solid #111111 !important;
+  padding: 10px 12px !important;
+  font-size: 0.88rem !important;
+  font-weight: 400 !important;
+  color: #111111 !important;
+  outline: none !important;
+  text-transform: none !important;
+  transition: border-color 0.2s !important;
 }
 
 .resa-w-input::placeholder {
-  text-transform: none;
-  color: #888888;
+  text-transform: none !important;
+  color: #888888 !important;
 }
 
 .resa-w-input:focus {
-  border-color: #000000;
-  box-shadow: 0 0 0 1px #000000;
+  border-color: #000000 !important;
+  box-shadow: 0 0 0 1px #000000 !important;
 }
 
 .resa-w-send {
-  background: #111111;
-  color: #ffffff;
-  border: none;
-  padding: 0 16px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.2s;
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0 16px !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
 }
 
 .resa-w-send:hover {
-  background: #333333;
+  background: #333333 !important;
+}
+
+@media (max-width: 480px) {
+  #resa-launcher {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+  #resa-widget {
+    bottom: 72px !important;
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
 }
