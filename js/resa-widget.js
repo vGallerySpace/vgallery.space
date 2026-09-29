@@ -16,12 +16,12 @@
 
   // Determine current page context greeting (Only shown ONCE at launch)
   const path = window.location.pathname.toLowerCase();
-  let pageGreeting = 'Welcome to vGallerySpace by FRAMOUS! My name is RESA your Generative AI Docent powered by Gemini. Working on building a knowledge base for visitors, but will be here to help guide your tour and answer questions about the exhibitions!';
+  let pageGreeting = 'Welcome to vGallerySpace by FRAMOUS! Working on building a knowledge base for visitors, but will be here to help guide your tour and answer questions about the exhibitions!';
 
   if (path.includes('office')) {
-    pageGreeting = 'Hi there! We are actively streamlining the OFFICE to be more efficient! My name is RESA your Generative AI Docent powered by Gemini. Working on building a knowledge base for visitors, but will be here to help guide your tour and answer questions about any projects from the PAST!';
+    pageGreeting = 'Hi there! We are actively streamlining the OFFICE to be more efficient! Working on building a knowledge base for visitors, but will be here to help guide your tour and answer questions about any projects from the PAST!';
   } else if (path.includes('studio')) {
-    pageGreeting = 'Hello from the STUDIO! My name is RESA your Generative AI Docent powered by Gemini. Working on building a knowledge base for visitors, but will be here to help guide your tour and answer questions about arch>scul!';
+    pageGreeting = 'Hello from the STUDIO! Working on building a knowledge base for visitors, but will be here to help guide your tour and answer questions about arch>scul!';
   }
 
   // Build UI DOM
@@ -48,17 +48,13 @@
         </div>
         <div class="resa-w-title-block">
           <div class="resa-w-title">RESA</div>
-          <div class="resa-w-badge"><span class="resa-w-dot"></span> In Residence</div>
+          <div class="resa-w-badge"><span class="resa-w-dot"></span> Virtual Docent</div>
         </div>
       </div>
       <button class="resa-w-close-btn" id="resa-w-close" aria-label="Close Lounge">&times;</button>
     </div>
 
-    <div class="resa-w-topics">
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Tell me about the Future, Current, and Past exhibition vision.')">⏳ Future / Current / Past</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('What is the curation philosophy behind vGallerySpace?')">🏛️ Curation Philosophy</button>
-      <button class="resa-w-chip" onclick="window.sendResaTopic('Can you explain Prototype No. 7 and arch>scul prototypes?')">🗿 arch>scul prototypes</button>
-    </div>
+    
 
     <div class="resa-w-messages" id="resa-w-msg-list">
       <div class="resa-w-msg bot">${pageGreeting}</div>
