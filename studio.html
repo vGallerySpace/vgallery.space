@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vGallerySpace — STUDIO</title>
+  <meta name="description" content="VGALLERYSPACE - Studio production and creative archives" />
+  <link rel="canonical" href="https://vgallery.space/studio.html" />
+  <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+
+  <!-- Bootstrap CSS -->
+  <!-- Preload Bootstrap CSS for performance -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></noscript>
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?display=swap" onload="this.rel='stylesheet'" font-display="swap">
+  <link rel="preload" as="style" href="css/resa-widget.css" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/resa-widget.css"></noscript>
+
+  <style>
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    html {
+      scrollbar-gutter: stable;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1c20;
+      --soft: #4a4e56;
+      --muted: #8f939a;
+      --line: rgba(0,0,0,0.12);
+      --line-soft: rgba(0,0,0,0.06);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Avenir Next','Nunito','Quicksand','Segoe UI',Arial,sans-serif;
+      padding-top: 76px;
+    }
+
+    /* Navigation */
+    .fixed-top {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1030;
+    }
+    
+
+    
+
+    
+
+    
+
+    
+
+    .dropdown {
+      position: relative !important;
+    }
+
+    .dropdown-menu.show {
+      display: block !important;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute !important;
+      top: 100% !important;
+      right: 0 !important;
+      left: auto !important;
+      margin-top: 8px !important;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      min-width: 180px;
+      max-width: 240px;
+    }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    .dropdown-item {
+      color: var(--fg);
+      transition: background .15s ease;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(0,0,0,0.04);
+    }
+
+    /* Hero section */
+    .hero-section {
+      position: relative;
+      height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 60px;
+    }
+
+    .hero-image-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: brightness(0.85);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #ff2680;
+      margin: 0 0 4px 0;
+      line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: lowercase;
+      margin: 0 0 16px 0;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero-enter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 32px;
+      background: #4FF6FF;
+      color: #000000 !important;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;
+      transition: all .18s ease;
+      border: 2px solid #4FF6FF;
+    }
+
+    .hero-enter-btn:hover {
+      background: #2ee6f2;
+      border-color: #2ee6f2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(79, 246, 255, 0.45);
+      color: #000000 !important;
+    }
+
+    /* Main Content */
+    .studio-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 23px 1.5rem 4rem 1.5rem;
+      min-height: 40vh;
+    }
+
+    .studio-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--fg);
+      letter-spacing: .02em;
+    }
+
+    .studio-body p {
+      margin-bottom: 2rem;
+    }
+
+    .blogger-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all .2s ease;
+      box-sizing: border-box;
+    }
+
+    .blogger-btn:hover {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    .footer-clean {
+      background: var(--bg);
+      border-top: 1px solid var(--line-soft);
+      padding: 3rem 0 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-logo-link {
+      display: inline-block;
+      transition: all .2s ease;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    .footer-logo-link:hover {
+      opacity: 0.6;
+      background: rgba(0,0,0,0.04);
+      transform: translateY(-1px);
+    }
+
+    .footer-legal-links {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-policy-link {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: color .18s ease;
+      padding: 0 4px;
+    }
+
+    .footer-policy-link:hover {
+      color: var(--muted);
+    }
+
+    .footer-dot {
+      color: var(--muted);
+      margin: 0 8px;
+      font-size: 14px;
+    }
+
+    .footer-social a,
+    .footer-social button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all .2s ease;
+      box-sizing: border-box;
+    }
+
+    .footer-social a:hover {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .guest-bell {
+      background: rgba(0,0,0,0.04) !important;
+      border-color: var(--line) !important;
+      color: var(--fg) !important;
+    }
+
+    .guest-bell:hover,
+    .rss-link:hover {
+      background: var(--fg) !important;
+      border-color: var(--fg) !important;
+      color: #fff !important;
+      transform: scale(1.1);
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .cc-license-link {
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .18s ease;
+    }
+
+    .cc-license-link:hover {
+      color: var(--muted);
+    }
+
+    /* Mobile Breakpoints */
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 380px;
+      }
+
+      
+
+      
+
+      
+
+      
+
+      .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .footer-social a,
+    .footer-social button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 18px;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+      box-sizing: border-box;
+    }
+
+    .footer-social a:hover,
+    .footer-social button:hover {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .footer-social {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+      }
+
+      .footer-social a,
+    .footer-social button {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+        font-size: 15px !important;
+      }
+    }
+
+    /* Share Toast */
+    .share-toast {
+      display: none !important;
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #000000;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 9999;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    }
+
+    .share-toast.show {
+      display: block !important;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  
+    
+    
+    /* ==========================================================================
+       Unified Site-Wide Navbar & Viewport Alignment (Pixel-Perfect Parity)
+       ========================================================================== */
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    body {
+      padding-top: 76px !important;
+    }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    .dropdown-menu {
+      border: 1px solid rgba(0,0,0,0.12) !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+      right: 0 !important;
+      left: auto !important;
+    }
+
+    
+
+  
+    /* Reserve Stable Scrollbar Gutter to Prevent Desktop Layout Shift */
+    html {
+      scrollbar-gutter: stable !important;
+      overflow-y: scroll !important;
+    }
+
+  </style>
+  <link rel="alternate" type="application/rss+xml" title="vGallerySpace RSS Feed" href="feed.xml" />
+  
+  <link rel="preload" as="image" href="assets/prono7a-carousel.webp" fetchpriority="high">
+  <!-- UNIFIED SITE-WIDE NAVBAR STYLES -->
+  <style id="unified-navbar-styles">
+    /* Lock html & body layout and stable scrollbar to eliminate desktop jump */
+    html {
+      scrollbar-gutter: stable !important;
+      overflow-y: scroll !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+    }
+
+    body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding-top: 76px !important;
+    }
+
+    /* Fixed top navbar container & blur header */
+    header.navbar, nav.navbar, .navbar {
+      background: #ffffff !important;
+      border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      padding: 0.75rem 0 !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1030 !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Outer container width & padding */
+    .navbar > .container, .navbar > .container-fluid, .navbar .container {
+      max-width: 1320px !important;
+      width: 100% !important;
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 3-column header grid: left empty spacer (1fr), center links (auto), right cart (1fr) */
+    .navbar-header-grid {
+      display: grid !important;
+      grid-template-columns: 1fr auto 1fr !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+
+    /* Center navigation links row */
+    .nav-center-links {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 2rem !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+    }
+
+    /* Individual navigation link text & kerning */
+    .nav-link {
+      color: #000000 !important;
+      text-decoration: none !important;
+      font-size: 14px !important;
+      letter-spacing: .12em !important;
+      text-transform: uppercase !important;
+      font-weight: 700 !important;
+      padding: 0.5rem 0.75rem !important;
+      line-height: 1.2 !important;
+      transition: color 0.18s ease !important;
+      font-family: "Avenir Next", "Nunito", "Quicksand", "Segoe UI", Arial, sans-serif !important;
+    }
+
+    .nav-link:hover {
+      color: #777777 !important;
+    }
+
+    .nav-link.active {
+      color: #444444 !important;
+    }
+
+    /* Right cart wrapper & dropdown button */
+    .nav-cart-wrapper {
+      display: flex !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+      position: relative !important;
+    }
+
+    .cart-toggle {
+      background: none !important;
+      border: none !important;
+      color: #000000 !important;
+      font-size: 18px !important;
+      padding: 0.5rem !important;
+      cursor: pointer !important;
+      line-height: 1.2 !important;
+      transition: color 0.18s ease !important;
+      margin-right: 0 !important;
+    }
+
+    .cart-toggle:hover {
+      color: #777777 !important;
+    }
+
+    .cart-toggle::after {
+      display: none !important;
+    }
+
+    .dropdown-menu {
+      border: 1px solid rgba(0,0,0,0.12) !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+      right: 0 !important;
+      left: auto !important;
+    }
+
+    /* Mobile viewports (<=768px) */
+    @media (max-width: 768px) {
+      .navbar > .container, .navbar > .container-fluid, .navbar .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+      .nav-center-links {
+        gap: 1rem !important;
+      }
+      .nav-link {
+        font-size: 12px !important;
+        letter-spacing: .12em !important;
+        padding: 0.5rem 0.35rem !important;
+      }
+      .cart-toggle {
+        font-size: 18px !important;
+        padding: 0.5rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar fixed-top">
+    <div class="container">
+      <div class="navbar-header-grid">
+        <div></div>
+        <ul class="nav-center-links">
+          <li><a class="nav-link" href="index.html">GALLERY</a></li>
+          <li><a class="nav-link active" href="studio.html">STUDIO</a></li>
+          <li><a class="nav-link" href="office.html">OFFICE</a></li>
+        </ul>
+        <div class="nav-cart-wrapper">
+          <div class="dropdown">
+            <button class="cart-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Cart">
+              <i class="bi bi-cart"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://www.artsy.net/artist/framous" target="_blank">ARTSY</a></li>
+              <li><a class="dropdown-item" href="https://www.ebay.com/str/vgalleryspace" target="_blank">eBay</a></li>
+              <li><a class="dropdown-item" href="https://www.hipstamp.com/store/stamp-gallery" target="_blank">HipStamp</a></li>
+              <li><a class="dropdown-item" href="https://codes.gallery" target="_blank">codes.gallery</a></li>
+              <li><a class="dropdown-item" href="https://opensea.io/vGallerySpace" target="_blank">OpenSea</a></li>
+              <li><a class="dropdown-item" href="https://objkt.com/users/tz2Sp7JsSXnwo2cxeGbrsqiJKErW6SNK1UwX/owned" target="_blank">Objkt</a></li>
+              <li><a class="dropdown-item" href="https://magiceden.us/u/7wyVmLUWAMAnjBDHvank7jfGmVvdgEDKJe4Jtjp9W92W" target="_blank">Magic Eden</a></li>
+              <li><a class="dropdown-item" href="https://wax.atomichub.io/profile/wax-mainnet/tzifw.wam" target="_blank">AtomicHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Bootstrap Carousel (Images Only) -->
+  <section class="hero-section position-relative" style="background: #0b0c10;">
+    <div id="studioCarousel" class="carousel slide carousel-fade hero-image-wrapper" data-bs-ride="carousel" data-bs-interval="5000" style="background: #0b0c10;">
+      <div class="carousel-inner w-100 h-100">
+        <!-- Slide 1: Prototype No.7 A -->
+        <div class="carousel-item active w-100 h-100" style="background-image: url('data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADwBACdASogABIAPxFyr1AsJqQisAgBgCIJZwAAUuY05m6rupEgHLP70N2X3Ge4cAAA/sPfCPgR42WllowDblrnG2GpafqouwAXYRMT9SeR11gG6WMPEWsauDBrn7u7wGU4ZgOr3Vv/ej4e/D43OsU3xoZsWx5tByINxJp/epc5WJ4CIjEAAA=='); background-size: cover; background-position: center;">
+          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
+            <img src="assets/prono7a-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Carbon Fiber Table" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);" fetchpriority="high">
+            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
+              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
+              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
+              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
+            </div>
+          </a>
+        </div>
+        <!-- Slide 2: Prototype No.7 B -->
+        <div class="carousel-item w-100 h-100" style="background: #000000;">
+          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
+            <img src="assets/prono7b-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Movable Parts" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);">
+            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
+              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
+              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
+              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
+            </div>
+          </a>
+        </div>
+        <!-- Slide 3: Prototype No.7 C -->
+        <div class="carousel-item w-100 h-100" style="background: #000000;">
+          <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="d-block w-100 h-100 text-decoration-none position-relative">
+            <img src="assets/prono7c-carousel.webp" class="d-block w-100 h-100" alt="Prototype No.7 - Dynamic Structure" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.75);">
+            <div class="hero-content position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="z-index: 2;">
+              <h1 class="hero-title" style="font-size: clamp(24px, 4vw, 42px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 2px; text-transform: none;">prototype No.7</h1>
+              <p class="hero-subtitle" style="font-size: clamp(14px, 2vw, 18px); color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); text-transform: uppercase; margin-bottom: 6px;">UNFINISHED CARBON FIBER COFFEE TABLE</p>
+              <p style="font-size: 13px; color: #4FF6FF; font-weight: 700; letter-spacing: .2em; text-transform: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 0; font-family: 'JetBrains Mono','SFMono-Regular','Cascadia Code','Fira Code','Consolas',monospace;">arch>scul</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators" style="z-index: 3; bottom: 10px;">
+        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#studioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GoFundMe Campaign Widget for Prototype No.7 -->
+  <div class="container my-4 text-center">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <div class="gfm-embed" data-url="https://www.gofundme.com/f/arch-scul-prototype-no7/widget/medium?attribution_id=sl%3A945cf2d1-4060-4cc4-b480-2db85dd3777d"></div>
+      <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="container studio-content">
+    <div class="studio-body">
+      <p>EVER SINCE I CAN REMEMBER, MY ART HAS BEEN A REAL STRUGGLE AND A TRUE ON-AGAIN-OFF-AGAIN RELATIONSHIP. AROUND 2007, I BEGAN SPENDING MOST OF MY ENERGY ON THIS SIDE OF LIFE, PUTTING MY COMMERCIAL ART EFFORTS ON HOLD. THE REASON FOUND WAS SIMPLE. GROWTH IS A BATTLE BETWEEN CREATION AND DESTRUCTION. TRYING TO EXIST IN BOTH THE BUSINESS WORLD AND THE ART WORLD IS EVEN MORE OF A CHALLENGE. TYPICALLY, IT IS ONE OR THE OTHER, AND WHEN YOU GET THESE GROUPS TOGETHER, THINGS DO NOT ALWAYS MIX AS EXPECTED. BOTH INDUSTRIES ARE EXTREMELY COMPETITIVE, NOT TO MENTION MOST HAVE A DIFFICULT TIME UNDERSTANDING EACH OTHER'S WORK STYLE, PLUS WHAT IT TAKES TO MAKE IT. FINDING THE RIGHT BALANCE BETWEEN DISCIPLINES AND ALLOWING COLLABORATION IS NECESSARY. TAKING A MULTI-DISCIPLINARY APPROACH AND LEARNING MANY DIFFERENT TYPES OF SKILLS IS WHAT I ENJOY MOST.</p>
+
+      <p>I TRY MY BEST TO KEEP A DIGITAL JOURNAL OF PROJECTS.</p>
+
+      <div style="margin: 8px 0 28px 0;">
+        <a href="https://www.archscul.com/" target="_blank" rel="noopener" class="blogger-btn" title="archscul blog">
+          <i class="bi bi-journal-text"></i>
+        </a>
+      </div>
+
+      <p style="margin-bottom: 1.5rem;">FOR A VIRTUAL TOUR OF FUTURE, CURRENT AND PAST EXHIBITIONS, FOLLOW MY FACEBOOK.</p>
+
+      <p style="margin-bottom: 0.25rem;">
+        <a href="https://www.facebook.com/share/1F4VWGLEJg/" target="_blank" rel="noopener" style="font-weight: 700; color: #000000; text-decoration: none; font-size: 1.05rem; letter-spacing: 0.04em; line-height: 1.25; transition: color 0.18s ease;">Way Back Machine, #1&ndash;22</a>
+      </p>
+      <p style="margin: 0 0 0.25rem; color: var(--soft); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.25;">1984&ndash;2014</p>
+      <p style="margin: 0; color: var(--soft); font-size: 0.85rem; line-height: 1.55; letter-spacing: 0.02em; text-transform: uppercase;">AN ARCHIVED COLLECTION OF CLIENTS, ART SHOWS, ARTWORKS AND OTHER PROJECTS FROM OVER THE YEARS USING SOCIAL MEDIA FOR EXHIBIT SPACE.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-clean">
+    <div class="container">
+      <!-- FRAMOUS Logo - Above Social Icons -->
+      <div class="footer-logo text-center mb-4">
+        <a href="artist-statement.html" class="footer-logo-link" title="Artist Statement">
+          <img src="assets/framous_black.webp" alt="FRAMOUS" style="height: 48px; width: auto;" width="250" height="119">
+        </a>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="footer-social d-flex justify-content-center gap-3 mb-4">
+        <a href="https://www.facebook.com/share/1F4VWGLEJg/" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://x.com/vgalleryspace" target="_blank" title="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/ryanleepresson?igsi=MTRyb3Vzem5odGRsMA==" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://youtube.com/@FRAMOUS" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="https://discordapp.com/users/framous/" target="_blank" title="Discord"><i class="bi bi-discord"></i></a>
+        <a href="/cdn-cgi/l/email-protection#335541525e5c4640734554525f5f56414a1d4043525056" title="Email"><i class="bi bi-envelope"></i></a>
+        <a href="#share" class="share-btn" title="Share" aria-label="Share" role="button" onclick="handleShare(); return false;"><i class="bi bi-share"></i></a>
+        <a href="guest-list.html" class="guest-bell" title="Guest List"><i class="bi bi-bell"></i></a>
+        <a href="feed.xml" class="rss-link" title="RSS Feed" target="_blank"><i class="bi bi-rss"></i></a>
+      </div>
+
+      <!-- Legal / Policy Links -->
+      <div class="footer-legal-links text-center mb-3">
+        <a href="privacy-policy.html" class="footer-policy-link">PRIVACY POLICY</a>
+        <span class="footer-dot">·</span>
+        <a href="terms-conditions.html" class="footer-policy-link">TERMS &amp; CONDITIONS</a>
+      </div>
+
+      <!-- Creative Commons License -->
+      <div class="footer-copy text-center">
+        <div style="display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px; font-size: 14px; color: var(--fg); max-width: 100%; padding: 0 10px; line-height: 1.6;">
+          <span style="display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">
+            <i class="bi bi-cc-circle" style="font-size: 16px;"></i>
+            <span>vGallerySpace by FRAMOUS</span>
+          </span>
+          <span>work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="cc-license-link">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Share Toast -->
+  <div id="share-toast" class="share-toast" style="display: none !important;">Link copied to clipboard!</div>
+
+  <!-- Share Functionality -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function handleShare() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(function() {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          showShareToast();
+        }).catch(function() {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+    }
+
+    function fallbackCopy() {
+      var temp = document.createElement('input');
+      temp.value = window.location.href;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+        showShareToast();
+      } catch (err) {}
+      document.body.removeChild(temp);
+    }
+
+    function showShareToast() {
+      var toast = document.getElementById('share-toast');
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/resa-widget.js"></script>
+</body>
+</html>

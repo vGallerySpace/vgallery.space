@@ -1,0 +1,64 @@
+{
+  "artist": {
+    "keywords": [
+      "framous",
+      "ryan",
+      "presson",
+      "who",
+      "artist"
+    ],
+    "summary": "FRAMOUS is the stage name for Ryan Lee Presson. The Frame became a creative boundary for working and thinking about what to create next, aiming to make a living at it without seeking fame."
+  },
+  "exhibitions": [
+    {
+      "keywords": [
+        "vgalleryspace",
+        "gallery",
+        "storefront",
+        "exhibition",
+        "name"
+      ],
+      "summary": "vGallerySpace is an intentional generic name using a case-sensitive URL. It evolved from a portfolio into online exhibitions, with the GALLERY as storefront and shopping carts hosting influential works."
+    },
+    {
+      "keywords": [
+        "studio",
+        "experimentation",
+        "research",
+        "concept"
+      ],
+      "summary": "The STUDIO is a place for experimentation, documenting arch>scul and other artworks, reviewing concepts, researching others, and strategizing about the market."
+    },
+    {
+      "keywords": [
+        "arch",
+        "scul",
+        "architecture",
+        "sculpture",
+        "chess",
+        "prototype"
+      ],
+      "summary": "arch>scul was originally conceived from a 1990s painting and chess board. Prototypes test the belief that architecture is just as great as sculpture, aiming to build them into a full-blown building."
+    },
+    {
+      "keywords": [
+        "strategic",
+        "marketing",
+        "advertising",
+        "promotions"
+      ],
+      "summary": "FRAMOUS has a background in Marketing, Advertising & Promotions, merging marketing skills to form new kinds of artworks."
+    },
+    {
+      "keywords": [
+        "resa",
+        "docent",
+        "ai",
+        "chatgpt",
+        "muse",
+        "artificial"
+      ],
+      "summary": "RESA started through ChatGPT and became the subject and docent for the infinity museum—the artificial muse concept, evolving into vGallerySpace's virtual docent."
+    }
+  ]
+}
